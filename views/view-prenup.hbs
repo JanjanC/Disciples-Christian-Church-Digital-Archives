@@ -1,0 +1,73 @@
+<style>
+  @import url(/css/fonts.css);
+
+  #header {
+      font-family: JuliusSansPro;
+  }
+</style>
+
+{{>navbar}}
+
+<div id="prenup_info" style="display: none" data-prenup="{{prenupId}}" data-couple="{{coupleId}}" data-groom-person="{{groomPersonId}}" data-bride-person="{{bridePersonId}}" ></div>
+  <div class="container" style="padding-left: 18%; padding-right: 10%;">
+    <h1 class="my-3"> View Prenuptial Record </h1>
+    <hr>
+    <div class="row">
+      <div class="col-4">
+        <legend>Registry Number</legend>
+        <p>{{prenupId}}</p>
+      </div>
+      <div class="col">
+        <legend>Date Added</legend>
+        <p>{{dateView date}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row person_info" data-member="{{brideMemberId}}" data-person="{{bridePersonId}}">
+      <legend>Bride's Name</legend>
+      <div class="col">
+        <u for="first_name">First Name</u>
+        <p>{{brideFirst}}</p>
+      </div>
+      <div class="col">
+        <u for="mid_name">Middle Initial</u>
+        <p>{{brideMid}}</p>
+      </div>
+      <div class="col">
+        <u for="last_name">Last Name</u>
+        <p>{{brideLast}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row person_info" data-member="{{groomMemberId}}" data-person="{{groomPersonId}}">
+      <legend>Groom's Name</legend>
+      <div class="col">
+        <u for="first_name">First Name</u>
+        <p>{{groomFirst}}</p>
+      </div>
+      <div class="col">
+        <u for="mid_name">Middle Initial</u>
+        <p>{{groomMid}}</p>
+      </div>
+      <div class="col">
+        <u for="last_name">Last Name</u>
+        <p>{{groomLast}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+        <u> Planned Wedding Date </u>
+        <p>{{dateView weddingDate}}</p>
+    </div>
+    <hr>
+    <div class="row my-3">
+      {{#if canSee}}
+        <div class="col">
+            <a href="/edit_prenup/{{prenupId}}"> <button class="btn btn-secondary mb-4">Edit Prenup Form</button> </a>
+            <button type="button" class="btn btn-danger mb-4" id="delete_prenup">Delete Form</button>
+        </div>
+      {{/if}}
+    </div>
+    {{>del-record-modal}}
+  </div>
+</div>

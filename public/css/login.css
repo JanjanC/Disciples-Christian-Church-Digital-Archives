@@ -1,0 +1,58 @@
+@import url(fonts.css);
+
+body {
+    background: url(../images/sky.jpg) no-repeat center center fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#card {
+    max-width: 38em; 
+    border:none;
+}
+
+#header {
+    font-size: 60pt;
+    font-weight: 800;
+    text-shadow: 2px 2px 8px #000000;
+    color: aliceblue;
+    text-align: center;
+    font-family: JuliusSansPro
+}
+
+.logo {
+    height: 8em;
+    width: 8em;
+}
+
+.col {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.logocol {
+    width: fit-content;
+}
+
+.cardrow {
+    margin-top: 8%;
+}
+
+.logoText {
+    font-family: Helvetica;
+    font-size: 24pt;
+    color: aliceblue;
+    text-shadow: 2px 2px 5px #000000;
+    width: 10em;
+    line-height: 1.2;
+}
+
+p {
+    font-family: SourceSansPro;
+    font-size: 20pt;
+}
