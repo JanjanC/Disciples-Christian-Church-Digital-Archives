@@ -153,6 +153,12 @@ const createObservations =
   'CONSTRAINT fk_member FOREIGN KEY(observee_id) REFERENCES members(member_id) ON DELETE CASCADE' +
   ')'
 
+const createAttendance = 
+  'CREATE TABLE IF NOT EXISTS attendance (' +
+  'attendance_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
+  'person_id INTEGER, date TEXT NOT NULL, ' +
+  'FOREIGN KEY(person_id) REFERENCES people(person_id))'
+
 const createChurches =
   'CREATE TABLE IF NOT EXISTS churches(' +
   'church_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,' +
@@ -179,7 +185,8 @@ const db = {
     couples: createCouple,
     observations: createObservations,
     churches: createChurches,
-    witness: createWitness
+    witness: createWitness,
+    attendance: createAttendance
   },
   tables: {
     MEMBER_TABLE: 'members',
@@ -194,7 +201,8 @@ const db = {
     INFANT_TABLE: 'inf_dedication',
     COUPLE_TABLE: 'couples',
     OBSERVATION_TABLE: 'observations',
-    CHURCH_TABLE: 'churches'
+    CHURCH_TABLE: 'churches',
+    ATTENDANCE_TABLE: 'attendance'
   },
   fields: {
     accounts: {
@@ -308,6 +316,11 @@ const db = {
       TYPE: 'type',
       DEDICATION: 'dedication_id',
       WEDDING: 'wedding_id'
+    },
+    attendance: {
+      ID: 'attendace_id',
+      PERSON: 'person_id',
+      DATE: 'date'
     }
   },
   startIds: [
@@ -323,7 +336,8 @@ const db = {
     { table: 'donations', start: 8000000 },
     { table: 'observations', start: 9000000 },
     { table: 'couples', start: 10000000 },
-    { table: 'churches', start: 11000000 }
+    { table: 'churches', start: 11000000 },
+    { table: 'attendance', start: 13000000 }
   ]
 }
 
