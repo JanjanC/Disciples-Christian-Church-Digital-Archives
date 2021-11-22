@@ -7,7 +7,6 @@ const coupleFields = require('../models/couple')
 const weddingRegFields = require('../models/weddingRegistry')
 const infDedFields = require('../models/infantDedication')
 const bapRegFields = require('../models/baptismalRegistry')
-const attendanceFields = require('../models/attendanceRecord')
 const { Condition, queryTypes } = require('../models/condition')
 const { sendError } = require('./errorController')
 const moment = require('moment')
@@ -351,55 +350,6 @@ const controller = {
       ]
 
       db.find(db.tables.BAPTISMAL_TABLE, [], joinTables, columns, function (result) {
-        const data = {}
-        data.records = result
-        data.scripts = ['convertDataTable']
-        data.styles = ['lists']
-        data.backLink = 'forms_main_page'
-
-        res.render('baptismal-main-page', data)
-      })
-    }
-  },
-  /**
-   * This function renders the attendance record main page
-   * @param req - the incoming request containing either the query or body
-   * @param res - the result to be sent out after processing the request
-   */
-  getAttedanceMainPage: function (req, res) {
-    const level = req.session.level
-    req.session.editId = null
-
-    if (level === undefined || level === null || parseInt(level) === 1) {
-      res.status(401)
-      res.render('error', {
-        title: '401 Unauthorized Access',
-        css: ['global', 'error'],
-        status: {
-          code: '401',
-          message: 'Unauthorized access'
-        }
-      })
-    } else {
-      const joinTables = {
-          tableName: { person: db.tables.PERSON_TABLE },
-          sourceCol: db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.PERSON,
-          destCol: 'person.' + personFields.ID
-        }
-
-      const columns = [
-        db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.ID + ' as attendance_id',
-        db.tables.ATTENDANCE_TABLE + '.' + bapRegFields.DATE + ' as date',
-        'person.' + personFields.FIRST_NAME + ' as member_first_name',
-        'person.' + personFields.MID_NAME + ' as member_mid_name',
-        'person.' + personFields.LAST_NAME + ' as member_last_name',
-        'person.' + personFields.MEMBER + ' as member_id'
-      ]
-
-      const conditions = new Condition(queryTypes.where)
-      conditions.setKeyValue(db.tables.MEMBER_TABLE + '.' + memberFields.ID, req.params.attendance_id)
-
-      db.find(db.tables.ATTENDANCE_TABLE, [], joinTables, columns, function (result) {
         const data = {}
         data.records = result
         data.scripts = ['convertDataTable']
