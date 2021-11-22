@@ -96,7 +96,7 @@ app.put('/update_bap/member', baptismalController.putUpdateBaptismalMember)
 app.put('/update_bap/officiant', baptismalController.putUpdateBaptismalOfficiant)
 app.put('/update_bap', baptismalController.putUpdateBaptismalMisc)
 
-//app.put('/update_attendance', validation.addAttendanceValidation(), attendanceController.putUpdateAttendance)
+app.put('/update_attendance', /*validation.addAttendanceValidation(),*/ attendanceController.putUpdateAttendance)
 
 app.put('/update_wedding/couple', weddingController.putUpdateCouple)
 app.put('/update_wedding/witness', weddingController.putUpdateWitness)
@@ -118,5 +118,6 @@ app.delete('/delete_member', memberController.deleteMember)
 app.delete('/delete_dedication/witness', dedicationController.delWitness)
 app.delete('/delete_dedication', dedicationController.deleteDedication)
 app.delete('/delete_prenup', prenupController.deletePrenup)
+app.delete('/delete_attendance', attendanceController.deleteAttendance)
 
 module.exports = app

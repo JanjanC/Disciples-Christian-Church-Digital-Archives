@@ -283,38 +283,32 @@ const attendanceController = {
       })
     }
   },
-  deletePrenup: function (req, res) {
-    const nonMembers = JSON.parse(req.body.nonMembers)
-    const couples = JSON.parse(req.body.couples)
-    const recordId = req.body.recordId
+  deleteAttendance: function (req, res) {
+    const date  = req.body.date
+    let isChanged = false
 
-    const nonMembersCond = new Condition(queryTypes.whereIn)
-    nonMembersCond.setArray(personFields.ID, nonMembers)
-
-    const couplesCond = new Condition(queryTypes.whereIn)
-    couplesCond.setArray(coupleFields.ID, couples)
-
-    const recordCond = new Condition(queryTypes.where)
-    recordCond.setKeyValue(prenupRecordFields.ID, recordId)
-
-    db.delete(db.tables.COUPLE_TABLE, couplesCond, function (result) {
-      if (result) {
-        db.delete(db.tables.PERSON_TABLE, nonMembersCond, function (result) {
-          if (nonMembers.length === 0 || result) {
-            db.delete(db.tables.PRENUPTIAL_TABLE, recordCond, function (result) {
-              if (result || result === 0) {
-                res.send(true)
-              } else {
-                res.send(false)
-              }
-            })
-          } else {
+    const condition = new Condition(queryTypes.whereNotIn)
+    condition.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
+    
+    // find the the person ids of each attendance record that was removed in the update
+    db.find(db.tables.ATTENDANCE_TABLE, condition, [], attendanceFields.PERSON, function (result) {
+      personIDs = result.map(function (row) {
+        return row[attendanceFields.PERSON]
+      })
+      const condition2 = new Condition(queryTypes.whereIn)
+      condition2.setKeyValue(db.tables.PERSON_TABLE + '.' + personFields.ID, personIDs)
+      // delete each attendance record that was removed in the update
+      db.delete(db.tables.ATTENDANCE_TABLE, condition, function (result) {
+        if (result)
+          isChanged = true
+        // delete each person whose person id was used in the attendance records that were deleted
+        db.delete(db.tables.PERSON_TABLE, condition2, function (result) {
+          if (isChanged)
+            res.send(true)
+          else
             res.send(false)
-          }
         })
-      } else {
-        res.send(false)
-      }
+      })
     })
   }
 }
