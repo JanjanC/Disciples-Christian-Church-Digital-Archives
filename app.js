@@ -83,4 +83,4 @@ app.listen(port, hostname, function () {
   console.log('http://' + hostname + ':' + port)
 })
 
-module.export = app
+module.exports = app
