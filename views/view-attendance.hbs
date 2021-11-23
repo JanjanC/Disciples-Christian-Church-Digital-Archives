@@ -8,73 +8,35 @@
 
 {{>navbar}}
 
-<div id="baptismal_info" style="display: none" data-baptismal="{{record.reg_id}}"></div>
-<div class="container" style="padding-left: 18%; padding-right: 10%;">
-  <h1 class="my-3"> View Baptismal Record </h1>
-  <hr>
+<div class="container mt-4">
   <div class="row">
-    <div class="col">
-      <legend>Registry Number</legend>
-      <p for='reg_id'>{{record.reg_id}}</p>
-    </div>
-    <div class="col">
-      <legend>Date Created</legend>
-      <p for='date_created'>{{dateView record.date_created}}</p>
-    </div>
-    <div class="col">
-      <legend>Baptismal Date</legend>
-      <p for='date'>{{dateView record.date}}</p>
+    <div class="col d-flex justify-content-between">
+      <h1>Service Attendance Record</h1>
+
+      <a href="/add_attendance"><i class="far fa-plus-square"></i></a>
     </div>
   </div>
   <div class="row">
-    <legend>Member</legend>
-    <div class="col">
-      <u for="first_name">First Name</u>
-      <p>{{record.member_first_name}}</p>
-      {{#if record.member_id}}
-        <a href="/member/{{record.member_id}}"><button class="btn btn-secondary mb-4">Member Profile</button></a>
-      {{/if}}
-    </div>
-    <div class="col">
-      <u for="mid_name">Middle Initial</u>
-      <p>{{record.member_mid_name}}</p>
-    </div>
-    <div class="col">
-      <u for="last_name">Last Name</u>
-      <p>{{record.member_last_name}}</p>
-    </div>
+    <h5 id="curr_date">November 23, 2021</h5>
+    <table id="dataTable" class="display table" width="100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Membership Status </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each records}}
+        <tr data-href="/view_baptismal/{{this.reg_id}}">
+          <td>{{this.reg_id}}</td>
+          <td>{{this.member_first_name}} {{this.member_last_name}}</td>
+          <td>{{dateView this.date}}</td>
+          <td>{{this.place}}</td>
+          <td>{{this.officiant_first_name}} {{this.officiant_last_name}}</td>
+          <td>{{dateView this.date_created}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </div>
-  <hr>
-  <div class="row">
-    <legend>Officiant</legend>
-    <div class="col">
-      <u for="first_name">First Name</u>
-      <p>{{record.officiant_first_name}}</p>
-      {{#if record.officiant_id}}
-      <a href="/member/{{record.officiant_id}}"><button class="btn btn-secondary mb-4">Member Profile</button></a>
-      {{/if}}
-    </div>
-    <div class="col">
-      <u for="mid_name">Middle Initial</u>
-      <p>{{record.officiant_mid_name}}</p>
-    </div>
-    <div class="col">
-      <u for="last_name">Last Name</u>
-      <p>{{record.officiant_last_name}}</p>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <u>Location</u>
-    <p>{{record.place}}</p>
-  </div>
-  {{#if canSee}}
-  <div class="row my-3">
-    <div class="col">
-      <a href="/edit_baptismal/{{record.reg_id}}"><button class="btn btn-secondary mb-4">Edit Baptismal Form</button></a>
-      <button id="delete-baptismal" type="button" class="btn btn-danger mb-4">Delete Record</button>
-    </div>
-  </div>
-  <p id="delete_error" class="error_codes"></p>
-  {{/if}}
-  {{> del-record-modal}}
+</div>

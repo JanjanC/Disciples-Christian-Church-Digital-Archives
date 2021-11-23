@@ -53,11 +53,11 @@ const attendanceController = {
       db.find(db.tables.ATTENDANCE_TABLE, [conditions], joinTables, columns, function (result) {
         const data = {}
         data.records = result
-        data.scripts = ['convertDataTable']
+        data.scripts = ['viewAttendance']
         data.styles = ['lists']
-        data.backLink = 'forms_main_page'
+        data.backLink = 'attendance_main_page'
 
-        res.render('attendance-main-page', data)
+        res.render('view-attendance', data)
       })
     }
   },

@@ -123,7 +123,7 @@ const controller = {
     res.render('attendance-main-page', {
       level: req.session.level,
       styles: ['mainPage'],
-      scripts: [''],
+      scripts: ['mainAttendance'],
       canSee: !(parseInt(req.session.level) === 1),
       backLink: 'main_page'
     })
