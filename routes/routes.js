@@ -54,6 +54,8 @@ app.get('/edit_member/:member_id/add_prenup', prenupController.getAddPrenup)
 app.get('/view_prenup/:prenup_id', prenupController.getViewPrenup)
 app.get('/edit_prenup/:prenup_id', prenupController.getEditPrenup)
 
+// Attendance
+app.get('/attendance_main_page', indexController.getAttendanceMainPage)
 app.get('/view_attendance/:date', attendanceController.getViewAttendance)
 app.get('/add_attendance', attendanceController.getAddAttendance)
 app.get('/edit_attendance/:date', attendanceController.getEditAttendance)
