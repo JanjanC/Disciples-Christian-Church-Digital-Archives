@@ -1,5 +1,5 @@
 const attendanceRecordFields = {
-    ID: 'attendace_id',
+    ID: 'attendance_id',
     PERSON: 'person_id',
     DATE: 'date'
   }

@@ -1,18 +1,90 @@
+<style>
+  #border-delete{
+    font-size: 0.65em;
+  }
+
+  #delete-icon{
+    font-size:0.7em;
+  }
+
+  #date{
+    height: fit-content;
+  }
+
+  #date-row{
+    position: relative;
+    top:0.5em
+  }
+
+  .fa-stack{
+    position: relative;
+    left:0.5em;
+    bottom: 0.4em;
+    
+  }
+  #edit-date-button{
+    position: relative;
+    bottom:37px;
+    left:5px;
+  }
+
+  #flex-container{
+    display:flex;
+    height:100%;
+  }
+
+  .flex-child {
+    flex: 1;
+}  
+
+.container{
+  position: relative;
+  right:2em;
+}
+</style>
+<head>
+          
+            <!-- Essential JS 2 Calendar's dependent material theme -->
+            <link href="https://cdn.syncfusion.com/ej2/ej2-base/styles/material.css" rel="stylesheet" type="text/css" />
+            <link href="https://cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css" rel="stylesheet" type="text/css" />
+            <link href="https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css" rel="stylesheet" type="text/css" />
+ 
+            <!-- Essential JS 2 all script -->
+            <!-- <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script> -->
+ 
+            <!-- Essential JS 2 Calendar's dependent scripts -->
+            <script src="https://cdn.syncfusion.com/ej2/ej2-base/dist/global/ej2-base.min.js" type="text/javascript"></script>
+            <script src="https://cdn.syncfusion.com/ej2/ej2-inputs/dist/global/ej2-inputs.min.js" type="text/javascript"></script>
+            <script src="https://cdn.syncfusion.com/ej2/ej2-buttons/dist/global/ej2-buttons.min.js" type="text/javascript"></script>
+            <script src="https://cdn.syncfusion.com/ej2/ej2-lists/dist/global/ej2-lists.min.js" type="text/javascript"></script>
+            <script src="https://cdn.syncfusion.com/ej2/ej2-popups/dist/global/ej2-popups.min.js" type="text/javascript"></script>
+            <script src="https://cdn.syncfusion.com/ej2/ej2-calendars/dist/global/ej2-calendars.min.js" type="text/javascript"></script>
+       </head>
 {{>navbar}}
-<form id="add_dedication_form" class="container">
+ <div id="flex-container">
+       <div id="element" class="flex-child"/> 
+  </div>
+<form id="add_dedication_form" class="container mt-2">
   <div class="container" style="padding-left: 20%; padding-right: 20%;">
     <div class="row d-flex justify-content-between">
       <div class="col-12"><h1 class="my-3"> Edit Service Attendance Form </h1></div>
       <div class="col-12 align-self-end"><p style="text-align:end; margin:0;"> <span style="color: red;">*</span> - required</p></div>
     </div>
     <hr style="margin-top: 0;">
-    <div class="row">
-      <div class="col-12">
-        <label for="address">Date of Service <span style="color: red;">*</span></label>
-        <input type="date" id="date" name="date" class="form-control">
+      
+    <div class="row" id="date-row">
+       <label for="address">Date of Service </label>
+      <div class="col-12 d-flex justify-content-between">
+          <input type="date" id="date" name="date" class="form-control">
+          <span class="fa-stack fa-2x" id="delete-button">
+            <i class="far fa-square fa-stack-2x" id="border-delete" ></i>
+            <i class="far fa-trash-alt fa-stack-1x" id="delete-icon" ></i>
+          </span>
         <p id="date_info_error" class="error_codes"> </p>
       </div>
     </div>
+<button role="button" aria-label="Today" class="e-btn e-today e-flat e-primary e-css" id="edit-date-button">Edit Date</button>
+
 
     <legend>Attendees <span style="color: red;">*</span></legend>
     <hr>
@@ -109,6 +181,26 @@
       <div class="modal-footer">
         <button type="button" id="cancel_modal" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="add_non_member">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Attendance Record</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <p id="delete-modal-text"> </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" >Delete attendance</button>
       </div>
     </div>
   </div>

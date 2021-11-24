@@ -83,6 +83,5 @@ function getMonth (mm)
   getMonth(month)
   var formattedDate = month + " " + day + ", " + year
   $("#curr_date").text(formattedDate)
-  $("#dp").datepicker();
-  $("#dp").show()
+ 
 })

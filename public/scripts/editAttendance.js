@@ -1,10 +1,17 @@
 $(document).ready(function() {
+
     $("#date").attr('readonly', 'readonly');
+
+    var calendar = new ej.calendars.Calendar();
+    var samplebutton = $("#edit-date-button")
+    calendar.appendTo('#element')
+    samplebutton.appendTo("#element")
    
     var GMotherWitnessCtr = 0
     var GFatherWitnessCtr = 0
     var addedWitness = false
     var witnessType = null
+    var year = "",month = "",day = ""
     const selectChild = $('#input_child_member').selectize()
     const selectParent1 = $('#input_parent1_member').selectize()
     const selectParent2 = $('#input_parent2_member').selectize()
@@ -20,7 +27,11 @@ $(document).ready(function() {
     var witnessType = null
   
     initDate()
-  
+    
+    $("#delete-button").click(function(){
+      $("#exampleModalCenter").modal('show')
+      $("#delete-modal-text").text(`Delete the attendance record on ${day}/${month}/${year}`)
+    })
     
     $('select').change(hideChoices)
   
@@ -567,7 +578,7 @@ $(document).ready(function() {
     
       var url = window.location.href
       var dateToday = url.split('edit_attendance/')[1]
-      var year = "",month = "",day = ""
+
     
       for(i = 0 ; i < 8 ; i ++){
         if(i < 4)
