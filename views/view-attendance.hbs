@@ -4,6 +4,14 @@
   #header {
     font-family: JuliusSansPro;
   }
+
+  .calendar-icon{
+    color: rgb(90, 90, 90);
+    font-size: 45px;
+    position: relative;
+    bottom:8px;
+    margin-right:12px;
+  }
 </style>
 
 {{>navbar}}
@@ -12,12 +20,15 @@
   <div class="row">
     <div class="col d-flex justify-content-between">
       <h1>Service Attendance Record</h1>
-
-      <a href="/add_attendance"><i class="far fa-plus-square"></i></a>
+      <div>
+         <i class="fa lg fa-calendar-alt  calendar-icon " id="dp"></i>
+         <a href="/add_attendance"><i class="far fa-plus-square"></i></a>
+      </div>
+      
     </div>
   </div>
   <div class="row">
-    <h5 id="curr_date">November 23, 2021</h5>
+    <h5 id="curr_date"></h5>
     <table id="dataTable" class="display table" width="100%">
       <thead>
         <tr>
