@@ -111,6 +111,7 @@ const attendanceController = {
       const attendeesRaw = JSON.parse(req.body.attendees)
 
       attendeesRaw.forEach(function (attendee) {
+        const curAttendee = {}
         if (attendee.isMember) {
           curAttendee[attendanceFields.DATE] = date
           curAttendee[attendanceFields.PERSON] = attendee.person_id
