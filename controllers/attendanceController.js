@@ -75,7 +75,7 @@ const attendanceController = {
       }
     ]
     let membersNames = []
-    db.find(db.tables.MEMBER_TABLE, [], joinTables1, function (result) {
+    db.find(db.tables.MEMBER_TABLE, [], joinTables1, "*", function (result) {
       if (result !== null) {
         membersNames = result
         req.session.editId = null
@@ -108,7 +108,10 @@ const attendanceController = {
       const date = req.body.date
       const nonMemberAttendees = []
       const attendees = []
-      const attendeesRaw = JSON.parse(req.body.attendees)
+      console.log(req.body)
+      const attendeesRaw = JSON.parse(req.body.member)
+      console.log("reached")
+      console.log(attendeesRaw)
 
       attendeesRaw.forEach(function (attendee) {
         const curAttendee = {}

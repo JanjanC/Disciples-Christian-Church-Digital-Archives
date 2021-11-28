@@ -131,58 +131,46 @@ $(document).ready(function() {
     $('#create-attendance').prop('disabled', true)
     if(validateFields()) {
       const data = {
-        child: {},
-        guardian1: {},
-        guardian2: {}
+        nonMembers: [],
+        members: []
       }
       console.log('reached')
-      data.child = JSON.stringify(getDetails($('#child_member'), $('#input_child_member'), $('#child_first_name'), $('#child_mid_name'), $('#child_last_name')))
-      data.guardian1 = JSON.stringify(getDetails($('#parent1_member'), $('#input_parent1_member'), $('#parent1_first_name'), $('#parent1_mid_name'), $('#parent1_last_name')))
-     
-      if ($('#parent2_none').is(':checked')){
-        data.guardian2 = null
-      } else {
-        data.guardian2 = JSON.stringify(getDetails($('#parent2_member'), $('#input_parent2_member'), $('#parent2_first_name'), $('#parent2_mid_name'), $('#parent2_last_name')))
-      }
-
-      data.officiant = $('#officiant').val()
-      data.place = $('#address').val()
-      data.witnessMale = []
-      data.witnessFemale = []
-      data.date = new Date($('#date').val()).toISOString()
-
-      const witnesses = $('.witness')
-      for (witness of witnesses) {
-        const currWitness = {}
-        const isMale = $(witness).hasClass('male')
-        currWitness.type = isMale ? 'Godfather' : 'Godmother'
-
-        if($(witness).attr('data-member-info') !== null && $(witness).attr('data-member-info') !== undefined) {
-          currWitness.person_id = $(witness).attr('data-member-info').split(', ')[1]
-          currWitness.isMember = true
-        } else {
-          currWitness.first_name = $(witness).find('.first_name').text()
-          currWitness.mid_name = $(witness).find('.mid_name').text()
-          currWitness.last_name = $(witness).find('.last_name').text()
-        }
-
-        if (isMale) {
-          data.witnessMale.push(currWitness)
-        } else {
-          data.witnessFemale.push(currWitness)
-        }
-      }
       
-      data.witnessMale = JSON.stringify(data.witnessMale)
-      data.witnessFemale = JSON.stringify(data.witnessFemale)
+      const nonMembers = $('.non-member-text')
+      for (nonMember of nonMembers) {
+        const currNonMember = {}
+
+        currNonMember.first_name = $(nonMember).find('.first_name').text()
+        currNonMember.mid_name = $(nonMember).find('.mid_name').text()
+        currNonMember.last_name = $(nonMember).find('.last_name').text()
+
+        data.nonMembers.push(currNonMember)
+      }
+
+      const members = $('.member-text')
+      for (member of members) {
+        const currMember = {}
+
+        currMember.first_name = $(member).find('.first_name').text()
+        currMember.mid_name = $(member).find('.mid_name').text()
+        currMember.last_name = $(member).find('.last_name').text()
+
+        data.members.push(currMember)
+      }
+
+      data.date = new Date($('#date').val()).toISOString()
+      data.nonMembers = JSON.stringify(data.nonMembers)
+      data.members = JSON.stringify(data.members)
+
+      console.log(data.members)
 
       $.ajax({
         type: 'POST',
         data: data,
-        url: '/add_dedication',
+        url: '/create_attendance',
         success: function (result){
           if (result) {
-            location.href = '/view_dedication/' + result
+            location.href = '/view_attendance/' + result
           } else {
             $('#create-attendance').prop('disabled', false)
             alert('An error occured')
@@ -208,29 +196,22 @@ $(document).ready(function() {
     }
 
     if(isValid) {
-      var witnessName
-      if(witnessMember) {
-        const firstName = $('#witness_gmother_first_name').val()
-        const midName = $('#witness_gmother_mid_name').val()
-        const lastName = $('#witness_gmother_last_name').val()
-        $('#member_row').append(
-          "<div class='col-4' style='margin-bottom: 1em;'>" +
-            "<div class='card witness female'><div class='card-body'>" + 
-              "<p class='card-text'>" + 
-                "<span class='first_name'>" + firstName + "</span> " + 
-                "<span class='mid_name'>" + midName + "</span> " + 
-                "<span class='last_name'>" + lastName + "</span>" + 
-              "</p>" +
-              "<button type='button' class='fas fa-trash delGMotherWitnessBtn '></button>" + 
-            "</div>" + 
+      const witness_info = $('#input_member').val().split(", ")
+      const firstName = witness_info[2]
+      const midName = witness_info[3]
+      const lastName = witness_info[4]
+      $('#member_row').append(
+        "<div class='col-4' style='margin-bottom: 1em;'>" +
+          "<div class='card witness female'><div class='card-body'>" + 
+            "<p class='card-text member-text'>" + 
+              "<span class='first_name'>" + firstName + "</span> " + 
+              "<span class='mid_name'>" + midName + "</span> " + 
+              "<span class='last_name'>" + lastName + "</span>" + 
+            "</p>" +
+            "<button type='button' class='fas fa-trash delGMotherWitnessBtn '></button>" + 
           "</div>" + 
-        "</div>")
-      } else {
-        const witness_info = $('#input_member').val()
-        // witnessName = witness_info.replace(/\d+/g, '')
-        // witnessName = witnessName.replace(/,/g, '')
-        $('#member_row').append("<div class='col-4' style='margin-bottom: 1em;'><div class='card witness' data-member-info=\"" + witness_info + "\"><div class='card-body'><p class='card-text'>" + witnessName + "</p><button type='button' class='fas fa-trash delGMotherWitnessBtn '></button> </div></div></div>")
-      }
+        "</div>" + 
+      "</div>")
       $('#witness_gmother_info_error').text('')
       $('#witness_gfather_info_error').text('')
       $('#witness_gmother_first_name').val('')
@@ -276,7 +257,7 @@ $(document).ready(function() {
         $('#gfather_witness_row').append(
           "<div class='col-4' style='margin-bottom: 1em;'>" +
             "<div class='card witness male'><div class='card-body'>" + 
-              "<p class='card-text'>" + 
+              "<p class='card-text non-member-text'>" + 
                 "<span class='first_name'>" + firstName + "</span> " + 
                 "<span class='mid_name'>" + midName + "</span> " + 
                 "<span class='last_name'>" + lastName + "</span>" + 
@@ -299,13 +280,9 @@ $(document).ready(function() {
   })
 
   $('#add_member_button').click(function() {
-    if(GMotherWitnessCtr === 6) {
-      $('#witness_gmother_info_error').text('You have reached the maximum number of witnesses')
-    } else {
-      $('#memberModal').modal('show')
-      $('#witness_gmother_info_error').text('')
-      isMaleModal = false
-    }
+    $('#memberModal').modal('show')
+    $('#witness_gmother_info_error').text('')
+    isMaleModal = false
   })
 
 
@@ -379,155 +356,17 @@ $(document).ready(function() {
 
   function validateFields() {
     var isValid = true
+
+    var nonMembers = $('#gfather_witness_row').children().length
+    var members = $('#member_row').children().length
     
-    var childNonMember = $('#child_non_member').is(':checked')
-    var childFieldMember = $('#input_child_member').val() === '0' || $('#input_child_member').val() === ''
-    var childFieldNonMember = $('#child_first_name').val() === '' || $('#child_mid_name').val() === '' || $('#child_last_name').val() === ''
-    var childMiddleLen = $('#child_mid_name').val().length === 1
-    //alert(childFieldNonMember + ' ' + childFieldMember )
-  
-    var guardianOneMember = $('#input_parent1_member').val() === '0' || $('#input_parent1_member').val() === ''
-    var guardianOneNonMember = $('#parent1_first_name').val() === '' || $('#parent1_mid_name').val() === '' || $('#parent1_last_name').val() === ''
-    var guardianOneMiddleLen = $('#parent1_mid_name').val().length === 1
+    console.log(nonMembers + " / " + members)
 
-    var guardianTwoNone = $('#parent2_none').is(':checked')
-    var guardianTwoMember = $('#input_parent2_member').val() === '0' || $('#input_parent2_member').val() === ''
-    var guardianTwoNonMember = $('#parent2_first_name').val() === '' || $('#parent2_mid_name').val() === '' || $('#parent2_last_name').val() === ''
-    var guardianTwoMiddleLen = $('#parent2_mid_name').val().length === 1
-
-    var officiantField = $('#officiant').val() === ''
-    var addressField = $('#address').val() === ''
-    var dateField = $('#date').val() === ''
-  
-  
-    if ((childNonMember && childFieldNonMember) || (!childNonMember && childFieldMember)) {
+    if (nonMembers == 0 && members == 0) {
       isValid = false
-      $('#child_info_error').text('Please provide child name')
+      $('#replace_later').text('Please have at least one attendee')
     } else {
-      $('#child_info_error').text('')
-    }
-
-    if (!childFieldNonMember && !childMiddleLen) {
-      isValid = false
-      $('#child_middle_len_error').text("Child's middle initial should only contain 1 letter")
-    } else {
-      $('#child_middle_len_error').text('')
-    }
-
-    if (childFieldNonMember === false && validateMidInitial($('#child_mid_name').val()) === false) {
-      isValid = false
-      $('#child_middle_error').text("Child's middle initial should only range from letters A-Z")
-    } else {
-      $('#child_middle_error').text('')
-    }
-  
-    if (guardianTwoNone && guardianOneMember && guardianOneNonMember) {
-      isValid = false
-      $('#parent1_info_error').text('Accomplish all fields')
-      $('#parent2_info_error').text('')
-    } else if (!guardianTwoNone) {
-      if (guardianOneMember && guardianOneNonMember) {
-        isValid = false
-        $('#parent1_info_error').text('Accomplish all fields')
-      } else {
-        $('#parent1_info_error').text('')
-      }
-      // middle initial should only be 1 letter
-      if (!guardianOneNonMember && !guardianOneMiddleLen) {
-        isValid = false
-        $('#parent1_middle_len_error').text('Middle Initial should only contain 1 letter')
-      } else {
-        $('#parent1_middle_len_error').text('')
-      }
-
-      // middle initial checking for A-Z
-      if (guardianOneNonMember === false && validateMidInitial($('#parent1_mid_name').val()) === false) {
-        isValid = false
-        $('#parent1_middle_error').text('Middle Initial should only range from letters A-Z')
-      } else {
-        $('#parent1_middle_error').text('')
-      }
-
-      if (guardianTwoMember && guardianTwoNonMember) {
-        isValid = false
-        $('#parent2_info_error').text('Accomplish all fields')
-      } else {
-        $('#parent2_info_error').text('')
-      }
-
-      // middle initial should only be 1 letter
-      if (!guardianTwoNonMember && !guardianTwoMiddleLen) {
-        isValid = false
-        $('#parent2_middle_len_error').text('Middle Initial should only contain 1 letter')
-      } else {
-        $('#parent2_middle_len_error').text('')
-      }
-
-      // middle initial checking for A-Z
-      if (guardianTwoNonMember === false && validateMidInitial($('#parent2_mid_name').val()) === false) {
-        isValid = false
-        $('#parent2_middle_error').text('Middle Initial should only range from letters A-Z')
-      } else {
-        $('#parent2_middle_error').text('')
-      }
-    } else if (guardianTwoNone) { // if checked
-      if (guardianOneMember && guardianOneNonMember) {
-        isValid = false
-        $('#parent1_info_error').text('Accomplish all fields')
-      } else {
-        $('#parent1_info_error').text('')
-      }
-      // middle initial should only be 1 letter
-      if (!guardianOneNonMember && !guardianOneMiddleLen) {
-        isValid = false
-        $('#parent1_middle_len_error').text('Middle Initial should only contain 1 letter')
-      } else {
-        $('#parent1_middle_len_error').text('')
-      }
-
-      // middle initial checking for A-Z
-      if (guardianOneNonMember === false && validateMidInitial($('#parent1_mid_name').val()) === false) {
-        isValid = false
-        $('#parent1_middle_error').text('Middle Initial should only range from letters A-Z')
-      } else {
-        $('#parent1_middle_error').text('')
-      }
-    } else {
-  
-      $('#parent1_info_error').text('')
-      $('#parent2_info_error').text('')
-    }
-  
-    if (officiantField) {
-      isValid = false
-      $('#officiant_info_error').text('Please accomplish')
-    } else {
-  
-      $('#officiant_info_error').text('')
-    }
-  
-    if (addressField) {
-      isValid = false
-      $('#address_info_error').text('Please accomplish')
-    } else {
-  
-      $('#address_info_error').text('')
-    }
-  
-    if (dateField) {
-      isValid = false
-      $('#date_info_error').text('Please accomplish')
-    } else {
-      $('#date_info_error').text('')
-    }
-  
-    if (GMotherWitnessCtr === 0 && GFatherWitnessCtr === 0) {
-      isValid = false
-      $('#witness_gmother_info_error').text('There must be at least one godmother or godfather')
-      $('#witness_gfather_info_error').text('There must be at least one godmother or godfather')
-    } else {
-      $('#witness_gmother_info_error').text('')
-      $('#witness_gfather_info_error').text('')
+      $('#replace_later').text('')
     }
   
     return isValid
