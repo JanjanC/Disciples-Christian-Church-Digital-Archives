@@ -131,8 +131,7 @@ $(document).ready(function() {
     $('#create-attendance').prop('disabled', true)
     if(validateFields()) {
       const data = {
-        nonMembers: [],
-        members: []
+        attendees: []
       }
       console.log('reached')
       
@@ -144,23 +143,20 @@ $(document).ready(function() {
         currNonMember.mid_name = $(nonMember).find('.mid_name').text()
         currNonMember.last_name = $(nonMember).find('.last_name').text()
 
-        data.nonMembers.push(currNonMember)
+        data.attendees.push(currNonMember)
       }
 
       const members = $('.member-text')
       for (member of members) {
         const currMember = {}
 
-        currMember.first_name = $(member).find('.first_name').text()
-        currMember.mid_name = $(member).find('.mid_name').text()
-        currMember.last_name = $(member).find('.last_name').text()
+        currMember.person_id = $(member).children('.id_number').val()
 
-        data.members.push(currMember)
+        data.attendees.push(currMember)
       }
 
       data.date = new Date($('#date').val()).toISOString()
-      data.nonMembers = JSON.stringify(data.nonMembers)
-      data.members = JSON.stringify(data.members)
+      data.attendees = JSON.stringify(data.attendees)
 
       console.log(data.members)
 
@@ -169,8 +165,9 @@ $(document).ready(function() {
         data: data,
         url: '/create_attendance',
         success: function (result){
+          console.log(result)
           if (result) {
-            location.href = '/view_attendance/' + result
+            location.href = '/view_attendance/' + $('#date').val()
           } else {
             $('#create-attendance').prop('disabled', false)
             alert('An error occured')
@@ -197,6 +194,8 @@ $(document).ready(function() {
 
     if(isValid) {
       const witness_info = $('#input_member').val().split(", ")
+      console.log(witness_info)
+      const id_number = witness_info[1]
       const firstName = witness_info[2]
       const midName = witness_info[3]
       const lastName = witness_info[4]
@@ -207,6 +206,7 @@ $(document).ready(function() {
               "<span class='first_name'>" + firstName + "</span> " + 
               "<span class='mid_name'>" + midName + "</span> " + 
               "<span class='last_name'>" + lastName + "</span>" + 
+              "<input type='hidden' class='id_number' value='" + id_number +"'>" + 
             "</p>" +
             "<button type='button' class='fas fa-trash delGMotherWitnessBtn '></button>" + 
           "</div>" + 

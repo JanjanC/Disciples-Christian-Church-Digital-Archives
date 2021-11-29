@@ -18,8 +18,9 @@ const attendanceController = {
    getViewAttendance: function (req, res) {
     const level = req.session.level
     req.session.editId = null
+    console.log(level)
 
-    if (level === undefined || level === null || parseInt(level) === 1) {
+    if (false/*level === undefined || level === null || parseInt(level) === 1*/) {
       res.status(401)
       res.render('error', {
         title: '401 Unauthorized Access',
@@ -46,16 +47,18 @@ const attendanceController = {
         'person.' + personFields.LAST_NAME + ' as member_last_name',
         'person.' + personFields.MEMBER + ' as member_id'
       ]
-
+      const date = new Date(req.params.date).toISOString()
       const conditions = new Condition(queryTypes.where)
-      conditions.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, req.params.date)
+      conditions.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
 
       db.find(db.tables.ATTENDANCE_TABLE, [conditions], joinTables, columns, function (result) {
+        console.log("Here")
         const data = {}
         data.records = result
         data.scripts = ['viewAttendance']
         data.styles = ['lists']
         data.backLink = 'attendance_main_page'
+        console.log(data)
 
         res.render('view-attendance', data)
       })
@@ -109,13 +112,13 @@ const attendanceController = {
       const nonMemberAttendees = []
       const attendees = []
       console.log(req.body)
-      const attendeesRaw = JSON.parse(req.body.member)
+      const allAttendees = JSON.parse(req.body.attendees)
       console.log("reached")
-      console.log(attendeesRaw)
+      console.log(allAttendees)
 
-      attendeesRaw.forEach(function (attendee) {
+      allAttendees.forEach(function (attendee) {
         const curAttendee = {}
-        if (attendee.isMember) {
+        if (attendee.person_id != null) {
           curAttendee[attendanceFields.DATE] = date
           curAttendee[attendanceFields.PERSON] = attendee.person_id
           attendees.push(curAttendee)
@@ -138,10 +141,11 @@ const attendanceController = {
           })
         }
         // insert each person into a new attendance table
-        db.insert(db.tables.PERSON_TABLE, attendees, function (result) {
+        db.insert(db.tables.ATTENDANCE_TABLE, attendees, function (result) {
           if (result !== false) {
             req.session.editId = date
-            res.redirect('/view_attendance/' + date)
+            const d = new Date(date)
+            res.send(true)
           } else {
             res.send('ADD ATTENDANCE ERROR')
           }

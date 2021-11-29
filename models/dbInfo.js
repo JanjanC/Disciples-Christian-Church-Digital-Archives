@@ -324,7 +324,7 @@ const db = {
     }
   },
   startIds: [
-    { table: 'people', start: 12000000 },
+    { table: 'people', start: 13000000 },
     { table: 'members', start: 1000000 },
     { table: 'address', start: 2000000 },
     { table: 'accounts', start: 0 },
@@ -337,7 +337,7 @@ const db = {
     { table: 'observations', start: 9000000 },
     { table: 'couples', start: 10000000 },
     { table: 'churches', start: 11000000 },
-    { table: 'attendance', start: 13000000 }
+    { table: 'attendance', start: 12000000 }
   ]
 }
 
