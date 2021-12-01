@@ -10,7 +10,9 @@ $(document).ready(function() {
      
          var output = "";
          output += this.getFullYear();
+         output += '-'
          output += AddZero(this.getMonth()+1);
+         output += '-'
          output += AddZero(this.getDate());
      
          return output; 

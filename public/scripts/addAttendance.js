@@ -402,8 +402,8 @@ $(document).ready(function() {
 
   function initDate() {
     const today = new Date()
-
-    $('#date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate())
+    $('#date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
+    
   }
   
   // used to validate middle initial
