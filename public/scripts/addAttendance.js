@@ -11,6 +11,7 @@ $(document).ready(function() {
 
   $('#add_non_member_button').click(function() {
       $('#nonMemberModal').modal('show')
+      $('#no-attendees-error').text('')
       $('#witness_gfather_info_error').text('')
   })
 
@@ -282,6 +283,7 @@ $(document).ready(function() {
   $('#add_member_button').click(function() {
     $('#memberModal').modal('show')
     $('#witness_gmother_info_error').text('')
+    $('#no-attendees-error').text('')
     isMaleModal = false
   })
 
@@ -360,13 +362,11 @@ $(document).ready(function() {
     var nonMembers = $('#gfather_witness_row').children().length
     var members = $('#member_row').children().length
     
-    console.log(nonMembers + " / " + members)
-
-    if (nonMembers == 0 && members == 0) {
+    if (nonMembers == 1 && members == 1) {
       isValid = false
-      $('#replace_later').text('Please have at least one attendee')
+      $('#no-attendees-error').text('Please add an attendee')
     } else {
-      $('#replace_later').text('')
+      $('#no-attendees-error').text('')
     }
   
     return isValid
