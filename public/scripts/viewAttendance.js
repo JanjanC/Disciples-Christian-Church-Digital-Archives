@@ -26,15 +26,17 @@ $(document).ready(function() {
   })
 
   var url = window.location.href
-  var dateToday = url.split('view_attendance/')[1]
+  var dateTodayUnformatted = url.split('view_attendance/')[1]
+  var dateToday = dateTodayUnformatted.replace(/-/g, "");
   var year = "",month = "",day = ""
+  
 
   for(i = 0 ; i < 8 ; i ++){
     if(i < 4)
       year += dateToday[i]
     else if (i < 6)
       month += dateToday[i]
-    else  
+    else 
       day += dateToday[i]
   }
 
@@ -84,4 +86,14 @@ function getMonth (mm)
   var formattedDate = month + " " + day + ", " + year
   $("#curr_date").text(formattedDate)
  
+  var status = document.getElementsByClassName("membership-status");
+  for(var i = 0; i < status.length; i++)
+  {
+    if(status[i].textContent == '' || status[i].textContent == null){
+      status[i].innerHTML = "Non-member"
+    }
+    else{
+      status[i].textContent = 'Member'
+    }
+  }
 })

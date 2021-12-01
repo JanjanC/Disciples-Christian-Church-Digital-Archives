@@ -39,12 +39,9 @@
       <tbody>
         {{#each records}}
         <tr data-href="/view_baptismal/{{this.reg_id}}">
-          <td>{{this.reg_id}}</td>
+          
           <td>{{this.member_first_name}} {{this.member_last_name}}</td>
-          <td>{{dateView this.date}}</td>
-          <td>{{this.place}}</td>
-          <td>{{this.officiant_first_name}} {{this.officiant_last_name}}</td>
-          <td>{{dateView this.date_created}}</td>
+          <td class="membership-status">{{this.member_id}}</td>
         </tr>
         {{/each}}
       </tbody>
