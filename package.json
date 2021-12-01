@@ -2,11 +2,10 @@
     "name": "disciples-christian-church",
     "version": "1.0.0",
     "description": "Database application for members of the Disciples Christian Church",
-    "main": "main.js",
+    "main": "app.js",
     "scripts": {
-        "start": "electron .",
+        "start": "node app.js",
         "dev": "nodemon app.js",
-        "postinstall": "electron-builder install-app-deps",
         "test": "jest --watchAll"
     },
     "repository": {
