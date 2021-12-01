@@ -39,7 +39,13 @@
 
 .container{
   position: relative;
-  right:2em;
+  right:1em;
+}
+
+#error-date{
+  color: white;
+  position: relative;
+  left:5em
 }
 </style>
 <head>
@@ -84,7 +90,7 @@
       </div>
     </div>
 <button role="button" aria-label="Today" class="e-btn e-today e-flat e-primary e-css" id="edit-date-button">Edit Date</button>
-
+<p id="error-date">Please choose a date</p>
 
     <legend>Attendees <span style="color: red;">*</span></legend>
     <hr>

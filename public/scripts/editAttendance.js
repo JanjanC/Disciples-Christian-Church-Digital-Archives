@@ -1,11 +1,24 @@
+
+
 $(document).ready(function() {
 
     $("#date").attr('readonly', 'readonly');
 
     var calendar = new ej.calendars.Calendar();
     var samplebutton = $("#edit-date-button")
+    var errorDateMsg = $("#error-date")
     calendar.appendTo('#element')
     samplebutton.appendTo("#element")
+    errorDateMsg.appendTo("#element")
+
+    $(document).on("click", ".e-cell", function(){
+      $("#error-date").css("color","white")
+    });
+
+
+
+    
+ 
    
     var GMotherWitnessCtr = 0
     var GFatherWitnessCtr = 0
@@ -29,8 +42,23 @@ $(document).ready(function() {
     initDate()
     
     $("#delete-button").click(function(){
+      
+      var url = window.location.href
+      var dateTodayUnformatted = url.split('edit_attendance/')[1]
+      var dateTodayFormatted = dateTodayUnformatted.replace(/-/g, "");
+
+      for(i = 0 ; i < 8 ; i ++){
+        if(i < 4)
+          year += dateTodayFormatted[i]
+        else if (i < 6)
+          month += dateTodayFormatted[i]
+        else  
+          day += dateTodayFormatted[i]
+      }
+
+
       $("#exampleModalCenter").modal('show')
-      $("#delete-modal-text").text(`Delete the attendance record on ${day}/${month}/${year}`)
+      $("#delete-modal-text").text(`Delete the attendance record on ${day}/${month}/${year}?`)
     })
     
     $('select').change(hideChoices)
@@ -578,19 +606,9 @@ $(document).ready(function() {
     
       var url = window.location.href
       var dateToday = url.split('edit_attendance/')[1]
+      var today = new Date(dateToday);
+      $('#date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
 
-    
-      for(i = 0 ; i < 8 ; i ++){
-        if(i < 4)
-          year += dateToday[i]
-        else if (i < 6)
-          month += dateToday[i]
-        else  
-          day += dateToday[i]
-      }
-
-      var today = new Date(`${year}-${month}-${day}`);
-      $('#date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate())
     }
     
     // used to validate middle initial
@@ -598,6 +616,76 @@ $(document).ready(function() {
       const re = /^[A-Z]/
       return re.test(mid)
     }
+
+    
+
+    function convertMonth(month){
+      switch(month)
+      {
+        case 'January':
+              return '01';
+        case 'February':
+              return '02';
+        case 'March':
+              return '03';
+        case 'April':
+              return '04';
+        case 'May':
+              return '05';
+        case 'June':
+              return '06';
+        case 'July':
+              return '07';
+        case 'August':
+              return '08';
+        case 'September':
+              return '09';
+        case 'October':
+              return '10';    
+        case 'November':
+              return '11';    
+        case 'December':
+              return '12';                                             
+      }
+    }
+
+    function checkSelectedDate(){
+      var selectedDate = $(".e-selected").children("span").attr("title")
+    
+      if(selectedDate == undefined || selectedDate == null || selectedDate == ""){
+        $("#error-date").css("color","red")
+        return false
+      }
+      else{
+        return true
+      }
+    }
+
+    $("#edit-date-button").click(function(){
+      
+      var userHasClickedDate = checkSelectedDate()
+
+      if(userHasClickedDate == false)
+        return
+
+      var selectedDate = $(".e-selected").children("span").attr("title")
+      var dateSplit = selectedDate.split(",");
+      var dayAndMonth = dateSplit[1]
+      var yearEdit = dateSplit[2]
+      dayAndMonth = dayAndMonth.split(" ")
+
+      var monthEdit = dayAndMonth[1]
+      var dayEdit = dayAndMonth[2]
+     
+      monthEdit = convertMonth(monthEdit)
+     
+      var formattedDateToday = yearEdit + "-" + monthEdit + "-" + dayEdit
+      formattedDateToday = formattedDateToday.trim()
+
+      location.href = '/edit_attendance/' + formattedDateToday
+      
+      
+    })
   })
   
   
