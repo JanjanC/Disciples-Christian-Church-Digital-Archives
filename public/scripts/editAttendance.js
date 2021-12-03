@@ -1,40 +1,49 @@
 $(document).ready(function() {
 
-   if($("#gfather_witness_row").children().length == 1 && $("#member_row").children().length == 1){
-      $("#redirectAddModal").modal('show')
+  //  if($("#gfather_witness_row").children().length == 1 && $("#member_row").children().length == 1){
+  //     $('#redirectAddModal').modal({
+  //       backdrop: 'static',
+  //       keyboard: false  //
+  //     })
+  //     $("#redirectAddModal").modal('show')
 
-      const today = new Date()
+  //     const today = new Date()
 
-      $('#edit-date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
+  //     $('#edit-date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
 
-      $("#change-date-btn").click(function(){
-          // make date picker display the current date beforet this to avoid null value 
-        // date format 2021-11-29T00:00:00.000Z
-          var date = $("#edit-date").val()
-          const formattedDate = new Date(date).toISOString()
-          console.log(formattedDate)
-          const data = {}
-          data.date = formattedDate
+  //     $("#change-date-btn").click(function(){
+  //         // make date picker display the current date beforet this to avoid null value 
+  //       // date format 2021-11-29T00:00:00.000Z
+  //         var date = $("#edit-date").val()
+  //         const formattedDate = new Date(date).toISOString()
+  //         console.log(formattedDate)
+  //         const data = {}
+  //         data.date = formattedDate
 
-          $.ajax({
-            type: 'POST',
-            data: data,
-            url: '/check_attendance_date',
-            success: function (result){
-              console.log(`the result is ${result}`)
-              if (!result) {
-                console.log('error here')
-              } else {
-                //prompt the user if they would like to add a record instead of editing or just say that it doesnt exist yet so pick another date
-                $('#create-attendance').prop('disabled', false)
-                alert('An error occured')
-              }
-            }
-          })
+  //         $.ajax({
+  //           type: 'POST',
+  //           data: data,
+  //           url: '/check_attendance_date',
+  //           success: function (result){
+  //             console.log(`the result is ${result}`)
+  //             if (!result) {
+  //               location.href = `edit_attendance/${date}`
+  //             } else {
+  //               //prompt the user if they would like to add a record instead of editing or just say that it doesnt exist yet so pick another date
+  //               $('#create-attendance').prop('disabled', false)
+  //               var option = confirm(`No attendance record found on ${date}, add a new attendance record?`)
+
+  //               if(option){
+  //                 location.href = "/add_attendance"
+  //               }
+
+  //             }
+  //           }
+  //         })
 
           
-      })
-   }  
+  //     })
+  //  }  
 
   
     $("#date").attr('readonly', 'readonly');
@@ -55,6 +64,9 @@ $(document).ready(function() {
     var addedWitness = false
     var witnessType = null
     var year = "",month = "",day = ""
+    var url = window.location.href
+    var dateTodayUnformatted = url.split('edit_attendance/')[1]
+    var dateTodayFormatted = dateTodayUnformatted.replace(/-/g, "");
     const selectChild = $('#input_child_member').selectize()
     const selectParent1 = $('#input_parent1_member').selectize()
     const selectParent2 = $('#input_parent2_member').selectize()
@@ -70,13 +82,8 @@ $(document).ready(function() {
     var witnessType = null
   
     initDate()
-    
-    $("#delete-button").click(function(){
-      
-      var url = window.location.href
-      var dateTodayUnformatted = url.split('edit_attendance/')[1]
-      var dateTodayFormatted = dateTodayUnformatted.replace(/-/g, "");
 
+    function updateDatePickerDate(){
       for(i = 0 ; i < 8 ; i ++){
         if(i < 4)
           year += dateTodayFormatted[i]
@@ -85,14 +92,30 @@ $(document).ready(function() {
         else  
           day += dateTodayFormatted[i]
       }
-      const data = {}
-      data.date = new Date($('#date').val()).toISOString()
+    }
+
+    updateDatePickerDate()
+
+
+
+    $("#close-symbol-edit").click(function(){
+      location.href = "/attendance_main_page"
+    })
+
+    $("#close-edit-btn").click(function(){
+      location.href = "/attendance_main_page"
+    })
+
+    
+    $("#delete-button").click(function(){
 
       $("#exampleModalCenter").modal('show')
-      $("#delete-modal-text").text(`Delete the attendance record on ${day}/${month}/${year}?`)
+
+      $("#delete-modal-text").html(`Delete the attendance record on ${day}/${month}/${year}?`)
 
       $("#delete-attendance-btn").click(function(){ 
-        console.log('delete-attendancce triggered')
+        const data = {}
+        data.date = new Date($('#date').val()).toISOString()
         $.ajax({
           type: 'DELETE',
           data: data,
@@ -727,7 +750,7 @@ $(document).ready(function() {
      
       monthEdit = convertMonth(monthEdit)
      
-      var formattedDateToday = yearEdit + "-" + monthEdit + "-" + dayEdit
+      var formattedDateToday = yearEdit + "-" + monthEdit.toString().padStart(2, '0') + "-" + dayEdit.toString().padStart(2, '0')
       formattedDateToday = formattedDateToday.trim()
 
       location.href = '/edit_attendance/' + formattedDateToday

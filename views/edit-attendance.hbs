@@ -46,7 +46,18 @@
   color: white;
   position: relative;
   left:5em
+
 }
+
+  #modal-body-edit{
+    display: flex;
+  justify-content: center;
+  background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+  }
+
+  .modal{
+     margin-top:3em !important;
+  }
 </style>
 <head>
           
@@ -103,6 +114,7 @@
     </div>
 
     <div class="row" id="member_row">
+        {{>attendee-member members}}
       <p id="witness_gmother_info_error" class="error_codes"> </p>
     </div>
     <div class="row">
@@ -113,6 +125,7 @@
     </div>
 
     <div class="row" id="gfather_witness_row">
+      {{>attendee-member attendees}}
       <p id="witness_gfather_info_error" class="error_codes"> </p>
     </div>
     <button id="create-attendance" type="button" class="btn btn-primary">Submit</button>
@@ -213,18 +226,18 @@
 </div>
 
 
-<div class="modal fade" id="redirectAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="redirectAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">View service attendance</h5>
-        <button type="button" id="close_modal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">Date of Service Attendance</h5>
+        <button type="button" id="close-symbol-edit" class="btn-close" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="modal-body-edit">
         <input type="date" id="edit-date">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" id="close-edit-btn">Close</button>
         <button type="button" class="btn btn-primary" id="change-date-btn">View date</button>
       </div>
     </div>

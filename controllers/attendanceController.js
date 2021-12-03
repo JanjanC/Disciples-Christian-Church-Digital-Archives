@@ -75,11 +75,6 @@ const attendanceController = {
         tableName: db.tables.PERSON_TABLE,
         sourceCol: db.tables.MEMBER_TABLE + '.' + memberFields.PERSON,
         destCol: db.tables.PERSON_TABLE + '.' + personFields.ID
-      },
-      {
-        tableName: db.tables.PERSON_TABLE,
-        sourceCol: db.tables.MEMBER_TABLE + '.' + memberFields.PERSON,
-        destCol: db.tables.PERSON_TABLE + '.' + personFields.ID
       }
     ]
     let membersNames = []
@@ -211,17 +206,18 @@ const attendanceController = {
             db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.ID + ' as attendance_id',
             db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE + ' as date',
             db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.PERSON + ' as person_id',
-            'person.' + personFields.FIRST_NAME + ' as member_first_name',
-            'person.' + personFields.MID_NAME + ' as member_mid_name',
-            'person.' + personFields.LAST_NAME + ' as member_last_name',
+            'person.' + personFields.FIRST_NAME + ' as first_name',
+            'person.' + personFields.MID_NAME + ' as middle_name',
+            'person.' + personFields.LAST_NAME + ' as last_name',
             'person.' + personFields.MEMBER + ' as member_id'
           ]
     
           const conditions = new Condition(queryTypes.whereNot)
-          conditions.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + date)
+          conditions.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
 
           db.find(db.tables.ATTENDANCE_TABLE, [conditions], joinTables, columns, function (result) {
               data.members = result
+              console.dir(data)
               res.render('edit-attendance', data)
           })
         }
