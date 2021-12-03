@@ -170,7 +170,7 @@ const attendanceController = {
    * @param res - the result to be sent out after processing the request
    */
   getEditAttendance: function (req, res) {
-    const date = req.params.date
+    const date = new Date(req.params.date).toISOString()
     if (parseInt(req.session.level) === 3 || parseInt(req.session.editId === parseInt(date))) {
       console.log(date)
       const data = {
@@ -180,47 +180,51 @@ const attendanceController = {
         members: []
       }
       // join table for the groom
-      const joinTables = [
+      const joinTables1 = [
         {
-          tableName: db.tables.PERSON_TABLE,
+          tableName: { person: db.tables.PERSON_TABLE },
           sourceCol: db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.PERSON,
-          destCol: db.tables.PERSON_TABLE + '.' + personFields.ID
+          destCol: 'person.' + personFields.ID
         }
       ]
-      const cond = new Condition(queryTypes.where)
-      cond.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
-      // find the attendees
-      db.find(db.tables.ATTENDANCE_TABLE, cond, joinTables, '*', function (result) {
-        if (result !== null) {
-          data.attendees = result
+      
+      const matchesDate = new Condition(queryTypes.where)
+      matchesDate.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
 
-          const joinTables = [
-            {
-              tableName: { person: db.tables.PERSON_TABLE },
-              sourceCol: db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.PERSON,
-              destCol: 'person.' + personFields.ID
-            }
-          ]
-    
-          const columns = [
-            db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.ID + ' as attendance_id',
-            db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE + ' as date',
-            db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.PERSON + ' as person_id',
-            'person.' + personFields.FIRST_NAME + ' as first_name',
-            'person.' + personFields.MID_NAME + ' as middle_name',
-            'person.' + personFields.LAST_NAME + ' as last_name',
-            'person.' + personFields.MEMBER + ' as member_id'
-          ]
-    
-          const conditions = new Condition(queryTypes.whereNot)
-          conditions.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
+      db.find(db.tables.ATTENDANCE_TABLE, [matchesDate], joinTables1, "*", function (result) {
+        data.attendees = result
+        console.log(result)
+        let existingUsers = []
+        if (result != undefined && result != null)
+          existingUsers = result.map(a => a.member_id).filter((v, i, a) => a.indexOf(v) === i && v != null)
+        console.log(existingUsers)
+        
+        const columns = [
+          db.tables.MEMBER_TABLE + '.' + memberFields.ID + ' as member_id',
+          db.tables.MEMBER_TABLE + '.' + memberFields.PERSON + ' as person_id',
+          'person.' + personFields.FIRST_NAME + ' as first_name',
+          'person.' + personFields.MID_NAME + ' as middle_name',
+          'person.' + personFields.LAST_NAME + ' as last_name'
+        ]
 
-          db.find(db.tables.ATTENDANCE_TABLE, [conditions], joinTables, columns, function (result) {
-              data.members = result
-              console.dir(data)
-              res.render('edit-attendance', data)
-          })
-        }
+        const joinTables2 = [
+          {
+            tableName: { person: db.tables.PERSON_TABLE },
+            sourceCol: db.tables.MEMBER_TABLE + '.' + memberFields.PERSON,
+            destCol: 'person.' + personFields.ID
+          }
+        ]
+
+        const notInAttendance = new Condition(queryTypes.whereNotIn)
+        notInAttendance.setArray(db.tables.MEMBER_TABLE + '.' + memberFields.ID, existingUsers)
+        
+        db.find(db.tables.MEMBER_TABLE, [notInAttendance], joinTables2, columns, function (result) {
+          if (result !== null) {
+            console.log(result)
+            data.members = result
+            res.render('edit-attendance', data)
+          }
+        })
       })
     } else {
       sendError(req, res, 401)
