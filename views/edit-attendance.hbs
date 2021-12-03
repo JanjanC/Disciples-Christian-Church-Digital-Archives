@@ -132,7 +132,7 @@
             <div id="display_member_div" style="display:block">
               <label>Member</label>
               <select name="input_member" id="input_member">
-                   {{>dropdown membersNames}}
+                   {{>dropdown members}}
               </select>
             </div>
             <p id="witness_gmother_modal_info_error" class="error_codes"> </p>
@@ -206,7 +206,26 @@
       </div>
       <div class="modal-footer">
         <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" >Delete attendance</button>
+        <button type="button" class="btn btn-primary" id="delete-attendance-btn">Delete attendance</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="redirectAddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View service attendance</h5>
+        <button type="button" id="close_modal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="date" id="edit-date">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="change-date-btn">View date</button>
       </div>
     </div>
   </div>

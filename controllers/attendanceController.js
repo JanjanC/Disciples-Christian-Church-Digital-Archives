@@ -307,14 +307,16 @@ const attendanceController = {
     }
   },
   checkIfAttendanceDateExists: function (req, res) {
+    console.log('REACHED THIS')
     const date  = req.body.date
-
+    console.log(`THIS IS THE DATE ${date}`)
     const condition = new Condition(queryTypes.where)
     condition.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
     
     // find the the person ids of each attendance record that was removed in the update
     db.find(db.tables.ATTENDANCE_TABLE, condition, [], "*", function (result) {
-      if (result)
+      console.log(`Value of result is ${result}`)
+      if (result == 0)
         res.send(true)
       else
         res.send(false)

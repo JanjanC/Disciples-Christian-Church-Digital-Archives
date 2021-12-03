@@ -1,7 +1,42 @@
-
-
 $(document).ready(function() {
 
+   if($("#gfather_witness_row").children().length == 1 && $("#member_row").children().length == 1){
+      $("#redirectAddModal").modal('show')
+
+      const today = new Date()
+
+      $('#edit-date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
+
+      $("#change-date-btn").click(function(){
+          // make date picker display the current date beforet this to avoid null value 
+        // date format 2021-11-29T00:00:00.000Z
+          var date = $("#edit-date").val()
+          const formattedDate = new Date(date).toISOString()
+          console.log(formattedDate)
+          const data = {}
+          data.date = formattedDate
+
+          $.ajax({
+            type: 'POST',
+            data: data,
+            url: '/check_attendance_date',
+            success: function (result){
+              console.log(`the result is ${result}`)
+              if (!result) {
+                console.log('error here')
+              } else {
+                //prompt the user if they would like to add a record instead of editing or just say that it doesnt exist yet so pick another date
+                $('#create-attendance').prop('disabled', false)
+                alert('An error occured')
+              }
+            }
+          })
+
+          
+      })
+   }  
+
+  
     $("#date").attr('readonly', 'readonly');
 
     var calendar = new ej.calendars.Calendar();
@@ -14,12 +49,7 @@ $(document).ready(function() {
     $(document).on("click", ".e-cell", function(){
       $("#error-date").css("color","white")
     });
-
-
-
     
- 
-   
     var GMotherWitnessCtr = 0
     var GFatherWitnessCtr = 0
     var addedWitness = false
@@ -55,25 +85,28 @@ $(document).ready(function() {
         else  
           day += dateTodayFormatted[i]
       }
-
       const data = {}
-      data.date = new Date(dateTodayUnformatted)
+      data.date = new Date($('#date').val()).toISOString()
 
       $("#exampleModalCenter").modal('show')
       $("#delete-modal-text").text(`Delete the attendance record on ${day}/${month}/${year}?`)
-      $.ajax({
-        type: 'DELETE',
-        data: data,
-        url: '/delete_attendance',
-        success: function (result){
-          if (result) {
-            location.href = '/view_dedication/' + result
-          } else {
-            $('#create-attendance').prop('disabled', false)
-            alert('An error occured')
+
+      $("#delete-attendance-btn").click(function(){ 
+        console.log('delete-attendancce triggered')
+        $.ajax({
+          type: 'DELETE',
+          data: data,
+          url: '/delete_attendance',
+          success: function (result){
+            if (result) {
+              console.log('record exists ')
+            } else {
+              $('#create-attendance').prop('disabled', false)
+              alert('record doesnt exist')
+            }
           }
-        }
-      })
+        })
+        })
     })
     
     $('select').change(hideChoices)
