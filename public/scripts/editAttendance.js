@@ -56,9 +56,24 @@ $(document).ready(function() {
           day += dateTodayFormatted[i]
       }
 
+      const data = {}
+      data.date = new Date(dateTodayUnformatted)
 
       $("#exampleModalCenter").modal('show')
       $("#delete-modal-text").text(`Delete the attendance record on ${day}/${month}/${year}?`)
+      $.ajax({
+        type: 'DELETE',
+        data: data,
+        url: '/delete_attendance',
+        success: function (result){
+          if (result) {
+            location.href = '/view_dedication/' + result
+          } else {
+            $('#create-attendance').prop('disabled', false)
+            alert('An error occured')
+          }
+        }
+      })
     })
     
     $('select').change(hideChoices)

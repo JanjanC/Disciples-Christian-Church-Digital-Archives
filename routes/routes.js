@@ -80,6 +80,7 @@ app.put('/update_prenup/groom', prenupController.putUpdatePrenupGroom)
 app.put('/update_prenup/date', prenupController.putUpdatePrenupDate)
 
 app.post('/create_attendance', attendanceController.createAttendance)
+app.post('/checkAttendanceDate', attendanceController.checkIfAttendanceDateExists)
 
 app.post('/add_dedication', dedicationController.postAddDedication)
 app.post('/add_baptismal', baptismalController.postAddBaptismalRecord)

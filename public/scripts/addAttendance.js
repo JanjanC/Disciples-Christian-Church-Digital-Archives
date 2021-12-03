@@ -168,6 +168,7 @@ $(document).ready(function() {
         success: function (result){
           console.log(result)
           if (result) {
+            
             location.href = '/view_attendance/' + $('#date').val()
           } else {
             $('#create-attendance').prop('disabled', false)
