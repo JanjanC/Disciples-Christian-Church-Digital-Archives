@@ -306,6 +306,20 @@ const attendanceController = {
       })
     }
   },
+  checkIfAttendanceDateExists: function (req, res) {
+    const date  = req.body.date
+
+    const condition = new Condition(queryTypes.where)
+    condition.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
+    
+    // find the the person ids of each attendance record that was removed in the update
+    db.find(db.tables.ATTENDANCE_TABLE, condition, [], "*", function (result) {
+      if (result)
+        res.send(true)
+      else
+        res.send(false)
+    })
+  },
   deleteAttendance: function (req, res) {
     const date  = req.body.date
 
