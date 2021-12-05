@@ -309,7 +309,7 @@ $(document).ready(function() {
           $('#member_row').append(
             "<div class='col-4' style='margin-bottom: 1em;'>" +
               "<div class='card witness female'><div class='card-body'>" + 
-                "<p class='card-text'>" + 
+                "<p class='card-text member-text'>" + 
                   "<span class='first_name'>" + firstName + "</span> " + 
                   "<span class='mid_name'>" + midName + "</span> " + 
                   "<span class='last_name'>" + lastName + "</span>" + 
@@ -384,7 +384,7 @@ $(document).ready(function() {
           $('#gfather_witness_row').append(
             "<div class='col-4' style='margin-bottom: 1em;'>" +
               "<div class='card witness male'><div class='card-body'>" + 
-                "<p class='card-text'>" + 
+                "<p class='card-text non-member-text'>" + 
                   "<span class='first_name'>" + firstName + "</span> " + 
                   "<span class='mid_name'>" + midName + "</span> " + 
                   "<span class='last_name'>" + lastName + "</span>" + 
@@ -602,7 +602,8 @@ $(document).ready(function() {
         currNonMember.first_name = $(nonMember).find('.first_name').text()
         currNonMember.mid_name = $(nonMember).find('.mid_name').text()
         currNonMember.last_name = $(nonMember).find('.last_name').text()
-
+        console.log(`curr non member`)
+        console.dir(currNonMember)
         data.attendees.push(currNonMember)
       }
 
@@ -611,7 +612,9 @@ $(document).ready(function() {
         const currMember = {}
 
         currMember.person_id = $(member).children('.id_number').val()
-
+        currMember.attendance_id = $(member).children('.id_attendance').val()
+        console.log(`curr member`)
+        console.dir(currMember)
         data.attendees.push(currMember)
       }
 
