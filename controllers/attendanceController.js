@@ -134,21 +134,26 @@ const attendanceController = {
       matchesDate.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
 
       // insert non members to person table
-      db.find(db.ATTENDANCE_TABLE, matchesDate, [], '*', function(result) {
-        if (result) {
+      db.find(db.tables.ATTENDANCE_TABLE, matchesDate, [], '*', function(result) {
+        if (result && result.length > 0) {
           res.send('EXISTS')
           return;
         }
-
-        db.insert(db.tables.PERSON_TABLE, nonMemberAttendees, function (personIDs) {
-          if (personIDs) {
-            personIDs.forEach(function (personID) {
+        console.log(nonMemberAttendees)
+        db.insert(db.tables.PERSON_TABLE, nonMemberAttendees, function (result) {
+          console.log(result.type)
+          if (result) {
+            result = result[0]
+            nonMemberAttendees.forEach(function (personID) {
               const curAttendee = {}
               curAttendee[attendanceFields.DATE] = date
-              curAttendee[attendanceFields.PERSON] = personID
+              curAttendee[attendanceFields.PERSON] = result
               attendees.push(curAttendee)
+              result -= 1
             })
           }
+
+          console.log(attendees)
           // insert each person into a new attendance table
           db.insert(db.tables.ATTENDANCE_TABLE, attendees, function (result) {
             if (result !== false) {
@@ -156,7 +161,7 @@ const attendanceController = {
               const d = new Date(date)
               res.send(true)
             } else {
-              res.send('ADD ATTENDANCE ERROR')
+              res.send(false)
             }
           })
         })
@@ -254,17 +259,23 @@ const attendanceController = {
       res.send(msg)
     } else {
       let isChanged = false
-      const date = req.body.date
+      const date = new Date(req.body.date).toISOString()
       const newAttendees = []
       const attendees = []
       const keptAttendanceRecords = []
       const attendeesRaw = JSON.parse(req.body.attendees)
       console.log(`attendeesRaw ${attendeesRaw}`)
       attendeesRaw.forEach(function (attendee) {
+        const curAttendee = {}
         if (attendee.attendance_id) {
           keptAttendanceRecords.push(attendee.attendance_id)
-        } else { // For every non-member attendee, add to nonMemberAttendees to insert to people table
-          const curAttendee = {}
+        } 
+        else if (attendee.member_id) {
+          curAttendee[attendanceFields.DATE] = date
+          curAttendee[attendanceFields.PERSON] = attendee.person_id
+          attendees.push(curAttendee)
+        } 
+        else {
           curAttendee[personFields.FIRST_NAME] = attendee.first_name
           curAttendee[personFields.MID_NAME] = attendee.mid_name
           curAttendee[personFields.LAST_NAME] = attendee.last_name
@@ -272,22 +283,35 @@ const attendanceController = {
         }
       })
 
-      const condition1 = new Condition(queryTypes.whereNotIn)
-      condition1.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.ID, keptAttendanceRecords)
+      const notKept = new Condition(queryTypes.whereNotIn)
+      notKept.setArray(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.ID, keptAttendanceRecords)
+
+      const matchesDate = new Condition(queryTypes.where)
+      matchesDate.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
 
       // find the the person ids of each attendance record that was removed in the update
-      db.find(db.tables.ATTENDANCE_TABLE, condition1, [], attendanceFields.PERSON, function (result) {
-        personIDs = result.map(function (row) {
-          return row[attendanceFields.PERSON]
-        })
-        const condition2 = new Condition(queryTypes.whereIn)
-        condition2.setKeyValue(db.tables.PERSON_TABLE + '.' + personFields.ID, personIDs)
+      db.find(db.tables.ATTENDANCE_TABLE, [notKept, matchesDate], [], attendanceFields.PERSON, function (result) {
+        let personIDs = []
+        if (result)
+          personIDs = result.map((row) => row[attendanceFields.PERSON])
+
+        const removedPersons = new Condition(queryTypes.whereIn)
+        removedPersons.setArray(db.tables.PERSON_TABLE + '.' + personFields.ID, personIDs)
+        console.log('keptAttendanceRecords')
+        console.log(keptAttendanceRecords)
+        console.log('personIDs')
+        console.log(personIDs)
+
         // delete each attendance record that was removed in the update
-        db.delete(db.tables.ATTENDANCE_TABLE, condition1, function (result) {
+        db.delete(db.tables.ATTENDANCE_TABLE, [notKept, matchesDate], function (result) {
           if (result)
             isChanged = true
+
+          const notAMember = new Condition(queryTypes.whereNull)
+          notAMember.setField(db.tables.PERSON_TABLE + '.' + personFields.MEMBER)
+
           // delete each person whose person id was used in the attendance records that were deleted
-          db.delete(db.tables.PERSON_TABLE, condition2, function (result) {
+          db.delete(db.tables.PERSON_TABLE, [removedPersons, notAMember], function (result) {
             // insert every new person into the person table
             db.insert(db.tables.PERSON_TABLE, newAttendees, function (personIDs) {
               if (personIDs) {

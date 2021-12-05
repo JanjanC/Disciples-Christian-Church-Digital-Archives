@@ -159,7 +159,7 @@ $(document).ready(function() {
       data.date = new Date($('#date').val()).toISOString()
       data.attendees = JSON.stringify(data.attendees)
 
-      console.log(data.members)
+      console.log(data.attendees)
 
       $.ajax({
         type: 'POST',
@@ -168,8 +168,7 @@ $(document).ready(function() {
         success: function (result){
           console.log(result)
           if (result) {
-            
-            location.href = '/view_attendance/' + $('#date').val()
+              location.href = '/view_attendance/' + $('#date').val()
           } else {
             $('#create-attendance').prop('disabled', false)
             alert('An error occured')
