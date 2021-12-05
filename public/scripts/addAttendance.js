@@ -3,11 +3,42 @@ $(document).ready(function() {
   var GFatherWitnessCtr = 0
   var addedWitness = false
   var witnessType = null
-  const selectChild = $('#input_child_member').selectize()
+  var dateExists = false
+  const selectChild = $('#input_member').selectize()
   const selectParent1 = $('#input_parent1_member').selectize()
   const selectParent2 = $('#input_parent2_member').selectize()
   const selectWitnessGMother = $('#input_member').selectize()
   const selectWitnessGFather = $('#input_witness_gfather_member').selectize()
+
+  $( "#date" ).blur(function() {
+    checkIfDateExists()
+  });
+
+  function checkIfDateExists(){
+    var dateChosen = $('#date').val()
+    const formattedDate = new Date(dateChosen)
+    const data = {}
+    data.date = formattedDate
+  
+
+    $.ajax({
+      type: 'POST',
+      data: data,
+      url: '/check_attendance_date',
+      success: function (result){
+        if (!result) {
+          $("#date-exists-error").text('This date already exists, please choose a new date.')
+          $('#create-attendance').prop('disabled', true)
+          dateExists = true
+        } else {
+          //prompt the user if they would like to add a record instead of editing or just say that it doesnt exist yet so pick another date
+          $("#date-exists-error").text('')
+          $('#create-attendance').prop('disabled', false)
+          dateExists = false
+        }
+      }
+    })
+  }
 
   $('#add_non_member_button').click(function() {
       $('#nonMemberModal').modal('show')
@@ -19,6 +50,7 @@ $(document).ready(function() {
   var witnessType = null
 
   initDate()
+  initSelectize()
 
   
   $('select').change(hideChoices)
@@ -202,7 +234,7 @@ $(document).ready(function() {
       const lastName = witness_info[4]
       $('#member_row').append(
         "<div class='col-4' style='margin-bottom: 1em;'>" +
-          "<div class='card witness female'><div class='card-body'>" + 
+          "<div class='card witness female' data-member-info=\"" + witness_info + "\"><div class='card-body'>" + 
             "<p class='card-text member-text'>" + 
               "<span class='first_name'>" + firstName + "</span> " + 
               "<span class='mid_name'>" + midName + "</span> " + 
@@ -290,15 +322,18 @@ $(document).ready(function() {
 
   $(document).on('click', '.delGMotherWitnessBtn', function () {
     const member = $(this).closest('.card').attr('data-member-info')
+    const myArray = member.split(",");
+    const formattedMember = `${myArray[0]}, ${myArray[1]}, ${myArray[2]}, ${myArray[3]}, ${myArray[4]}`
     if (member !== null) {
-      selectizeEnable(member)
+      selectizeEnable(formattedMember)
     }
     $(this).closest('.col-4').remove()
     GMotherWitnessCtr--
   })
 
   $(document).on('click', '.delGFatherWitnessBtn', function () {
-    const member = $(this).closest('.card').attr('data-member-info')
+    const member = $(this).closest('.card')
+    alert('trigger')
     if (member !== null) {
       selectizeEnable(member)
     }
@@ -339,8 +374,8 @@ $(document).ready(function() {
    * This function hides the selected choice for all select fields to avoid duplication of choices
    */
   function hideChoices() {
-    var previous = $(this).data('previous')
-    var currOption = $(this).val()
+    alert(previous)
+    alert(currOption)
     selectizeDisable(currOption)
     $(this).data('previous', currOption)
 
@@ -354,10 +389,21 @@ $(document).ready(function() {
       $('#non_member_first_name').val('')
       $('#non_member_mid_name').val('')
       $('#non_member_last_name').val('')
+      selectizeEnable(selectChild)
+
+       var currWitness = $('#input_member').val()
+      $('#input_member').data('previous', null)
+
+  
+      $(selectChild)[0].selectize.setValue('0')
   }
 
   function validateFields() {
     var isValid = true
+    checkIfDateExists()
+
+    if(dateExists)
+      return
 
     var nonMembers = $('#gfather_witness_row').children().length
     var members = $('#member_row').children().length
@@ -373,31 +419,36 @@ $(document).ready(function() {
   }
 
   function selectizeEnable(data) {
-    $('#input_child_member').parent().find('.option[data-value="' + data + '"]').attr('data-selectable', true)
-    $('#input_parent1_member').parent().find('.option[data-value="' + data + '"]').attr('data-selectable', true)
-    $('#input_parent2_member').parent().find('.option[data-value="' + data + '"]').attr('data-selectable', true)
+    console.log(data)
+   
+    var parent = $('#input_member').parent()
+   
     $('#input_member').parent().find('.option[data-value="' + data + '"]').attr('data-selectable', true)
-    $('#input_witness_gfather_member').parent().find('.option[data-value="' + data + '"]').attr('data-selectable', true)
   }
 
   function selectizeDisable(data) {
-    $('#input_child_member').parent().find('.option[data-value="' + data + '"]').removeAttr('data-selectable')
-    $('#input_parent1_member').parent().find('.option[data-value="' + data + '"]').removeAttr('data-selectable')
-    $('#input_parent2_member').parent().find('.option[data-value="' + data + '"]').removeAttr('data-selectable')
     $('#input_member').parent().find('.option[data-value="' + data + '"]').removeAttr('data-selectable')
-    $('#input_witness_gfather_member').parent().find('.option[data-value="' + data + '"]').removeAttr('data-selectable')
   }
 
   function initSelectize() {
     $(selectChild)[0].selectize.refreshOptions()
-    $(selectParent1)[0].selectize.refreshOptions()
-    $(selectParent2)[0].selectize.refreshOptions()
-    $(selectWitnessGMother)[0].selectize.refreshOptions()
-    $(selectWitnessGFather)[0].selectize.refreshOptions()
 
     $('.selectize-dropdown').hide();
     $('.selectize-input').removeClass('focus input-active dropdown-active');
     $('div.selectize-input > input').blur();
+  }
+
+  function hideChoices() {
+    
+    var previous = $(this).data('previous')
+    var currOption = $(this).val()
+    selectizeDisable(currOption)
+    $(this).data('previous', currOption)
+
+    // if there was a previously selected choice, free up from other input fields
+    if (previous !== null || previous !== undefined) {
+      selectizeEnable(previous)
+    }
   }
 
   function initDate() {
