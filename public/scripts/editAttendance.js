@@ -324,6 +324,7 @@ $(document).ready(function() {
             const firstName = witness_info[2]
             const midName = witness_info[3]
             const lastName = witness_info[4]
+            const member_id = witness_info[0]
           // witnessName = witnessName.replace(/,/g, '')
            $('#member_row').append(
         "<div class='col-4' style='margin-bottom: 1em;'>" +
@@ -333,6 +334,8 @@ $(document).ready(function() {
               "<span class='mid_name'>" + midName + "</span> " + 
               "<span class='last_name'>" + lastName + "</span>" + 
               "<input type='hidden' class='id_number' value='" + id_number +"'>" + 
+              "<input type='hidden' class='id_member' value='" + member_id+"'>" + 
+         
             "</p>" +
             "<button type='button' class='fas fa-trash delGMotherWitnessBtn '></button>" + 
           "</div>" + 
@@ -602,6 +605,7 @@ $(document).ready(function() {
         currNonMember.first_name = $(nonMember).find('.first_name').text()
         currNonMember.mid_name = $(nonMember).find('.mid_name').text()
         currNonMember.last_name = $(nonMember).find('.last_name').text()
+        currNonMember.attendance_id = $(nonMember).children('.id_attendance').val()
         console.log(`curr non member`)
         console.dir(currNonMember)
         data.attendees.push(currNonMember)
@@ -613,6 +617,8 @@ $(document).ready(function() {
 
         currMember.person_id = $(member).children('.id_number').val()
         currMember.attendance_id = $(member).children('.id_attendance').val()
+        currMember.member_id = $(member).children('.id_member').val()
+        
         console.log(`curr member`)
         console.dir(currMember)
         data.attendees.push(currMember)
