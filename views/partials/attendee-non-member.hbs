@@ -2,7 +2,11 @@
 <div class='col-4' style='margin-bottom: 1em;' value="{{member_id}}, {{person_id}}, {{first_name}}, {{middle_name}}, {{last_name}}">
     <div class='card witness' data-member-info=>
         <div class='card-body'>
-            <p class='card-text'> {{first_name}} {{middle_name}}. {{last_name}}</p>
+            <p class='card-text non-member-text'> 
+                <span class='first_name'>{{first_name}}</span> 
+                <span class='mid_name'>{{middle_name}}</span> 
+                <span class='last_name'>{{last_name}}</span> 
+            </p>
             <button type='button' class='fas fa-trash delGMotherWitnessBtn'>
             </button> 
         </div>

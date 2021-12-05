@@ -104,6 +104,7 @@
 <p id="error-date">Please choose a date</p>
 
     <legend>Attendees <span style="color: red;">*</span></legend>
+    <p id="no-attendees-error"class="error_codes"></p>
     <hr>
 
     <div class="row">
@@ -114,9 +115,9 @@
     </div>
 
     <div class="row" id="member_row">
-        {{>attendee-member members}}
-      <p id="witness_gmother_info_error" class="error_codes"> </p>
+      {{>attendee-member attendeesMembers}}
     </div>
+    <p id="witness_gmother_info_error" class="error_codes"> </p>
     <div class="row">
       <div class="col-12 d-flex justify-content-between">
         <legend>Non-members</legend>
@@ -125,9 +126,9 @@
     </div>
 
     <div class="row" id="gfather_witness_row">
-      {{>attendee-member attendees}}
-      <p id="witness_gfather_info_error" class="error_codes"> </p>
+      {{>attendee-non-member attendeesNonMembers}}
     </div>
+    <p id="witness_gfather_info_error" class="error_codes"> </p>
     <button id="create-attendance" type="button" class="btn btn-primary">Submit</button>
   </div>
 </form>
@@ -206,7 +207,7 @@
 </div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="deleteModalLabel">Delete Attendance Record</h5>
@@ -238,7 +239,25 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" id="close-edit-btn">Close</button>
-        <button type="button" class="btn btn-primary" id="change-date-btn">View date</button>
+        <button type="button" class="btn btn-primary" id="change-date-btn">Edit date</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="redirectEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit attendance record</h5>
+        <button type="button" id="close-edit-symbol" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="modal-body-edit-redirect">
+        <p id="no-attendance-text"> </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="close-edit-confirm-btn" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="add-new-date-btn">Add new record</button>
       </div>
     </div>
   </div>

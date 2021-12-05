@@ -1,49 +1,97 @@
 $(document).ready(function() {
 
-  //  if($("#gfather_witness_row").children().length == 1 && $("#member_row").children().length == 1){
-  //     $('#redirectAddModal').modal({
-  //       backdrop: 'static',
-  //       keyboard: false  //
-  //     })
-  //     $("#redirectAddModal").modal('show')
 
-  //     const today = new Date()
+  $("#edit-date-button").click(function(){
+      
+    var userHasClickedDate = checkSelectedDate()
 
-  //     $('#edit-date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
+    if(userHasClickedDate == false)
+      return
 
-  //     $("#change-date-btn").click(function(){
-  //         // make date picker display the current date beforet this to avoid null value 
-  //       // date format 2021-11-29T00:00:00.000Z
-  //         var date = $("#edit-date").val()
-  //         const formattedDate = new Date(date).toISOString()
-  //         console.log(formattedDate)
-  //         const data = {}
-  //         data.date = formattedDate
+    var selectedDate = $(".e-selected").children("span").attr("title")
+    var dateSplit = selectedDate.split(",");
+    var dayAndMonth = dateSplit[1]
+    var yearEdit = dateSplit[2]
+    dayAndMonth = dayAndMonth.split(" ")
 
-  //         $.ajax({
-  //           type: 'POST',
-  //           data: data,
-  //           url: '/check_attendance_date',
-  //           success: function (result){
-  //             console.log(`the result is ${result}`)
-  //             if (!result) {
-  //               location.href = `edit_attendance/${date}`
-  //             } else {
-  //               //prompt the user if they would like to add a record instead of editing or just say that it doesnt exist yet so pick another date
-  //               $('#create-attendance').prop('disabled', false)
-  //               var option = confirm(`No attendance record found on ${date}, add a new attendance record?`)
+    var monthEdit = dayAndMonth[1]
+    var dayEdit = dayAndMonth[2]
+   
+    monthEdit = convertMonth(monthEdit)
+   
+    var formattedDateToday = yearEdit + "-" + monthEdit.toString().padStart(2, '0') + "-" + dayEdit.toString().padStart(2, '0')
+    formattedDateToday = formattedDateToday.trim()
+ 
+    const formattedDate = new Date(formattedDateToday)
+    const data = {}
+    data.date = formattedDate
+   
+    $.ajax({
+      type: 'POST',
+      data: data,
+      url: '/check_attendance_date',
+      success: function (result){
+        if (!result) {
+          location.href = `edit_attendance/${formattedDateToday}`
+        } else {
+          //prompt the user if they would like to add a record instead of editing or just say that it doesnt exist yet so pick another date
+          $("#redirectEditModal").modal('show')
 
-  //               if(option){
-  //                 location.href = "/add_attendance"
-  //               }
+          $("#no-attendance-text").text(`No attendance record on ${formattedDateToday}, add a new record?`)
+    
+          $("#add-new-date-btn").click(function(){
+            location.href = '/add_attendance'
+          })
+        }
+      }
+    })
+  })
 
-  //             }
-  //           }
-  //         })
+   if($("#gfather_witness_row").children().length < 1 && $("#member_row").children().length < 1){
+      $('#redirectAddModal').modal({
+        backdrop: 'static',
+        keyboard: false  
+      })
+      $("#redirectAddModal").modal('show')
+      var url = window.location.href
+      var dateTodayUnformatted = url.split('edit_attendance/')[1]
+      const today = new Date(dateTodayUnformatted)
+
+      $('#edit-date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
+
+      $("#change-date-btn").click(function(){
+          // make date picker display the current date beforet this to avoid null value 
+        // date format 2021-11-29T00:00:00.000Z
+          var date = $("#edit-date").val()
+          const formattedDate = new Date(date)
+          console.log(formattedDate)
+          const data = {}
+          data.date = formattedDate
+
+          $.ajax({
+            type: 'POST',
+            data: data,
+            url: '/check_attendance_date',
+            success: function (result){
+              console.log(`the result is ${result}`)
+              if (!result) {
+                location.href = `edit_attendance/${date}`
+              } else {
+                //prompt the user if they would like to add a record instead of editing or just say that it doesnt exist yet so pick another date
+                $('#create-attendance').prop('disabled', false)
+                var option = confirm(`No attendance record found on ${date}, add a new attendance record?`)
+
+                if(option){
+                  location.href = "/add_attendance"
+                }
+
+              }
+            }
+          })
 
           
-  //     })
-  //  }  
+      })
+   }  
 
   
     $("#date").attr('readonly', 'readonly');
@@ -76,6 +124,7 @@ $(document).ready(function() {
     $('#add_non_member_button').click(function() {
         $('#nonMemberModal').modal('show')
         $('#witness_gfather_info_error').text('')
+        $('#no-attendees-error').text('')
     })
   
     var addedWitness = false
@@ -122,7 +171,7 @@ $(document).ready(function() {
           url: '/delete_attendance',
           success: function (result){
             if (result) {
-              console.log('record exists ')
+              window.location.reload(true)
             } else {
               $('#create-attendance').prop('disabled', false)
               alert('record doesnt exist')
@@ -237,76 +286,7 @@ $(document).ready(function() {
       $(selectParent2)[0].selectize.setValue('0')
       $('#parent2_info_error').text('')
     })
-  
-    $('#create-attendance').click(function (){
-        console.log("trgger")
-      $('#create-attendance').prop('disabled', true)
-      if(validateFields()) {
-        const data = {
-          child: {},
-          guardian1: {},
-          guardian2: {}
-        }
-        console.log('reached')
-        data.child = JSON.stringify(getDetails($('#child_member'), $('#input_child_member'), $('#child_first_name'), $('#child_mid_name'), $('#child_last_name')))
-        data.guardian1 = JSON.stringify(getDetails($('#parent1_member'), $('#input_parent1_member'), $('#parent1_first_name'), $('#parent1_mid_name'), $('#parent1_last_name')))
-       
-        if ($('#parent2_none').is(':checked')){
-          data.guardian2 = null
-        } else {
-          data.guardian2 = JSON.stringify(getDetails($('#parent2_member'), $('#input_parent2_member'), $('#parent2_first_name'), $('#parent2_mid_name'), $('#parent2_last_name')))
-        }
-  
-        data.officiant = $('#officiant').val()
-        data.place = $('#address').val()
-        data.witnessMale = []
-        data.witnessFemale = []
-        data.date = new Date($('#date').val()).toISOString()
-  
-        const witnesses = $('.witness')
-        for (witness of witnesses) {
-          const currWitness = {}
-          const isMale = $(witness).hasClass('male')
-          currWitness.type = isMale ? 'Godfather' : 'Godmother'
-  
-          if($(witness).attr('data-member-info') !== null && $(witness).attr('data-member-info') !== undefined) {
-            currWitness.person_id = $(witness).attr('data-member-info').split(', ')[1]
-            currWitness.isMember = true
-          } else {
-            currWitness.first_name = $(witness).find('.first_name').text()
-            currWitness.mid_name = $(witness).find('.mid_name').text()
-            currWitness.last_name = $(witness).find('.last_name').text()
-          }
-  
-          if (isMale) {
-            data.witnessMale.push(currWitness)
-          } else {
-            data.witnessFemale.push(currWitness)
-          }
-        }
-        
-        data.witnessMale = JSON.stringify(data.witnessMale)
-        data.witnessFemale = JSON.stringify(data.witnessFemale)
-  
-        $.ajax({
-          type: 'POST',
-          data: data,
-          url: '/add_dedication',
-          success: function (result){
-            if (result) {
-              location.href = '/view_dedication/' + result
-            } else {
-              $('#create-attendance').prop('disabled', false)
-              alert('An error occured')
-            }
-          }
-        })
-  
-      } else {
-        $('#create-attendance').prop('disabled', false)
-      }
-    })
-  
+
     $('#add_member').click(function (){
       var isValid = true
       
@@ -322,6 +302,7 @@ $(document).ready(function() {
       if(isValid) {
         var witnessName
         if(witnessMember) {
+          console.log('here')
           const firstName = $('#witness_gmother_first_name').val()
           const midName = $('#witness_gmother_mid_name').val()
           const lastName = $('#witness_gmother_last_name').val()
@@ -338,10 +319,25 @@ $(document).ready(function() {
             "</div>" + 
           "</div>")
         } else {
-          const witness_info = $('#input_member').val()
-          // witnessName = witness_info.replace(/\d+/g, '')
+          const witness_info = $('#input_member').val().split(", ")
+            const id_number = witness_info[1]
+            const firstName = witness_info[2]
+            const midName = witness_info[3]
+            const lastName = witness_info[4]
           // witnessName = witnessName.replace(/,/g, '')
-          $('#member_row').append("<div class='col-4' style='margin-bottom: 1em;'><div class='card witness' data-member-info=\"" + witness_info + "\"><div class='card-body'><p class='card-text'>" + witnessName + "</p><button type='button' class='fas fa-trash delGMotherWitnessBtn '></button> </div></div></div>")
+           $('#member_row').append(
+        "<div class='col-4' style='margin-bottom: 1em;'>" +
+          "<div class='card witness female'><div class='card-body'>" + 
+            "<p class='card-text member-text'>" + 
+              "<span class='first_name'>" + firstName + "</span> " + 
+              "<span class='mid_name'>" + midName + "</span> " + 
+              "<span class='last_name'>" + lastName + "</span>" + 
+              "<input type='hidden' class='id_number' value='" + id_number +"'>" + 
+            "</p>" +
+            "<button type='button' class='fas fa-trash delGMotherWitnessBtn '></button>" + 
+          "</div>" + 
+        "</div>" + 
+      "</div>")
         }
         $('#witness_gmother_info_error').text('')
         $('#witness_gfather_info_error').text('')
@@ -411,13 +407,9 @@ $(document).ready(function() {
     })
   
     $('#add_member_button').click(function() {
-      if(GMotherWitnessCtr === 6) {
-        $('#witness_gmother_info_error').text('You have reached the maximum number of witnesses')
-      } else {
         $('#memberModal').modal('show')
         $('#witness_gmother_info_error').text('')
-        isMaleModal = false
-      }
+        $('#no-attendees-error').text('')
     })
   
   
@@ -489,161 +481,22 @@ $(document).ready(function() {
         $('#non_member_last_name').val('')
     }
   
-    function validateFields() {
-      var isValid = true
-      
-      var childNonMember = $('#child_non_member').is(':checked')
-      var childFieldMember = $('#input_child_member').val() === '0' || $('#input_child_member').val() === ''
-      var childFieldNonMember = $('#child_first_name').val() === '' || $('#child_mid_name').val() === '' || $('#child_last_name').val() === ''
-      var childMiddleLen = $('#child_mid_name').val().length === 1
-      //alert(childFieldNonMember + ' ' + childFieldMember )
-    
-      var guardianOneMember = $('#input_parent1_member').val() === '0' || $('#input_parent1_member').val() === ''
-      var guardianOneNonMember = $('#parent1_first_name').val() === '' || $('#parent1_mid_name').val() === '' || $('#parent1_last_name').val() === ''
-      var guardianOneMiddleLen = $('#parent1_mid_name').val().length === 1
-  
-      var guardianTwoNone = $('#parent2_none').is(':checked')
-      var guardianTwoMember = $('#input_parent2_member').val() === '0' || $('#input_parent2_member').val() === ''
-      var guardianTwoNonMember = $('#parent2_first_name').val() === '' || $('#parent2_mid_name').val() === '' || $('#parent2_last_name').val() === ''
-      var guardianTwoMiddleLen = $('#parent2_mid_name').val().length === 1
-  
-      var officiantField = $('#officiant').val() === ''
-      var addressField = $('#address').val() === ''
-      var dateField = $('#date').val() === ''
-    
-    
-      if ((childNonMember && childFieldNonMember) || (!childNonMember && childFieldMember)) {
-        isValid = false
-        $('#child_info_error').text('Please provide child name')
-      } else {
-        $('#child_info_error').text('')
-      }
-  
-      if (!childFieldNonMember && !childMiddleLen) {
-        isValid = false
-        $('#child_middle_len_error').text("Child's middle initial should only contain 1 letter")
-      } else {
-        $('#child_middle_len_error').text('')
-      }
-  
-      if (childFieldNonMember === false && validateMidInitial($('#child_mid_name').val()) === false) {
-        isValid = false
-        $('#child_middle_error').text("Child's middle initial should only range from letters A-Z")
-      } else {
-        $('#child_middle_error').text('')
-      }
-    
-      if (guardianTwoNone && guardianOneMember && guardianOneNonMember) {
-        isValid = false
-        $('#parent1_info_error').text('Accomplish all fields')
-        $('#parent2_info_error').text('')
-      } else if (!guardianTwoNone) {
-        if (guardianOneMember && guardianOneNonMember) {
-          isValid = false
-          $('#parent1_info_error').text('Accomplish all fields')
-        } else {
-          $('#parent1_info_error').text('')
-        }
-        // middle initial should only be 1 letter
-        if (!guardianOneNonMember && !guardianOneMiddleLen) {
-          isValid = false
-          $('#parent1_middle_len_error').text('Middle Initial should only contain 1 letter')
-        } else {
-          $('#parent1_middle_len_error').text('')
-        }
-  
-        // middle initial checking for A-Z
-        if (guardianOneNonMember === false && validateMidInitial($('#parent1_mid_name').val()) === false) {
-          isValid = false
-          $('#parent1_middle_error').text('Middle Initial should only range from letters A-Z')
-        } else {
-          $('#parent1_middle_error').text('')
-        }
-  
-        if (guardianTwoMember && guardianTwoNonMember) {
-          isValid = false
-          $('#parent2_info_error').text('Accomplish all fields')
-        } else {
-          $('#parent2_info_error').text('')
-        }
-  
-        // middle initial should only be 1 letter
-        if (!guardianTwoNonMember && !guardianTwoMiddleLen) {
-          isValid = false
-          $('#parent2_middle_len_error').text('Middle Initial should only contain 1 letter')
-        } else {
-          $('#parent2_middle_len_error').text('')
-        }
-  
-        // middle initial checking for A-Z
-        if (guardianTwoNonMember === false && validateMidInitial($('#parent2_mid_name').val()) === false) {
-          isValid = false
-          $('#parent2_middle_error').text('Middle Initial should only range from letters A-Z')
-        } else {
-          $('#parent2_middle_error').text('')
-        }
-      } else if (guardianTwoNone) { // if checked
-        if (guardianOneMember && guardianOneNonMember) {
-          isValid = false
-          $('#parent1_info_error').text('Accomplish all fields')
-        } else {
-          $('#parent1_info_error').text('')
-        }
-        // middle initial should only be 1 letter
-        if (!guardianOneNonMember && !guardianOneMiddleLen) {
-          isValid = false
-          $('#parent1_middle_len_error').text('Middle Initial should only contain 1 letter')
-        } else {
-          $('#parent1_middle_len_error').text('')
-        }
-  
-        // middle initial checking for A-Z
-        if (guardianOneNonMember === false && validateMidInitial($('#parent1_mid_name').val()) === false) {
-          isValid = false
-          $('#parent1_middle_error').text('Middle Initial should only range from letters A-Z')
-        } else {
-          $('#parent1_middle_error').text('')
-        }
-      } else {
-    
-        $('#parent1_info_error').text('')
-        $('#parent2_info_error').text('')
-      }
-    
-      if (officiantField) {
-        isValid = false
-        $('#officiant_info_error').text('Please accomplish')
-      } else {
-    
-        $('#officiant_info_error').text('')
-      }
-    
-      if (addressField) {
-        isValid = false
-        $('#address_info_error').text('Please accomplish')
-      } else {
-    
-        $('#address_info_error').text('')
-      }
-    
-      if (dateField) {
-        isValid = false
-        $('#date_info_error').text('Please accomplish')
-      } else {
-        $('#date_info_error').text('')
-      }
-    
-      if (GMotherWitnessCtr === 0 && GFatherWitnessCtr === 0) {
-        isValid = false
-        $('#witness_gmother_info_error').text('There must be at least one godmother or godfather')
-        $('#witness_gfather_info_error').text('There must be at least one godmother or godfather')
-      } else {
-        $('#witness_gmother_info_error').text('')
-        $('#witness_gfather_info_error').text('')
-      }
-    
-      return isValid
+      function validateFields() {
+    var isValid = true
+
+    var nonMembers = $('#gfather_witness_row').children().length
+    var members = $('#member_row').children().length
+
+    if (nonMembers < 1 && members < 1) {
+      isValid = false
+      $('#no-attendees-error').text('Please add an attendee')
+    } else {
+      $('#no-attendees-error').text('')
     }
+  
+    return isValid
+  }
+
   
     function selectizeEnable(data) {
       $('#input_child_member').parent().find('.option[data-value="' + data + '"]').attr('data-selectable', true)
@@ -732,31 +585,62 @@ $(document).ready(function() {
       }
     }
 
-    $("#edit-date-button").click(function(){
-      
-      var userHasClickedDate = checkSelectedDate()
-
-      if(userHasClickedDate == false)
-        return
-
-      var selectedDate = $(".e-selected").children("span").attr("title")
-      var dateSplit = selectedDate.split(",");
-      var dayAndMonth = dateSplit[1]
-      var yearEdit = dateSplit[2]
-      dayAndMonth = dayAndMonth.split(" ")
-
-      var monthEdit = dayAndMonth[1]
-      var dayEdit = dayAndMonth[2]
+    $('#create-attendance').click(function (){
+      console.log("trgger")
      
-      monthEdit = convertMonth(monthEdit)
-     
-      var formattedDateToday = yearEdit + "-" + monthEdit.toString().padStart(2, '0') + "-" + dayEdit.toString().padStart(2, '0')
-      formattedDateToday = formattedDateToday.trim()
+    $('#create-attendance').prop('disabled', true)
+    if(validateFields()) {
+      const data = {
+        attendees: []
+      }
+      console.log('reached')
+      
+      const nonMembers = $('.non-member-text')
+      for (nonMember of nonMembers) {
+        const currNonMember = {}
 
-      location.href = '/edit_attendance/' + formattedDateToday
-      
-      
-    })
+        currNonMember.first_name = $(nonMember).find('.first_name').text()
+        currNonMember.mid_name = $(nonMember).find('.mid_name').text()
+        currNonMember.last_name = $(nonMember).find('.last_name').text()
+
+        data.attendees.push(currNonMember)
+      }
+
+      const members = $('.member-text')
+      for (member of members) {
+        const currMember = {}
+
+        currMember.person_id = $(member).children('.id_number').val()
+
+        data.attendees.push(currMember)
+      }
+
+      data.date = new Date($('#date').val()).toISOString()
+      data.attendees = JSON.stringify(data.attendees)
+
+      console.log(data)
+
+      $.ajax({
+        type: 'PUT',
+        data: data,
+        url: '/update_attendance',
+        success: function (result){
+          console.log(result)
+          if (result) {
+            location.href = '/view_attendance/' + $('#date').val()
+          } else {
+            $('#create-attendance').prop('disabled', false)
+            alert('An error occured')
+          }
+        }
+      })
+
+    } else {
+      $('#create-attendance').prop('disabled', false)
+       console.log('reafcched else')
+    }
+  })
+ 
   })
   
   

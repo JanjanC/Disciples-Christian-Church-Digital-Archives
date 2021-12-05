@@ -170,13 +170,16 @@ const attendanceController = {
    * @param res - the result to be sent out after processing the request
    */
   getEditAttendance: function (req, res) {
+    console.log('req params date' + req.params.date)
     const date = new Date(req.params.date).toISOString()
     if (parseInt(req.session.level) === 3 || parseInt(req.session.editId === parseInt(date))) {
       console.log(date)
       const data = {
         scripts: ['editAttendance', 'edit'],
         styles: ['forms'],
-        attendees: [],
+        attendeesMembers: [],
+        attendeesNonMembers:[],
+        attendees:[],
         members: []
       }
       // join table for the groom
@@ -190,10 +193,14 @@ const attendanceController = {
       
       const matchesDate = new Condition(queryTypes.where)
       matchesDate.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
+      const memberId = new Condition(queryTypes.whereNotNull)
+
 
       db.find(db.tables.ATTENDANCE_TABLE, [matchesDate], joinTables1, "*", function (result) {
+        data.attendeesMembers = result.filter(person => person.member_id != null)
+        data.attendeesNonMembers = result.filter(person => person.member_id == null)
         data.attendees = result
-        console.log(result)
+      
         let existingUsers = []
         if (result != undefined && result != null)
           existingUsers = result.map(a => a.member_id).filter((v, i, a) => a.indexOf(v) === i && v != null)
@@ -220,8 +227,8 @@ const attendanceController = {
         
         db.find(db.tables.MEMBER_TABLE, [notInAttendance], joinTables2, columns, function (result) {
           if (result !== null) {
-            console.log(result)
             data.members = result
+            console.dir(data)
             res.render('edit-attendance', data)
           }
         })
@@ -252,7 +259,7 @@ const attendanceController = {
       const attendees = []
       const keptAttendanceRecords = []
       const attendeesRaw = JSON.parse(req.body.attendees)
-
+      console.log(`attendeesRaw ${attendeesRaw}`)
       attendeesRaw.forEach(function (attendee) {
         if (attendee.attendance_id) {
           keptAttendanceRecords.push(attendee.attendance_id)
@@ -308,7 +315,7 @@ const attendanceController = {
   },
   checkIfAttendanceDateExists: function (req, res) {
     console.log('REACHED THIS')
-    const date  = req.body.date
+    const date = new Date(req.body.date).toISOString()
     console.log(`THIS IS THE DATE ${date}`)
     const condition = new Condition(queryTypes.where)
     condition.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
