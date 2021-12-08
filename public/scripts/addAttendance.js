@@ -3,7 +3,7 @@ $(document).ready(function() {
   var GFatherWitnessCtr = 0
   var addedWitness = false
   var witnessType = null
-  var dateExists = false
+  var dateExists = true
   const selectChild = $('#input_member').selectize()
   const selectParent1 = $('#input_parent1_member').selectize()
   const selectParent2 = $('#input_parent2_member').selectize()
@@ -19,7 +19,6 @@ $(document).ready(function() {
     const formattedDate = new Date(dateChosen)
     const data = {}
     data.date = formattedDate
-  
 
     $.ajax({
       type: 'POST',
@@ -31,7 +30,6 @@ $(document).ready(function() {
           $('#create-attendance').prop('disabled', true)
           dateExists = true
         } else {
-          //prompt the user if they would like to add a record instead of editing or just say that it doesnt exist yet so pick another date
           $("#date-exists-error").text('')
           $('#create-attendance').prop('disabled', false)
           dateExists = false
@@ -259,28 +257,32 @@ $(document).ready(function() {
 
   $('#add_non_member').click(function (){
     var isValid = true
-    var witnessNonMember = $('#non_member_first_name').val() === '' || $('#non_member_mid_name').val() === '' || $('#non_member_last_name').val() === ''
-    var witnessMiddleLen = $('#non_member_mid_name').val().length === 1
-
+    var witnessNonMember = $('#non_member_first_name').val() === '' || $('#non_member_last_name').val() === ''
+    var witnessMiddleLen = $('#non_member_mid_name').val().length
+    console.log(witnessMiddleLen)
     if (witnessNonMember) {
       isValid = false
       $('#witness_gfather_modal_info_error').text('Please accomplish all fields')
     } else {
       $('#witness_gfather_modal_info_error').text('')
     }
-    if (!witnessNonMember && !witnessMiddleLen) {
+
+    if (witnessMiddleLen > 1) {
       isValid = false
-      $('#witness_gfather_modal_middle_len_error').text('Middle Initial should only contain 1 letter')
+      console.log('true')
+      $('#witness_gfather_modal_info_error').text('Middle Initial should only contain 1 letter')
+    } else {
+      $('#witness_gfather_modal_info_error').text('')
+      console.log('false')
+    }
+
+    if(validateMidInitial($('#non_member_mid_name').val()) === false && witnessMiddleLen != 0){
+      isValid = false
+      $('#witness_gfather_modal_middle_len_error').text('Middle Initial should only contain letters')
     } else {
       $('#witness_gfather_modal_middle_len_error').text('')
     }
 
-    if (witnessNonMember === false && validateMidInitial($('#non_member_mid_name').val()) === false) {
-      isValid = false
-      $('#witness_gfather_modal_middle_error').text('Middle Initial should only range from letters A-Z')
-    } else {
-      $('#witness_gfather_modal_middle_error').text('')
-    }
 
 
     if(isValid) {
@@ -333,7 +335,6 @@ $(document).ready(function() {
 
   $(document).on('click', '.delGFatherWitnessBtn', function () {
     const member = $(this).closest('.card')
-    alert('trigger')
     if (member !== null) {
       selectizeEnable(member)
     }
@@ -374,8 +375,6 @@ $(document).ready(function() {
    * This function hides the selected choice for all select fields to avoid duplication of choices
    */
   function hideChoices() {
-    alert(previous)
-    alert(currOption)
     selectizeDisable(currOption)
     $(this).data('previous', currOption)
 
@@ -401,7 +400,7 @@ $(document).ready(function() {
   function validateFields() {
     var isValid = true
     checkIfDateExists()
-
+ 
     if(dateExists)
       return
 
@@ -459,7 +458,7 @@ $(document).ready(function() {
   
   // used to validate middle initial
   function validateMidInitial (mid) {
-    const re = /^[A-Z]/
+    const re = /[A-Za-z]/
     return re.test(mid)
   }
 })
