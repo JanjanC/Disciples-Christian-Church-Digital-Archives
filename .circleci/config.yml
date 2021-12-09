@@ -9,7 +9,10 @@ orbs:
 # Define the jobs we want to run for this project
 jobs:
     build:
+        resource_class: small
         working_directory: ~/app
+        environment:
+            IMAGE_NAME: adrielamoguis/stsweng-heroku-dcc
         docker:
             - image: circleci/buildpack-deps:stretch
               auth:
@@ -21,7 +24,7 @@ jobs:
             - run:
                   name: Build Docker Image
                   command: |
-                      docker build -t $IMAGE_NAME
+                      docker build -t $IMAGE_NAME:latest .
             - run:
                   name: Push Docker Image
                   command: |
@@ -29,6 +32,7 @@ jobs:
                       docker push $IMAGE_NAME:latest
                       docker push $IMAGE_NAME:$CIRCLE_SHA1
     test:
+        resource_class: small
         docker:
             - image: circleci/buildpack-deps:stretch
               auth:
