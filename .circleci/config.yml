@@ -40,7 +40,7 @@ jobs:
                   name: Pull Latest Docker Image
                   command: |
                       echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-                      docker pull $IMAGE_NAME:latest
+                      docker pull $IMAGE_NAME
             - run:
                   name: Run all npm test scripts
                   command: |
