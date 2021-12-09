@@ -15,9 +15,6 @@ jobs:
             IMAGE_NAME: adrielamoguis/stsweng-heroku-dcc
         docker:
             - image: circleci/buildpack-deps:stretch
-              auth:
-                  username: $DOCKERHUB_USERNAME
-                  password: $DOCKERHUB_PASS # context / project UI env-var reference
         steps:
             - checkout
             - setup_remote_docker
@@ -28,21 +25,22 @@ jobs:
             - run:
                   name: Push Docker Image
                   command: |
+                      echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                       docker tag $IMAGE_NAME:latest $IMAGE_NAME:$CIRCLE_SHA1
-                      docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:latest
-                      docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
+                      docker push $IMAGE_NAME:$CIRCLE_SHA1
     test:
+        environment:
+            IMAGE_NAME: adrielamoguis/stsweng-heroku-dcc
         resource_class: small
         docker:
             - image: circleci/buildpack-deps:stretch
-              auth:
-                  username: $DOCKERHUB_USERNAME
-                  password: $DOCKERHUB_PASS # context / project UI env-var reference
         steps:
+            - setup_remote_docker
             - run:
                   name: Pull Latest Docker Image
                   command: |
-                      docker pull $DOCKERHUB_USERNAME/$IMAGE_NAME:latest
+                      echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+                      docker pull $IMAGE_NAME:latest
             - run:
                   name: Run all npm test scripts
                   command: |
