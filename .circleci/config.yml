@@ -21,7 +21,7 @@ jobs:
             - run:
                   name: Build Docker Image
                   command: |
-                      docker build -t $IMAGE_NAME:latest .
+                      docker build -t $IMAGE_NAME .
             - run:
                   name: Push Docker Image
                   command: |
@@ -52,6 +52,3 @@ workflows:
             - test:
                   requires:
                       - build
-    test:
-        jobs:
-            - test
