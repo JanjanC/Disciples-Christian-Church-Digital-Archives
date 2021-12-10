@@ -27,7 +27,7 @@ jobs:
                   command: |
                       echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                       docker tag $IMAGE_NAME:latest $IMAGE_NAME:$CIRCLE_SHA1
-                      docker push $IMAGE_NAME:$CIRCLE_SHA1
+                      docker push $IMAGE_NAME:latest
     test:
         environment:
             IMAGE_NAME: adrielamoguis/stsweng-heroku-dcc
