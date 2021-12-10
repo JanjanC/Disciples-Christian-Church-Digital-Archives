@@ -92,7 +92,7 @@
     <div class="row" id="date-row">
        <label for="address">Date of Service </label>
       <div class="col-12 d-flex justify-content-between">
-          <input type="date" id="date" name="date" class="form-control">
+          <input type="date" id="date" name="date" class="form-control" max="9999-12-31">
           <span class="fa-stack fa-2x" id="delete-button">
             <i class="far fa-square fa-stack-2x" id="border-delete" ></i>
             <i class="far fa-trash-alt fa-stack-1x" id="delete-icon" ></i>
@@ -235,7 +235,7 @@
         <button type="button" id="close-symbol-edit" class="btn-close" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="modal-body-edit">
-        <input type="date" id="edit-date">
+        <input type="date" id="edit-date" max="9999-12-31">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" id="close-edit-btn">Close</button>
