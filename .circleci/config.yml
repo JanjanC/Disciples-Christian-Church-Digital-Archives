@@ -31,8 +31,9 @@ jobs:
     test:
         resource_class: small
         docker:
-            - image: circleci/buildpack-deps:stretch
+            - image: cimg/node:16
         steps:
+            - checkout
             - setup_remote_docker
             - run:
                   name: Install npm dependencies
