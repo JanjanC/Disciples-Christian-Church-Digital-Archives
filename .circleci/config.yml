@@ -29,22 +29,15 @@ jobs:
                       docker tag $IMAGE_NAME:latest $IMAGE_NAME:$CIRCLE_SHA1
                       docker push $IMAGE_NAME:latest
     test:
-        environment:
-            IMAGE_NAME: adrielamoguis/stsweng-heroku-dcc
         resource_class: small
         docker:
             - image: circleci/buildpack-deps:stretch
         steps:
             - setup_remote_docker
             - run:
-                  name: Pull Latest Docker Image
+                  name: Install npm dependencies
                   command: |
-                      echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-                      docker pull $IMAGE_NAME
-            - run:
-                  name: Start docker container
-                  command: |
-                      docker run -i $IMAGE_NAME:latest
+                      npm install
             - run:
                   name: Run all npm test scripts
                   command: |
@@ -52,9 +45,14 @@ jobs:
 
 # Orchestrate our job run sequence
 workflows:
-    build_and_test:
+    build:
         jobs:
-            - build
-            - test:
-                  requires:
-                      - build
+            - build:
+                  filters:
+                      branches:
+                          only:
+                              - staging
+                              - main
+    test:
+        jobs:
+            - test
