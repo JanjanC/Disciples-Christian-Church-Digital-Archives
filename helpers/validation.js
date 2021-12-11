@@ -88,6 +88,14 @@ const validation = {
     return validation
   },
 
+  addAttendanceValidation: function () {
+    const validation = [
+      check('date').notEmpty().isDate()
+    ]
+
+    return validation
+  },
+
   /**
    * This function validates the church form if there are no empty required fields.
    * @returns the validation array containing each boolean result

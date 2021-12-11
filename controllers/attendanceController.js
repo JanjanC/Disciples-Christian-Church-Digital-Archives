@@ -17,10 +17,8 @@ const attendanceController = {
    */
    getViewAttendance: function (req, res) {
     const level = req.session.level
-    req.session.editId = null
-    console.log(level)
-
-    if (level === undefined || level === null || parseInt(level) === 1) {
+    const date = new Date(req.params.date).toISOString()
+    if (level === undefined || level === null || (parseInt(level) === 1 && req.session.editId != date)) {
       res.status(401)
       res.render('error', {
         title: '401 Unauthorized Access',
@@ -47,7 +45,6 @@ const attendanceController = {
         'person.' + personFields.LAST_NAME + ' as member_last_name',
         'person.' + personFields.MEMBER + ' as member_id'
       ]
-      const date = new Date(req.params.date).toISOString()
       const conditions = new Condition(queryTypes.where)
       conditions.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
 
@@ -79,16 +76,17 @@ const attendanceController = {
     ]
     let membersNames = []
     db.find(db.tables.MEMBER_TABLE, [], joinTables1, "*", function (result) {
-      if (result !== null) {
-        membersNames = result
-        req.session.editId = null
-        res.render('add-attendance-temp', {
-          styles: ['forms'],
-          scripts: ['addAttendance'],
-          Origin: 'coming from forms creation',
-          membersNames: membersNames
-        })
-      }
+      if (result === null) 
+        result = []
+      console.log(result)
+      membersNames = result
+      req.session.editId = null
+      res.render('add-attendance-temp', {
+        styles: ['forms'],
+        scripts: ['addAttendance'],
+        Origin: 'coming from forms creation',
+        membersNames: membersNames
+      })
     })
   },
   /**
@@ -158,7 +156,6 @@ const attendanceController = {
           db.insert(db.tables.ATTENDANCE_TABLE, attendees, function (result) {
             if (result !== false) {
               req.session.editId = date
-              const d = new Date(date)
               res.send(true)
             } else {
               res.send(false)
