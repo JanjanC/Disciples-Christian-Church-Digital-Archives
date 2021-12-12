@@ -57,7 +57,7 @@ app.get('/edit_prenup/:prenup_id', prenupController.getEditPrenup)
 // Attendance
 app.get('/attendance_main_page', indexController.getAttendanceMainPage)
 app.get('/view_attendance/:date', attendanceController.getViewAttendance)
-app.get('/add_attendance', attendanceController.getAddAttendance)
+app.get('/add_attendance', validation.addAttendanceValidation(), attendanceController.getAddAttendance)
 app.get('/edit_attendance/:date', attendanceController.getEditAttendance)
 
 app.get('/dedication_main_page', indexController.getDedicationMainPage)
@@ -99,7 +99,7 @@ app.put('/update_bap/member', baptismalController.putUpdateBaptismalMember)
 app.put('/update_bap/officiant', baptismalController.putUpdateBaptismalOfficiant)
 app.put('/update_bap', baptismalController.putUpdateBaptismalMisc)
 
-app.put('/update_attendance', /*validation.addAttendanceValidation(),*/ attendanceController.putUpdateAttendance)
+app.put('/update_attendance', validation.addAttendanceValidation(), attendanceController.putUpdateAttendance)
 
 app.put('/update_wedding/couple', weddingController.putUpdateCouple)
 app.put('/update_wedding/witness', weddingController.putUpdateWitness)

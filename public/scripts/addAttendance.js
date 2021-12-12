@@ -9,8 +9,12 @@ $(document).ready(function() {
   const selectParent2 = $('#input_parent2_member').selectize()
   const selectWitnessGMother = $('#input_member').selectize()
   const selectWitnessGFather = $('#input_witness_gfather_member').selectize()
+  
+  $("#date").ready(function() {
+    checkIfDateExists()
+  })
 
-  $( "#date" ).blur(function() {
+  $( "#date" ).change(function() {
     checkIfDateExists()
   });
 
@@ -399,7 +403,17 @@ $(document).ready(function() {
 
   function validateFields() {
     var isValid = true
-    checkIfDateExists()
+    var dateChosen = $('#date').val()
+
+    if (!dateChosen) {
+      isValid = false
+      $('#date-exists-error').text('Please input a valid date')
+    } else {
+      $('#date-exists-error').text('')
+    }
+
+    if(isValid)
+      checkIfDateExists()
  
     if(dateExists)
       return
@@ -462,5 +476,3 @@ $(document).ready(function() {
     return re.test(mid)
   }
 })
-
-

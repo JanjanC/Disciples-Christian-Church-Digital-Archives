@@ -78,9 +78,11 @@ app.use(function (req, res) {
   })
 })
 
-app.listen(port, hostname, function () {
-  console.log('Server running at:')
-  console.log('http://' + hostname + ':' + port)
-})
+if (process.env.NODE_ENV !== "test") {
+    app.listen(port, hostname, function () {
+        console.log("Server running at:");
+        console.log("http://" + hostname + ":" + port);
+    });
+}
 
-module.export = app
+module.exports = app
