@@ -20,10 +20,7 @@ $(document).ready(function() {
   })
 
   $('th').css('border-bottom', '3px black double')
-  $('#dataTable').on('click', 'tbody tr', function() {
-    if ($(this).data('href') !== undefined)
-      window.location.href = $(this).data('href')
-  })
+
 
   var url = window.location.href
   var dateTodayUnformatted = url.split('view_attendance/')[1]

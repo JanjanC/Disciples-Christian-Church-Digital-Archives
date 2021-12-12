@@ -34,7 +34,7 @@
   .modal{
      margin-top:3em !important;
   }
-
+  
   }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -63,7 +63,7 @@
       </thead>
       <tbody>
         {{#each records}}
-        <tr data-href="/view_baptismal/{{this.reg_id}}">
+        <tr>
           
           <td>{{this.member_first_name}} {{this.member_last_name}}</td>
           <td class="membership-status">{{this.member_id}}</td>

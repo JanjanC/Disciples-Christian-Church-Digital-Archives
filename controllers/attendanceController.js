@@ -56,7 +56,7 @@ const attendanceController = {
         const data = {}
         data.records = result
         data.scripts = ['viewAttendance']
-        data.styles = ['lists']
+        data.styles = ['attendanceView']
         data.backLink = 'attendance_main_page'
         console.log(data)
 
