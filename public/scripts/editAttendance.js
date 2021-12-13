@@ -624,11 +624,11 @@ $(document).ready(function() {
         data.attendees.push(currMember)
       }
 
-      data.date = new Date($('#date').val()).toISOString()
+      data.date = $('#date').val()
       data.attendees = JSON.stringify(data.attendees)
 
       console.log(data)
-
+      alert(data)
       $.ajax({
         type: 'PUT',
         data: data,
@@ -636,7 +636,7 @@ $(document).ready(function() {
         success: function (result){
           console.log(result)
           if (result) {
-            location.href = '/view_attendance/' + $('#date').val()
+    
           } else {
             $('#create-attendance').prop('disabled', false)
             alert('An error occured')
