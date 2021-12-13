@@ -31,7 +31,7 @@ jobs:
     test:
         resource_class: small
         docker:
-            - image: cimg/node
+            - image: circleci/node
         steps:
             - checkout
             - setup_remote_docker
