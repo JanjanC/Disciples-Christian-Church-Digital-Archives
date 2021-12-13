@@ -261,30 +261,43 @@ $(document).ready(function() {
 
   $('#add_non_member').click(function (){
     var isValid = true
-    var witnessNonMember = $('#non_member_first_name').val() === '' || $('#non_member_last_name').val() === ''
-    var witnessMiddleLen = $('#non_member_mid_name').val().length
-    console.log(witnessMiddleLen)
-    if (witnessNonMember) {
+    var firstNameAndLastName = $('#non_member_first_name').val() === '' || $('#non_member_last_name').val() === ''
+    var nameMiddleLen = $('#non_member_mid_name').val().length
+    var firstName = $("#non_member_first_name").val()
+    var lastName = $("#non_member_last_name").val()
+
+    if(hasNumber(firstName) || checkSpecialChar(firstName) || hasNumber(lastName) || checkSpecialChar(lastName)){
       isValid = false
-      $('#witness_gfather_modal_info_error').text('Please accomplish all fields')
-    } else {
-      $('#witness_gfather_modal_info_error').text('')
+      $('#names_char_error').text('Names should only contain letters')
+    }
+    else{
+      $('#names_char_error').text('')
     }
 
-    if (witnessMiddleLen > 1) {
+    if (firstNameAndLastName) {
+      isValid = false
+      console.log('no non')
+      $('#empty_names_error').text('Please accomplish all required fields')
+    } else {
+      $('#empty_names_error').text('')
+    }
+
+  
+    if (nameMiddleLen > 1) {
       isValid = false
       console.log('true')
-      $('#witness_gfather_modal_info_error').text('Middle Initial should only contain 1 letter')
+      $('#middle_name_single_error').text('Middle Initial should only contain 1 letter')
+      
     } else {
-      $('#witness_gfather_modal_info_error').text('')
+      $('#middle_name_single_error').text('')
       console.log('false')
     }
 
-    if(validateMidInitial($('#non_member_mid_name').val()) === false && witnessMiddleLen != 0){
+    if(validateMidInitial($('#non_member_mid_name').val()) === false && nameMiddleLen != 0){
       isValid = false
-      $('#witness_gfather_modal_middle_len_error').text('Middle Initial should only contain letters')
+      $('#middle_name_char_error').text('Middle Initial should only contain letters')
     } else {
-      $('#witness_gfather_modal_middle_len_error').text('')
+      $('#middle_name_char_error').text('')
     }
 
 
@@ -475,4 +488,28 @@ $(document).ready(function() {
     const re = /[A-Za-z]/
     return re.test(mid)
   }
+
+  $('#close_modal_non_member').click(function(){
+    $('#empty_names_error').text('')
+    $('#middle_name_single_error').text('')
+    $('#middle_name_char_error').text('')
+    $('#names_char_error').text('')
+  })
+
+  $('#close_modal_exit_btn').click(function(){
+    $('#empty_names_error').text('')
+    $('#middle_name_single_error').text('')
+    $('#middle_name_char_error').text('')
+    $('#names_char_error').text('')
+  })
+
+  function checkSpecialChar(str){
+    var regex = /[ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
+    return regex.test(str);
+   }
+
+   function hasNumber(str) {
+    return /\d/.test(str);
+  }
+  
 })
