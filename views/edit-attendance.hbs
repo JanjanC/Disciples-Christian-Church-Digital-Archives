@@ -168,7 +168,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Non-member</h5>
-        <button type="button" id="close_modal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" id="close_modal_exit_btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -193,13 +193,15 @@
               </div>
             </fieldset>
             <p id="witness_gfather_modal_info_error" class="error_codes"> </p>
-            <p id="witness_gfather_modal_middle_error" class="error_codes"> </p>
-            <p id="witness_gfather_modal_middle_len_error" class="error_codes"> </p>
+            <p id="middle_name_single_error" class="error_codes"> </p>
+            <p id="middle_name_char_error" class="error_codes"> </p>
+            <p id ='empty_names_error' class="error_codes"></p>
+            <p id ='names_char_error' class="error_codes"></p>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" id="cancel_modal" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="close_modal_non_member" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="add_non_member">Save changes</button>
       </div>
     </div>

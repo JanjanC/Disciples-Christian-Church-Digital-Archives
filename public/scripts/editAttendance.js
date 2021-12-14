@@ -355,30 +355,45 @@ $(document).ready(function() {
     })
   
     $('#add_non_member').click(function (){
-      var isValid = true
-      var witnessNonMember = $('#non_member_first_name').val() === '' || $('#non_member_mid_name').val() === '' || $('#non_member_last_name').val() === ''
-      var witnessMiddleLen = $('#non_member_mid_name').val().length === 1
+    var isValid = true
+    var firstNameAndLastName = $('#non_member_first_name').val() === '' || $('#non_member_last_name').val() === ''
+    var nameMiddleLen = $('#non_member_mid_name').val().length
+    var firstName = $("#non_member_first_name").val()
+    var lastName = $("#non_member_last_name").val()
+
+    if(hasNumber(firstName) || checkSpecialChar(firstName) || hasNumber(lastName) || checkSpecialChar(lastName)){
+      isValid = false
+      $('#names_char_error').text('Names should only contain letters')
+    }
+    else{
+      $('#names_char_error').text('')
+    }
+
+    if (firstNameAndLastName) {
+      isValid = false
+      console.log('no non')
+      $('#empty_names_error').text('Please accomplish all required fields')
+    } else {
+      $('#empty_names_error').text('')
+    }
+
   
-      if (witnessNonMember) {
-        isValid = false
-        $('#witness_gfather_modal_info_error').text('Please accomplish all fields')
-      } else {
-        $('#witness_gfather_modal_info_error').text('')
-      }
-      if (!witnessNonMember && !witnessMiddleLen) {
-        isValid = false
-        $('#witness_gfather_modal_middle_len_error').text('Middle Initial should only contain 1 letter')
-      } else {
-        $('#witness_gfather_modal_middle_len_error').text('')
-      }
-  
-      if (witnessNonMember === false && validateMidInitial($('#non_member_mid_name').val()) === false) {
-        isValid = false
-        $('#witness_gfather_modal_middle_error').text('Middle Initial should only range from letters A-Z')
-      } else {
-        $('#witness_gfather_modal_middle_error').text('')
-      }
-  
+    if (nameMiddleLen > 1) {
+      isValid = false
+      console.log('true')
+      $('#middle_name_single_error').text('Middle Initial should only contain 1 letter')
+      
+    } else {
+      $('#middle_name_single_error').text('')
+      console.log('false')
+    }
+
+    if(validateMidInitial($('#non_member_mid_name').val()) === false && nameMiddleLen != 0){
+      isValid = false
+      $('#middle_name_char_error').text('Middle Initial should only contain letters')
+    } else {
+      $('#middle_name_char_error').text('')
+    }
   
       if(isValid) {
           const firstName = $('#non_member_first_name').val()
@@ -624,11 +639,11 @@ $(document).ready(function() {
         data.attendees.push(currMember)
       }
 
-      data.date = new Date($('#date').val()).toISOString()
+      data.date = $('#date').val()
       data.attendees = JSON.stringify(data.attendees)
 
       console.log(data)
-
+     
       $.ajax({
         type: 'PUT',
         data: data,
@@ -650,6 +665,33 @@ $(document).ready(function() {
     }
   })
  
+  function validateMidInitial (mid) {
+    const re = /[A-Za-z]/
+    return re.test(mid)
+  }
+
+  $('#close_modal_non_member').click(function(){
+    $('#empty_names_error').text('')
+    $('#middle_name_single_error').text('')
+    $('#middle_name_char_error').text('')
+    $('#names_char_error').text('')
+  })
+
+  $('#close_modal_exit_btn').click(function(){
+    $('#empty_names_error').text('')
+    $('#middle_name_single_error').text('')
+    $('#middle_name_char_error').text('')
+    $('#names_char_error').text('')
+  })
+
+  function checkSpecialChar(str){
+    var regex = /[ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
+    return regex.test(str);
+   }
+
+   function hasNumber(str) {
+    return /\d/.test(str);
+  }
   })
   
   
