@@ -174,7 +174,7 @@ const attendanceController = {
   getEditAttendance: function (req, res) {
     console.log('req params date' + req.params.date)
     const date = new Date(req.params.date).toISOString()
-    if (parseInt(req.session.level) === 3 || parseInt(req.session.editId === parseInt(date))) {
+    if (parseInt(req.session.level) === 3 || parseInt(req.session.level) === 2 || req.session.editId === date) {
       console.log(date)
       const data = {
         scripts: ['editAttendance', 'edit'],
@@ -195,8 +195,6 @@ const attendanceController = {
       
       const matchesDate = new Condition(queryTypes.where)
       matchesDate.setKeyValue(db.tables.ATTENDANCE_TABLE + '.' + attendanceFields.DATE, date)
-      const memberId = new Condition(queryTypes.whereNotNull)
-
 
       db.find(db.tables.ATTENDANCE_TABLE, [matchesDate], joinTables1, "*", function (result) {
         data.attendeesMembers = result.filter(person => person.member_id != null)
