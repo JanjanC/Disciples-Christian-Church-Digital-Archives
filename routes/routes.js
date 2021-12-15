@@ -11,6 +11,7 @@ const observationController = require('../controllers/observationController')
 const dedicationController = require('../controllers/dedicationController')
 const weddingController = require('../controllers/weddingController')
 const baptismalController = require('../controllers/baptismalController')
+const attendanceController = require('../controllers/attendanceController')
 const searchController = require('../controllers/searchController')
 
 const app = express()
@@ -53,6 +54,12 @@ app.get('/edit_member/:member_id/add_prenup', prenupController.getAddPrenup)
 app.get('/view_prenup/:prenup_id', prenupController.getViewPrenup)
 app.get('/edit_prenup/:prenup_id', prenupController.getEditPrenup)
 
+// Attendance
+app.get('/attendance_main_page', indexController.getAttendanceMainPage)
+app.get('/view_attendance/:date', attendanceController.getViewAttendance)
+app.get('/add_attendance', validation.addAttendanceValidation(), attendanceController.getAddAttendance)
+app.get('/edit_attendance/:date', attendanceController.getEditAttendance)
+
 app.get('/dedication_main_page', indexController.getDedicationMainPage)
 app.get('/wedding_main_page', indexController.getWeddingMainPage)
 app.get('/baptismal_main_page', indexController.getBapRecordsMainPage)
@@ -72,6 +79,9 @@ app.put('/update_prenup/bride', prenupController.putUpdatePrenupBride)
 app.put('/update_prenup/groom', prenupController.putUpdatePrenupGroom)
 app.put('/update_prenup/date', prenupController.putUpdatePrenupDate)
 
+app.post('/create_attendance', attendanceController.createAttendance)
+app.post('/check_attendance_date', attendanceController.checkIfAttendanceDateExists)
+
 app.post('/add_dedication', dedicationController.postAddDedication)
 app.post('/add_baptismal', baptismalController.postAddBaptismalRecord)
 
@@ -88,6 +98,8 @@ app.put('/update_church', validation.churchValidation(), churchController.putUpd
 app.put('/update_bap/member', baptismalController.putUpdateBaptismalMember)
 app.put('/update_bap/officiant', baptismalController.putUpdateBaptismalOfficiant)
 app.put('/update_bap', baptismalController.putUpdateBaptismalMisc)
+
+app.put('/update_attendance', validation.addAttendanceValidation(), attendanceController.putUpdateAttendance)
 
 app.put('/update_wedding/couple', weddingController.putUpdateCouple)
 app.put('/update_wedding/witness', weddingController.putUpdateWitness)
@@ -109,5 +121,6 @@ app.delete('/delete_member', memberController.deleteMember)
 app.delete('/delete_dedication/witness', dedicationController.delWitness)
 app.delete('/delete_dedication', dedicationController.deleteDedication)
 app.delete('/delete_prenup', prenupController.deletePrenup)
+app.delete('/delete_attendance', attendanceController.deleteAttendance)
 
 module.exports = app
