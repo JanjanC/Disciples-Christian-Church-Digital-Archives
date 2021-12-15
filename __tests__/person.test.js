@@ -1,9 +1,10 @@
 const sinon = require('sinon');
 const request = require('supertest');
 const app = require('../app');
-const PersonController = require('../controllers/personController');
+const personController = require('../controllers/personController');
+const db = require("../models/db");
 
-describe ('Person Controller', () => {
+describe('Person Controller', () => {
 
     let req = {}
     let res = {}
@@ -11,7 +12,7 @@ describe ('Person Controller', () => {
 
     const sandbox = sinon.createSandbox();
 
-    beforeEach (() => {
+    beforeEach(() => {
         res = {
             send: sandbox.spy()
         };
@@ -21,25 +22,43 @@ describe ('Person Controller', () => {
         sandbox.restore();
     });
 
-    it('Should send result in putUpdatePerson', () => {
+    it('Should be able to access postUpdatePerson', () => {
         //Arrange
-        expectedResult = true;
+        req = {
+            body: {
+                people: '"personId": 12345'
+            }
+        }
+
+        sandbox.stub(db, "insert").yields(req.body.people);
+        expectedResult = req.body.people;
 
         //Act
-        PersonController.putUpdatePerson(req, res, callback);
+        personController.postAddPerson(req, res, callback);
 
         //Assert
-        sinon.assert.calledWith(res.send, expectedResult);      
+        sinon.assert.calledWith(res.send, expectedResult);
     });
 
-    it('Should send result in delPerson', () => {
+    it('Should be able to access putUpdatePerson', () => {
         //Arrange
         expectedResult = true;
 
         //Act
-        PersonController.delPerson(req, res, callback);
+        personController.putUpdatePerson(req, res, callback);
 
         //Assert
-        sinon.assert.calledWith(res.send, expectedResult);      
+        sinon.assert.calledWith(res.send, expectedResult);
+    });
+
+    it('Should be able to access delPerson', () => {
+        //Arrange
+        expectedResult = true;
+
+        //Act
+        personController.delPerson(req, res, callback);
+
+        //Assert
+        sinon.assert.calledWith(res.send, expectedResult);
     });
 });
