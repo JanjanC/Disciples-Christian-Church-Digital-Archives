@@ -63,12 +63,14 @@ workflows:
                           only:
                               - staging
                               - main
+                              - database-migration-and-project-midpoint
             - deploy:
                   filters:
                       branches:
                           only:
                               - staging
                               - main
+                              - database-migration-and-project-midpoint
     build:
         jobs:
             - build:
@@ -77,6 +79,7 @@ workflows:
                           only:
                               - staging
                               - main
+                              - database-migration-and-project-midpoint
     test:
         jobs:
             - test
