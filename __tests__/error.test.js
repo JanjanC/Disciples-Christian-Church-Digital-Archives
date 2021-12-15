@@ -1,5 +1,4 @@
 const sinon = require("sinon");
-
 const errorController = require("../controllers/errorController");
 
 describe("errorController", () => {
