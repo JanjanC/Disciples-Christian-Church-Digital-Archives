@@ -1,19 +1,16 @@
-const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
-const PersonController = require('../controllers/personController');
+const sinon = require("sinon");
+const PersonController = require("../controllers/personController");
 
-describe ('Person Controller', () => {
-
-    let req = {}
-    let res = {}
-    let callback = null
+describe("Person Controller", () => {
+    let req = {};
+    let res = {};
+    let callback = null;
 
     const sandbox = sinon.createSandbox();
 
-    beforeEach (() => {
+    beforeEach(() => {
         res = {
-            send: sandbox.spy()
+            send: sandbox.spy(),
         };
     });
 
@@ -21,7 +18,7 @@ describe ('Person Controller', () => {
         sandbox.restore();
     });
 
-    it('Should send result in putUpdatePerson', () => {
+    it("Should send result in putUpdatePerson", () => {
         //Arrange
         expectedResult = true;
 
@@ -29,10 +26,10 @@ describe ('Person Controller', () => {
         PersonController.putUpdatePerson(req, res, callback);
 
         //Assert
-        sinon.assert.calledWith(res.send, expectedResult);      
+        sinon.assert.calledWith(res.send, expectedResult);
     });
 
-    it('Should send result in delPerson', () => {
+    it("Should send result in delPerson", () => {
         //Arrange
         expectedResult = true;
 
@@ -40,6 +37,6 @@ describe ('Person Controller', () => {
         PersonController.delPerson(req, res, callback);
 
         //Assert
-        sinon.assert.calledWith(res.send, expectedResult);      
+        sinon.assert.calledWith(res.send, expectedResult);
     });
 });

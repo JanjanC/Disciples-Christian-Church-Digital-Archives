@@ -1,29 +1,25 @@
-const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
-const IndexController = require('../controllers/indexController');
+const sinon = require("sinon");
+const IndexController = require("../controllers/indexController");
 
-describe ('Index Controller', () => {
-
-    let req = {}
-    let res = {}
+describe("Index Controller", () => {
+    let req = {};
+    let res = {};
 
     const sandbox = sinon.createSandbox();
 
     //Wondering if the levels should be tested given a test account
-    describe('Level one access', () => {        
-
+    describe("Level one access", () => {
         req = {
             session: {
                 level: 1,
-                editId: null
-            }
-        }
+                editId: null,
+            },
+        };
 
-        beforeEach (() => {
+        beforeEach(() => {
             res = {
                 render: sandbox.spy(),
-                status: sandbox.stub().returns({end: sinon.spy()})
+                status: sandbox.stub().returns({ end: sinon.spy() }),
             };
         });
 
@@ -31,55 +27,55 @@ describe ('Index Controller', () => {
             sandbox.restore();
         });
 
-        it('Should be able to access getMainPage', () => {
+        it("Should be able to access getMainPage", () => {
             //Arrange
-            expectedResult =  {
+            expectedResult = {
                 level: 1,
-                styles: ['mainPage'],
-                scripts: [''],
-                canSee: false
-            }
+                styles: ["mainPage"],
+                scripts: [""],
+                canSee: false,
+            };
 
             //Act
             IndexController.getMainPage(req, res);
 
             //Assert
-            sinon.assert.calledWith(res.render, 'main-page', sinon.match({level: expectedResult.level}));
-            sinon.assert.calledWith(res.render, 'main-page', sinon.match({styles: expectedResult.styles}));
-            sinon.assert.calledWith(res.render, 'main-page', sinon.match({scripts: expectedResult.scripts}));
-            sinon.assert.calledWith(res.render, 'main-page', sinon.match({canSee: expectedResult.canSee}));            
+            sinon.assert.calledWith(res.render, "main-page", sinon.match({ level: expectedResult.level }));
+            sinon.assert.calledWith(res.render, "main-page", sinon.match({ styles: expectedResult.styles }));
+            sinon.assert.calledWith(res.render, "main-page", sinon.match({ scripts: expectedResult.scripts }));
+            sinon.assert.calledWith(res.render, "main-page", sinon.match({ canSee: expectedResult.canSee }));
         });
 
-        it('Should be able to access getFormsPage', () => {
+        it("Should be able to access getFormsPage", () => {
             //Arrange
-            expectedResult =  {
+            expectedResult = {
                 level: 1,
-                styles: ['mainPage'],
-                scripts: [''],
+                styles: ["mainPage"],
+                scripts: [""],
                 canSee: false,
-                backLink: 'main_page'
-            }
+                backLink: "main_page",
+            };
 
             //Act
             IndexController.getFormsMainPage(req, res);
 
             //Assert
-            sinon.assert.calledWith(res.render, 'forms-main-page', sinon.match({level: expectedResult.level}));
-            sinon.assert.calledWith(res.render, 'forms-main-page', sinon.match({styles: expectedResult.styles}));
-            sinon.assert.calledWith(res.render, 'forms-main-page', sinon.match({scripts: expectedResult.scripts}));
-            sinon.assert.calledWith(res.render, 'forms-main-page', sinon.match({canSee: expectedResult.canSee}));     
-            sinon.assert.calledWith(res.render, 'forms-main-page', sinon.match({backLink: expectedResult.backLink}));            
+            sinon.assert.calledWith(res.render, "forms-main-page", sinon.match({ level: expectedResult.level }));
+            sinon.assert.calledWith(res.render, "forms-main-page", sinon.match({ styles: expectedResult.styles }));
+            sinon.assert.calledWith(res.render, "forms-main-page", sinon.match({ scripts: expectedResult.scripts }));
+            sinon.assert.calledWith(res.render, "forms-main-page", sinon.match({ canSee: expectedResult.canSee }));
+            sinon.assert.calledWith(res.render, "forms-main-page", sinon.match({ backLink: expectedResult.backLink }));
         });
 
-        it('Should not be able to access getMemberMainPage', () => {
+        it("Should not be able to access getMemberMainPage", () => {
             //Arrange
-            expectedResult =  {
-                title: '401 Unauthorized Access',
-                css: ['global', 'error'],
+            expectedResult = {
+                title: "401 Unauthorized Access",
+                css: ["global", "error"],
                 status: {
-                    code: '401',
-                    message: 'Unauthorized access'
-                }
+                    code: "401",
+                    message: "Unauthorized access",
+                },
             };
 
             //Act
@@ -87,21 +83,21 @@ describe ('Index Controller', () => {
 
             //Assert
             sinon.assert.calledWith(res.status, 401);
-            sinon.assert.calledWith(res.render, 'error', sinon.match({title: expectedResult.title}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({css: expectedResult.css}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({status: expectedResult.status}));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ title: expectedResult.title }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ css: expectedResult.css }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ status: expectedResult.status }));
         });
 
-        it('Should not be able to access getDedicationMainPage', () => {
+        it("Should not be able to access getDedicationMainPage", () => {
             //Arrange
-            expectedResult =  {
-                title: '401 Unauthorized Access',
-                css: ['global', 'error'],
-                scripts: ['convertDataTable'],
+            expectedResult = {
+                title: "401 Unauthorized Access",
+                css: ["global", "error"],
+                scripts: ["convertDataTable"],
                 status: {
-                    code: '401',
-                    message: 'Unauthorized access'
-                }
+                    code: "401",
+                    message: "Unauthorized access",
+                },
             };
 
             //Act
@@ -109,21 +105,21 @@ describe ('Index Controller', () => {
 
             //Assert
             sinon.assert.calledWith(res.status, 401);
-            sinon.assert.calledWith(res.render, 'error', sinon.match({title: expectedResult.title}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({css: expectedResult.css}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({scripts: expectedResult.scripts}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({status: expectedResult.status}));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ title: expectedResult.title }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ css: expectedResult.css }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ scripts: expectedResult.scripts }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ status: expectedResult.status }));
         });
 
-        it('Should not be able to access getPrenupMainPage', () => {
+        it("Should not be able to access getPrenupMainPage", () => {
             //Arrange
-            expectedResult =  {
-                title: '401 Unauthorized Access',
-                css: ['global', 'error'],
+            expectedResult = {
+                title: "401 Unauthorized Access",
+                css: ["global", "error"],
                 status: {
-                    code: '401',
-                    message: 'Unauthorized access'
-                }
+                    code: "401",
+                    message: "Unauthorized access",
+                },
             };
 
             //Act
@@ -131,20 +127,20 @@ describe ('Index Controller', () => {
 
             //Assert
             sinon.assert.calledWith(res.status, 401);
-            sinon.assert.calledWith(res.render, 'error', sinon.match({title: expectedResult.title}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({css: expectedResult.css}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({status: expectedResult.status}));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ title: expectedResult.title }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ css: expectedResult.css }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ status: expectedResult.status }));
         });
-        
-        it('Should not be able to access getWeddingMainPage', () => {
+
+        it("Should not be able to access getWeddingMainPage", () => {
             //Arrange
-            expectedResult =  {
-                title: '401 Unauthorized Access',
-                css: ['global', 'error'],
+            expectedResult = {
+                title: "401 Unauthorized Access",
+                css: ["global", "error"],
                 status: {
-                    code: '401',
-                    message: 'Unauthorized access'
-                }
+                    code: "401",
+                    message: "Unauthorized access",
+                },
             };
 
             //Act
@@ -152,20 +148,20 @@ describe ('Index Controller', () => {
 
             //Assert
             sinon.assert.calledWith(res.status, 401);
-            sinon.assert.calledWith(res.render, 'error', sinon.match({title: expectedResult.title}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({css: expectedResult.css}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({status: expectedResult.status}));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ title: expectedResult.title }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ css: expectedResult.css }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ status: expectedResult.status }));
         });
 
-        it('Should not be able to access getBapRecordsMainPage', () => {
+        it("Should not be able to access getBapRecordsMainPage", () => {
             //Arrange
-            expectedResult =  {
-                title: '401 Unauthorized Access',
-                css: ['global', 'error'],
+            expectedResult = {
+                title: "401 Unauthorized Access",
+                css: ["global", "error"],
                 status: {
-                    code: '401',
-                    message: 'Unauthorized access'
-                }
+                    code: "401",
+                    message: "Unauthorized access",
+                },
             };
 
             //Act
@@ -173,9 +169,9 @@ describe ('Index Controller', () => {
 
             //Assert
             sinon.assert.calledWith(res.status, 401);
-            sinon.assert.calledWith(res.render, 'error', sinon.match({title: expectedResult.title}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({css: expectedResult.css}));
-            sinon.assert.calledWith(res.render, 'error', sinon.match({status: expectedResult.status}));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ title: expectedResult.title }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ css: expectedResult.css }));
+            sinon.assert.calledWith(res.render, "error", sinon.match({ status: expectedResult.status }));
         });
     });
     /*

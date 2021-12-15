@@ -81,4 +81,9 @@ workflows:
                               - database-migration-and-project-midpoint
     test:
         jobs:
-            - test
+            - test:
+                  branches:
+                      ignore:
+                          - staging
+                          - main
+                          - database-migration-and-project-midpoint

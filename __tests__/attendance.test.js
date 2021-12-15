@@ -1,9 +1,6 @@
 const sinon = require("sinon");
-const request = require("supertest");
-const app = require("../app");
 const IndexController = require("../controllers/indexController");
 const AttendanceController = require("../controllers/attendanceController");
-const ErrorController = require("../controllers/errorController");
 const db = require("../models/db.js");
 
 describe("Attendance Controller", () => {
