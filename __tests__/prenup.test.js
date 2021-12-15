@@ -112,7 +112,7 @@ describe('Prenup Controller', () => {
             sinon.assert.calledWith(res.send, expectedResult);
         });
 
-        it('Should be able to access putUpdatePrenupBride', () => {
+        it('Should be able to access putUpdatePrenupBride where the update was successful', () => {
             //Arrange
             req = {
                 body: {
@@ -135,7 +135,30 @@ describe('Prenup Controller', () => {
             sinon.assert.calledWith(res.send, JSON.stringify(expectedResult));
         });
 
-        it('Should be able to access putUpdatePrenupGroom', () => {
+        it('Should be able to access putUpdatePrenupBride where the update was unsuccessful', () => {
+            //Arrange
+            req = {
+                body: {
+                    isOldMember: null,
+                    person: '{"firstName": "John", "midName": "K", "lastName": "Doe", "personId": 12345, "isMember": false}',
+                    isNewMember: null,
+                    prenupRecId: 123,
+                    coupleId: 456,
+                    oldPersonId: 12345
+                }
+            }
+
+            sandbox.stub(db, "update").yields(null);
+            expectedResult = false;
+
+            //Act
+            prenupController.putUpdatePrenupBride(req, res);
+
+            //Assert
+            sinon.assert.calledWith(res.send, expectedResult);
+        });
+
+        it('Should be able to access putUpdatePrenupGroom where the update was successful', () => {
             //Arrange
             req = {
                 body: {
@@ -156,6 +179,29 @@ describe('Prenup Controller', () => {
 
             //Assert
             sinon.assert.calledWith(res.send, JSON.stringify(expectedResult));
+        });
+
+        it('Should be able to access putUpdatePrenupGroom where the update was unsuccessful', () => {
+            //Arrange
+            req = {
+                body: {
+                    isOldMember: null,
+                    person: '{"firstName": "Jane", "midName": "K", "lastName": "Doe", "personId": 12345, "isMember": false}',
+                    isNewMember: null,
+                    prenupRecId: 123,
+                    coupleId: 456,
+                    oldPersonId: 12345
+                }
+            }
+
+            sandbox.stub(db, "update").yields(null);
+            expectedResult = false;
+
+            //Act
+            prenupController.putUpdatePrenupGroom(req, res);
+
+            //Assert
+            sinon.assert.calledWith(res.send, expectedResult);
         });
     });
 });
