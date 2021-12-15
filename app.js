@@ -23,8 +23,7 @@ const hbs = exphbs.create({
 
 dotenv.config({ path: path.join(__dirname, ".env") });
 
-const port = process.env.PORT;
-const hostname = process.env.HOSTNAME;
+const port = process.env.PORT || 3000;
 let logPath = "logs";
 
 if (process.env.PORTABLE_EXECUTABLE_DIR !== undefined) {
@@ -70,9 +69,9 @@ app.use(function (req, res) {
 });
 
 if (process.env.NODE_ENV !== "test") {
-    app.listen(port, hostname, function () {
+    app.listen(port, function () {
         console.log("Server running at:");
-        console.log("http://" + hostname + ":" + port);
+        console.log("PORT " + port);
     });
 }
 
