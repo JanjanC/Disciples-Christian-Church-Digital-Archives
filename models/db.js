@@ -668,132 +668,133 @@ const database = {
     // },
 };
 
-function initDatabase() {
-    const db = getMySQLInstance();
+// These methods are for database initialization only.
+// function initDatabase() {
+//     const db = getMySQLInstance();
 
-    // Initialize Knex connection
-    knexClient = knex({
-        client: "mysql",
-        connection: {
-            host: process.env.DB_HOST,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASS,
-            database: process.env.DB_NAME,
-            ssl: true,
-        },
-        useNullAsDefault: true,
-    });
+//     // Initialize Knex connection
+//     knexClient = knex({
+//         client: "mysql",
+//         connection: {
+//             host: process.env.DB_HOST,
+//             user: process.env.DB_USER,
+//             password: process.env.DB_PASS,
+//             database: process.env.DB_NAME,
+//             ssl: true,
+//         },
+//         useNullAsDefault: true,
+//     });
 
-    startIds.forEach((record) => {
-        knexClient("sqlite_sequence")
-            .insert({
-                name: record.table,
-                seq: record.start,
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    });
+//     startIds.forEach((record) => {
+//         knexClient("sqlite_sequence")
+//             .insert({
+//                 name: record.table,
+//                 seq: record.start,
+//             })
+//             .catch((err) => {
+//                 console.log(err);
+//             });
+//     });
 
-    // execute all statements
-    for (const stmt of Object.values(dbInfo.create)) {
-        db.prepare(stmt).run();
-    }
-    // close the connection to the db
-    db.close();
-}
+//     // execute all statements
+//     for (const stmt of Object.values(dbInfo.create)) {
+//         db.prepare(stmt).run();
+//     }
+//     // close the connection to the db
+//     db.close();
+// }
 
-function insertAccounts(level1 = "NormandyN7", level2 = "HelloSweng", level3 = "Coffee118") {
-    knexClient("accounts")
-        .select()
-        .then(function (res) {
-            if (res.length === 0) {
-                bcrypt.hash(level1, saltRounds, (err, hash) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    knexClient("accounts")
-                        .insert({
-                            level: 1,
-                            hashed_password: hash,
-                        })
-                        .catch(function (err) {
-                            console.log(err);
-                        });
-                });
-                bcrypt.hash(level2, saltRounds, (err, hash) => {
-                    if (err) {
-                        console.log(err);
-                    }
+// function insertAccounts(level1 = "NormandyN7", level2 = "HelloSweng", level3 = "Coffee118") {
+//     knexClient("accounts")
+//         .select()
+//         .then(function (res) {
+//             if (res.length === 0) {
+//                 bcrypt.hash(level1, saltRounds, (err, hash) => {
+//                     if (err) {
+//                         console.log(err);
+//                     }
+//                     knexClient("accounts")
+//                         .insert({
+//                             level: 1,
+//                             hashed_password: hash,
+//                         })
+//                         .catch(function (err) {
+//                             console.log(err);
+//                         });
+//                 });
+//                 bcrypt.hash(level2, saltRounds, (err, hash) => {
+//                     if (err) {
+//                         console.log(err);
+//                     }
 
-                    knexClient("accounts")
-                        .insert({
-                            level: 2,
-                            hashed_password: hash,
-                        })
-                        .catch(function (err) {
-                            console.log(err);
-                        });
-                });
-                bcrypt.hash(level3, saltRounds, (err, hash) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    knexClient("accounts")
-                        .insert({
-                            level: 3,
-                            hashed_password: hash,
-                        })
-                        .catch(function (err) {
-                            console.log(err);
-                        });
-                });
-            }
-        });
-}
+//                     knexClient("accounts")
+//                         .insert({
+//                             level: 2,
+//                             hashed_password: hash,
+//                         })
+//                         .catch(function (err) {
+//                             console.log(err);
+//                         });
+//                 });
+//                 bcrypt.hash(level3, saltRounds, (err, hash) => {
+//                     if (err) {
+//                         console.log(err);
+//                     }
+//                     knexClient("accounts")
+//                         .insert({
+//                             level: 3,
+//                             hashed_password: hash,
+//                         })
+//                         .catch(function (err) {
+//                             console.log(err);
+//                         });
+//                 });
+//             }
+//         });
+// }
 
-function insertData() {
-    // insert accounts
-    data.forEach((record) => {
-        knexClient("people")
-            .insert(record.person)
-            .then((person) => {
-                if (person) {
-                    record.member.person_id = person[0];
+// function insertData() {
+//     // insert accounts
+//     data.forEach((record) => {
+//         knexClient("people")
+//             .insert(record.person)
+//             .then((person) => {
+//                 if (person) {
+//                     record.member.person_id = person[0];
 
-                    knexClient("address")
-                        .insert(record.address)
-                        .then((address) => {
-                            if (address) {
-                                record.member.address_id = address[0];
-                                knexClient("members")
-                                    .insert(record.member)
-                                    .then((result) => {
-                                        if (result) {
-                                            knexClient("people")
-                                                .where("person_id", "=", record.member.person_id)
-                                                .update({
-                                                    member_id: result[0],
-                                                })
-                                                .then((result) => {
-                                                    if (result) {
-                                                        console.log("Filled up database with dummy data");
-                                                    }
-                                                });
-                                        } else {
-                                            console.log(result);
-                                        }
-                                    });
-                            } else {
-                                console.log(address);
-                            }
-                        });
-                } else {
-                    console.log(person);
-                }
-            });
-    });
-}
+//                     knexClient("address")
+//                         .insert(record.address)
+//                         .then((address) => {
+//                             if (address) {
+//                                 record.member.address_id = address[0];
+//                                 knexClient("members")
+//                                     .insert(record.member)
+//                                     .then((result) => {
+//                                         if (result) {
+//                                             knexClient("people")
+//                                                 .where("person_id", "=", record.member.person_id)
+//                                                 .update({
+//                                                     member_id: result[0],
+//                                                 })
+//                                                 .then((result) => {
+//                                                     if (result) {
+//                                                         console.log("Filled up database with dummy data");
+//                                                     }
+//                                                 });
+//                                         } else {
+//                                             console.log(result);
+//                                         }
+//                                     });
+//                             } else {
+//                                 console.log(address);
+//                             }
+//                         });
+//                 } else {
+//                     console.log(person);
+//                 }
+//             });
+//     });
+// }
 
 function getMySQLInstance() {
     const conn = mysql.createConnection({
