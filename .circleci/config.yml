@@ -57,20 +57,19 @@ jobs:
 workflows:
     deploy:
         jobs:
+            - test:
+                  filters:
+                      branches:
+                          only:
+                              - staging
+                              - main
+                              - database-migration-and-project-midpoint
             - build:
-                  filters:
-                      branches:
-                          only:
-                              - staging
-                              - main
-                              - database-migration-and-project-midpoint
+                  requires:
+                      - test
             - deploy:
-                  filters:
-                      branches:
-                          only:
-                              - staging
-                              - main
-                              - database-migration-and-project-midpoint
+                  requires:
+                      - build
     build:
         jobs:
             - build:
