@@ -3,10 +3,6 @@ const async = require("async");
 const fs = require("fs");
 const mysql = require("mysql2");
 const { dbInfo } = require("./dbInfo");
-const startIds = dbInfo.startIds;
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
-const data = require("./dummyData");
 
 const tables = dbInfo.tables;
 const tableNames = Object.values(tables);
@@ -20,6 +16,28 @@ for (const table of tableNames) {
 }
 
 const database = {
+    /**
+     * This function connects to the database given the connection credentials.
+     * @returns MySQL Connection Object
+     */
+    getMySQLInstance: function () {
+        const conn = mysql.createConnection({
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASS,
+            database: process.env.DB_NAME,
+            ssl: {
+                ca: fs.readFileSync("/etc/ssl/cert.pem"),
+            },
+        });
+        conn.connect((err) => {
+            if (err) {
+                throw new Error("MySQL connection error: " + err.message);
+            }
+        });
+
+        return conn;
+    },
     /**
      * This function initializes the database given the path of the file.
      * @param {string} file the path of the file to be opened
@@ -795,24 +813,5 @@ const database = {
 //             });
 //     });
 // }
-
-function getMySQLInstance() {
-    const conn = mysql.createConnection({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASS,
-        database: process.env.DB_NAME,
-        ssl: {
-            ca: fs.readFileSync("/etc/ssl/cert.pem"),
-        },
-    });
-    conn.connect((err) => {
-        if (err) {
-            throw new Error("MySQL connection error: " + err.message);
-        }
-    });
-
-    return conn;
-}
 
 module.exports = database;
