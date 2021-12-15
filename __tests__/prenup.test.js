@@ -1,14 +1,12 @@
 const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
 const prenupController = require('../controllers/prenupController');
-const updateController = require('../controllers/updateController');
 const db = require("../models/db");
 
 describe('Prenup Controller', () => {
 
-    let req = {}
-    let res = {}
+    let req = {};
+    let res = {};
+    let expectedResult;
 
     const sandbox = sinon.createSandbox();
 

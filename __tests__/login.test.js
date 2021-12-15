@@ -1,12 +1,11 @@
 const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
 const loginController = require('../controllers/loginController');
 
 describe('Login Controller', () => {
 
     let req = {}
     let res = {}
+    let expectedResult;
 
     const sandbox = sinon.createSandbox();
 

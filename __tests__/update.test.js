@@ -1,12 +1,11 @@
 const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
 const updateController = require('../controllers/updateController');
 const db = require("../models/db");
 
 describe('Update Controller', () => {
     let person = {};
     let res = {};
+    let expectedResult;
 
     const sandbox = sinon.createSandbox();
     beforeEach(() => {

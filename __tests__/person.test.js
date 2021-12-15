@@ -1,14 +1,13 @@
 const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
 const personController = require('../controllers/personController');
 const db = require("../models/db");
 
 describe('Person Controller', () => {
 
-    let req = {}
-    let res = {}
-    let callback = null
+    let req = {};
+    let res = {};
+    let expectedResult;
+    let callback = null;
 
     const sandbox = sinon.createSandbox();
 
