@@ -28,7 +28,7 @@ const database = {
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
             ssl: {
-                ca: fs.readFileSync(process.env.DB_SSL_CERT_FILE),
+                ca: fs.readFileSync(process.env.DB_SSL_CERT_FILE || ""),
             },
         });
         conn.connect((err) => {
