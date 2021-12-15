@@ -3,6 +3,7 @@ const async = require("async");
 const fs = require("fs");
 const mysql = require("mysql2");
 const { dbInfo } = require("./dbInfo");
+require("dotenv").config();
 
 const tables = dbInfo.tables;
 const tableNames = Object.values(tables);
@@ -27,7 +28,7 @@ const database = {
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
             ssl: {
-                ca: fs.readFileSync("/etc/ssl/cert.pem"),
+                ca: fs.readFileSync(process.env.DB_SSL_CERT_FILE),
             },
         });
         conn.connect((err) => {

@@ -11,8 +11,8 @@ describe("The Database Model", () => {
 
     describe("getMySQLInstance method", () => {
         let stub = {};
-
         afterEach(() => {
+            stub.restore();
             sandbox.restore();
         });
 
