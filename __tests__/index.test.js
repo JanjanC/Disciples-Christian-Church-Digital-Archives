@@ -439,7 +439,7 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.render, 'settings-page', sinon.match({ passwords: expectedResult.passwords }));
         });
 
-        it("Should have access to level three postChangePassword", () => {
+        it("Should have access to level three postChangePassword where the update was successful", () => {
             // Arrange
             req = {
                 body: {
@@ -467,7 +467,35 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.send, expectedResult);
         });
 
-        it("PostComparePassword should be passing accordingly", () => {
+        it("Should have access to level three postChangePassword where the update was unsuccessful", () => {
+            // Arrange
+            req = {
+                body: {
+                    level: 3,
+                    password: 'Coffee118'
+                },
+                session: {
+                    level: 3
+                }
+            };
+
+            res = {
+                send: sandbox.spy()
+            }
+
+            sandbox.stub(bcrypt, "hash").yields(null, true);
+            sandbox.stub(db, "update").yields(null);
+
+            expectedResult = false;
+
+            // Act
+            indexController.postChangePassword(req, res);
+
+            // Assert
+            sinon.assert.calledWith(res.send, expectedResult);
+        });
+
+        it("PostComparePassword should be passing accordingly where the compare was successful", () => {
             // Arrange
             req = {
                 body: {
@@ -479,14 +507,36 @@ describe('Index Controller', () => {
             res = {
                 send: sandbox.spy()
             }
-
+            expectedResult = true;
             sandbox.stub(bcrypt, "compare").yields(null, true);
 
             // Act
             indexController.postComparePasswords(req, res);
 
             // Assert
-            sinon.assert.calledWith(res.send, true);
+            sinon.assert.calledWith(res.send, expectedResult);
+        });
+
+        it("PostComparePassword should be passing accordingly where the compare was unsuccessful", () => {
+            // Arrange
+            req = {
+                body: {
+                    currPass: 'Coffee118',
+                    confirmPass: 'Coffee118'
+                },
+            };
+
+            res = {
+                send: sandbox.spy()
+            }
+            expectedResult = false;
+            sandbox.stub(bcrypt, "compare").yields(true, null);
+
+            // Act
+            indexController.postComparePasswords(req, res);
+
+            // Assert
+            sinon.assert.calledWith(res.send, expectedResult);
         });
 
         it("PostDropAllTables should be passing accordingly", () => {
