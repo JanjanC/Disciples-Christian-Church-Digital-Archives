@@ -1,6 +1,6 @@
 const knex = require("knex");
 const async = require("async");
-const fse = require("fs-extra");
+const fs = require("fs");
 const mysql = require("mysql2");
 const { dbInfo } = require("./dbInfo");
 const startIds = dbInfo.startIds;
@@ -10,6 +10,8 @@ const data = require("./dummyData");
 
 const tables = dbInfo.tables;
 const tableNames = Object.values(tables);
+
+let knexClient = {};
 
 const fields = {};
 for (const table of tableNames) {

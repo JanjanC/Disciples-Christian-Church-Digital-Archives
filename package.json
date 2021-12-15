@@ -7,7 +7,8 @@
         "start": "node app.js",
         "dev": "nodemon app.js",
         "test": "jest",
-        "testDev": "jest --watchAll --verbose"
+        "testDev": "jest --watchAll --verbose",
+        "testOpenHandles": "jest --detectOpenHandles"
     },
     "repository": {
         "type": "git",

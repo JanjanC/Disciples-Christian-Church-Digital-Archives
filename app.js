@@ -8,6 +8,7 @@ const session = require("express-session");
 const MemoryStore = require("memorystore")(session);
 const nocache = require("nocache");
 const fse = require("fs-extra");
+const db = require("./models/db");
 
 const app = express();
 const routes = require("./routes/routes.js");
@@ -33,6 +34,9 @@ if (process.env.PORTABLE_EXECUTABLE_DIR !== undefined) {
 if (!fse.existsSync(logPath)) {
     fse.mkdirSync(logPath);
 }
+
+// Initialize Database
+db.initDB();
 
 app.engine("hbs", hbs.engine);
 app.set("view engine", ".hbs");
