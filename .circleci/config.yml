@@ -55,6 +55,20 @@ jobs:
 
 # Orchestrate our job run sequence
 workflows:
+    deploy:
+        jobs:
+            - build:
+                  filters:
+                      branches:
+                          only:
+                              - staging
+                              - main
+            - deploy:
+                  filters:
+                      branches:
+                          only:
+                              - staging
+                              - main
     build:
         jobs:
             - build:
