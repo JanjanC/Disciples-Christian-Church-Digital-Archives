@@ -1,6 +1,4 @@
 const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
 const indexController = require('../controllers/indexController');
 const db = require("../models/db");
 const bcrypt = require('bcrypt')
@@ -87,7 +85,7 @@ describe('Index Controller', () => {
             indexController.getMemberMainPage(req, res);
 
             //Assert
-            sinon.assert.calledWith(res.status, 401);
+            sinon.assert.calledWith(res.status, parseInt(expectedResult.status.code));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ title: expectedResult.title }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ css: expectedResult.css }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ status: expectedResult.status }));
@@ -109,7 +107,7 @@ describe('Index Controller', () => {
             indexController.getDedicationMainPage(req, res);
 
             //Assert
-            sinon.assert.calledWith(res.status, 401);
+            sinon.assert.calledWith(res.status, parseInt(expectedResult.status.code));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ title: expectedResult.title }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ css: expectedResult.css }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ scripts: expectedResult.scripts }));
@@ -131,7 +129,7 @@ describe('Index Controller', () => {
             indexController.getPrenupMainPage(req, res);
 
             //Assert
-            sinon.assert.calledWith(res.status, 401);
+            sinon.assert.calledWith(res.status, parseInt(expectedResult.status.code));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ title: expectedResult.title }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ css: expectedResult.css }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ status: expectedResult.status }));
@@ -152,7 +150,7 @@ describe('Index Controller', () => {
             indexController.getWeddingMainPage(req, res);
 
             //Assert
-            sinon.assert.calledWith(res.status, 401);
+            sinon.assert.calledWith(res.status, parseInt(expectedResult.status.code));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ title: expectedResult.title }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ css: expectedResult.css }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ status: expectedResult.status }));
@@ -173,7 +171,7 @@ describe('Index Controller', () => {
             indexController.getBapRecordsMainPage(req, res);
 
             //Assert
-            sinon.assert.calledWith(res.status, 401);
+            sinon.assert.calledWith(res.status, parseInt(expectedResult.status.code));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ title: expectedResult.title }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ css: expectedResult.css }));
             sinon.assert.calledWith(res.render, 'error', sinon.match({ status: expectedResult.status }));
