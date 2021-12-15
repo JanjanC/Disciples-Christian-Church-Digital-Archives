@@ -82,8 +82,9 @@ workflows:
     test:
         jobs:
             - test:
-                  branches:
-                      ignore:
-                          - staging
-                          - main
-                          - database-migration-and-project-midpoint
+                  filters:
+                      branches:
+                          ignore:
+                              - staging
+                              - main
+                              - database-migration-and-project-midpoint
