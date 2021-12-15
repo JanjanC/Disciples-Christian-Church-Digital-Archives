@@ -19,5 +19,8 @@ COPY . .
 EXPOSE 8080
 # 80 for PRODUCTION
 
+# Run all automated tests
+RUN npm test
+
 # Run the application
 CMD [ "node", "app.js" ]

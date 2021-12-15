@@ -3,7 +3,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const path = require("path");
-const db = require(path.join(__dirname, "./models/db.js"));
 const hbsHelpers = require("./helpers/hbsHelper");
 const session = require("express-session");
 const MemoryStore = require("memorystore")(session);
@@ -25,23 +24,10 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
-let dbPath = "database";
-let file = path.join("database", "church.db");
 let logPath = "logs";
 
 if (process.env.PORTABLE_EXECUTABLE_DIR !== undefined) {
-    dbPath = path.join(process.env.PORTABLE_EXECUTABLE_DIR, dbPath);
     logPath = path.join(process.env.PORTABLE_EXECUTABLE_DIR, logPath);
-    file = path.join(dbPath, "church.db");
-}
-
-if (fse.existsSync(dbPath)) {
-    db.initDB(file);
-    db.pragmaFKKnex(true, null);
-} else {
-    fse.mkdirSync(dbPath);
-    db.initDB(file);
-    db.pragmaFKKnex(true, null);
 }
 
 if (!fse.existsSync(logPath)) {
