@@ -22,11 +22,31 @@ describe('Person Controller', () => {
         sandbox.restore();
     });
 
-    it('Should be able to access postUpdatePerson', () => {
+    it('Should be able to access postAddPerson where the callback is defined', () => {
         //Arrange
         req = {
             body: {
-                people: '"personId": 12345'
+                people: '{"person_id": 12345}'
+            }
+        }
+
+        sandbox.stub(db, "insert").yields(req.body.people);
+        expectedResult = 200;
+
+        //Act
+        personController.postAddPerson(req, res, function (result) {
+            res.send(200);
+        });
+
+        //Assert
+        sinon.assert.calledWith(res.send, expectedResult);
+    });
+
+    it('Should be able to access postAddPerson where the callback is null', () => {
+        //Arrange
+        req = {
+            body: {
+                people: '{"person_id": 12345}'
             }
         }
 
@@ -34,7 +54,7 @@ describe('Person Controller', () => {
         expectedResult = req.body.people;
 
         //Act
-        personController.postAddPerson(req, res, callback);
+        personController.postAddPerson(req, res, null);
 
         //Assert
         sinon.assert.calledWith(res.send, expectedResult);
