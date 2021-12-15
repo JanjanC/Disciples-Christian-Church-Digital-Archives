@@ -1,12 +1,11 @@
 const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
-const updateController = require('../controllers/observationController');
+const observationController = require('../controllers/observationController');
 const db = require("../models/db");
 
-describe('Update Controller', () => {
+describe('Observation Controller', () => {
     let person = {};
     let res = {};
+    let expectedResult;
 
     const sandbox = sinon.createSandbox();
     beforeEach(() => {
@@ -42,7 +41,7 @@ describe('Update Controller', () => {
         };
 
         //Act
-        updateController.postAddObservation(req, res);
+        observationController.postAddObservation(req, res);
 
         //Assert
         sinon.assert.calledWith(res.render, 'partials/observation', expectedResult);
@@ -58,7 +57,7 @@ describe('Update Controller', () => {
         expectedResult = true;
 
         //Act
-        updateController.putUpdateObservation(req, res);
+        observationController.putUpdateObservation(req, res);
 
         //Assert
         sinon.assert.calledWith(res.send, expectedResult);
@@ -70,7 +69,7 @@ describe('Update Controller', () => {
         expectedResult = false;
 
         //Act
-        updateController.putUpdateObservation(req, res);
+        observationController.putUpdateObservation(req, res);
 
         //Assert
         sinon.assert.calledWith(res.send, expectedResult);
@@ -82,7 +81,7 @@ describe('Update Controller', () => {
         expectedResult = true;
 
         //Act
-        updateController.delObservation(req, res);
+        observationController.delObservation(req, res);
 
         //Assert
         sinon.assert.calledWith(res.send, expectedResult);
@@ -94,7 +93,7 @@ describe('Update Controller', () => {
         expectedResult = false;
 
         //Act
-        updateController.delObservation(req, res);
+        observationController.delObservation(req, res);
 
         //Assert
         sinon.assert.calledWith(res.send, expectedResult);
