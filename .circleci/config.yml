@@ -63,7 +63,6 @@ workflows:
                           only:
                               - staging
                               - main
-                              - database-migration-and-project-midpoint
             - build:
                   requires:
                       - test
@@ -78,4 +77,3 @@ workflows:
                           ignore:
                               - staging
                               - main
-                              - database-migration-and-project-midpoint
