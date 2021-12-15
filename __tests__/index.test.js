@@ -198,7 +198,7 @@ describe('Index Controller', () => {
             sandbox.restore();
         });
 
-        it("Should have access to level three member main page", () => {
+        it("Should have access to level three getMemberMainPage", () => {
             // Arrange
             sandbox.stub(db, "find").yields([{
                 person_id: 123,
@@ -241,7 +241,7 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.render, 'forms-main-page', sinon.match({ backLink: expectedResult.backLink }));
         });
 
-        it("Should have access to level three dedication main page", () => {
+        it("Should have access to level three getDedicationMainPage", () => {
             // Arrange
             sandbox.stub(db, "find").yields([{
                 infant_first_name: 'John',
@@ -285,7 +285,7 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.render, 'dedication-main-page', sinon.match({ backLink: expectedResult.backLink }));
         });
 
-        it("Should have access to level three prenup page", () => {
+        it("Should have access to level three getPrenupMainPage", () => {
             // Arrange
             sandbox.stub(db, "find").yields([{
                 record_id: '12345',
@@ -326,7 +326,7 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.render, 'prenup-main-page', sinon.match({ backLink: expectedResult.backLink }));
         });
 
-        it("Should have access to level three wedding main page", () => {
+        it("Should have access to level three getWeddingMainPage", () => {
             // Arrange
             sandbox.stub(db, "find").yields([{
                 wedding_id: '12345',
@@ -367,7 +367,7 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.render, 'wedding-main-page', sinon.match({ backLink: expectedResult.backLink }));
         });
 
-        it("Should have access to level three baptismal records main page", () => {
+        it("Should have access to level three getBapRecordsMainPage", () => {
             // Arrange
             sandbox.stub(db, "find").yields([{
                 reg_id: '12345',
@@ -414,7 +414,7 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.render, 'baptismal-main-page', sinon.match({ backLink: expectedResult.backLink }));
         });
 
-        it("Should have access to level three get settings", () => {
+        it("Should have access to level three getSettings", () => {
             // Arrange
             sandbox.stub(db, "findAll").yields([{
                 passwords: {
@@ -439,7 +439,7 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.render, 'settings-page', sinon.match({ passwords: expectedResult.passwords }));
         });
 
-        it("Should have access to level three post change password", () => {
+        it("Should have access to level three postChangePassword", () => {
             // Arrange
             req = {
                 body: {
@@ -467,7 +467,7 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.send, expectedResult);
         });
 
-        it("Post compare password should be passing accordingly", () => {
+        it("PostComparePassword should be passing accordingly", () => {
             // Arrange
             req = {
                 body: {
@@ -489,12 +489,13 @@ describe('Index Controller', () => {
             sinon.assert.calledWith(res.send, true);
         });
 
-        it("Post drop all tables should be passing accordingly", () => {
+        it("PostDropAllTables should be passing accordingly", () => {
             // Arrange
             res = {
                 send: sandbox.spy()
             }
 
+            sandbox.stub(db, "deleteAndReset");
             expectedResult = true;
 
             // Act
