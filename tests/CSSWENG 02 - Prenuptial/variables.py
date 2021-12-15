@@ -1,0 +1,9 @@
+SERVER = "localhost:8080"
+BROWSER = "chrome"
+DELAY = 0
+LEVEL_1_PASSWORD = "NormandyN7"
+LEVEL_2_PASSWORD = "HelloSweng"
+LEVEL_3_PASSWORD = "Coffee118"
+INVALID_PASSWORD = "12345asdfgh"
+LOGIN_URL = "http://" + SERVER + "/"
+MAIN_URL = "http://" + SERVER + "/main_page"
