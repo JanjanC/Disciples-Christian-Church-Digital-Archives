@@ -1,16 +1,16 @@
 const sinon = require('sinon');
 const request = require('supertest');
 const app = require('../app');
-const LoginController = require('../controllers/loginController');
+const loginController = require('../controllers/loginController');
 
-describe ('Login Controller', () => {
+describe('Login Controller', () => {
 
     let req = {}
     let res = {}
-        
+
     const sandbox = sinon.createSandbox();
 
-    beforeEach (() => {
+    beforeEach(() => {
         res = {
             render: sandbox.spy(),
             redirect: sandbox.spy()
@@ -29,26 +29,26 @@ describe ('Login Controller', () => {
             }
         }
 
-        expectedResult =  {
+        expectedResult = {
             styles: ['login'],
             scripts: ['login']
         }
 
         //Act
-        LoginController.getLoginPage(req, res);
+        loginController.getLoginPage(req, res);
 
         //Assert
-        sinon.assert.calledWith(res.render, 'login', sinon.match({styles: expectedResult.styles}));
-        sinon.assert.calledWith(res.render, 'login', sinon.match({scripts: expectedResult.scripts}));  
+        sinon.assert.calledWith(res.render, 'login', sinon.match({ styles: expectedResult.styles }));
+        sinon.assert.calledWith(res.render, 'login', sinon.match({ scripts: expectedResult.scripts }));
     });
 
     /*
     it('Should be able to access getLogout', () => {
         //Arrange
         expectedResult =  '/';
-
+        sandbox.stub(req.session, "destroy").yields(true)
         //Act
-        LoginController.getLogout(req, res);
+        loginController.getLogout(req, res);
 
         //Assert
         sinon.assert.calledWith(res.redirect, '/');        
