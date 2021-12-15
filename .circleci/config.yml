@@ -70,15 +70,6 @@ workflows:
             - deploy:
                   requires:
                       - build
-    build:
-        jobs:
-            - build:
-                  filters:
-                      branches:
-                          only:
-                              - staging
-                              - main
-                              - database-migration-and-project-midpoint
     test:
         jobs:
             - test:
