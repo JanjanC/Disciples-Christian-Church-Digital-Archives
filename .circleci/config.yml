@@ -37,7 +37,7 @@ jobs:
             - heroku/install
             - heroku/deploy-via-git
 
-    test:
+    unit_test:
         resource_class: small
         docker:
             - image: circleci/node
@@ -57,7 +57,7 @@ jobs:
 workflows:
     deploy:
         jobs:
-            - test:
+            - unit_test:
                   filters:
                       branches:
                           only:
@@ -71,7 +71,7 @@ workflows:
                       - build
     test:
         jobs:
-            - test:
+            - unit_test:
                   filters:
                       branches:
                           ignore:
