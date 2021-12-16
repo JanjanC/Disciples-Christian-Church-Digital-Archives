@@ -3,12 +3,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 const path = require("path");
-const db = require(path.join(__dirname, "./models/db.js"));
 const hbsHelpers = require("./helpers/hbsHelper");
 const session = require("express-session");
 const MemoryStore = require("memorystore")(session);
 const nocache = require("nocache");
 const fse = require("fs-extra");
+const db = require("./models/db");
 
 const app = express();
 const routes = require("./routes/routes.js");
@@ -23,30 +23,19 @@ const hbs = exphbs.create({
 
 dotenv.config({ path: path.join(__dirname, ".env") });
 
-const port = process.env.PORT;
-const hostname = process.env.HOSTNAME;
-let dbPath = "database";
-let file = path.join("database", "church.db");
+const port = process.env.PORT || 3000;
 let logPath = "logs";
 
 if (process.env.PORTABLE_EXECUTABLE_DIR !== undefined) {
-    dbPath = path.join(process.env.PORTABLE_EXECUTABLE_DIR, dbPath);
     logPath = path.join(process.env.PORTABLE_EXECUTABLE_DIR, logPath);
-    file = path.join(dbPath, "church.db");
-}
-
-if (fse.existsSync(dbPath)) {
-    db.initDB(file);
-    db.pragmaFKKnex(true, null);
-} else {
-    fse.mkdirSync(dbPath);
-    db.initDB(file);
-    db.pragmaFKKnex(true, null);
 }
 
 if (!fse.existsSync(logPath)) {
     fse.mkdirSync(logPath);
 }
+
+// Initialize Database
+db.initDB();
 
 app.engine("hbs", hbs.engine);
 app.set("view engine", ".hbs");
@@ -80,9 +69,9 @@ app.use(function (req, res) {
 });
 
 if (process.env.NODE_ENV !== "test") {
-    app.listen(port, hostname, function () {
+    app.listen(port, function () {
         console.log("Server running at:");
-        console.log("http://" + hostname + ":" + port);
+        console.log("PORT " + port);
     });
 }
 

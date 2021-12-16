@@ -114,6 +114,21 @@ const controller = {
     })
   },
   /**
+   * This function renderes the attendance main page
+   * @param req - the incoming request containing either the query or body
+   * @param res - the result to be sent out after processing the request
+   */
+  getAttendanceMainPage: function (req,res){
+    req.session.editId = null
+    res.render('attendance-main-page', {
+      level: req.session.level,
+      styles: ['mainPage'],
+      scripts: ['mainAttendance'],
+      canSee: !(parseInt(req.session.level) === 1),
+      backLink: 'main_page'
+    })
+  },
+  /**
    * This function renders the child dedication record main page
    * @param req - the incoming request containing either the query or body
    * @param res - the result to be sent out after processing the request

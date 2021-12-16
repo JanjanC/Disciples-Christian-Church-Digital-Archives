@@ -1,19 +1,16 @@
-const sinon = require('sinon');
-const request = require('supertest');
-const app = require('../app');
-const LoginController = require('../controllers/loginController');
+const sinon = require("sinon");
+const LoginController = require("../controllers/loginController");
 
-describe ('Login Controller', () => {
+describe("Login Controller", () => {
+    let req = {};
+    let res = {};
 
-    let req = {}
-    let res = {}
-        
     const sandbox = sinon.createSandbox();
 
-    beforeEach (() => {
+    beforeEach(() => {
         res = {
             render: sandbox.spy(),
-            redirect: sandbox.spy()
+            redirect: sandbox.spy(),
         };
     });
 
@@ -21,25 +18,25 @@ describe ('Login Controller', () => {
         sandbox.restore();
     });
 
-    it('Should be able to access getLoginPage', () => {
+    it("Should be able to access getLoginPage", () => {
         //Arrange
         req = {
             session: {
-                editMemberId: null
-            }
-        }
+                editMemberId: null,
+            },
+        };
 
-        expectedResult =  {
-            styles: ['login'],
-            scripts: ['login']
-        }
+        expectedResult = {
+            styles: ["login"],
+            scripts: ["login"],
+        };
 
         //Act
         LoginController.getLoginPage(req, res);
 
         //Assert
-        sinon.assert.calledWith(res.render, 'login', sinon.match({styles: expectedResult.styles}));
-        sinon.assert.calledWith(res.render, 'login', sinon.match({scripts: expectedResult.scripts}));  
+        sinon.assert.calledWith(res.render, "login", sinon.match({ styles: expectedResult.styles }));
+        sinon.assert.calledWith(res.render, "login", sinon.match({ scripts: expectedResult.scripts }));
     });
 
     /*
