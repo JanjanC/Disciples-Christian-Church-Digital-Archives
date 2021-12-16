@@ -65,7 +65,7 @@ workflows:
                               - main
             - build:
                   requires:
-                      - test
+                      - unit_test
             - deploy:
                   requires:
                       - build
