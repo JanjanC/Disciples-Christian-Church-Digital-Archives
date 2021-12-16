@@ -9,6 +9,8 @@ const saltRounds = 10;
 const data = require("./models/dummyData");
 dotenv.config();
 
+let knexClient = {};
+
 function getMySQLInstance() {
     const conn = mysql.createConnection({
         host: process.env.DB_HOST,
@@ -27,18 +29,6 @@ function getMySQLInstance() {
 
     return conn;
 }
-
-const knexClient = knex({
-    client: "mysql",
-    connection: {
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASS,
-        database: process.env.DB_NAME,
-        ssl: true,
-    },
-    useNullAsDefault: true,
-});
 
 function initDatabase() {
     const db = getMySQLInstance();
