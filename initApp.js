@@ -75,51 +75,35 @@ function initDatabase() {
     });
 }
 
-function insertAccounts(level1 = "NormandyN7", level2 = "HelloSweng", level3 = "Coffee118") {
+function insertAccounts() {
     knexClient("accounts")
         .select()
         .then(function (res) {
             if (res.length === 0) {
-                bcrypt.hash(level1, saltRounds, (err, hash) => {
-                    if (err) {
+                knexClient("accounts")
+                    .insert({
+                        level: 1,
+                        hashed_password: "$2b$10$aio/axwnrQULwLBs2pOyW.kKYaLA0DrIK/yKH2a5Of6xKgtqF2nvG",
+                    })
+                    .catch(function (err) {
                         console.log(err);
-                    }
-                    knexClient("accounts")
-                        .insert({
-                            level: 1,
-                            hashed_password: hash,
-                        })
-                        .catch(function (err) {
-                            console.log(err);
-                        });
-                });
-                bcrypt.hash(level2, saltRounds, (err, hash) => {
-                    if (err) {
+                    });
+                knexClient("accounts")
+                    .insert({
+                        level: 2,
+                        hashed_password: "$2b$10$kXSLhoWlB3nxLP7oq/riSel4nKCsFW1gteQtfngwq7HuG0B7mc9DC",
+                    })
+                    .catch(function (err) {
                         console.log(err);
-                    }
-
-                    knexClient("accounts")
-                        .insert({
-                            level: 2,
-                            hashed_password: hash,
-                        })
-                        .catch(function (err) {
-                            console.log(err);
-                        });
-                });
-                bcrypt.hash(level3, saltRounds, (err, hash) => {
-                    if (err) {
+                    });
+                knexClient("accounts")
+                    .insert({
+                        level: 3,
+                        hashed_password: "$2b$10$gVrBYMVGzdO5rZ5A/0Kt1uvbrdi.k4YftFYPebfUrtx8izyzyGuXK",
+                    })
+                    .catch(function (err) {
                         console.log(err);
-                    }
-                    knexClient("accounts")
-                        .insert({
-                            level: 3,
-                            hashed_password: hash,
-                        })
-                        .catch(function (err) {
-                            console.log(err);
-                        });
-                });
+                    });
             }
         });
 }
