@@ -175,7 +175,7 @@ const attendanceController = {
             console.log(date);
             const data = {
                 scripts: ["editAttendance", "edit"],
-                styles: ["forms"],
+                styles: ["forms","attendanceEdit"],
                 attendeesMembers: [],
                 attendeesNonMembers: [],
                 attendees: [],

@@ -1,0 +1,59 @@
+#border-delete{
+   font-size: 0.65em;
+}
+
+#delete-icon{
+   font-size:0.7em;
+}
+
+#date{
+   height: fit-content;
+}
+
+#date-row{
+   position: relative;
+   top:0.5em
+}
+
+.fa-stack{
+   position: relative;
+   left:0.5em;
+   bottom: 0.4em; 
+}
+
+#edit-date-button{
+   position: relative;
+   bottom:37px;
+   left:5px;
+}
+
+#flex-container{
+   display:flex;
+   height:100%;
+}
+
+.flex-child {
+  flex: 1;
+}  
+
+.container{
+  position: relative;
+  right:1em;
+}
+
+#error-date{
+  color: white;
+  position: relative;
+  left:5em
+
+}
+
+#modal-body-edit{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}
+
+.modal{
+  margin-top:3em !important;
+}
