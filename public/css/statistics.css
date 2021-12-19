@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+body{
+    overflow-x: hidden;
+}
 #header-div{
     background-color: #383F45;
     display: flex;
