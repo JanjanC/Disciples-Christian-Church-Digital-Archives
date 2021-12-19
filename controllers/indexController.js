@@ -459,6 +459,15 @@ const controller = {
   postDropAllTables: function (req, res) {
     db.deleteAndReset()
     res.send(true)
+  },
+  getStatisticsPage: function (req,res){
+
+    const data = {
+      scripts: ['statistics'],
+      styles: ['statistics'],
+    }
+
+    res.render('statistics-page',data)
   }
 }
 
