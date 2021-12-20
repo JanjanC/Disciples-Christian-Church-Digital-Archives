@@ -1,5 +1,5 @@
 {{>navbar}}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
 
 <body>
   <div class="row">
@@ -18,7 +18,71 @@
         </div>
         <button type="button" class="btn btn-primary" id="change-date-btn">Change Date</button>
     </div>
-  </div> 
+  </div>
+  
+  <div id="charts-container">
+
+    {{!-- First row --}}
+    <div class="row charts-row" id="first-row">
+      <div class="card" style="width: 30em;" id="chart-1"> 
+        <div class="card-body">
+          <div class="card-title-container">
+            <h5 class="card-title">Attendance Record</h5>
+          </div>
+          <canvas id="bar-chart" width="400" height="450"></canvas>
+        </div>
+      </div>
+      <div class="card" style="width: 30em;" id="chart-2"> 
+        <div class="card-body">
+          <div class="card-title-container">
+            <h5 class="card-title">Attendance Record</h5>
+          </div>
+          <canvas id="pie-chart" width="800"></canvas>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Second row --}}
+    <div class="row charts-row" id="second-row">
+      <div class="card" style="width: 30em;" id="chart-3"> 
+        <div class="card-body">
+          <div class="card-title-container">
+            <h5 class="card-title">Insert Title Here</h5>
+          </div>
+          <canvas id="bar-chart" width="400" height="450"></canvas>
+        </div>
+      </div>
+      <div class="card" style="width: 30em;" id="chart-4"> 
+        <div class="card-body">
+          <div class="card-title-container">
+            <h5 class="card-title">Insert Title Here</h5>
+          </div>
+          <canvas id="pie-chart" width="800"></canvas>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Third row --}}
+    <div class="row charts-row" id="third-row">
+      <div class="card" style="width: 30em;" id="chart-5"> 
+        <div class="card-body">
+          <div class="card-title-container">
+            <h5 class="card-title">Insert Title Here</h5>
+          </div>
+          <canvas id="bar-chart" width="400" height="450"></canvas>
+        </div>
+      </div>
+      <div class="card" style="width: 30em;" id="chart-6"> 
+        <div class="card-body">
+          <div class="card-title-container">
+            <h5 class="card-title">Insert Title Here</h5>
+          </div>
+          <canvas id="pie-chart" width="800"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
 
 
