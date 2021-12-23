@@ -13,6 +13,7 @@ const weddingController = require('../controllers/weddingController')
 const baptismalController = require('../controllers/baptismalController')
 const attendanceController = require('../controllers/attendanceController')
 const searchController = require('../controllers/searchController')
+const eventsReportController = require('../controllers/eventsReportController')
 
 const app = express()
 app.set('views', path.join(__dirname, '../views'))
@@ -77,6 +78,8 @@ app.post('/create_prenup', validation.addPrenupValidation(), prenupController.cr
 app.post('/create_prenup_member', validation.addMemberPrenupValid(), prenupController.createMemberPrenup)
 app.post('/addPrenupBrideNonMember', validation.addPrenupBrideNonMember(), prenupController.createPrenupBrideNonMember)
 app.post('/addPrenupGroomNonMember', validation.addPrenupGroomNonMember(), prenupController.createPrenupGroomNonMember)
+
+app.post('/get_count_event_data', eventsReportController.getCountPerEventData)
 
 app.put('/update_prenup/bride', prenupController.putUpdatePrenupBride)
 app.put('/update_prenup/groom', prenupController.putUpdatePrenupGroom)
