@@ -1,0 +1,11 @@
+#Dependencies
+node_modules/
+
+#Python Cache
+__pycache__/
+
+#Robot Framework Outputs
+*.png
+output.xml
+log.html
+report.html
