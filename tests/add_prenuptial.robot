@@ -29,7 +29,7 @@ Complete Non-Member Input (Level 2):
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -46,7 +46,7 @@ Complete Non-Member Input (Level 3):
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -89,7 +89,7 @@ Blank Non-Member Input (Level 2):
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -104,7 +104,7 @@ Blank Non-Member Input (Level 3):
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -132,7 +132,7 @@ Blank Member Input (Level 2):
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Member Bride Form
     Select Member Groom Form
@@ -147,7 +147,7 @@ Blank Member Input (Level 3):
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Member Bride Form
     Select Member Groom Form
@@ -222,7 +222,7 @@ Incomplete Non-Member Bride Input (Level 2)
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -239,7 +239,7 @@ Incomplete Non-Member Groom Input (Level 2)
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -271,7 +271,7 @@ Incomplete Non-Member Wedding Date Input (Level 2):
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -289,7 +289,7 @@ Incomplete Non-Member Bride Input (Level 3)
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -306,7 +306,7 @@ Incomplete Non-Member Groom Input (Level 3)
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -323,7 +323,7 @@ Incomplete Non-Member Current Date Input (Level 3)
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form
@@ -340,7 +340,7 @@ Incomplete Non-Member Wedding Date Input (Level 3):
     Main Page Should Be Open
     Navigate to Prenuptial Page
     Prenuptial Main Page Should Be Open
-    Navigate to Create Prenuptial Page From Prenuptial Main Page
+    Navigate to Add Prenuptial Page From Prenuptial Main Page
     Add Prenuptial Page Should Be Open
     Select Non-Member Bride Form
     Select Non-Member Groom Form

@@ -17,7 +17,7 @@ Navigate to Prenuptial Main Page
     Click Link    css:#registries > a
     Click Link    css:#prenuptial > a
 
-Navigate to Create Prenuptial Page From Prenuptial Main Page
+Navigate to Add Prenuptial Page From Prenuptial Main Page
     Click Link    id:add-prenup
 
 Navigate to View Prenuptial Page From Prenuptial Main Page
