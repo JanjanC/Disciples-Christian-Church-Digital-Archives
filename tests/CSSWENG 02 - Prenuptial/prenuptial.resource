@@ -20,6 +20,18 @@ Navigate to Prenuptial Main Page
 Navigate to Create Prenuptial Page From Prenuptial Main Page
     Click Link    id:add-prenup
 
+Navigate to View Prenuptial Page From Prenuptial Main Page
+    Click Element    class:record
+
+Navigate to Edit Prenuptial Page
+    Click Button    id:edit_prenup
+
+Select Edit Bride Details
+    Click Button    edit_bride
+
+Select Edit Groom Details
+    Click Button    edit_groom
+
 Select Non-Member Bride Form
     Click Element    id:bride_non_member
 
@@ -55,6 +67,16 @@ Input Wedding Date
 Submit Prenuptial Form
     Click Button    id:create-prenup
 
+Save Bride Detail Changes
+    Click Button    id:save_bride_btn
+
+Save Groom Detail Changes
+    Click Button    id:save_groom_btn
+
+Save Prenuptial Form Changes
+    Click Button    id:save_changes
+    Click Button    id:edit-prenup
+
 Bride Information Error Should Be Shown
     Element Should Contain    id:bride_info_error    Accomplish all fields
 
@@ -67,8 +89,11 @@ Wedding Date Error Should Be Shown
 Prenuptial Main Page Should Be Open
     Element Should Contain    id:title    Prenuptial Forms
 
+View Prenuptial Page Should Be Open
+    Element Should Contain    id:title    View Prenuptial Record
+
 Add Prenuptial Page Should Be Open
     Element Should Contain    id:title    Add Prenuptial Form
 
-View Prenuptial Page Should Be Open
-    Element Should Contain    id:title    View Prenuptial Record
+Edit Prenuptial Page Should Be Open
+    Element Should Contain    id:title    Edit Prenuptial Form

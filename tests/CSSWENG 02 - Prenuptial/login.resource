@@ -52,3 +52,7 @@ Main Page Should Be Open
 Error Modal Should Be Shown
     Element Should Be Enabled    errorModal
     #TODO: Implement proper checking of error modal
+
+Unauthorized Access Error Should Be Shown
+    Page Should Contain    ERROR 401
+    Page Should Contain    Unauthorized Access
