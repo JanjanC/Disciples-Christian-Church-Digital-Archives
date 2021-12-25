@@ -4,15 +4,11 @@ Documentation     A resource file with reusable keywords and variables
 ...               Creating system specific keywords from default keywords
 ...               from SeleniumLibrary
 Library           SeleniumLibrary
-Resource          common.resource
 Variables         variables.py
 
 *** Keywords ***
-Open Browser to Login Page
-    Open Browser    ${LOGIN_URL}    ${BROWSER}
-    Maximize Browser Window
-    Set Selenium Speed    ${DELAY}
-    Login Page Should Be Open
+Login Page Should Be Open
+    Page Should Contain Element    id: password
 
 Login Level 1 User
     Input Credentials    ${LEVEL_1_PASSWORD}
@@ -35,7 +31,24 @@ Login Empty User
 
 Input Credentials
     [Arguments]    ${password}
-    Input Password    password    ${password}
+    Input Password    id:password    ${password}
 
 Submit Credentials
     Press Keys    None    RETURN
+
+Open Browser to Login Page
+    Open Browser    ${LOGIN_URL}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Login Page Should Be Open
+
+Main Page Should Be Open
+    Wait Until Page Contains Element    id:members
+    Element Should Be Visible    id:members
+    Wait Until Page Contains Element    id:registries
+    Element Should Be Visible    id:registries
+    #TODO: Add checking of service attendance
+
+Error Modal Should Be Shown
+    Element Should Be Enabled    errorModal
+    #TODO: Implement proper checking of error modal
