@@ -87,13 +87,17 @@ Wedding Date Error Should Be Shown
     Element Should Contain    id:wedding_date_error    Wedding date should not be earlier than current date
 
 Prenuptial Main Page Should Be Open
+    Wait Until Page Contains    Prenuptial Forms
     Element Should Contain    id:title    Prenuptial Forms
 
 View Prenuptial Page Should Be Open
+    Wait Until Page Contains    View Prenuptial Record
     Element Should Contain    id:title    View Prenuptial Record
 
 Add Prenuptial Page Should Be Open
+    Wait Until Page Contains    Add Prenuptial Form
     Element Should Contain    id:title    Add Prenuptial Form
 
 Edit Prenuptial Page Should Be Open
+    Wait Until Page Contains    Edit Prenuptial Form
     Element Should Contain    id:title    Edit Prenuptial Form
