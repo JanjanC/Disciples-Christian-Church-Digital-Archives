@@ -1,20 +1,19 @@
 *** Settings ***
-Documentation     A resource file with reusable keywords and variables
+Documentation       A resource file with reusable keywords and variables
 ...
-...               Creating system specific keywords from default keywords
-...               from SeleniumLibrary
-Library           SeleniumLibrary
-Library           DateTime
-Resource          login.resource
-Variables         variables.py
+...                 Creating system specific keywords from default keywords
+...                 from SeleniumLibrary
+
+Library             SeleniumLibrary
+Library             DateTime
+Resource            login.resource
+Variables           variables.py
 
 *** Keywords ***
-Navigate to Baptismal Page
+Navigate to Forms Main Page From Main Page
     Click Link    css:#registries>a
-    Click Link    css:#baptismal>a
 
-Navigate to Baptismal Main Page
-    Click Link    css:#registries>a
+Navigate to Baptismal Page From Forms Main Page
     Click Link    css:#baptismal>a
 
 Navigate to Add Baptismal Page From Baptismal Main Page
@@ -78,6 +77,16 @@ Non-Member Officiant Middle Initial Error Should Be Shown
 
 Member Officiant Error Should Be Shown
     Element Should Contain    id:officiant_error    Please select member
+
+Forms Main Page Should Be Open
+    Wait Until Page Contains    Baptismal Record
+    Element Should Contain    id:baptismal    Baptismal Record
+    Wait Until Page Contains    Child Dedication
+    Element Should Contain    id:child-dedication    Child Dedication
+    Wait Until Page Contains    Prenuptial
+    Element Should Contain    id:prenuptial    Prenuptial
+    Wait Until Page Contains    Wedding Registry
+    Element Should Contain    id:wedding    Wedding Registry
 
 Baptismal Main Page Should Be Open
     Wait Until Page Contains    Baptismal Record

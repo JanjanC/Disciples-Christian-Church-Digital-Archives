@@ -49,10 +49,6 @@ Main Page Should Be Open
     Element Should Be Visible    id:registries
     #TODO: Add checking of service attendance
 
-Forms Main Page Should Be Open
-    Comment
-    #TODO: Add code
-
 Error Modal Should Be Shown
     Element Should Be Enabled    errorModal
     #TODO: Implement proper checking of error modal

@@ -1,25 +1,31 @@
 *** Settings ***
-Documentation     A test suite with a single test for valid login
+Documentation       A test suite with a single test for valid login
 ...
-...               This test follows the example using keywords from
-...               the SeleniumLibrary
-Resource          login.resource
-Resource          baptismal.resource
-Test Teardown     Close Browser
+...                 This test follows the example using keywords from
+...                 the SeleniumLibrary
+
+Resource            login.resource
+Resource            baptismal.resource
+
+Test Teardown       Close Browser
 
 *** Test Cases ***
 Navigate to Add Baptismal Page (Level 1)
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
 
 Navigate to Add Baptismal Page (Level 2)
     Open Browser to Login Page
     Login Level 2 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
@@ -28,7 +34,9 @@ Navigate to Add Baptismal Page (Level 3)
     Open Browser to Login Page
     Login Level 2 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
@@ -37,7 +45,9 @@ Validate Baptism Location Input Field
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Valenzuela
@@ -52,7 +62,9 @@ Validate Baptism Date Input Field
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Valenzuela
@@ -66,7 +78,9 @@ Validate Non-Member Officiant Input Field
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Valenzuela
@@ -81,7 +95,9 @@ Validate Non-Member Officiant Middle Name Input Field
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Valenzuela
@@ -95,7 +111,9 @@ Complete Non-Member Officiant Input (Level 1):
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Valenzuela
@@ -110,7 +128,9 @@ Complete Member Officiant Input (Level 1):
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Valenzuela
@@ -125,7 +145,9 @@ Complete Non-Member Officiant Input (Level 2):
     Open Browser to Login Page
     Login Level 2 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
@@ -142,7 +164,9 @@ Complete Member Officiant Input (Level 2):
     Open Browser to Login Page
     Login Level 2 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
@@ -159,7 +183,9 @@ Complete Non-Member Officiant Input (Level 3):
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
@@ -176,7 +202,9 @@ Complete Member Officiant Input (Level 3):
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
@@ -193,7 +221,9 @@ Missing Member for Baptism Input:
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Input Baptism Location    Paranaque
     Input Baptism Date    02    22    2022
@@ -206,7 +236,9 @@ Missing Baptism Location Input:
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Date    02    03    2022
@@ -219,7 +251,9 @@ Missing Baptism Date Input:
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Malabon
@@ -232,7 +266,9 @@ Missing Member Officiant Input:
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Malabon
@@ -245,7 +281,9 @@ Missing Non-Member Officiant Input:
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Malabon
@@ -258,7 +296,9 @@ Incomplete Non-Member Officiant Input:
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Malabon
@@ -271,7 +311,9 @@ Navigate to View Baptismal Page (Level 1):
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
     Select Member for Baptism
     Input Baptism Location    Pasay
@@ -287,7 +329,9 @@ Navigate to View Baptismal Page (Level 2):
     Open Browser to Login Page
     Login Level 2 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
@@ -308,7 +352,9 @@ Navigate to View Baptismal Page (Level 3):
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
-    Navigate to Baptismal Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
