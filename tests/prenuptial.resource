@@ -22,6 +22,9 @@ Navigate to Add Prenuptial Page From Prenuptial Main Page
 Navigate to View Prenuptial Page From Prenuptial Main Page
     Click Element    class:record
 
+Navigate to Forms Main Page From View Prenuptial Page
+    Click Element    id:back
+
 Navigate to Edit Prenuptial Page
     Click Button    id:edit_prenup
 
