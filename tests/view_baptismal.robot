@@ -27,6 +27,8 @@ Navigate to View Baptismal Page (Level 1):
     View Baptismal Page Should Be Open
     Navigate to Baptismal Main Page From View Baptismal Page
     Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
+    Add Baptismal Page Should Be Open
 
 Navigate to View Baptismal Page (Level 2):
     Open Browser to Login Page
