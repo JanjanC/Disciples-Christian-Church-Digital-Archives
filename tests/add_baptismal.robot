@@ -32,7 +32,7 @@ Navigate to Add Baptismal Page (Level 2)
 
 Navigate to Add Baptismal Page (Level 3)
     Open Browser to Login Page
-    Login Level 2 User
+    Login Level 3 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
     Forms Main Page Should Be Open
