@@ -1,21 +1,20 @@
 *** Settings ***
-Documentation     A resource file with reusable keywords and variables
+Documentation       A resource file with reusable keywords and variables
 ...
-...               Creating system specific keywords from default keywords
-...               from SeleniumLibrary
-Library           SeleniumLibrary
-Library           DateTime
-Resource          login.resource
-Variables         variables.py
+...                 Creating system specific keywords from default keywords
+...                 from SeleniumLibrary
+
+Library             SeleniumLibrary
+Library             DateTime
+Resource            login.resource
+Variables           variables.py
 
 *** Keywords ***
-Navigate to Prenuptial Page
-    Click Link    css:#registries > a
-    Click Link    css:#prenuptial > a
+Navigate to Forms Main Page From Main Page
+    Click Link    css:#registries>a
 
-Navigate to Prenuptial Main Page
-    Click Link    css:#registries > a
-    Click Link    css:#prenuptial > a
+Navigate to Prenuptial Page From Forms Main Page
+    Click Link    css:#prenuptial>a
 
 Navigate to Add Prenuptial Page From Prenuptial Main Page
     Click Link    id:add-prenup
@@ -56,6 +55,14 @@ Input Non Member Groom Details
     Input Text    id:groom_mid_name    ${middle}
     Input Text    id:groom_last_name    ${last}
 
+Select Random Member Bride
+    Click Element    css:#bride_member_div .selectize-input
+    Click Element    css:#bride_member_div .selectize-dropdown-content>[data-selectable]
+
+Select Random Member Groom
+    Click Element    css:#groom_member_div .selectize-input
+    Click Element    css:#groom_member_div .selectize-dropdown-content>[data-selectable]
+
 Input Current Date
     [Arguments]    ${month}    ${day}    ${year}
     Press Keys    id:current_date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
@@ -77,6 +84,10 @@ Save Prenuptial Form Changes
     Click Button    id:save_changes
     Click Button    id:edit-prenup
 
+Delete Prenuptial Record
+    Click Button    id:delete_prenup
+    Click Button    id:confirm_delete
+
 Bride Information Error Should Be Shown
     Element Should Contain    id:bride_info_error    Accomplish all fields
 
@@ -85,6 +96,16 @@ Groom Information Error Should Be Shown
 
 Wedding Date Error Should Be Shown
     Element Should Contain    id:wedding_date_error    Wedding date should not be earlier than current date
+
+Forms Main Page Should Be Open
+    Wait Until Page Contains    Baptismal Record
+    Element Should Contain    id:baptismal    Baptismal Record
+    Wait Until Page Contains    Child Dedication
+    Element Should Contain    id:child-dedication    Child Dedication
+    Wait Until Page Contains    Prenuptial
+    Element Should Contain    id:prenuptial    Prenuptial
+    Wait Until Page Contains    Wedding Registry
+    Element Should Contain    id:wedding    Wedding Registry
 
 Prenuptial Main Page Should Be Open
     Wait Until Page Contains    Prenuptial Forms
