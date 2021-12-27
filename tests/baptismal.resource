@@ -82,7 +82,7 @@ Forms Main Page Should Be Open
     Wait Until Page Contains    Baptismal Record
     Element Should Contain    id:baptismal    Baptismal Record
     Wait Until Page Contains    Child Dedication
-    Element Should Contain    id:child-dedication    Child Dedication
+    Element Should Contain    id:dedication    Child Dedication
     Wait Until Page Contains    Prenuptial
     Element Should Contain    id:prenuptial    Prenuptial
     Wait Until Page Contains    Wedding Registry
@@ -99,5 +99,3 @@ View Baptismal Page Should Be Open
 Add Baptismal Page Should Be Open
     Wait Until Page Contains    Add Baptismal Record
     Element Should Contain    id:title    Add Baptismal Record
-# Edit Baptismal Page Should Be Open
-#    Element Should Contain    id:title    Edit Prenuptial Form
