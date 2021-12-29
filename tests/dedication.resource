@@ -19,11 +19,11 @@ Navigate to Dedication Page From Forms Main Page
 Navigate to Add Dedication Page From Dedication Main Page
     Click Link    id:add-dedication
 
-# Navigate to View Dedication Page From Dedication Main Page
-#    Click Element    class:record
+Navigate to View Dedication Page From Dedication Main Page
+    Click Element    class:record
 
-# Navigate to Dedication Main Page From View Dedication Page
-#    Click Element    id:back
+Navigate to Dedication Main Page From View Dedication Page
+    Click Element    id:back
 
 Select Non-Member Child Form
     Click Element    id:child_non_member
