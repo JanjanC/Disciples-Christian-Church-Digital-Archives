@@ -1,25 +1,31 @@
 *** Settings ***
-Documentation     A test suite with a single test for valid login
+Documentation       A test suite with a single test for valid login
 ...
-...               This test follows the example using keywords from
-...               the SeleniumLibrary
-Resource          login.resource
-Resource          prenuptial.resource
-Test Teardown     Close Browser
+...                 This test follows the example using keywords from
+...                 the SeleniumLibrary
+
+Resource            login.resource
+Resource            prenuptial.resource
+
+Test Teardown       Close Browser
 
 *** Test Cases ***
 Edit Prenuptial Record (Level 1):
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
-    Navigate to Prenuptial Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Prenuptial Page From Forms Main Page
     Add Prenuptial Page Should Be Open
 
 Edit Prenuptial Record (Level 2):
     Open Browser to Login Page
     Login Level 2 User
     Main Page Should Be Open
-    Navigate to Prenuptial Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Prenuptial Page From Forms Main Page
     Prenuptial Main Page Should Be Open
     Navigate to View Prenuptial Page From Prenuptial Main Page
     View Prenuptial Page Should Be Open
@@ -30,7 +36,9 @@ Edit Prenuptial Record (Level 3):
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
-    Navigate to Prenuptial Page
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Prenuptial Page From Forms Main Page
     Prenuptial Main Page Should Be Open
     Navigate to View Prenuptial Page From Prenuptial Main Page
     View Prenuptial Page Should Be Open
