@@ -113,6 +113,19 @@ const prenupController = {
      * This function selects the member based on member_id and renders this
      * one member in the dropdown options in add-prenup-temp.hbs
      */
+    const level = req.session.level;
+    if (level === undefined || level === null) {
+      res.status(401);
+      res.render("error", {
+        title: "401 Unauthorized Access",
+        css: ["global", "error"],
+        status: {
+          code: "401",
+          message: "Unauthorized access",
+        },
+      });
+    }
+
     function selectMember (member) {
       // let brideNames = []
       // let groomNames = []

@@ -149,7 +149,7 @@ const dedicationController = {
           data.styles = ['view']
           data.scripts = ['deleteDedication']
           data.backLink = parseInt(req.session.level) >= 2 ? '/dedication_main_page' : '/forms_main_page'
-          data.canSee = parseInt(req.session.level) >= 2 || req.session.editId === parseInt(req.session.editId) === dedicationId
+          data.canSee = parseInt(req.session.level) >= 2 || parseInt(req.session.editId) === parseInt(dedicationId)
           db.find(db.tables.WITNESS_TABLE, witnessCond, witnessJoin, witnessColumns, function (result) {
             if (result) {
               data.witnesses = result

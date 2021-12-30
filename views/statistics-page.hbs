@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-12" id="header-div">
         <p id="statistics-text">Statistical Reports</p>
-        <p id="date-range">December 17, 2021 - December 31, 2021</p>
+        <p id="date-range"></p>
         <div id="date-picker-container">
           <div id="starting-date-container">
             <p class="date-text">Starting date</p>
@@ -16,6 +16,7 @@
             <input type="date" max="9999-12-31" id="ending-date">
           </div> 
         </div>
+        <p id ='error-msg' style="display: none;"> Starting date must precede ending date</p>
         <button type="button" class="btn btn-primary" id="change-date-btn">Change Date</button>
     </div>
   </div>
@@ -24,60 +25,57 @@
 
     {{!-- First row --}}
     <div class="row charts-row" id="first-row">
-      <div class="card" style="width: 30em;" id="chart-1"> 
+      <div class="card" style="width: 32em;" id="chart-1"> 
         <div class="card-body">
           <div class="card-title-container">
-            <h5 class="card-title">Attendance Record</h5>
+            <h5 class="card-title">Member Type Record</h5>
           </div>
-          <canvas id="bar-chart" width="400" height="450"></canvas>
+          <div class="no-data-container">
+            <p style="display: none;" id="no-data-member-type" class="no-data-found"> No data found </p>
+          </div>      
+          <canvas id="pie-chart-member-type" width="800" height="600"></canvas>
+          <div style="height:500px; display:none;" id='filler-div-1'> </div>
         </div>
       </div>
-      <div class="card" style="width: 30em;" id="chart-2"> 
+      
+      <div class="card" style="width: 32em;" id="chart-2"> 
         <div class="card-body">
           <div class="card-title-container">
-            <h5 class="card-title">Attendance Record</h5>
+            <h5 class="card-title">Member Status Record</h5>
           </div>
-          <canvas id="pie-chart" width="800"></canvas>
+          <div class="no-data-container">
+            <p style="display: none;" id="no-data-member-status" class="no-data-found"> No data found </p>
+          </div> 
+          <canvas id="bar-chart-member-status" width="800" height="800"></canvas>
+          <div style="height:500px" id='filler-div-2'> </div>
         </div>
       </div>
     </div>
 
     {{!-- Second row --}}
-    <div class="row charts-row" id="second-row">
-      <div class="card" style="width: 30em;" id="chart-3"> 
+
+
+   
+    <div class="row charts-row" id="third-row">
+      <div class="card" style="width: 69em;" id="chart-6"> 
         <div class="card-body">
           <div class="card-title-container">
-            <h5 class="card-title">Insert Title Here</h5>
+            <h5 class="card-title">Attendance Record</h5>
           </div>
-          <canvas id="bar-chart" width="400" height="450"></canvas>
-        </div>
-      </div>
-      <div class="card" style="width: 30em;" id="chart-4"> 
-        <div class="card-body">
-          <div class="card-title-container">
-            <h5 class="card-title">Insert Title Here</h5>
-          </div>
-          <canvas id="pie-chart" width="800"></canvas>
+          <canvas id="line-chart" width="400" height="200"></canvas>
+          <div style="height:500px;display:none;" id='filler-div-5'> </div>
         </div>
       </div>
     </div>
-
-    {{!-- Third row --}}
-    <div class="row charts-row" id="third-row">
-      <div class="card" style="width: 30em;" id="chart-5"> 
+ {{!-- Third row --}}
+    <div class="row charts-row" id="second-row">
+      <div class="card" style="width: 32em;" id="chart-4"> 
         <div class="card-body">
           <div class="card-title-container">
-            <h5 class="card-title">Insert Title Here</h5>
+            <h5 class="card-title">Events Record</h5>
           </div>
-          <canvas id="bar-chart" width="400" height="450"></canvas>
-        </div>
-      </div>
-      <div class="card" style="width: 30em;" id="chart-6"> 
-        <div class="card-body">
-          <div class="card-title-container">
-            <h5 class="card-title">Insert Title Here</h5>
-          </div>
-          <canvas id="pie-chart" width="800"></canvas>
+          <canvas id="pie-chart-events" width="800"></canvas>
+          <div style="height:500px;display:none;" id='filler-div-4'> </div>
         </div>
       </div>
     </div>

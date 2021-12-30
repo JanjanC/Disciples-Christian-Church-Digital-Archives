@@ -461,13 +461,18 @@ const controller = {
     res.send(true)
   },
   getStatisticsPage: function (req,res){
+    if (parseInt(req.session.level) === 3) {
+      const level = req.body.level
+      const password = req.body.password
+      const data = {
+        scripts: ['statistics'],
+        styles: ['statistics'],
+      }
 
-    const data = {
-      scripts: ['statistics'],
-      styles: ['statistics'],
+      res.render('statistics-page',data)
+    } else {
+      sendError(req, res, 401)
     }
-
-    res.render('statistics-page',data)
   }
 }
 
