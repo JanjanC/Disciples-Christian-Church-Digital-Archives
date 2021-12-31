@@ -92,7 +92,7 @@ $(document).ready(function () {
       data: {
         labels: ["January","February","March","April","May","June","July","August","September","October","November","December"],
         datasets: [{ 
-          data: 0,
+          data: [0,0,0],
           label: '# of Attendees',
           backgroundColor: "#3e95cd"
         }
@@ -117,6 +117,9 @@ $(document).ready(function () {
     $('#change-date-btn').click(function(){
       //compareDate
       if(!checkValidDate())
+        return
+
+      if(!checkValidDateRange())
         return
       // Update graphs
       getCountPerEventData(eventPie)
@@ -165,13 +168,35 @@ $(document).ready(function () {
       var endDate =  new Date($("#ending-date").val())
       if(!dateCompare(startDate,endDate)){
         console.log('reached here')
+        $("#error-msg").text('Starting date must precede ending date')
         $("#error-msg").css('display','block')
         return false
       }
       else{
+        $("#error-msg").text('')
         $("#error-msg").css('display','none')
         return true
       }
+   }
+
+   function checkValidDateRange(){
+    var startDate = new Date($("#starting-date").val())
+    var endDate =  new Date($("#ending-date").val())
+
+    var startYear = startDate.getFullYear()
+    var endYear = endDate.getFullYear()
+
+    if((endYear - startYear) > 20){
+      $("#error-msg").text('The date range should not exceed 20 years')
+      $("#error-msg").css('display','block')
+      return false
+    }
+    else{
+      $("#error-msg").text('')
+      $("#error-msg").css('display','none')
+      return true
+    }
+      
    }
 
     function dateCompare(date1, date2){
@@ -198,21 +223,23 @@ async function getCountPerEventData(eventPie) {
         return result[val]
       })
 
-      var res = Object.values(counts).every(o => o === 0); //check if all values returned are 0 
+      console.log(`updates counts ${counts}`)
 
+      var res = Object.values(counts).every(o => o === 0); //check if all values returned are 0 
+      
       if(res == true){
-          // $("#pie-chart-member-type").css('display','none')
-          $("#no-data-member-type").css('display','block')
-          $("#pie-chart-member-type").css('display','none')
-          $("#filler-div-1").css('display','block')
+
+          $("#no-data-events").css('display','block')
+          $("#pie-chart-events").css('display','none')
+          $("#filler-div-4").css('display','block')
       }
       else{
-          $("#pie-chart-member-type").css('display','block')
-          $("#no-data-member-type").css('display','none')
-          $("#filler-div-1").css('display','none')
+          $("#no-data-events").css('display','none')
+          $("#pie-chart-events").css('display','block')
+          $("#filler-div-4").css('display','none')
       }
 
-      console.log(`result ${res }`)
+      console.log(`result VALUEEEE ${res }`)
 
       console.log(`counts ${counts}`)
       console.log(typeof(counts))
@@ -275,6 +302,20 @@ async function getMemberTypeData(memberTypePie) {
       const counts = Object.keys(result).map(function(val){
         return result[val]
       })
+
+      var res = Object.values(counts).every(o => o === 0); //check if all values returned are 0 
+
+      if(res == true){
+          // $("#pie-chart-member-type").css('display','none')
+          $("#no-data-member-type").css('display','block')
+          $("#pie-chart-member-type").css('display','none')
+          $("#filler-div-1").css('display','block')
+      }
+      else{
+          $("#pie-chart-member-type").css('display','block')
+          $("#no-data-member-type").css('display','none')
+          $("#filler-div-1").css('display','none')
+      }
       
       removeData(memberTypePie)    
       addData(memberTypePie, counts)
@@ -296,8 +337,32 @@ async function getAttendanceData(attendanceLine) {
         const counts = Object.keys(result).map(function(val){
           return result[val]
         })
+
+        console.log(`counts here ${counts}`)
+
+        var res = Object.values(counts).every(o => o === 0); //check if all values returned are 0 
+          console.dir(res)
+          console.log(`res ${res}`)
+        if(res == true){
+          
+            // $("#pie-chart-member-type").css('display','none')
+            $("#no-data-attendance").css('display','block')
+            $("#line-chart").css('display','none')
+            $("#filler-div-3").css('display','block')
+        }
+        else{
+            $("#no-data-attendance").css('display','none')
+            $("#line-chart").css('display','block')
+            $("#filler-div-3").css('display','none')
+        }
+
         removeDataSet(attendanceLine)
         addDataSet(attendanceLine, Object.keys(result), counts)
+      }
+      else{
+            $("#no-data-attendance").css('display','block')
+            $("#line-chart").css('display','none')
+            $("#filler-div-3").css('display','block')
       }
     }
   });

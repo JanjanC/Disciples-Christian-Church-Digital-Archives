@@ -16,7 +16,7 @@
             <input type="date" max="9999-12-31" id="ending-date">
           </div> 
         </div>
-        <p id ='error-msg' style="display: none;"> Starting date must precede ending date</p>
+        <p id ='error-msg' style="display: none;"></p>
         <button type="button" class="btn btn-primary" id="change-date-btn">Change Date</button>
     </div>
   </div>
@@ -47,7 +47,7 @@
             <p style="display: none;" id="no-data-member-status" class="no-data-found"> No data found </p>
           </div> 
           <canvas id="bar-chart-member-status" width="800" height="800"></canvas>
-          <div style="height:500px" id='filler-div-2'> </div>
+          <div style="height:500px; display:none;" id='filler-div-2'> </div>
         </div>
       </div>
     </div>
@@ -62,8 +62,11 @@
           <div class="card-title-container">
             <h5 class="card-title">Attendance Record</h5>
           </div>
-          <canvas id="line-chart" width="400" height="200"></canvas>
-          <div style="height:500px;display:none;" id='filler-div-5'> </div>
+          <div class="no-data-container">
+            <p style="display: none;" id="no-data-attendance" class="no-data-found"> No data found </p>
+          </div>
+          <canvas id="line-chart" width="800" height="350"></canvas>
+           <div style="height:500px; display:none;" id='filler-div-3'>  </div>
         </div>
       </div>
     </div>
@@ -74,7 +77,10 @@
           <div class="card-title-container">
             <h5 class="card-title">Events Record</h5>
           </div>
-          <canvas id="pie-chart-events" width="800"></canvas>
+          <div class="no-data-container">
+            <p style="display: none;" id="no-data-events" class="no-data-found"> No data found </p>
+          </div> 
+          <canvas id="pie-chart-events" width="800" height="800"></canvas>
           <div style="height:500px;display:none;" id='filler-div-4'> </div>
         </div>
       </div>
