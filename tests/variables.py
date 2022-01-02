@@ -1,6 +1,6 @@
 SERVER = "localhost:8080"
 BROWSER = "chrome"
-DELAY = 0.1
+DELAY = 0
 LEVEL_1_PASSWORD = "NormandyN7"
 LEVEL_2_PASSWORD = "HelloSweng"
 LEVEL_3_PASSWORD = "Coffee118"
