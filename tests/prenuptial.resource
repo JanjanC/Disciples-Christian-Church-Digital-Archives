@@ -7,6 +7,7 @@ Documentation       A resource file with reusable keywords and variables
 Library             SeleniumLibrary
 Library             DateTime
 Resource            login.resource
+Resource            common.resource
 Variables           variables.py
 
 *** Keywords ***
@@ -35,15 +36,19 @@ Select Edit Groom Details
     Click Button    edit_groom
 
 Select Non-Member Bride Form
+    Scroll To Element    id:bride_non_member
     Click Element    id:bride_non_member
 
 Select Member Bride Form
+    Scroll To Element    id:bride_member
     Click Element    id:bride_member
 
 Select Non-Member Groom Form
+    Scroll To Element    id:groom_non_member
     Click Element    id:groom_non_member
 
 Select Member Groom Form
+    Scroll To Element    id:groom_member
     Click Element    id:groom_member
 
 Input Non Member Bride Details
@@ -68,10 +73,12 @@ Select Random Member Groom
 
 Input Current Date
     [Arguments]    ${month}    ${day}    ${year}
+    Scroll To Element    id:current_date
     Press Keys    id:current_date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
 
 Input Wedding Date
     [Arguments]    ${month}    ${day}    ${year}
+    Scroll To Element    id:wedding_date
     Press Keys    id:wedding_date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
 
 Submit Prenuptial Form
@@ -88,8 +95,11 @@ Save Prenuptial Form Changes
     Click Button    id:edit-prenup
 
 Delete Prenuptial Record
+    Scroll To Element    id:delete_prenup
     Click Button    id:delete_prenup
+    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:confirm_delete
+    Sleep    0.5s    Wait for Modal to Close
 
 Bride Information Error Should Be Shown
     Element Should Contain    id:bride_info_error    Accomplish all fields

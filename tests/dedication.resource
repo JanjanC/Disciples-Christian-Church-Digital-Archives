@@ -7,6 +7,7 @@ Documentation       A resource file with reusable keywords and variables
 Library             SeleniumLibrary
 Library             DateTime
 Resource            login.resource
+Resource            common.resource
 Variables           variables.py
 
 *** Keywords ***
@@ -26,9 +27,11 @@ Navigate to Dedication Main Page From View Dedication Page
     Click Element    id:back
 
 Select Non-Member Child Form
+    Scroll To Element    id:child_non_member
     Click Element    id:child_non_member
 
 Select Member Child Form
+    Scroll To Element    id:child_member
     Click Element    id:child_member
 
 Input Non-Member Child Details
@@ -42,9 +45,11 @@ Select Random Member Child
     Click Element    css:#child_member_div .selectize-dropdown-content>[data-selectable]
 
 Select Non-Member Parent 1 Form
+    Scroll To Element    id:parent1_non_member
     Click Element    id:parent1_non_member
 
 Select Member Parent 1 Form
+    Scroll To Element    id:parent1_member
     Click Element    id:parent1_member
 
 Input Non-Member Parent 1 Details
@@ -58,12 +63,15 @@ Select Random Member Parent 1
     Click Element    css:#parent1_member_div .selectize-dropdown-content>[data-selectable]
 
 Select Non-Member Parent 2 Form
+    Scroll To Element    id:parent2_non_member
     Click Element    id:parent2_non_member
 
 Select Member Parent 2 Form
+    Scroll To Element    id:parent2_member
     Click Element    id:parent2_member
 
 Select No Parent 2 Form
+    Scroll To Element    id:parent2_none
     Click Element    id:parent2_none
 
 Input Non-Member Parent 2 Details
@@ -78,32 +86,37 @@ Select Random Member Parent 2
 
 Input Officiant Details
     [Arguments]    ${officiant}
+    Scroll To Element    id:officiant
     Input Text    id:officiant    ${officiant}
 
 Input Address of Dedication
     [Arguments]    ${address}
+    Scroll To Element    id:address
     Input Text    id:address    ${address}
 
 Input Date of Dedication
     [Arguments]    ${month}    ${day}    ${year}
+    Scroll To Element    id:date
     Press Keys    id:date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
 
 Select Add Godmother Button
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    id:add_gmother_button
     Click Button    id:add_gmother_button
 
 Select Add Godfather Button
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    id:add_gfather_button
     Click Button    id:add_gfather_button
 
 Select Non-Member Godmother Form
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    id:add_gmother_button
     Click Button    id:add_gmother_button
+    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:witness_gmother_non_member
 
 Select Member Godmother Form
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    id:add_gmother_button
     Click Button    id:add_gmother_button
+    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:witness_gmother_member
 
 Input Non-Member Godmother Details
@@ -112,20 +125,24 @@ Input Non-Member Godmother Details
     Input Text    id:witness_gmother_mid_name    ${middle}
     Input Text    id:witness_gmother_last_name    ${last}
     Click Button    id:add_gmother_witness
+    Sleep    0.5s    Wait for Modal to Close
 
 Select Random Member Godmother
     Click Element    css:#witness_gmother_member_div .selectize-input
     Click Element    css:#witness_gmother_member_div .selectize-dropdown-content>[data-selectable]
     Click Button    id:add_gmother_witness
+    Sleep    0.5s    Wait for Modal to Close
 
 Select Non-Member Godfather Form
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    id:add_gfather_button
     Click Button    id:add_gfather_button
+    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:witness_gfather_non_member
 
 Select Member Godfather Form
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    id:add_gfather_button
     Click Button    id:add_gfather_button
+    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:witness_gfather_member
 
 Input Non-Member Godfather Details
@@ -134,28 +151,32 @@ Input Non-Member Godfather Details
     Input Text    id:witness_gfather_mid_name    ${middle}
     Input Text    id:witness_gfather_last_name    ${last}
     Click Button    id:add_gfather_witness
+    Sleep    0.5s    Wait for Modal to Close
 
 Select Random Member Godfather
     Click Element    css:#witness_gfather_member_div .selectize-input
     Click Element    css:#witness_gfather_member_div .selectize-dropdown-content>[data-selectable]
     Click Button    id:add_gfather_witness
+    Sleep    0.5s    Wait for Modal to Close
 
 Remove Godmother
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    class:delGMotherWitnessBtn
     Click Element    class:delGMotherWitnessBtn
 
 Remove Godfather
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    class:delGFatherWitnessBtn
     Click Element    class:delGFatherWitnessBtn
 
 Submit Dedication Form
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    id:create-dedication
     Click Button    id:create-dedication
 
 Delete Dedication Record
-    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
+    Scroll To Element    id:delete
     Click Button    id:delete
+    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:confirm_delete
+    Sleep    0.5s    Wait for Modal to Close
 
 Child Error Should Be Shown
     Element Should Contain    id:child_info_error    Please provide child name

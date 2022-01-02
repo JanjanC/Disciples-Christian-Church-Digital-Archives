@@ -7,6 +7,7 @@ Documentation       A resource file with reusable keywords and variables
 Library             SeleniumLibrary
 Library             DateTime
 Resource            login.resource
+Resource            common.resource
 Variables           variables.py
 
 *** Keywords ***
@@ -31,16 +32,20 @@ Select Member for Baptism
 
 Input Baptism Location
     [Arguments]    ${location}
+    Scroll To Element    id:location
     Input Text    id:location    ${location}
 
 Input Baptism Date
     [Arguments]    ${month}    ${day}    ${year}
+    Scroll To Element    id:date
     Press Keys    id:date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
 
 Select Non-Member Officiant Form
+    Scroll To Element    id:officiant_non_member
     Click Element    id:officiant_non_member
 
 Select Member Officiant Form
+    Scroll To Element    id:officiant_member
     Click Element    id:officiant_member
 
 Input Non Member Officiant Details
@@ -54,11 +59,15 @@ Select Member Officiant
     Click Element    css:#officiant_member_div .selectize-dropdown-content>[data-selectable]
 
 Submit Baptismal Form
+    Scroll To Element    id:create-baptismal
     Click Button    id:create-baptismal
 
 Delete Baptismal Record
+    Scroll To Element    id:delete-baptismal
     Click Button    id:delete-baptismal
+    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:confirm_delete
+    Sleep    0.5s    Wait for Modal to Close
 
 Member for Baptism Error Should Be Shown
     Element Should Contain    id:member_error    Please select member
