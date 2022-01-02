@@ -10,7 +10,7 @@ Resource            wedding.resource
 Test Teardown       Close Browser
 
 *** Test Cases ***
-Navigate to Add Dedication Page (Level 1)
+Navigate to Add Wedding Page (Level 1)
    Open Browser to Login Page
    Login Level 1 User
    Main Page Should Be Open
@@ -19,7 +19,7 @@ Navigate to Add Dedication Page (Level 1)
    Navigate to Wedding Page From Forms Main Page
    Add Wedding Page Should Be Open
 
-Navigate to Add Baptismal Page (Level 2)
+Navigate to Add Wedding Page (Level 2)
    Open Browser to Login Page
    Login Level 2 User
    Main Page Should Be Open
@@ -30,7 +30,7 @@ Navigate to Add Baptismal Page (Level 2)
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
 
-Navigate to Add Baptismal Page (Level 3)
+Navigate to Add Wedding Page (Level 3)
    Open Browser to Login Page
    Login Level 3 User
    Main Page Should Be Open

@@ -19,7 +19,7 @@ Navigate to Add Dedication Page (Level 1)
     Navigate to Dedication Page From Forms Main Page
     Add Dedication Page Should Be Open
 
-Navigate to Add Baptismal Page (Level 2)
+Navigate to Add Dedication Page (Level 2)
     Open Browser to Login Page
     Login Level 2 User
     Main Page Should Be Open
@@ -30,7 +30,7 @@ Navigate to Add Baptismal Page (Level 2)
     Navigate to Add Dedication Page From Dedication Main Page
     Add Dedication Page Should Be Open
 
-Navigate to Add Baptismal Page (Level 3)
+Navigate to Add Dedication Page (Level 3)
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
