@@ -10,7 +10,7 @@ Resource            dedication.resource
 Test Teardown       Close Browser
 
 *** Test Cases ***
-Navigate to View Baptismal Page (Level 1):
+Navigate to View Dedication Page (Level 1):
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
@@ -37,7 +37,7 @@ Navigate to View Baptismal Page (Level 1):
     Navigate to Dedication Page From Forms Main Page
     Add Dedication Page Should Be Open
 
-Navigate to View Baptismal Page (Level 2):
+Navigate to View Dedication Page (Level 2):
     Open Browser to Login Page
     Login Level 2 User
     Main Page Should Be Open
@@ -67,7 +67,7 @@ Navigate to View Baptismal Page (Level 2):
     View Dedication Page Should Be Open
     Delete Dedication Record
 
-Navigate to View Baptismal Page (Level 3):
+Navigate to View Dedication Page (Level 3):
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
