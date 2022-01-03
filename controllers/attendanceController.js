@@ -46,13 +46,11 @@ const attendanceController = {
             conditions.setKeyValue(db.tables.ATTENDANCE_TABLE + "." + attendanceFields.DATE, date);
 
             db.find(db.tables.ATTENDANCE_TABLE, [conditions], joinTables, columns, function (result) {
-                console.log("Here");
                 const data = {};
                 data.records = result;
                 data.scripts = ["viewAttendance"];
                 data.styles = ["attendanceView"];
                 data.backLink = "attendance_main_page";
-                console.log(data);
 
                 res.render("view-attendance", data);
             });
@@ -119,10 +117,7 @@ const attendanceController = {
             const date = req.body.date;
             const nonMemberAttendees = [];
             const attendees = [];
-            console.log(req.body);
             const allAttendees = JSON.parse(req.body.attendees);
-            console.log("reached");
-            console.log(allAttendees);
 
             allAttendees.forEach(function (attendee) {
                 const curAttendee = {};
@@ -148,9 +143,7 @@ const attendanceController = {
                     res.send("EXISTS");
                     return;
                 }
-                console.log(nonMemberAttendees);
                 db.insert(db.tables.PERSON_TABLE, nonMemberAttendees, function (result) {
-                    console.log(result.type);
                     if (result) {
                         result = result[0];
                         nonMemberAttendees.forEach(function (personID) {
@@ -161,8 +154,7 @@ const attendanceController = {
                             result -= 1;
                         });
                     }
-
-                    console.log(attendees);
+                    
                     // insert each person into a new attendance table
                     db.insert(db.tables.ATTENDANCE_TABLE, attendees, function (result) {
                         if (result !== false) {
@@ -183,10 +175,8 @@ const attendanceController = {
      * @param res - the result to be sent out after processing the request
      */
     getEditAttendance: function (req, res) {
-        console.log("req params date" + req.params.date);
         const date = new Date(req.params.date).toISOString();
         if (parseInt(req.session.level) === 3 || parseInt(req.session.level) === 2 || req.session.editId === date) {
-            console.log(date);
             const data = {
                 scripts: ["editAttendance", "edit"],
                 styles: ["forms","attendanceEdit"],
@@ -215,7 +205,6 @@ const attendanceController = {
                 let existingUsers = [];
                 if (result != undefined && result != null)
                     existingUsers = result.map((a) => a.member_id).filter((v, i, a) => a.indexOf(v) === i && v != null);
-                console.log(existingUsers);
 
                 const columns = [
                     db.tables.MEMBER_TABLE + "." + memberFields.ID + " as member_id",
@@ -239,7 +228,6 @@ const attendanceController = {
                 db.find(db.tables.MEMBER_TABLE, [notInAttendance], joinTables2, columns, function (result) {
                     if (result !== null) {
                         data.members = result;
-                        console.dir(data);
                         res.render("edit-attendance", data);
                     }
                 });
@@ -270,7 +258,6 @@ const attendanceController = {
             const attendees = [];
             const keptAttendanceRecords = [];
             const attendeesRaw = JSON.parse(req.body.attendees);
-            console.log(`attendeesRaw ${attendeesRaw}`);
             attendeesRaw.forEach(function (attendee) {
                 const curAttendee = {};
                 if (attendee.attendance_id) {
@@ -300,10 +287,6 @@ const attendanceController = {
 
                 const removedPersons = new Condition(queryTypes.whereIn);
                 removedPersons.setArray(db.tables.PERSON_TABLE + "." + personFields.ID, personIDs);
-                console.log("keptAttendanceRecords");
-                console.log(keptAttendanceRecords);
-                console.log("personIDs");
-                console.log(personIDs);
 
                 // delete each attendance record that was removed in the update
                 db.delete(db.tables.ATTENDANCE_TABLE, [notKept, matchesDate], function (result) {
@@ -337,15 +320,12 @@ const attendanceController = {
         }
     },
     checkIfAttendanceDateExists: function (req, res) {
-        console.log("REACHED THIS");
         const date = new Date(req.body.date).toISOString();
-        console.log(`THIS IS THE DATE ${date}`);
         const condition = new Condition(queryTypes.where);
         condition.setKeyValue(db.tables.ATTENDANCE_TABLE + "." + attendanceFields.DATE, date);
 
         // find the the person ids of each attendance record that was removed in the update
         db.find(db.tables.ATTENDANCE_TABLE, condition, [], "*", function (result) {
-            console.log(`Value of result is ${result}`);
             if (result == 0) res.send(true);
             else res.send(false);
         });
