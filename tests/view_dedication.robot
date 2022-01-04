@@ -26,8 +26,10 @@ Navigate to View Dedication Page (Level 1):
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -55,8 +57,10 @@ Navigate to View Dedication Page (Level 2):
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -85,8 +89,10 @@ Navigate to View Dedication Page (Level 3):
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form

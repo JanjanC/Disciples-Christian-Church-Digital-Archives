@@ -35,8 +35,10 @@ Navigate to View Wedding Page (Level 1):
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
     Submit Wedding Registry
@@ -73,8 +75,10 @@ Navigate to View Wedding Page (Level 2):
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
     Submit Wedding Registry
@@ -112,8 +116,10 @@ Navigate to View Wedding Page (Level 3):
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
     Submit Wedding Registry
