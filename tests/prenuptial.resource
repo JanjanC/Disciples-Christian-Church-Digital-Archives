@@ -26,14 +26,19 @@ Navigate to View Prenuptial Page From Prenuptial Main Page
 Navigate to Forms Main Page From View Prenuptial Page
     Click Element    id:back
 
-Navigate to Edit Prenuptial Page
+Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Scroll To Element    id:edit_prenup
     Click Button    id:edit_prenup
 
 Select Edit Bride Details
-    Click Button    edit_bride
+    Scroll To Element    id:edit_bride
+    Click Button    id:edit_bride
+    Sleep    0.5s    Wait for Modal to Open
 
 Select Edit Groom Details
-    Click Button    edit_groom
+    Scroll To Element    id:edit_groom
+    Click Button    id:edit_groom
+    Sleep    0.5s    Wait for Modal to Open
 
 Select Non-Member Bride Form
     Scroll To Element    id:bride_non_member
@@ -82,17 +87,23 @@ Input Wedding Date
     Press Keys    id:wedding_date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
 
 Submit Prenuptial Form
+    Scroll To Element    id:create-prenup
     Click Button    id:create-prenup
 
 Save Bride Detail Changes
     Click Button    id:save_bride_btn
+    Sleep    0.5s    Wait for Modal to Close
 
 Save Groom Detail Changes
     Click Button    id:save_groom_btn
+    Sleep    0.5s    Wait for Modal to Close
 
 Save Prenuptial Form Changes
+    Scroll To Element    id:save_changes
     Click Button    id:save_changes
+    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:edit-prenup
+    Sleep    0.5s    Wait for Modal to Close
 
 Delete Prenuptial Record
     Scroll To Element    id:delete_prenup
