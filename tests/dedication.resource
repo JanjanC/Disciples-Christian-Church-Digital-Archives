@@ -26,6 +26,35 @@ Navigate to View Dedication Page From Dedication Main Page
 Navigate to Dedication Main Page From View Dedication Page
     Click Element    id:back
 
+Navigate to Edit Dedication Page From View Dedication Page
+    Scroll To Element    id:edit_dedication
+    Click Button    id:edit_dedication
+
+Select Edit Child Details
+    Scroll To Element    id:edit_child
+    Click Button    id:edit_child
+    Sleep    0.5s    Wait for Modal to Open
+
+Select Edit Parent 1 Details
+    Scroll To Element    id:edit_parent_one
+    Click Button    id:edit_parent_one
+    Sleep    0.5s    Wait for Modal to Open
+
+Select Edit Parent 2 Details
+    Scroll To Element    id:edit_parent_two
+    Click Button    id:edit_parent_two
+    Sleep    0.5s    Wait for Modal to Open
+
+Select Edit Godmother Details
+    Scroll To Element    class:edit_female_witness_btn
+    Click Button    class:edit_female_witness_btn
+    Sleep    0.5s    Wait for Modal to Open
+
+Select Edit Godfather Details
+    Scroll To Element    class:edit_male_witness_btn
+    Click Button    class:edit_male_witness_btn
+    Sleep    0.5s    Wait for Modal to Open
+
 Select Non-Member Child Form
     Scroll To Element    id:child_non_member
     Click Element    id:child_non_member
@@ -102,21 +131,17 @@ Input Date of Dedication
 Select Add Godmother Button
     Scroll To Element    id:add_gmother_button
     Click Button    id:add_gmother_button
+    Sleep    0.5s    Wait for Modal to Open
 
 Select Add Godfather Button
     Scroll To Element    id:add_gfather_button
     Click Button    id:add_gfather_button
+    Sleep    0.5s    Wait for Modal to Open
 
 Select Non-Member Godmother Form
-    Scroll To Element    id:add_gmother_button
-    Click Button    id:add_gmother_button
-    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:witness_gmother_non_member
 
 Select Member Godmother Form
-    Scroll To Element    id:add_gmother_button
-    Click Button    id:add_gmother_button
-    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:witness_gmother_member
 
 Input Non-Member Godmother Details
@@ -134,15 +159,9 @@ Select Random Member Godmother
     Sleep    0.5s    Wait for Modal to Close
 
 Select Non-Member Godfather Form
-    Scroll To Element    id:add_gfather_button
-    Click Button    id:add_gfather_button
-    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:witness_gfather_non_member
 
 Select Member Godfather Form
-    Scroll To Element    id:add_gfather_button
-    Click Button    id:add_gfather_button
-    Sleep    0.5s    Wait for Modal to Open
     Click Button    id:witness_gfather_member
 
 Input Non-Member Godfather Details
@@ -167,9 +186,39 @@ Remove Godfather
     Scroll To Element    class:delGFatherWitnessBtn
     Click Element    class:delGFatherWitnessBtn
 
+Remove Godmother in Edit Dedication Page
+    Scroll to Element    class:delete_female_witness_btn
+    Click Element    class:delete_female_witness_btn
+    Sleep    0.5s    Wait for Modal to Open
+    Click Element    id:confirm_delete_witness
+    Sleep    0.5s    Wait for Modal to Close
+
+Remove Godfather in Edit Dedication Page
+    Scroll to Element    class:delete_male_witness_btn
+    Click Element    class:delete_male_witness_btn
+    Sleep    0.5s    Wait for Modal to Open
+    Click Element    id:confirm_delete_witness
+    Sleep    0.5s    Wait for Modal to Close
+
 Submit Dedication Form
     Scroll To Element    id:create-dedication
     Click Button    id:create-dedication
+
+Save Child Detail Changes
+    Click Button    id:save_edit_child
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Parent 1 Detail Changes
+    Click Button    id:save_edit_parent_one
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Parent 2 Detail Changes
+    Click Button    id:save_edit_parent_two
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Dedication Form Changes
+    Scroll To Element    id:edit-dedication
+    Click Button    id:edit-dedication
 
 Delete Dedication Record
     Scroll To Element    id:delete
@@ -233,3 +282,7 @@ View Dedication Page Should Be Open
 Add Dedication Page Should Be Open
     Wait Until Page Contains    Add Child Dedication Form
     Element Should Contain    id:title    Add Child Dedication Form
+
+Edit Dedication Page Should Be Open
+    Wait Until Page Contains    Edit Child Dedication Form
+    Element Should Contain    id:title    Edit Child Dedication Form

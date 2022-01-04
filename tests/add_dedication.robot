@@ -58,8 +58,10 @@ Complete Input (Level 1)
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
     Submit Dedication Form
@@ -84,8 +86,10 @@ Complete Input (Level 2)
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
     Submit Dedication Form
@@ -111,8 +115,10 @@ Complete Input (Level 3)
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
     Submit Dedication Form
@@ -136,8 +142,10 @@ Blank Member Child Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -160,8 +168,10 @@ Blank Member Parents Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -185,8 +195,10 @@ Blank Officiant Input
     Select No Parent 2 Form
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -209,8 +221,10 @@ Blank Address of Dedication Input
     Select No Parent 2 Form
     Input Officiant Details    Pastor Shepard
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -234,8 +248,10 @@ Blank Date of Dedication Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    BACK_SPACE    BACK_SPACE    BACK_SPACE
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -279,8 +295,10 @@ Blank Non-Member Child Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -303,8 +321,10 @@ Blank Non-Member Parents Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -329,6 +349,7 @@ Blank Non-Member Godmother Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    ${EMPTY}    ${EMPTY}    ${EMPTY}
     Godmother Modal Error Should Be Shown
@@ -351,6 +372,7 @@ Blank Non-Member Godfather Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    ${EMPTY}    ${EMPTY}    ${EMPTY}
     Godfather Modal Error Should Be Shown
@@ -373,8 +395,10 @@ Complete Non-Members Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -400,8 +424,10 @@ Complete Member - Child, Parent, and Witness & Non-Member - Parent and Witness I
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -427,8 +453,10 @@ Complete Member - Parent and Witness & Non-Member - Child, Parent, and Witness I
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -453,8 +481,10 @@ Complete Member - Parent and Witness & Non-Member - Child and Witness Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -479,8 +509,10 @@ Complete Member - Witness & Non-Member - Child, Parent, and Witness Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -505,8 +537,10 @@ Complete One Godfather and One Godmother Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -531,6 +565,7 @@ Complete One Godmother Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
     Submit Dedication Form
@@ -555,6 +590,7 @@ Complete One Godfather Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -579,28 +615,40 @@ Complete Six Godmother and Six Godfather Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Submit Dedication Form
@@ -625,16 +673,22 @@ Complete Six Godmother Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
     Submit Dedication Form
@@ -659,16 +713,22 @@ Complete Six Godfather Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Submit Dedication Form
@@ -693,30 +753,42 @@ Complete Seven Godmother and Seven Godfather Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
     Select Add Godmother Button
     Godmother Maximum Warning Should Be Shown
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Select Add Godfather Button
@@ -743,16 +815,22 @@ Complete Seven Godmother Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
     Select Add Godmother Button
@@ -779,16 +857,22 @@ Complete Seven Godfather Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Select Add Godfather Button
@@ -815,11 +899,13 @@ Complete Deleted Godmother Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
     Remove Godmother
     Submit Dedication Form
     Godmother and Godfather Error Should Be Shown
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Dedication Form
@@ -844,11 +930,13 @@ Complete Deleted Godfather Input
     Input Officiant Details    Pastor Shepard
     Input Address of Dedication    The Citadel
     Input Date of Dedication    09    01    2021
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Remove Godfather
     Submit Dedication Form
     Godmother and Godfather Error Should Be Shown
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
     Submit Dedication Form
