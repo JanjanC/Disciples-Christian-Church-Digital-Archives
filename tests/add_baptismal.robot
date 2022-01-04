@@ -49,7 +49,7 @@ Validate Baptism Location Input Field
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Valenzuela
     Input Baptism Date    01    17    2021
     Select Non-Member Officiant Form
@@ -66,7 +66,7 @@ Validate Baptism Date Input Field
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Valenzuela
     Input Baptism Date    one    seventeen    two thousand twenty-one
     Select Non-Member Officiant Form
@@ -82,7 +82,7 @@ Validate Non-Member Officiant Input Field
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Valenzuela
     Input Baptism Date    01    17    2021
     Select Non-Member Officiant Form
@@ -99,7 +99,7 @@ Validate Non-Member Officiant Middle Name Input Field
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Valenzuela
     Input Baptism Date    01    17    2021
     Select Non-Member Officiant Form
@@ -115,7 +115,7 @@ Complete Non-Member Officiant Input (Level 1):
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Valenzuela
     Input Baptism Date    10    09    2010
     Select Non-Member Officiant Form
@@ -132,11 +132,11 @@ Complete Member Officiant Input (Level 1):
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Valenzuela
     Input Baptism Date    01    17    2021
     Select Member Officiant Form
-    Select Member Officiant
+    Select Random Member Officiant
     Submit Baptismal Form
     View Baptismal Page Should Be Open
     Delete Baptismal Record
@@ -151,7 +151,7 @@ Complete Non-Member Officiant Input (Level 2):
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Pasay
     Input Baptism Date    02    21    2017
     Select Non-Member Officiant Form
@@ -170,11 +170,11 @@ Complete Member Officiant Input (Level 2):
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Navotas
     Input Baptism Date    05    02    2016
     Select Member Officiant Form
-    Select Member Officiant
+    Select Random Member Officiant
     Submit Baptismal Form
     View Baptismal Page Should Be Open
     Delete Baptismal Record
@@ -189,7 +189,7 @@ Complete Non-Member Officiant Input (Level 3):
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Malabon
     Input Baptism Date    02    03    2022
     Select Non-Member Officiant Form
@@ -208,11 +208,11 @@ Complete Member Officiant Input (Level 3):
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Pateros
     Input Baptism Date    06    18    2021
     Select Member Officiant Form
-    Select Member Officiant
+    Select Random Member Officiant
     Submit Baptismal Form
     View Baptismal Page Should Be Open
     Delete Baptismal Record
@@ -240,7 +240,7 @@ Missing Baptism Location Input:
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Date    02    03    2022
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Turner    M    Galloway
@@ -255,7 +255,7 @@ Missing Baptism Date Input:
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Malabon
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Turner    M    Galloway
@@ -270,7 +270,7 @@ Missing Member Officiant Input:
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Malabon
     Input Baptism Date    02    03    2022
     Select Member Officiant Form
@@ -285,7 +285,7 @@ Missing Non-Member Officiant Input:
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Malabon
     Input Baptism Date    02    03    2022
     Select Non-Member Officiant Form
@@ -300,7 +300,7 @@ Incomplete Non-Member Officiant Input:
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Malabon
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    ${EMPTY}    T    Zorah

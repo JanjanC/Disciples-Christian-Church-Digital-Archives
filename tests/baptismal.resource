@@ -26,7 +26,21 @@ Navigate to View Baptismal Page From Baptismal Main Page
 Navigate to Baptismal Main Page From View Baptismal Page
     Click Element    id:back
 
-Select Member for Baptism
+Navigate to Edit Baptismal Page From View Baptismal Page
+    Scroll To Element    id:edit_baptismal
+    Click Button    id:edit_baptismal
+
+Select Edit Member Details
+    Scroll To Element    id:edit_member
+    Click Button    id:edit_member
+    Sleep    0.5s    Wait for Modal to Open
+
+Select Edit Officiant Details
+    Scroll To Element    id:edit_officiant
+    Click Button    id:edit_officiant
+    Sleep    0.5s    Wait for Modal to Open
+
+Select Random Member for Baptism
     Click Element    css:#member_div .selectize-input
     Click Element    css:#member_div .selectize-dropdown-content>[data-selectable]
 
@@ -54,13 +68,25 @@ Input Non Member Officiant Details
     Input Text    id:officiant_mid_name    ${middle}
     Input Text    id:officiant_last_name    ${last}
 
-Select Member Officiant
+Select Random Member Officiant
     Click Element    css:#officiant_member_div .selectize-input
     Click Element    css:#officiant_member_div .selectize-dropdown-content>[data-selectable]
 
 Submit Baptismal Form
     Scroll To Element    id:create-baptismal
     Click Button    id:create-baptismal
+
+Save Member Detail Changes
+    Click Button    id:save_edit_member
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Officiant Detail Changes
+    Click Button    id:save_edit_officiant
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Baptismal Form Changes
+    Scroll To Element    id:edit-baptismal
+    Click Button    id:edit-baptismal
 
 Delete Baptismal Record
     Scroll To Element    id:delete-baptismal
@@ -108,3 +134,7 @@ View Baptismal Page Should Be Open
 Add Baptismal Page Should Be Open
     Wait Until Page Contains    Add Baptismal Record
     Element Should Contain    id:title    Add Baptismal Record
+
+Edit Baptismal Page Should Be Open
+    Wait Until Page Contains    Edit Baptismal Record
+        Element Should Contain    id:title    Edit Baptismal Record

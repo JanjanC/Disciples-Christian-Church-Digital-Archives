@@ -18,7 +18,7 @@ Navigate to View Baptismal Page (Level 1):
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Pasay
     Input Baptism Date    02    21    2017
     Select Non-Member Officiant Form
@@ -40,7 +40,7 @@ Navigate to View Baptismal Page (Level 2):
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Pasay
     Input Baptism Date    02    21    2017
     Select Non-Member Officiant Form
@@ -63,7 +63,7 @@ Navigate to View Baptismal Page (Level 3):
     Baptismal Main Page Should Be Open
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
-    Select Member for Baptism
+    Select Random Member for Baptism
     Input Baptism Location    Malabon
     Input Baptism Date    02    03    2022
     Select Non-Member Officiant Form
