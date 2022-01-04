@@ -66,8 +66,10 @@ Complete Members Input (Level 1)
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -101,8 +103,10 @@ Complete Members Input (Level 2)
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -136,8 +140,10 @@ Complete Members Input (Level 3)
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -170,8 +176,10 @@ Blank Non-Member Bride Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -203,8 +211,10 @@ Blank Member Bride Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -235,8 +245,10 @@ Blank Non-Member Groom Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -268,8 +280,10 @@ Blank Member Groom Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -301,8 +315,10 @@ Blank Non-Member Groom Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -334,8 +350,10 @@ Blank Non-Member Bride Mother Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -367,8 +385,10 @@ Blank Member Bride Mother Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -399,8 +419,10 @@ Blank Non-Member Bride Father Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -432,8 +454,10 @@ Blank Member Bride Father Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -465,8 +489,10 @@ Blank Non-Member Groom Mother Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -498,8 +524,10 @@ Blank Member Groom Mother Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -531,8 +559,10 @@ Blank Wedding Location Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -565,8 +595,10 @@ Blank Wedding Date Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -598,8 +630,10 @@ Blank Officiant Input
    Input Wedding Date    12    25    2021
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -631,8 +665,10 @@ Blank Solemnizing Officer Input
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -664,8 +700,10 @@ Blank Contract Input
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -698,6 +736,7 @@ No Godmother Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -731,6 +770,7 @@ No Godfather Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
    Submit Wedding Registry
@@ -768,39 +808,41 @@ No Godmother and Godfather Input
    Godmother and Godfather Error Should Be Shown
 
 Complete Member - Bride, Bride Father, Groom Mother, and Witness & Non-Member - Groom, Bride Mother, Groom Father, and Witness Input
-    Open Browser to Login Page
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Forms Main Page From Main Page
-    Forms Main Page Should Be Open
-    Navigate to Wedding Page From Forms Main Page
-    Wedding Main Page Should Be Open
-    Navigate to Add Wedding Page From Wedding Main Page
-    Add Wedding Page Should Be Open
-    Select Member Bride Form
-    Select Random Member Bride
-    Select Non-Member Groom Form
-    Input Non-Member Groom Details    Jo    P    Page
-    Select Non-Member Bride Mother Form
-    Input Non-Member Bride Mother Details    Georgia    N    Nakano
-    Select Member Bride Father Form
-    Select Random Member Bride Father
-    Select Member Groom Mother Form
-    Select Random Member Groom Mother
-    Select Non-Member Groom Father Form
-    Input Non-Member Groom Father Details    Marshall    T    Page
-    Input Wedding Location    The Citadel
-    Input Wedding Date    12    25    2021
-    Input Officiant Details    Father Shepard
-    Input Solemnizing Officer Details    Pastor Anderson
-    Input Contract Number    WR-100023
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Jane    C    Lara
-    Select Member Godfather Form
-    Select Random Member Godfather
-    Submit Wedding Registry
-    View Wedding Page Should Be Open
-    Delete Wedding Record
+   Open Browser to Login Page
+   Login Level 3 User
+   Main Page Should Be Open
+   Navigate to Forms Main Page From Main Page
+   Forms Main Page Should Be Open
+   Navigate to Wedding Page From Forms Main Page
+   Wedding Main Page Should Be Open
+   Navigate to Add Wedding Page From Wedding Main Page
+   Add Wedding Page Should Be Open
+   Select Member Bride Form
+   Select Random Member Bride
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Jo    P    Page
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Georgia    N    Nakano
+   Select Member Bride Father Form
+   Select Random Member Bride Father
+   Select Member Groom Mother Form
+   Select Random Member Groom Mother
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Marshall    T    Page
+   Input Wedding Location    The Citadel
+   Input Wedding Date    12    25    2021
+   Input Officiant Details    Father Shepard
+   Input Solemnizing Officer Details    Pastor Anderson
+   Input Contract Number    WR-100023
+   Select Add Godmother Button
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Jane    C    Lara
+   Select Add Godfather Button
+   Select Member Godfather Form
+   Select Random Member Godfather
+   Submit Wedding Registry
+   View Wedding Page Should Be Open
+   Delete Wedding Record
 
 Complete Member - Groom, Bride Mother, Groom Father, and Witness & Non-Member Bride, Bride Father, Groom Mother, and Witness Input
    Open Browser to Login Page
@@ -829,8 +871,10 @@ Complete Member - Groom, Bride Mother, Groom Father, and Witness & Non-Member Br
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Non-Member Godfather Form
    Input Non-Member Godfather Details    Nathan    K    Sera
    Submit Wedding Registry
@@ -864,8 +908,10 @@ Complete Non-Members Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Non-Member Godmother Form
    Input Non-Member Godmother Details    Samara    S    Justicar
+   Select Add Godfather Button
    Select Non-Member Godfather Form
    Input Non-Member Godfather Details    MOrdin    M    Solus
    Submit Wedding Registry
@@ -899,12 +945,16 @@ Complete Member - Bride, Groom, Bride Mother, Groom Mother, and Witness & Non-Me
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godmother Button
    Select Non-Member Godmother Form
    Input Non-Member Godmother Details    Lisa    T    Pan
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Select Add Godfather Button
    Select Non-Member Godfather Form
    Input Non-Member Godfather Details    Josuke    S    Higashikata
    Submit Wedding Registry
@@ -934,8 +984,10 @@ Complete Member - Bride, Groom, and Witness Input
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -967,8 +1019,10 @@ Complete Non-Member - Bride, Groom, and Groom Mother & Member - Bride Father and
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
+   Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
    Submit Wedding Registry
@@ -1002,8 +1056,10 @@ Complete One Godfather and One Godmother Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Wedding Registry
@@ -1037,6 +1093,7 @@ Complete One Godmother Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
     Submit Wedding Registry
@@ -1070,6 +1127,7 @@ Complete One Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Wedding Registry
@@ -1103,28 +1161,40 @@ Complete Six Godmother and Six Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Submit Wedding Registry
@@ -1158,16 +1228,22 @@ Complete Six Godmother Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
     Submit Wedding Registry
@@ -1201,16 +1277,22 @@ Complete Six Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Submit Wedding Registry
@@ -1244,30 +1326,42 @@ Complete Seven Godmother and Seven Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
     Select Add Godmother Button
     Godmother Maximum Warning Should Be Shown
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Select Add Godfather Button
@@ -1277,7 +1371,7 @@ Complete Seven Godmother and Seven Godfather Input
     Delete Wedding Record
 
 Complete Seven Godmother and No Godfather Input
-   Open Browser to Login Page
+    Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
@@ -1303,16 +1397,22 @@ Complete Seven Godmother and No Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
     Select Add Godmother Button
@@ -1348,16 +1448,22 @@ Complete No Godmother and Seven Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Select Add Godfather Button
@@ -1367,7 +1473,7 @@ Complete No Godmother and Seven Godfather Input
     Delete Wedding Record
 
 Complete Seven Godmother and Valid Godfather Input
-   Open Browser to Login Page
+    Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
@@ -1393,20 +1499,27 @@ Complete Seven Godmother and Valid Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
     Select Add Godmother Button
     Godmother Maximum Warning Should Be Shown
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Wedding Registry
@@ -1440,18 +1553,25 @@ Complete Valid Godmother and Seven Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Select Add Godfather Button
@@ -1490,9 +1610,8 @@ Blank Godmother and Godfather Input
     Submit Wedding Registry
     Godmother and Godfather Error Should Be Shown
 
-
 Complete Deleted Godmother Input
-     Open Browser to Login Page
+    Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
@@ -1518,11 +1637,13 @@ Complete Deleted Godmother Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
     Remove Godmother
     Submit Wedding Registry
     Godmother and Godfather Error Should Be Shown
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Submit Wedding Registry
@@ -1530,7 +1651,7 @@ Complete Deleted Godmother Input
     Delete Wedding Record
 
 Complete Deleted Godfather Input
-     Open Browser to Login Page
+    Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
@@ -1556,11 +1677,13 @@ Complete Deleted Godfather Input
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Remove Godfather
     Submit Wedding Registry
     Godmother and Godfather Error Should Be Shown
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
     Submit Wedding Registry
