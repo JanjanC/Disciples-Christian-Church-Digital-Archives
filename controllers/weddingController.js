@@ -280,7 +280,7 @@ const weddingController = {
 
   getEditWedding: function (req, res) {
     const weddingId = parseInt(req.params.wedding_id)
-    if (parseInt(req.session.level) === 3 || parseInt(req.session.editId) === weddingId) {
+    if (parseInt(req.session.level) > 1 || parseInt(req.session.editId) === weddingId) {
       /*
         FROM wedding_reg
         JOIN couples ON couples.couple_id = wedding_reg.couple_id
@@ -972,7 +972,7 @@ const weddingController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -1007,7 +1007,7 @@ const weddingController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
