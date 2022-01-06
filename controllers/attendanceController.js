@@ -47,11 +47,12 @@ const attendanceController = {
 
             db.find(db.tables.ATTENDANCE_TABLE, [conditions], joinTables, columns, function (result) {
                 const data = {};
+                data.dateUsed = req.params.date;
                 data.records = result;
                 data.scripts = ["viewAttendance"];
                 data.styles = ["attendanceView"];
                 data.backLink = "attendance_main_page";
-
+                console.log(data)
                 res.render("view-attendance", data);
             });
         }
