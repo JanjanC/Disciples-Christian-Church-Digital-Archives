@@ -32,7 +32,7 @@ const attendanceReportController = {
             }
             else {
                 result.forEach(attendance => {
-                    date = new Date(attendance.date).toLocaleDateString();
+                    date = new Date(attendance.date).toISOString().split('T')[0];
                     if (typeof(data[date]) == "number")
                         data[date]++
                     else
