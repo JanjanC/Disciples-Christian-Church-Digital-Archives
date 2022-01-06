@@ -15,7 +15,10 @@ const attendanceReportController = {
         var data = {};
 
         if (parseInt(endDate.substring(0,4)) - parseInt(startDate.substring(0,4)) > 20) {
-            res.send({error: true});
+            res.send({
+                error: true,
+                message: "Invalid dates provided."
+            });
             return;
         }
 
