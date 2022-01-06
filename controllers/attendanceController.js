@@ -82,17 +82,14 @@ const attendanceController = {
                     destCol: db.tables.PERSON_TABLE + "." + personFields.ID,
                 },
             ];
-            let membersNames = [];
             db.find(db.tables.MEMBER_TABLE, [], joinTables1, "*", function (result) {
                 if (result === null) result = [];
-                console.log(result);
-                membersNames = result;
                 req.session.editId = null;
                 res.render("add-attendance-temp", {
                     styles: ["forms"],
                     scripts: ["addAttendance"],
                     Origin: "coming from forms creation",
-                    membersNames: membersNames,
+                    membersNames: result,
                 });
             });
         }
