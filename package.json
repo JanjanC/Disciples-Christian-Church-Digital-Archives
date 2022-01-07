@@ -1,75 +1,53 @@
 {
-  "name": "disciples-christian-church",
-  "version": "1.0.0",
-  "description": "Database application for members of the Disciples Christian Church",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "dev": "nodemon app.js",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "postinstall": "electron-builder install-app-deps",
-    "test": "jest --color",
-    "electron-dev": "nodemon --watch . --exec \"electron .\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/J-Marvin/CSSWENG-AY2021T3-S11-G3.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/J-Marvin/CSSWENG-AY2021T3-S11-G3/issues"
-  },
-  "homepage": "https://github.com/J-Marvin/CSSWENG-AY2021T3-S11-G3#readme",
-  "standard": {
-    "ignore": [
-      "/public"
-    ]
-  },
-  "build": {
-    "win": {
-      "target": [
-        "zip",
-        "portable"
-      ],
-      "icon": "build/Disciples_Christian_Church.ico"
+    "name": "disciples-christian-church",
+    "version": "1.0.0",
+    "description": "Database application for members of the Disciples Christian Church",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js",
+        "test": "jest --verbose --watchAll"
     },
-    "portable": {
-      "artifactName": "Disciples Christian Church.exe"
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DLSU-STSWENG-Team-Heroku/STSWENG-Heroku.git"
     },
-    "directories": {
-      "buildResources": "build",
-      "output": "release"
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/DLSU-STSWENG-Team-Heroku/STSWENG-Heroku/issues"
+    },
+    "homepage": "https://github.com/DLSU-STSWENG-Team-Heroku/STSWENG-Heroku#README",
+    "standard": {
+        "ignore": [
+            "/public"
+        ]
+    },
+    "dependencies": {
+        "async": "^3.2.0",
+        "bcrypt": "^5.0.1",
+        "better-sqlite3": "^7.4.3",
+        "body-parser": "^1.19.0",
+        "dotenv": "^10.0.0",
+        "electron-log": "^4.4.1",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.3.2",
+        "express-session": "^1.17.2",
+        "express-validator": "^6.12.1",
+        "fs-extra": "^10.0.0",
+        "knex": "^0.95.8",
+        "memorystore": "^1.6.6",
+        "moment": "^2.29.1",
+        "nocache": "^3.0.1",
+        "sqlite3": "^5.0.2",
+        "validator": "^13.6.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.3.0",
+        "jest": "^27.3.1",
+        "nodemon": "^2.0.12",
+        "sinon": "^12.0.1",
+        "standard": "^16.0.3",
+        "supertest": "^6.1.6"
     }
-  },
-  "dependencies": {
-    "async": "^3.2.0",
-    "bcrypt": "^5.0.1",
-    "better-sqlite3": "^7.4.3",
-    "body-parser": "^1.19.0",
-    "dotenv": "^10.0.0",
-    "electron-log": "^4.4.1",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.3.2",
-    "express-session": "^1.17.2",
-    "express-validator": "^6.12.1",
-    "fs-extra": "^10.0.0",
-    "jest": "^27.4.3",
-    "knex": "^0.95.8",
-    "memorystore": "^1.6.6",
-    "moment": "^2.29.1",
-    "nocache": "^3.0.1",
-    "sinon": "^12.0.1",
-    "sqlite3": "^5.0.2",
-    "supertest": "^6.1.6",
-    "validator": "^13.7.0"
-  },
-  "devDependencies": {
-    "electron": "^13.6.3",
-    "electron-builder": "^22.11.7",
-    "electron-rebuild": "^2.3.5",
-    "nodemon": "^2.0.12",
-    "standard": "^16.0.4"
-  }
 }
