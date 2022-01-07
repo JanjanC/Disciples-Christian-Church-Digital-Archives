@@ -351,33 +351,6 @@ $(document).ready(function() {
   })
 
   $('.modal').on('hide.bs.modal', resetModal)
-  
-
-  /**
-   * 
-   * @param {jQuery Object} memberBox the member checkfield
-   * @param {jQuery Object} selectField the select field
-   * @param {jQuery Object} firstNameField the first name field
-   * @param {jQuery Object} midNameField the middle name field
-   * @param {jQuery Object} lastNameField  the last name field
-   * @returns 
-   */
-  function getDetails(memberBox, selectField, firstNameField, midNameField, lastNameField) {
-    const person = {}
-
-    person.isMember = $(memberBox).is(':checked')
-
-    if (person.isMember) {
-      const info = $(selectField).find(':selected').val().split(', ')
-      person.person_id = info[1]
-      person.member_id = info[0]
-    } else {
-      person.first_name = $(firstNameField).val()
-      person.mid_name = $(midNameField).val()
-      person.last_name = $(lastNameField).val()
-    }
-    return person
-  }
 
   /**
    * This function hides the selected choice for all select fields to avoid duplication of choices
@@ -493,7 +466,7 @@ $(document).ready(function() {
   })
 
   function checkSpecialChar(str){
-    var regex = /[ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
+    var regex = /[!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
     return regex.test(str);
    }
 
