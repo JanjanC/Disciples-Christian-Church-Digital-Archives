@@ -57,7 +57,7 @@ describe("churchController", () => {
             req = {
                 body: {
                     church_id: 1,
-                    address_id: 1
+                    address_id: 1,
                 },
             };
 
