@@ -20,9 +20,6 @@ const eventsReportController = {
             res.send('ERROR');
             return;
         }
-
-        console.log('CONTROLLER START DATE: ' + startDate);
-        console.log('CONTROLLER END DATE: ' + endDate);
         
         //cond = new Condition(queryTypes.whereBetween)
         //cond.setRange(memberFields.BIRTHDAY, helper.formatDate(data.member.birthdayFrom), helper.formatDateTomorrow(data.member.birthdayTo))
@@ -44,9 +41,6 @@ const eventsReportController = {
                     
                     db.find(db.tables.WEDDING_TABLE, [withinDateRange], [], "*", function (result) {
                         data.weddingFields = result.length;
-
-                        console.log('CONTROLLER END DATE: ' + data);
-                        console.dir(data);
                         res.send(data);
                     });
                 });

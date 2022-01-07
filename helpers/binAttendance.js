@@ -4,7 +4,6 @@
  */
 function binAttendance(orderedData) {
     var bins = {}
-    console.log("ORDERED DATE IS " + JSON.stringify(orderedData))
     if (orderedData == null || orderedData == undefined || Object.keys(orderedData).length === 0) {
         bins.error = true;
         return bins;
@@ -58,14 +57,9 @@ function binAttendance(orderedData) {
         for (const date in orderedData) {
             const curDate = new Date(date);
             
-            console.log('1st cond: ' + curDate.getFullYear() > parseInt(curBin.split(" ")[0]));
-            console.log('2nd cond: ' + curDate.getMonth() >= 6 && curBin.split(" ")[1] == "Jan-Jun");
-            console.log('both: ' + curDate.getFullYear() > parseInt(curBin.split(" ")[0]) || (curDate.getMonth() >= 6 && curBin.split(" ")[1] == "Jan-Jun"));
-
             if (curDate.getFullYear() > parseInt(curBin.split(" ")[0]) || (curDate.getMonth() >= 6 && curBin.split(" ")[1] == "Jan-Jun"))
                 curBin = curDate.getFullYear() + ((curDate.getMonth() < 6) ? " Jan-Jun" : " Jul-Dec");
 
-            console.log('curBin: ' + curBin);
             bins[curBin] += orderedData[date];
         }
     }

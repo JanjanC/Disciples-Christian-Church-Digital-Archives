@@ -26,7 +26,6 @@ const attendanceReportController = {
         withinDateRange.setRange(db.tables.ATTENDANCE_TABLE + "." + attendanceFields.DATE, startDate, endDate);
 
         db.find(db.tables.ATTENDANCE_TABLE, [withinDateRange], [], "date", function (result) {
-            console.log(result);
             if (result == null || result == undefined || result == []) {
                 res.send(data);
             }
@@ -46,7 +45,6 @@ const attendanceReportController = {
 
                 var bins = binningFunction(orderedData);
                 
-                console.log("BINS ARE: " + JSON.stringify(bins));
                 res.send(bins);
             }
         });
