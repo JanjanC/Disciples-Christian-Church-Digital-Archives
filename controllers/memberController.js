@@ -4,6 +4,7 @@ const memberFields = require('../models/members')
 const addressFields = require('../models/address')
 const bapRegFields = require('../models/baptismalRegistry')
 const churchFields = require('../models/church')
+const settingsFields = require('../models/settings')
 const { validationResult } = require('express-validator')
 const observationFields = require('../models/observation')
 const { Condition, queryTypes } = require('../models/condition.js')
@@ -19,21 +20,25 @@ const memberController = {
   getAddMemberPage: function (req, res) {
     const level = req.session.level;
     req.session.editId = null
-    if (level === undefined || level === null) {
-        res.status(401);
-        res.render("error", {
-            title: "401 Unauthorized Access",
-            css: ["global", "error"],
-            status: {
-                code: "401",
-                message: "Unauthorized access",
-            },
-        });
-    }    
-    res.render('add-member-temp', {
-      styles: ['forms'],
-      scripts: ['member']
-    })
+    const matchesSettingName = new Condition(queryTypes.where)
+    matchesSettingName.setKeyValue(settingsFields.ID, "allow_level_0")
+    db.find(db.tables.SETTINGS_TABLE, matchesSettingName, [], 'value', function (result) {
+      if ((level === undefined || level === null) && result == "false") {
+          res.status(401);
+          res.render("error", {
+              title: "401 Unauthorized Access",
+              css: ["global", "error"],
+              status: {
+                  code: "401",
+                  message: "Unauthorized access",
+              },
+          });
+      }
+      res.render('add-member-temp', {
+        styles: ['forms'],
+        scripts: ['member']
+      })
+    });
   },
 
   getEditMember: function (req, res) {

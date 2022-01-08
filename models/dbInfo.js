@@ -42,6 +42,9 @@ const createAttendance =
 const createChurches =
     "CREATE TABLE IF NOT EXISTS churches(church_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,church_name TEXT NOT NULL, member_id INTEGER NOT NULL, address_id INTEGER NOT NULL);";
 
+const createSettings =
+    "CREATE TABLE IF NOT EXISTS settigs(settings_name TEXT NOT NULL PRIMARY KEY, settings_value TEXT NOT NULL);";
+
 const fse = require("fs-extra");
 
 const db = {
@@ -60,6 +63,7 @@ const db = {
         churches: createChurches,
         witness: createWitness,
         attendance: createAttendance,
+        settings: createSettings,
     },
     tables: {
         MEMBER_TABLE: "members",
@@ -76,6 +80,7 @@ const db = {
         OBSERVATION_TABLE: "observations",
         CHURCH_TABLE: "churches",
         ATTENDANCE_TABLE: "attendance",
+        SETTINGS_TABLE: "settings",
     },
     fields: {
         accounts: {
@@ -286,6 +291,10 @@ const db = {
             PERSON: "person_id",
             DATE: "date",
         },
+        settings: {
+            ID: 'name',
+            VALUE: 'value',
+        }
     },
     startIds: [
         { table: "people", start: 13000000 },
