@@ -7,6 +7,7 @@ const coupleFields = require('../models/couple')
 const weddingRegFields = require('../models/weddingRegistry')
 const infDedFields = require('../models/infantDedication')
 const bapRegFields = require('../models/baptismalRegistry')
+const settingsFields = require('../models/settings')
 const { Condition, queryTypes } = require('../models/condition')
 const { sendError } = require('./errorController')
 const moment = require('moment')
@@ -450,6 +451,28 @@ const controller = {
       }
       res.send(result) // sends boolean true or false
     })
+  },
+  /**
+   * This function changes the given settings
+   * @param req - the incoming request containing either the query or body
+   * @param res - the result to be sent out after processing the request
+   */
+   postChangeSettings: function (req, res) {
+    if (parseInt(req.session.level) === 3) {
+      const name = req.body.name
+      const value = req.body.value
+      const matchesSettingName = new Condition(queryTypes.where)
+      matchesSettingName.setKeyValue(settingsFields.ID, name)
+      db.update(db.tables.SETTINGS_TABLE, {value: value}, matchesSettingName, function (result) {
+        if (result) {
+          res.send(true)
+        } else {
+          res.send(false)
+        }
+      })
+    } else {
+      sendError(req, res, 401)
+    }
   },
   /**
    * This function drops all tables in the database
