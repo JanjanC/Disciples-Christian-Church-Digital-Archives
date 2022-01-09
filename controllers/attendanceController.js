@@ -62,25 +62,37 @@ const attendanceController = {
      * @param res - the result to be sent out after processing the request
      */
     getAddAttendance: function (req, res) {
-        const joinTables1 = [
-            {
-                tableName: db.tables.PERSON_TABLE,
-                sourceCol: db.tables.MEMBER_TABLE + "." + memberFields.PERSON,
-                destCol: db.tables.PERSON_TABLE + "." + personFields.ID,
-            },
-        ];
-        let membersNames = [];
-        db.find(db.tables.MEMBER_TABLE, [], joinTables1, "*", function (result) {
-            if (result === null) result = [];
-            membersNames = result;
-            req.session.editId = null;
-            res.render("add-attendance-temp", {
-                styles: ["forms"],
-                scripts: ["addAttendance"],
-                Origin: "coming from forms creation",
-                membersNames: membersNames,
+        const level = req.session.level;
+        if (level === undefined || level === null) {
+            res.status(401);
+            res.render("error", {
+                title: "401 Unauthorized Access",
+                css: ["global", "error"],
+                status: {
+                    code: "401",
+                    message: "Unauthorized access",
+                },
             });
-        });
+        }
+        else {
+            const joinTables1 = [
+                {
+                    tableName: db.tables.PERSON_TABLE,
+                    sourceCol: db.tables.MEMBER_TABLE + "." + memberFields.PERSON,
+                    destCol: db.tables.PERSON_TABLE + "." + personFields.ID,
+                },
+            ];
+            db.find(db.tables.MEMBER_TABLE, [], joinTables1, "*", function (result) {
+                if (result === null) result = [];
+                req.session.editId = null;
+                res.render("add-attendance-temp", {
+                    styles: ["forms"],
+                    scripts: ["addAttendance"],
+                    Origin: "coming from forms creation",
+                    membersNames: result,
+                });
+            });
+        }
     },
     /**
      * This function creates a prenuptial row into the prenuptial table

@@ -17,7 +17,19 @@ const memberController = {
    * @param res - the result to be sent out after processing the request
    */
   getAddMemberPage: function (req, res) {
+    const level = req.session.level;
     req.session.editId = null
+    if (level === undefined || level === null) {
+        res.status(401);
+        res.render("error", {
+            title: "401 Unauthorized Access",
+            css: ["global", "error"],
+            status: {
+                code: "401",
+                message: "Unauthorized access",
+            },
+        });
+    }    
     res.render('add-member-temp', {
       styles: ['forms'],
       scripts: ['member']
