@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   const member = $('#input_member').selectize()
   const officiant = $('#input_officiant_member').selectize()
   var currPerson = {}
@@ -17,7 +17,7 @@ $(document).ready(function() {
     if (prev !== null && prev !== undefined) {
       selectizeEnable(prev)
     }
-    
+
     selectizeDisable($(this).val())
     $(this).data('prev', $(this).val())
   })
@@ -32,7 +32,7 @@ $(document).ready(function() {
     let value = '0'
     if (officiantId !== null && officiantId !== undefined && officiantId !== '') {
       value = getValue(officiantId)
-    } 
+    }
     $(officiant)[0].selectize.setValue(value)
   })
 
@@ -66,7 +66,7 @@ $(document).ready(function() {
     currPerson.midName = $('#officiant_mid_name_view').text()
     currPerson.lastName = $('#officiant_last_name_view').text()
 
-    
+
     if (currPerson.memberId != null && currPerson.memberId !== undefined && currPerson.memberId !== '') {
       $(officiant)[0].selectize.setValue(getValue(currPerson.memberId))
     } else {
@@ -123,7 +123,7 @@ $(document).ready(function() {
         date: new Date($('#date').val()).toISOString(),
         recordId: $('#baptismal_info').data('baptismal')
       }
-  
+
       $.ajax({
         type: 'PUT',
         url: '/update_bap',
@@ -158,7 +158,8 @@ $(document).ready(function() {
         oldPersonId: officiantPersonId
       }
 
-      data.person.personId = info[1]
+      if (data.oldPersonId != null)
+        data.person.personId = data.oldPersonId
       data.person = JSON.stringify(data.person)
 
       console.log(info)
@@ -174,14 +175,14 @@ $(document).ready(function() {
             console.log(personInfo)
             if (personInfo.isMember) {
               $('#officiant_member_div').data('member', personInfo.memberId)
-              $('#officiant_member_div').data('person', info[1])
+              $('#officiant_member_div').data('person', parseInt(personInfo.personId))
               $('#officiant_first_name_view').html(info[2])
               $('#officiant_mid_name_view').html(info[3])
               $('#officiant_last_name_view').html(info[4])
               $('#save_edit_officiant').prop('disabled', false)
             } else {
               $('#officiant_member_div').data('member', null)
-              $('#officiant_member_div').data('person', result)
+              $('#officiant_member_div').data('person', parseInt(personInfo.personId))
               $('#officiant_first_name_view').html(personInfo.firstName)
               $('#officiant_mid_name_view').html(personInfo.midName)
               $('#officiant_last_name_view').html(personInfo.lastName)
