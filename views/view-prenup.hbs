@@ -10,7 +10,7 @@
 
 <div id="prenup_info" style="display: none" data-prenup="{{prenupId}}" data-couple="{{coupleId}}" data-groom-person="{{groomPersonId}}" data-bride-person="{{bridePersonId}}" ></div>
   <div class="container" style="padding-left: 18%; padding-right: 10%;">
-    <h1 class="my-3"> View Prenuptial Record </h1>
+    <h1 class="my-3" id="title"> View Prenuptial Record </h1>
     <hr>
     <div class="row">
       <div class="col-4">
@@ -63,7 +63,7 @@
     <div class="row my-3">
       {{#if canSee}}
         <div class="col">
-            <a href="/edit_prenup/{{prenupId}}"> <button class="btn btn-secondary mb-4">Edit Prenup Form</button> </a>
+            <a href="/edit_prenup/{{prenupId}}"> <button class="btn btn-secondary mb-4" id="edit_prenup">Edit Prenuptial Form</button> </a>
             <button type="button" class="btn btn-danger mb-4" id="delete_prenup">Delete Form</button>
         </div>
       {{/if}}
