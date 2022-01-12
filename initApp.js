@@ -152,6 +152,6 @@ function insertData() {
 }
 
 // Uncomment these to run the database initialization script.
- initDatabase();
- insertAccounts();
- insertData();
+initDatabase();
+insertAccounts();
+insertData();
