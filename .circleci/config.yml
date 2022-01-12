@@ -40,7 +40,7 @@ jobs:
     unit_test:
         resource_class: small
         docker:
-            - image: circleci/node
+            - image: cimg/node
         steps:
             - checkout
             - setup_remote_docker
@@ -53,6 +53,41 @@ jobs:
                   command: |
                       npm run test
 
+    automation_test:
+        resource_class: small
+        docker:
+            - image: cimg/node
+        steps:
+            - checkout
+            - setup_remote_docker
+            - run:
+                  name: Install Python
+                  command: |
+                      wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+                      tar xvf Python-3.6.5.tgz
+                      cd Python-3.7.4
+                      ./configure --enable-optimizations --with-ensurepip=install
+                      make -j 8
+                      sudo make altinstall
+            - run:
+                  name: Install RobotFramework
+                  command: |
+                      sudo pip install robotframework
+            - run:
+                  name: Install RobotFramework-SeleniumLibrary
+                  command: |
+                      sudo pip install --upgrade robotframework-seleniumlibrary
+
+            - run:
+                  name: Install WebDrivers
+                  command: |
+                      sudo pip install webdrivermanager
+                      webdrivermanager firefox chrome --linkpath /usr/local/bin
+            - run:
+                  name: Run Robot-Selenium Browser Automation Tests
+                  command: |
+                      npm run testRobot
+
 # Orchestrate our job run sequence
 workflows:
     deploy:
@@ -63,9 +98,12 @@ workflows:
                           only:
                               - staging
                               - main
-            - build:
+            - automation_test:
                   requires:
                       - unit_test
+            - build:
+                  requires:
+                      - automation_test
             - deploy:
                   requires:
                       - build
@@ -77,3 +115,6 @@ workflows:
                           ignore:
                               - staging
                               - main
+            - automation_test:
+                  requires:
+                      - unit_test
