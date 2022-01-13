@@ -93,7 +93,7 @@ const prenupController = {
           data.canSee = parseInt(req.session.editId) === parseInt(prenupId) || parseInt(req.session.level) >= 2
           data.styles = ['view']
           data.scripts = ['deletePrenup']
-          data.backLink = parseInt(req.session.level) >= 2 ? '/forms_main_page' : '/main_page'
+          data.backLink = parseInt(req.session.level) >= 2 ? '/prenup_main_page' : '/forms_main_page'
           res.render('view-prenup', data)
         } else {
           sendError(req, res, 404, '404 Prenup Record Not Found')
