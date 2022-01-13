@@ -114,6 +114,21 @@ const controller = {
     })
   },
   /**
+   * This function renderes the attendance main page
+   * @param req - the incoming request containing either the query or body
+   * @param res - the result to be sent out after processing the request
+   */
+  getAttendanceMainPage: function (req,res){
+    req.session.editId = null
+    res.render('attendance-main-page', {
+      level: req.session.level,
+      styles: ['mainPage'],
+      scripts: ['mainAttendance'],
+      canSee: !(parseInt(req.session.level) === 1),
+      backLink: 'main_page'
+    })
+  },
+  /**
    * This function renders the child dedication record main page
    * @param req - the incoming request containing either the query or body
    * @param res - the result to be sent out after processing the request
@@ -444,6 +459,20 @@ const controller = {
   postDropAllTables: function (req, res) {
     db.deleteAndReset()
     res.send(true)
+  },
+  getStatisticsPage: function (req,res){
+    if (parseInt(req.session.level) === 3) {
+      const level = req.body.level
+      const password = req.body.password
+      const data = {
+        scripts: ['statistics'],
+        styles: ['statistics'],
+      }
+
+      res.render('statistics-page',data)
+    } else {
+      sendError(req, res, 401)
+    }
   }
 }
 
