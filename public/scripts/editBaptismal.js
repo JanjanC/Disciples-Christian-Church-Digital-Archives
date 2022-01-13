@@ -157,13 +157,10 @@ $(document).ready(function () {
         oldMemberId: officiantId,
         oldPersonId: officiantPersonId
       }
-
+      
       if (data.oldPersonId != null)
         data.person.personId = data.oldPersonId
       data.person = JSON.stringify(data.person)
-
-      console.log(info)
-      console.log(JSON.parse(data.person))
 
       $.ajax({
         type: 'PUT',
