@@ -1,8 +1,4 @@
 $(document).ready(function() {
-  var GMotherWitnessCtr = 0
-  var GFatherWitnessCtr = 0
-  var addedWitness = false
-  var witnessType = null
   var dateExists = true
   const selectChild = $('#input_member').selectize()
   const selectParent1 = $('#input_parent1_member').selectize()
@@ -47,9 +43,6 @@ $(document).ready(function() {
       $('#no-attendees-error').text('')
       $('#witness_gfather_info_error').text('')
   })
-
-  var addedWitness = false
-  var witnessType = null
 
   initDate()
   initSelectize()
@@ -352,33 +345,6 @@ $(document).ready(function() {
 
   $('.modal').on('hide.bs.modal', resetModal)
   
-
-  /**
-   * 
-   * @param {jQuery Object} memberBox the member checkfield
-   * @param {jQuery Object} selectField the select field
-   * @param {jQuery Object} firstNameField the first name field
-   * @param {jQuery Object} midNameField the middle name field
-   * @param {jQuery Object} lastNameField  the last name field
-   * @returns 
-   */
-  function getDetails(memberBox, selectField, firstNameField, midNameField, lastNameField) {
-    const person = {}
-
-    person.isMember = $(memberBox).is(':checked')
-
-    if (person.isMember) {
-      const info = $(selectField).find(':selected').val().split(', ')
-      person.person_id = info[1]
-      person.member_id = info[0]
-    } else {
-      person.first_name = $(firstNameField).val()
-      person.mid_name = $(midNameField).val()
-      person.last_name = $(lastNameField).val()
-    }
-    return person
-  }
-
   /**
    * This function hides the selected choice for all select fields to avoid duplication of choices
    */
@@ -467,9 +433,11 @@ $(document).ready(function() {
   }
 
   function initDate() {
-    const today = new Date()
-    $('#date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
-    
+    let passedDate = window.location.search.slice(1).replace("date=", "")
+    if (Date.parse(passedDate) != NaN)
+      $('#date').val(passedDate)
+    else
+      $('#date').val(new Date().toISOString().split('T')[0])
   }
   
   // used to validate middle initial
