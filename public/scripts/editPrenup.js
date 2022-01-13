@@ -1,4 +1,4 @@
-function validateMidInitial (mid) {
+function validateMidInitial(mid) {
   const re = /[A-Z]/
   return re.test(mid)
 }
@@ -32,7 +32,7 @@ $(document).ready(function () {
     $('div.selectize-input > input').blur();
   }
 
-  $('#edit_bride').click(function() {
+  $('#edit_bride').click(function () {
     currPerson.memberId = $('#bride-info').data('memberid')
     currPerson.personId = $('#bride-info').data('personid')
     currPerson.firstName = $('#bride_first_name_view').text()
@@ -56,7 +56,7 @@ $(document).ready(function () {
     $('#brideModal').modal('show')
   })
 
-  $('#edit_groom').click(function() {
+  $('#edit_groom').click(function () {
     currPerson.memberId = $('#groom-info').data('memberid')
     currPerson.personId = $('#groom-info').data('personid')
     currPerson.firstName = $('#groom_first_name_view').text()
@@ -80,7 +80,7 @@ $(document).ready(function () {
     $('#groomModal').modal('show')
   })
 
-  $('#bride_non_member').change(function() {
+  $('#bride_non_member').change(function () {
     $('#bride_member').prop('checked', false)
     $('#bride_member').prop('disabled', false)
     $('#bride_member_div').hide()
@@ -97,7 +97,7 @@ $(document).ready(function () {
     $('#bride_non_member_div').hide()
   })
 
-  $('#groom_non_member').change(function() {
+  $('#groom_non_member').change(function () {
     $('#groom_member').prop('checked', false)
     $('#groom_member').prop('disabled', false)
     $('#groom_member_div').hide()
@@ -114,55 +114,55 @@ $(document).ready(function () {
     $('#groom_non_member_div').hide()
   })
 
-  $('#save_bride_btn').click(function() {
-      var firstName = validator.isEmpty($('#bride_first_name').val())
-      var midName =  validator.isEmpty($('#bride_mid_name').val())
-      var lastName = validator.isEmpty($('#bride_last_name').val())
+  $('#save_bride_btn').click(function () {
+    var firstName = validator.isEmpty($('#bride_first_name').val())
+    var midName = validator.isEmpty($('#bride_mid_name').val())
+    var lastName = validator.isEmpty($('#bride_last_name').val())
 
-      var inputBride = validator.isEmpty($('#input_bride_member').val())
+    var inputBride = validator.isEmpty($('#input_bride_member').val())
 
-      var isValid = true;
+    var isValid = true;
 
-      if($('#bride_non_member').is(':checked')) {
-        if(firstName || midName || lastName) {
-          isValid = false
-          $('#bride_info_error').text('Accomplish all fields')
-        }
-        if (validateMidInitial($('#bride_mid_name').val()) === false) {
-          isValid = false
-          $('#bride_info_error').text("Bride's middle initial should only range from letters A-Z")
-        }
-        if ($('#bride_mid_name').val().length > 1) {
-          isValid = false
-          $('#bride_info_error').text("Bride's middle initial should only contain 1 letter")
-        }
+    if ($('#bride_non_member').is(':checked')) {
+      if (firstName || midName || lastName) {
+        isValid = false
+        $('#bride_info_error').text('Accomplish all fields')
       }
-
-      if($('#bride_member').is(':checked')) {
-        if(inputBride) {
-          isValid = false
-          $('#bride_info_error').text('Accomplish all fields')
-        } else {
-          $('#bride_info_error').text('')
-        }
+      if (validateMidInitial($('#bride_mid_name').val()) === false) {
+        isValid = false
+        $('#bride_info_error').text("Bride's middle initial should only range from letters A-Z")
       }
-
-      if(isValid) {
-        submitBride()
+      if ($('#bride_mid_name').val().length > 1) {
+        isValid = false
+        $('#bride_info_error').text("Bride's middle initial should only contain 1 letter")
       }
+    }
+
+    if ($('#bride_member').is(':checked')) {
+      if (inputBride) {
+        isValid = false
+        $('#bride_info_error').text('Accomplish all fields')
+      } else {
+        $('#bride_info_error').text('')
+      }
+    }
+
+    if (isValid) {
+      submitBride()
+    }
   })
 
-  $('#save_groom_btn').click(function() {
+  $('#save_groom_btn').click(function () {
     var firstName = validator.isEmpty($('#groom_first_name').val())
-    var midName =  validator.isEmpty($('#groom_mid_name').val())
+    var midName = validator.isEmpty($('#groom_mid_name').val())
     var lastName = validator.isEmpty($('#groom_last_name').val())
 
     var inputgroom = validator.isEmpty($('#input_groom_member').val())
 
     var isValid = true;
 
-    if($('#groom_non_member').is(':checked')) {
-      if(firstName || midName || lastName) {
+    if ($('#groom_non_member').is(':checked')) {
+      if (firstName || midName || lastName) {
         isValid = false
         $('#groom_info_error').text('Accomplish all fields')
       }
@@ -176,8 +176,8 @@ $(document).ready(function () {
       }
     }
 
-    if($('#groom_member').is(':checked')) {
-      if(inputgroom) {
+    if ($('#groom_member').is(':checked')) {
+      if (inputgroom) {
         isValid = false
         $('#groom_info_error').text('Accomplish all fields')
       } else {
@@ -185,7 +185,7 @@ $(document).ready(function () {
       }
     }
 
-    if(isValid) {
+    if (isValid) {
       submitGroom()
     }
   })
@@ -199,7 +199,7 @@ $(document).ready(function () {
     } else {
       $('#wedding_date_error').text('')
     }
-    if(isValid) {
+    if (isValid) {
       $('#confirmationModal').modal('toggle')
     }
   })
@@ -239,9 +239,10 @@ $(document).ready(function () {
       coupleId: coupleId,
       oldPersonId: oldBridePersonId,
     }
-    if (!data.person.isMember) {
-      data.person.personId = inputBrideInfo[1]
+    if (!data.person.isMember && data.oldPersonId != null) {
+      data.person.personId = data.oldPersonId
     }
+
     data.person = JSON.stringify(data.person)
 
     $.ajax({
@@ -253,9 +254,9 @@ $(document).ready(function () {
           // update the frontend bride details
           const newBrideInfo = JSON.parse(data.person)
           console.log(newBrideInfo)
-          if(newBrideInfo.isMember) {
+          if (newBrideInfo.isMember) {
             $('#bride-info').data('memberid', newBrideInfo.memberId)
-            $('#bride-info').data('personid', newBrideInfo.personId)
+            $('#bride-info').data('personid', parseInt(newBrideInfo.personId))
             $('#bride-info').data('first', inputBrideInfo[2])
             $('#bride-info').data('middle', inputBrideInfo[3])
             $('#bride-info').data('last', inputBrideInfo[4])
@@ -269,8 +270,8 @@ $(document).ready(function () {
             $('#bride_last_name').text('')
             $('#brideModal').modal('hide')
           } else {
-            $('#bride-info').data('memberid','')
-            $('#bride-info').data('personid', result)
+            $('#bride-info').data('memberid', '')
+            $('#bride-info').data('personid', parseInt(newBrideInfo.personId))
             $('#bride-info').data('first', newBrideInfo.firstName)
             $('#bride-info').data('middle', newBrideInfo.midName)
             $('#bride-info').data('last', newBrideInfo.lastName)
@@ -307,11 +308,12 @@ $(document).ready(function () {
       coupleId: coupleId,
       oldPersonId: oldGroomPersonId
     }
-    if (!data.person.isMember) {
-      data.person.personId = inputGroomInfo[1]
+    if (!data.person.isMember && data.oldPersonId != null) {
+      data.person.personId = data.oldPersonId
     }
-    data.person = JSON.stringify(data.person)
 
+    data.person = JSON.stringify(data.person)
+    console.log(JSON.stringify(data.person))
     $.ajax({
       type: 'PUT',
       url: '/update_prenup/groom',
@@ -321,9 +323,9 @@ $(document).ready(function () {
           // update the frontend bride details
           const newGroomInfo = JSON.parse(data.person)
           console.log(newGroomInfo)
-          if(newGroomInfo.isMember) {
+          if (newGroomInfo.isMember) {
             $('#groom-info').data('memberid', newGroomInfo.memberId)
-            $('#groom-info').data('personid', newGroomInfo.personId)
+            $('#groom-info').data('personid', parseInt(newGroomInfo.personId))
             $('#groom-info').data('first', inputGroomInfo[2])
             $('#groom-info').data('middle', inputGroomInfo[3])
             $('#groom-info').data('last', inputGroomInfo[4])
@@ -337,8 +339,8 @@ $(document).ready(function () {
             $('#groom_last_name').text('')
             $('#groomModal').modal('hide')
           } else {
-            $('#groom-info').data('memberid','')
-            $('#groom-info').data('personid', result)
+            $('#groom-info').data('memberid', '')
+            $('#groom-info').data('personid', parseInt(newGroomInfo.personId))
             $('#groom-info').data('first', newGroomInfo.firstName)
             $('#groom-info').data('middle', newGroomInfo.midName)
             $('#groom-info').data('last', newGroomInfo.lastName)

@@ -366,7 +366,7 @@ describe("Attendance Controller", () => {
             sandbox.stub(db, "find").yields([{ member_id: null }]);
             const expectedResult = {
                 scripts: ["editAttendance", "edit"],
-                styles: ['forms', 'attendanceEdit'],
+                styles: [ 'forms', 'attendanceEdit' ],
                 attendeesMembers: [],
                 attendeesNonMembers: [{ member_id: null }],
                 attendees: [{ member_id: null }],
@@ -571,7 +571,7 @@ describe("Attendance Controller", () => {
             sandbox.stub(db, "find").yields([{ member_id: null }]);
             const expectedResult = {
                 scripts: ["editAttendance", "edit"],
-                styles: ['forms', 'attendanceEdit'],
+                styles: [ 'forms', 'attendanceEdit' ],
                 attendeesMembers: [],
                 attendeesNonMembers: [{ member_id: null }],
                 attendees: [{ member_id: null }],
@@ -776,7 +776,7 @@ describe("Attendance Controller", () => {
             sandbox.stub(db, "find").yields([{ member_id: null }]);
             const expectedResult = {
                 scripts: ["editAttendance", "edit"],
-                styles: ['forms', 'attendanceEdit'],
+                styles: [ 'forms', 'attendanceEdit' ],
                 attendeesMembers: [],
                 attendeesNonMembers: [{ member_id: null }],
                 attendees: [{ member_id: null }],
