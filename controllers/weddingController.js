@@ -560,7 +560,7 @@ const weddingController = {
      * @param req - the incoming request containing either the query or body
      * @param res - the result to be sent out after processing the request
      */
-    postAddWedding: function (req, res) {
+    postAddWedding: async function (req, res) {
         // Parse the body fields into the data object.
         const weddingData = {};
 
@@ -571,6 +571,7 @@ const weddingController = {
 
         // Promisified Methods
         const dbInsert = promisify(db.insert);
+        const dbFind = promisify(db.find);
 
         // Check if the couple is/are members
         // If not, create a people entry for them.
@@ -682,6 +683,62 @@ const weddingController = {
 
         // Insert the couple id whenever appropriate
         // First, for each couple, check if they already have a couple entry. If not, create one.
+
+        const coupleIds = {
+            groomBride: null,
+            groomParents: null,
+            brideParents: null,
+        };
+
+        // Bride & Groom
+        const brideCondition = new Condition(queryTypes.where);
+        const groomCondition = new Condition(queryTypes.where);
+        brideCondition.setKeyValue(coupleFields.FEMALE, weddingData.bride.person_id);
+        groomCondition.setKeyValue(coupleFields.MALE, weddingData.groom.person_id);
+        const brideGroomCoupleId = await dbFind(
+            db.tables.COUPLE_TABLE,
+            [brideCondition, groomCondition],
+            coupleFields.ID
+        );
+        if (brideGroomCoupleId) {
+            coupleIds.groomBride = brideGroomCoupleId;
+        } else {
+            // Insert couple to table
+        }
+
+        // Bride's Parents
+        const brideMotherCondition = new Condition(queryTypes.where);
+        const brideFatherCondition = new Condition(queryTypes.where);
+        brideMotherCondition.setKeyValue(coupleFields.FEMALE, weddingData.brideMother.person_id);
+        brideFatherCondition.setKeyValue(coupleFields.MALE, weddingData.brideFather.person_id);
+        const brideParentsCoupleId = await dbFind(
+            db.tables.COUPLE_TABLE,
+            [brideMotherCondition, brideFatherCondition],
+            coupleFields.ID
+        );
+        if (brideParentsCoupleId) {
+            coupleIds.brideParents = brideParentsCoupleId;
+        } else {
+            // Insert couple to table
+        }
+
+        // Groom's Parents
+        const groomMotherCondition = new Condition(queryTypes.where);
+        const groomFatherCondition = new Condition(queryTypes.where);
+        groomMotherCondition.setKeyValue(coupleFields.FEMALE, weddingData.groomMother.person_id);
+        groomFatherCondition.setKeyValue(coupleFields.MALE, weddingData.groomFather.person_id);
+        const groomParentsCoupleId = await dbFind(
+            db.tables.COUPLE_TABLE,
+            [groomMotherCondition, groomFatherCondition],
+            coupleFields.ID
+        );
+        if (groomParentsCoupleId) {
+            coupleIds.groomParents = groomParentsCoupleId;
+        } else {
+            // Insert couple to table
+        }
+
+        // Finally, time to insert to wedding table
     },
 
     /**
