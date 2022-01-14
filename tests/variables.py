@@ -1,4 +1,4 @@
-SERVER = "localhost:8080"
+SERVER = "localhost:3000"
 BROWSER = "chrome"
 DELAY = 0
 LEVEL_1_PASSWORD = "NormandyN7"
