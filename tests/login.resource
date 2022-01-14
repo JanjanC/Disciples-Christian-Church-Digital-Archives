@@ -1,10 +1,11 @@
 *** Settings ***
-Documentation     A resource file with reusable keywords and variables
+Documentation       A resource file with reusable keywords and variables
 ...
-...               Creating system specific keywords from default keywords
-...               from SeleniumLibrary
-Library           SeleniumLibrary
-Variables         variables.py
+...                 Creating system specific keywords from default keywords
+...                 from SeleniumLibrary
+
+Library             SeleniumLibrary
+Variables           variables.py
 
 *** Keywords ***
 Login Page Should Be Open
@@ -36,6 +37,9 @@ Input Credentials
 Submit Credentials
     Press Keys    None    RETURN
 
+Logout User
+    Click Element    id:logout
+
 Open Browser to Login Page
     Open Browser    ${LOGIN_URL}    ${BROWSER}
     Maximize Browser Window
@@ -47,12 +51,15 @@ Main Page Should Be Open
     Element Should Be Visible    id:members
     Wait Until Page Contains Element    id:registries
     Element Should Be Visible    id:registries
-    #TODO: Add checking of service attendance
+    Wait Until Page Contains Element    id:attendance
+    Element Should Be Visible    id:attendance
 
 Error Modal Should Be Shown
     Element Should Be Enabled    errorModal
     #TODO: Implement proper checking of error modal
 
 Unauthorized Access Error Should Be Shown
+    Wait Until Page Contains    ERROR 401
     Page Should Contain    ERROR 401
+    Wait Until Page Contains    Unauthorized Access
     Page Should Contain    Unauthorized Access
