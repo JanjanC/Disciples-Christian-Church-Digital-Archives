@@ -576,12 +576,11 @@ const weddingController = {
         // Check if the couple is/are members
         // If not, create a people entry for them.
         if (!weddingData.groom.isMember) {
-            const result = await dbInsert(db.tables.PERSON_TABLE, [
-                null,
-                weddingData.groom.first_name,
-                wedding.groom.mid_name,
-                weddingData.groom.last_name,
-            ]);
+            const result = await dbInsert(db.tables.PERSON_TABLE, {
+                first_name: weddingData.groom.first_name,
+                middle_name: wedding.groom.mid_name,
+                last_name: weddingData.groom.last_name,
+            });
 
             if (!result) {
                 return res.send(false);
@@ -591,12 +590,11 @@ const weddingController = {
         }
 
         if (!weddingData.bride.isMember) {
-            const result = await dbInsert(db.tables.PERSON_TABLE, [
-                null,
-                weddingData.bride.first_name,
-                wedding.bride.mid_name,
-                weddingData.bride.last_name,
-            ]);
+            const result = await dbInsert(db.tables.PERSON_TABLE, {
+                first_name: weddingData.bride.first_name,
+                middle_name: wedding.bride.mid_name,
+                last_name: weddingData.bride.last_name,
+            });
 
             if (!result) {
                 return res.send(false);
@@ -606,12 +604,11 @@ const weddingController = {
         }
 
         if (weddingData.brideMother && !weddingData.brideMother.isMember) {
-            const result = await dbInsert(db.tables.PERSON_TABLE, [
-                null,
-                weddingData.brideMother.first_name,
-                wedding.brideMother.mid_name,
-                weddingData.brideMother.last_name,
-            ]);
+            const result = await dbInsert(db.tables.PERSON_TABLE, {
+                first_name: weddingData.brideMother.first_name,
+                middle_name: wedding.brideMother.mid_name,
+                last_name: weddingData.brideMother.last_name,
+            });
 
             if (!result) {
                 return res.send(false);
@@ -621,12 +618,11 @@ const weddingController = {
         }
 
         if (weddingData.brideFather && !weddingData.brideFather.isMember) {
-            const result = await dbInsert(db.tables.PERSON_TABLE, [
-                null,
-                weddingData.brideFather.first_name,
-                wedding.brideFather.mid_name,
-                weddingData.brideFather.last_name,
-            ]);
+            const result = await dbInsert(db.tables.PERSON_TABLE, {
+                first_name: weddingData.brideFather.first_name,
+                middle_name: wedding.brideFather.mid_name,
+                last_name: weddingData.brideFather.last_name,
+            });
 
             if (!result) {
                 return res.send(false);
@@ -636,12 +632,11 @@ const weddingController = {
         }
 
         if (weddingData.groomMother && !weddingData.groomMother.isMember) {
-            const result = await dbInsert(db.tables.PERSON_TABLE, [
-                null,
-                weddingData.groomMother.first_name,
-                wedding.groomMother.mid_name,
-                weddingData.groomMother.last_name,
-            ]);
+            const result = await dbInsert(db.tables.PERSON_TABLE, {
+                first_name: weddingData.groomMother.first_name,
+                middle_name: wedding.groomMother.mid_name,
+                last_name: weddingData.groomMother.last_name,
+            });
 
             if (!result) {
                 return res.send(false);
@@ -651,12 +646,11 @@ const weddingController = {
         }
 
         if (weddingData.groomFather && !weddingData.groomFather.isMember) {
-            const result = await dbInsert(db.tables.PERSON_TABLE, [
-                null,
-                weddingData.groomFather.first_name,
-                wedding.groomFather.mid_name,
-                weddingData.groomFather.last_name,
-            ]);
+            const result = await dbInsert(db.tables.PERSON_TABLE, {
+                first_name: weddingData.groomFather.first_name,
+                middle_name: wedding.groomFather.mid_name,
+                last_name: weddingData.groomFather.last_name,
+            });
 
             if (!result) {
                 return res.send(false);
@@ -667,17 +661,8 @@ const weddingController = {
 
         // At this point, we are now sure that all entries have a person_id
         // Double check the person ids
-        if (
-            !(
-                weddingData.groom.person_id &&
-                weddingData.bride.person_id &&
-                weddingData.brideMother.person_id &&
-                weddingData.brideFather.person_id &&
-                weddingData.groomMother.person_id &&
-                weddingData.groomFather.person_id
-            )
-        ) {
-            console.error("Missing person_id somewhere");
+        if (!(weddingData.groom.person_id && weddingData.bride.person_id)) {
+            console.error("Groom or bride person_id somewhere");
             return res.send(false);
         }
 
@@ -704,6 +689,17 @@ const weddingController = {
             coupleIds.groomBride = brideGroomCoupleId;
         } else {
             // Insert couple to table
+            const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
+                female_id: weddingData.bride.person_id,
+                male_id: weddingData.groom.person_id,
+            });
+
+            if (!coupleInsertResult) {
+                console.error("Error inserting bride & groom couple entry");
+                return res.send(false);
+            }
+
+            coupleIds.groomBride = coupleInsertResult;
         }
 
         // Bride's Parents
@@ -720,25 +716,54 @@ const weddingController = {
             coupleIds.brideParents = brideParentsCoupleId;
         } else {
             // Insert couple to table
+            const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
+                female_id: weddingData.brideMother.person_id || null,
+                male_id: weddingData.brideFather.person_id || null,
+            });
+
+            if (!coupleInsertResult) {
+                console.error("Error inserting bride's parents' couple entry");
+                return res.send(false);
+            }
+
+            coupleIds.brideParents = coupleInsertResult;
         }
 
         // Groom's Parents
-        const groomMotherCondition = new Condition(queryTypes.where);
-        const groomFatherCondition = new Condition(queryTypes.where);
-        groomMotherCondition.setKeyValue(coupleFields.FEMALE, weddingData.groomMother.person_id);
-        groomFatherCondition.setKeyValue(coupleFields.MALE, weddingData.groomFather.person_id);
-        const groomParentsCoupleId = await dbFind(
-            db.tables.COUPLE_TABLE,
-            [groomMotherCondition, groomFatherCondition],
-            coupleFields.ID
-        );
-        if (groomParentsCoupleId) {
-            coupleIds.groomParents = groomParentsCoupleId;
-        } else {
-            // Insert couple to table
+        if (weddingData.groomMother && weddingData.groomFather) {
+            const groomMotherCondition = new Condition(queryTypes.where);
+            const groomFatherCondition = new Condition(queryTypes.where);
+            groomMotherCondition.setKeyValue(coupleFields.FEMALE, weddingData.groomMother.person_id);
+            groomFatherCondition.setKeyValue(coupleFields.MALE, weddingData.groomFather.person_id);
+            const groomParentsCoupleId = await dbFind(
+                db.tables.COUPLE_TABLE,
+                [groomMotherCondition, groomFatherCondition],
+                coupleFields.ID
+            );
+            if (groomParentsCoupleId) {
+                coupleIds.groomParents = groomParentsCoupleId;
+            } else {
+                // Insert couple to table
+                const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
+                    female_id: weddingData.groomMother.person_id || null,
+                    male_id: weddingData.groomFather.person_id || null,
+                });
+
+                if (!coupleInsertResult) {
+                    console.error("Error inserting groom's parents' couple entry");
+                    return res.send(false);
+                }
+
+                coupleIds.groomParents = coupleInsertResult;
+            }
         }
 
+        // Process the witnesses
+
         // Finally, time to insert to wedding table
+        if (coupleIds.brideParents && coupleIds.groomBride && coupleIds.groomParents) {
+            const weddingInsertResult = await dbInsert(db.tables.WEDDING_TABLE, {});
+        }
     },
 
     /**
