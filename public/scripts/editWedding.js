@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   const selectMale = $('#input_male_member').selectize()
   const selectGroom = $('#input_groom_member').selectize()
   const selectFemale = $('#input_female_member').selectize()
@@ -93,7 +93,7 @@ $(document).ready(function() {
     $('#input_male_witness_member').parent().find('.option[data-value="' + data + '"]').removeAttr('data-selectable')
   }
 
-  $('#bride_non_member').click(function(){
+  $('#bride_non_member').click(function () {
     $('#bride_non_member_div').show()
     $('#bride_member_div').hide()
   })
@@ -143,7 +143,7 @@ $(document).ready(function() {
     $('#male_member_div').hide()
   })
 
-  $('#save_changes').click(function() {
+  $('#save_changes').click(function () {
     const button = $(this)
     $(button).prop('disabled', true)
     if (validateMisc()) {
@@ -193,6 +193,10 @@ $(document).ready(function() {
       }
 
       data.person.personId = info[1]
+      if (!data.person.isMember && data.oldPersonId != null) {
+        data.person.personId = data.oldPersonId
+      }
+
       console.log(data.person)
       data.person = JSON.stringify(data.person)
 
@@ -207,14 +211,14 @@ $(document).ready(function() {
             console.log(personInfo)
             if (personInfo.isMember) {
               $('#bride_info').data('member', personInfo.memberId)
-              $('#bride_info').data('person', info[1])
+              $('#bride_info').data('person', parseInt(personInfo.personId))
               $('#bride_first_name_view').html(info[2])
               $('#bride_mid_name_view').html(info[3])
               $('#bride_last_name_view').html(info[4])
               $('#save_bride_btn').prop('disabled', false)
             } else {
               $('#bride_info').data('member', null)
-              $('#bride_info').data('person', result)
+              $('#bride_info').data('person', parseInt(personInfo.personId))
               $('#bride_first_name_view').html(personInfo.firstName)
               $('#bride_mid_name_view').html(personInfo.midName)
               $('#bride_last_name_view').html(personInfo.lastName)
@@ -231,7 +235,7 @@ $(document).ready(function() {
         }
       })
     } else {
-      
+
       $('#save_bride_btn').prop('disabled', false)
     }
   })
@@ -256,6 +260,11 @@ $(document).ready(function() {
       }
 
       data.person.personId = info[1]
+
+      if (!data.person.isMember && data.oldPersonId != null) {
+        data.person.personId = data.oldPersonId
+      }
+
       console.log(data.person)
       data.person = JSON.stringify(data.person)
 
@@ -270,14 +279,14 @@ $(document).ready(function() {
             console.log(personInfo)
             if (personInfo.isMember) {
               $('#groom_info').data('member', personInfo.memberId)
-              $('#groom_info').data('person', info[1])
+              $('#groom_info').data('person', parseInt(personInfo.personId))
               $('#groom_first_name_view').html(info[2])
               $('#groom_mid_name_view').html(info[3])
               $('#groom_last_name_view').html(info[4])
               $('#save_groom_btn').prop('disabled', false)
             } else {
               $('#groom_info').data('member', null)
-              $('#groom_info').data('person', result)
+              $('#groom_info').data('person', parseInt(personInfo.personId))
               $('#groom_first_name_view').html(personInfo.firstName)
               $('#groom_mid_name_view').html(personInfo.midName)
               $('#groom_last_name_view').html(personInfo.lastName)
@@ -325,6 +334,9 @@ $(document).ready(function() {
 
       if (data.person !== null)
         data.person.personId = info[1]
+      if (!data.person.isMember && data.oldPersonId != null) {
+        data.person.personId = data.oldPersonId
+      }
       console.log(data)
       data.person = JSON.stringify(data.person)
 
@@ -360,13 +372,13 @@ $(document).ready(function() {
               $(lastNameField).text('N/A')
             } else if (personInfo.isMember) {
               $(infoField).data('member', info[0])
-              $(infoField).data('person', info[1])
+              $(infoField).data('person', parseInt(personInfo.personId))
               $(firstNameField).html(info[2])
               $(midNameField).html(info[3])
               $(lastNameField).html(info[4])
             } else {
               $(infoField).data('member', null)
-              $(infoField).data('person', result)
+              $(infoField).data('person', parseInt(personInfo.personId))
               $(firstNameField).html(personInfo.firstName)
               $(midNameField).html(personInfo.midName)
               $(lastNameField).html(personInfo.lastName)
@@ -385,7 +397,7 @@ $(document).ready(function() {
     } else {
       $('#save_female_btn').prop('disabled', false)
     }
-    
+
   })
 
   // On Save Male Click (Fathers)
@@ -415,6 +427,9 @@ $(document).ready(function() {
 
       if (data.person !== null)
         data.person.personId = info[1]
+      if (!data.person.isMember && data.oldPersonId != null) {
+        data.person.personId = data.oldPersonId
+      }
       console.log(data)
       data.person = JSON.stringify(data.person)
 
@@ -451,13 +466,13 @@ $(document).ready(function() {
               $(lastNameField).text('N/A')
             } else if (personInfo.isMember) {
               $(infoField).data('member', info[0])
-              $(infoField).data('person', info[1])
+              $(infoField).data('person', parseInt(personInfo.personId))
               $(firstNameField).html(info[2])
               $(midNameField).html(info[3])
               $(lastNameField).html(info[4])
             } else {
               $(infoField).data('member', null)
-              $(infoField).data('person', result)
+              $(infoField).data('person', parseInt(personInfo.personId))
               $(firstNameField).html(personInfo.firstName)
               $(midNameField).html(personInfo.midName)
               $(lastNameField).html(personInfo.lastName)
@@ -536,7 +551,7 @@ $(document).ready(function() {
       type: 'DELETE',
       url: '/delete_wedding/witness',
       data: data,
-      success: function(result) {
+      success: function (result) {
         console.log(result)
         if (result) {
           $(trigger).parent().remove()
@@ -611,6 +626,9 @@ $(document).ready(function() {
 
       if (data.person !== null)
         data.person.personId = info[1]
+      if (!data.person.isMember && data.oldPersonId != null) {
+        data.person.personId = data.oldPersonId
+      }
 
       data.person = JSON.stringify(data.person)
       $.ajax({
@@ -622,20 +640,20 @@ $(document).ready(function() {
           if (result) {
             const personInfo = JSON.parse(data.person)
             console.log(personInfo)
-            
+
             if (isEdit) {
               let firstNameField = trigger.find('.witness_first_name_view')
               let midNameField = trigger.find('.witness_mid_name_view')
               let lastNameField = trigger.find('.witness_last_name_view')
               if (personInfo.isMember) {
                 $(infoField).data('member', personInfo.memberId)
-                $(infoField).data('person', info[1])
+                $(infoField).data('person', parseInt(personInfo.personId))
                 $(firstNameField).html(info[2])
                 $(midNameField).html(info[3])
                 $(lastNameField).html(info[4])
               } else {
                 $(infoField).data('member', null)
-                $(infoField).data('person', JSON.parse(result))
+                $(infoField).data('person', parseInt(personInfo.personId))
                 $(firstNameField).html(personInfo.firstName)
                 $(midNameField).html(personInfo.midName)
                 $(lastNameField).html(personInfo.lastName)
@@ -655,12 +673,12 @@ $(document).ready(function() {
               }
 
               const witness_info = $.parseHTML(result)
-              
+
               if (personInfo.isMember) {
                 $(witness_info).find('.witness_first_name_view').text(info[2])
                 $(witness_info).find('.witness_mid_name_view').text(info[3])
                 $(witness_info).find('.witness_last_name_view').text(info[4])
-              } 
+              }
 
               $(div).append(witness_info)
             }
@@ -725,7 +743,7 @@ $(document).ready(function() {
   })
 
   // On Edit Groom Click
-  $('#edit_groom').click(function() {
+  $('#edit_groom').click(function () {
     currPerson.firstName = $('#groom_first_name_view').text().trim()
     currPerson.midName = $('#groom_mid_name_view').text().trim()
     currPerson.lastName = $('#groom_last_name_view').text().trim()
@@ -739,7 +757,7 @@ $(document).ready(function() {
     initGroomModal()
   })
 
-    // On Edit Groom Mother Click
+  // On Edit Groom Mother Click
   $('#edit_groom_mother').click(function () {
     modalType = editKeys.groomMother
     currPerson.firstName = $('#groom_mother_first_name_view').text().trim()
@@ -770,20 +788,20 @@ $(document).ready(function() {
   })
 
   // On Edit GodMother
-  $(document).on('click', '.edit_female_witness_btn', function() {
+  $(document).on('click', '.edit_female_witness_btn', function () {
     const person = $(this).closest('.witness')
     modalType = editKeys.editGodMother
     currPerson.firstName = $(person).find('.witness_first_name_view').text().trim()
     currPerson.midName = $(person).find('.witness_mid_name_view').text().trim()
     currPerson.lastName = $(person).find('.witness_last_name_view').text().trim()
-    currPerson.doesExist =true
+    currPerson.doesExist = true
     currPerson.memberId = $(person).data('member')
     currPerson.personId = $(person).data('person')
     currPerson.witnessId = $(person).data('record')
     currPerson.canBeNone = false
     isFemale = true
     trigger = person
-    
+
     initFemaleWitnessModal('Edit Godmother')
   })
 
@@ -804,19 +822,19 @@ $(document).ready(function() {
     initMaleWitnessModal('Edit Godfather')
   })
 
-  $(document).on('click', '.delete_male_witness_btn', function() {
+  $(document).on('click', '.delete_male_witness_btn', function () {
     trigger = $(this).closest('.witness')
     modalType = editKeys.deleteGodFather
     $('#confirmDeleteWitnessModal').modal('show')
   })
 
-  $(document).on('click', '.delete_female_witness_btn', function() {
+  $(document).on('click', '.delete_female_witness_btn', function () {
     trigger = $(this).closest('.witness')
     modalType = editKeys.deleteGodMother
     $('#confirmDeleteWitnessModal').modal('show')
   })
 
-  $('#add_gmother_button').click(function() {
+  $('#add_gmother_button').click(function () {
     // add validation here
     if (GMotherWitnessCtr >= 6) {
       $('#witness_gmother_info_error').text('You have reached the maximum number of witnesses')
@@ -827,9 +845,9 @@ $(document).ready(function() {
       initFemaleWitnessModal('Add Godmother')
     }
   })
-  
 
-  $('#add_gfather_button').click(function() {
+
+  $('#add_gfather_button').click(function () {
     if (GFatherWitnessCtr >= 6) {
       $('#witness_gfather_info_error').text('You have reached the maximum number of witnesses')
     } else {
@@ -913,7 +931,7 @@ $(document).ready(function() {
       const id = currPerson.memberId
       const value = $('.option[data-value^="' + id + '"]').data('value')
       selectFemale[0].selectize.setValue(value)
-    } else if (currPerson.personId !== '' && currPerson.personId !== null && currPerson.personId !== undefined){
+    } else if (currPerson.personId !== '' && currPerson.personId !== null && currPerson.personId !== undefined) {
       $('#female_non_member').prop('checked', true)
       $('#female_non_member_div').show()
       $('#female_member_div').hide()
@@ -925,7 +943,7 @@ $(document).ready(function() {
       $('#female_member_div').hide()
       $('#female_non_member_div').hide()
     }
-    
+
     $('#femaleModal').modal('show')
   }
 
@@ -945,7 +963,7 @@ $(document).ready(function() {
       $('#bride_first_name').val(currPerson.firstName)
       $('#bride_mid_name').val(currPerson.midName)
       $('#bride_last_name').val(currPerson.lastName)
-    } 
+    }
 
     $('#brideModal').modal('show')
   }
@@ -1212,14 +1230,14 @@ $(document).ready(function() {
     var hasContract = !validator.isEmpty($('#contract').val())
     var hasOfficiant = !validator.isEmpty($('#officiant').val())
     var hasSolemnizer = !validator.isEmpty($('#solemnizer').val())
-    
+
     if (!hasDate) {
       isValid = false
       $('#date_error').text('Please add date')
     } else {
       $('#date_error').text('')
     }
-    
+
     if (!hasLocation) {
       isValid = false
       $('#location_error').html('Please add location')
@@ -1261,7 +1279,7 @@ $(document).ready(function() {
     return isValid
   }
 
-  $('#male_non_member').change(function() {
+  $('#male_non_member').change(function () {
     $('#male_member_div').hide()
     $('#male_non_member_div').show()
     if (currPerson.memberId !== null && currPerson.memberId !== '') {
@@ -1284,10 +1302,10 @@ $(document).ready(function() {
     if (currPerson.memberId !== null && currPerson.memberId !== '' && currPerson.memberId !== undefined) {
       value = getValue(currPerson.memberId)
     }
-    $(selectMale)[0].selectize.setValue(value) 
+    $(selectMale)[0].selectize.setValue(value)
   })
 
-  $('#female_non_member').change(function() {
+  $('#female_non_member').change(function () {
     $('#female_member_div').hide()
     $('#female_non_member_div').show()
 
@@ -1315,7 +1333,7 @@ $(document).ready(function() {
     $(selectFemale)[0].selectize.setValue(value)
   })
 
-  $('#female_witness_member').change(function() {
+  $('#female_witness_member').change(function () {
     $('#female_witness_non_member_div').hide()
     $('#female_witness_member_div').show()
 
@@ -1327,7 +1345,7 @@ $(document).ready(function() {
     $(selectWinessFemale)[0].selectize.setValue(value)
   })
 
-  $('#female_witness_non_member').change(function() {
+  $('#female_witness_non_member').change(function () {
     $('#female_witness_member_div').hide()
     $('#female_witness_non_member_div').show()
 
@@ -1339,10 +1357,10 @@ $(document).ready(function() {
       $('#female+_witness_first_name').val(currPerson.firstName)
       $('#female+_witness_mid_name').val(currPerson.midName)
       $('#female+_witness_last_name').val(curPerson.lastName)
-    } 
+    }
   })
 
-  $('#male_witness_member').change(function() {
+  $('#male_witness_member').change(function () {
     $('#male_witness_non_member_div').hide()
     $('#male_witness_member_div').show()
 
@@ -1368,7 +1386,7 @@ $(document).ready(function() {
     }
   })
 
-  function validateMidInitial (mid) {
+  function validateMidInitial(mid) {
     const re = /^[A-Z]/
     return re.test(mid)
   }
@@ -1383,5 +1401,5 @@ $(document).ready(function() {
   $('.modal').on('show.bs.modal', function (e) {
     initSelectizeOptions()
   })
-    
+
 })
