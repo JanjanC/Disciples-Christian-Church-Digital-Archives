@@ -26,9 +26,7 @@ Navigate to View Prenuptial Page (Level 1):
     Input Wedding Date    10    23    2021
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
-    Navigate to Forms Main Page From View Prenuptial Page
-    Main Page Should Be Open
-    Navigate to Forms Main Page From Main Page
+    Navigate to Prenuptial Main Page From View Prenuptial Page
     Forms Main Page Should Be Open
     Navigate to Prenuptial Page From Forms Main Page
     Add Prenuptial Page Should Be Open
@@ -51,9 +49,7 @@ Navigate to View Prenuptial Page (Level 2):
     Input Wedding Date    09    09    2021
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
-    Navigate to Forms Main Page From View Prenuptial Page
-    Forms Main Page Should Be Open
-    Navigate to Prenuptial Page From Forms Main Page
+    Navigate to Prenuptial Main Page From View Prenuptial Page
     Prenuptial Main Page Should Be Open
     Navigate to View Prenuptial Page From Prenuptial Main Page
     View Prenuptial Page Should Be Open
@@ -77,9 +73,7 @@ Navigate to View Prenuptial Page (Level 3):
     Input Wedding Date    05    14    2022
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
-    Navigate to Forms Main Page From View Prenuptial Page
-    Forms Main Page Should Be Open
-    Navigate to Prenuptial Page From Forms Main Page
+    Navigate to Prenuptial Main Page From View Prenuptial Page
     Prenuptial Main Page Should Be Open
     Navigate to View Prenuptial Page From Prenuptial Main Page
     View Prenuptial Page Should Be Open
