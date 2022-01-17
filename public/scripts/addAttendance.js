@@ -162,13 +162,11 @@ $(document).ready(function() {
   })
 
   $('#create-attendance').click(function (){
-      console.log("trgger")
     $('#create-attendance').prop('disabled', true)
     if(validateFields()) {
       const data = {
         attendees: []
       }
-      console.log('reached')
       
       const nonMembers = $('.non-member-text')
       for (nonMember of nonMembers) {
@@ -193,14 +191,11 @@ $(document).ready(function() {
       data.date = new Date($('#date').val()).toISOString()
       data.attendees = JSON.stringify(data.attendees)
 
-      console.log(data.attendees)
-
       $.ajax({
         type: 'POST',
         data: data,
         url: '/create_attendance',
         success: function (result){
-          console.log(result)
           if (result) {
               location.href = '/view_attendance/' + $('#date').val()
           } else {
@@ -229,7 +224,6 @@ $(document).ready(function() {
 
     if(isValid) {
       const witness_info = $('#input_member').val().split(", ")
-      console.log(witness_info)
       const id_number = witness_info[1]
       const firstName = witness_info[2]
       const midName = witness_info[3]
@@ -276,7 +270,6 @@ $(document).ready(function() {
 
     if (firstNameAndLastName) {
       isValid = false
-      console.log('no non')
       $('#empty_names_error').text('Please accomplish all required fields')
     } else {
       $('#empty_names_error').text('')
@@ -285,12 +278,10 @@ $(document).ready(function() {
   
     if (nameMiddleLen > 1) {
       isValid = false
-      console.log('true')
       $('#middle_name_single_error').text('Middle Initial should only contain 1 letter')
       
     } else {
       $('#middle_name_single_error').text('')
-      console.log('false')
     }
 
     if(validateMidInitial($('#non_member_mid_name').val()) === false && nameMiddleLen != 0){
@@ -445,8 +436,6 @@ $(document).ready(function() {
   }
 
   function selectizeEnable(data) {
-    console.log(data)
-   
     var parent = $('#input_member').parent()
    
     $('#input_member').parent().find('.option[data-value="' + data + '"]').attr('data-selectable', true)
