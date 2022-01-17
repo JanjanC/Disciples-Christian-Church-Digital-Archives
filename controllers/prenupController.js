@@ -93,7 +93,7 @@ const prenupController = {
           data.canSee = parseInt(req.session.editId) === parseInt(prenupId) || parseInt(req.session.level) >= 2
           data.styles = ['view']
           data.scripts = ['deletePrenup']
-          data.backLink = parseInt(req.session.level) >= 2 ? '/forms_main_page' : '/main_page'
+          data.backLink = parseInt(req.session.level) >= 2 ? '/prenup_main_page' : '/forms_main_page'
           res.render('view-prenup', data)
         } else {
           sendError(req, res, 404, '404 Prenup Record Not Found')
@@ -126,7 +126,7 @@ const prenupController = {
       });
     }
 
-    function selectMember (member) {
+    function selectMember(member) {
       // let brideNames = []
       // let groomNames = []
       const conditions3 = new Condition(queryTypes.where)
@@ -172,7 +172,7 @@ const prenupController = {
             }
           })
 
-        // if the member is a female
+          // if the member is a female
         } else {
           const brideNames = result
           // find all groom members
@@ -206,7 +206,7 @@ const prenupController = {
      * This function selects all the single members and renders all names
      * in the dropdown option in add-prenup-temp.hbs
      */
-    function selectAllMembers () {
+    function selectAllMembers() {
       const cond1 = new Condition(queryTypes.where)
       const cond2 = new Condition(queryTypes.whereNull)
       const cond3 = new Condition(queryTypes.where)
@@ -646,7 +646,7 @@ const prenupController = {
    */
   getEditPrenup: function (req, res) {
     const prenupId = req.params.prenup_id
-    if (parseInt(req.session.level) === 3 || parseInt(req.session.editId === parseInt(prenupId))) {
+    if (parseInt(req.session.level) > 1 || parseInt(req.session.editId === parseInt(prenupId))) {
       console.log(prenupId)
       const data = {
         scripts: ['editPrenup', 'edit'],
@@ -798,7 +798,7 @@ const prenupController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -841,7 +841,7 @@ const prenupController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
