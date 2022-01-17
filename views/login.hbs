@@ -1,46 +1,55 @@
-<section>
-
-    <div class="row mt-2 d-flex">
-      <div class="col-1 logocol">
-        <img class="logo" src="../images/logo.png">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <section>
+      <div class="row mt-2 d-flex" id="logo-container">
+        <div class="col-1 logocol">
+          <img class="logo" src="../images/logo.png">
+        </div>
+        <div class="col mt-4" id="dcc-text-container">
+          <p class="logoText" id="dcc-text"> Disciples Christian Church </p>
+        </div>
       </div>
-      <div class="col mt-4">
-        <p class="logoText"> Disciples Christian Church </p>
-      </div>
-    </div>
-    <div class="row cardrow d-flex justify-content-center">
-      <div id="card" class="card" style="background-color: transparent;">
-        <div class="card-body p-3">
-          <form action="/login" method="POST" id="login_form">
-            <div class="mb-0">
-              <h1 id="header" style="text-align: center;"> DISCIPLE</h1>
-              <hr style="color: aliceblue;">
-              <p style="text-align: center; color:aliceblue"> —In heart, in mind, in deed; Strengthened to Obey God's Will in this Fast Changing - Critical Time</p>
-              <input type="password" class="form-control p-2" id="password"  name="password" placeholder="Password"/>
-              <div style="text-align:center" id="div-log-in">
-                <button id="log-in-btn"> LOG IN </button>
+      <div class="row cardrow d-flex justify-content-center">
+        <div id="card" class="card" style="background-color: transparent;">
+          <div class="card-body p-3">
+            <form action="/login" method="POST" id="login_form">
+              <div class="mb-0">
+                <h1 id="header" style="text-align: center;"> DISCIPLE</h1>
+                <hr style="color: aliceblue;">
+                <p style="text-align: center; color:aliceblue" id="quote-text"> —In heart, in mind, in deed; Strengthened to Obey God's Will
+                  in this Fast Changing - Critical Time</p>
+                <input type="password" class="form-control p-2" id="password" name="password" placeholder="Password" />
+                <div style="text-align:center" id="div-log-in">
+                  <button id="log-in-btn"> LOG IN </button>
+                </div>
+                <p id="proceed-text">Or Proceed To</p>
               </div>
-              <p id="proceed-text">Or Proceed To</p>
+            </form>
+            <div style="text-align: center;" id="div-member-reg">
+              <button id="member-reg-btn"> Member Registration </button>
             </div>
-          </form>
-          <div style="text-align: center;" id="div-member-reg">
-            <button id="member-reg-btn"> Member Registration </button>
+          </div>
+        </div>
+      </div>
+    
+    </section>
+    
+    <div class="modal fade" id="errorModal" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p> Invalid Password </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
+  </body>
+</html>
 
-</section>
 
-<div class="modal fade" id="errorModal" aria-hidden="true">
-  <div class="modal-dialog  modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-body">
-        <p> Invalid Password </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

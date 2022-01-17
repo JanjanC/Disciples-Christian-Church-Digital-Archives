@@ -107,3 +107,61 @@ p {
     border-width: 1px;
     margin-top:0.5em;
 }
+
+
+@media only screen and (max-width:1050px){
+
+#dcc-text-container{
+    display: none;
+}
+
+.logocol{
+    text-align: center;
+}
+
+}
+
+@media only screen and (max-width:500px){
+
+#header{
+     font-size: 40pt;
+}
+
+}
+
+@media only screen and (max-width:400px){
+
+#quote-text{
+    font-size:15pt;
+}
+
+}
+
+@media only screen and (max-width:600px){
+
+
+.logocol{
+     display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#logo-container{
+    display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#header{
+    position: relative;
+    top:25px;
+}
+
+body{
+    position: relative;
+    top:50px;
+}
+
+
+
+}

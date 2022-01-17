@@ -8,6 +8,36 @@ $(document).ready(function () {
   const churchModal = $('#addChurchModal')
   const observationModal = $('#addObservationModal')
 
+
+  if(screen.width <= 860){
+    triggerResponsiveScreen();
+  }
+  
+  window.onresize = function() {
+    triggerResponsiveScreen();
+  }
+
+  function triggerResponsiveScreen(){
+    if (screen.width <= 860) {
+      $("#personal-info-div").removeClass('row');
+      $("#membership-status-div").removeClass('row');
+      $("#occupation-div").removeClass('col');
+      $("#addressline1-div").removeClass('col')
+      $("#addressline2-div").removeClass('col')
+      $("#workplace-info-div").removeClass('row')
+      $("#education-info-div").removeClass('row')
+    }
+    else {
+      $("#personal-info-div").addClass('row');
+      $("#membership-status-div").addClass('row');
+      $("#occupation-div").addClass('col');
+      $("#addressline1-div").addClass('col')
+      $("#addressline2-div").addClass('col')
+      $("#workplace-info-div").addClass('row')
+      $("#education-info-div").addClass('row')
+    }
+  }
+
   function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return re.test(String(email).toLowerCase());

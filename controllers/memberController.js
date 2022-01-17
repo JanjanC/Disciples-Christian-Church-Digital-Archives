@@ -35,7 +35,7 @@ const memberController = {
           });
       }
       res.render('add-member-temp', {
-        styles: ['forms'],
+        styles: ['forms','addMember'],
         scripts: ['member']
       })
     });
