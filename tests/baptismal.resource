@@ -128,11 +128,12 @@ Save Baptismal Form Data
     ${date}=    Format Date    ${date}
     Set Test Variable    ${date}
     #Officiant
-    ${officiant_visible}=    Run Keyword And Return Status    Element Should Be Visible    id:officiant_member_div
-    IF    ${officiant_visible}
+    ${officiant_member}=    Get Radio Button Status    id:officiant_member
+    ${officiant_non_member}=    Get Radio Button Status    id:officiant_non_member
+    IF    ${officiant_member}
         ${officiant}=    Get Value    id:input_officiant_member
         ${officiant}=    Extract Member Name    ${officiant}
-    ELSE
+    ELSE IF    ${officiant_non_member}
         ${officiant_first_name}=    Get Value    id:officiant_first_name
         ${officiant_mid_name}=    Get Value    id:officiant_mid_name
         ${officiant_last_name}=    Get Value    id:officiant_last_name
@@ -146,11 +147,12 @@ Save Member Data in Edit Baptismal Page
     Set Test Variable    ${member}
 
 Save Officiant Data in Edit Baptismal Page
-    ${officiant_visible}=    Run Keyword And Return Status    Element Should Be Visible    id:officiant_member_div
-    IF    ${officiant_visible}
+    ${officiant_member}=    Get Radio Button Status    id:officiant_member
+    ${officiant_non_member}=    Get Radio Button Status    id:officiant_non_member
+    IF    ${officiant_member}
         ${officiant}=    Get Value    id:input_officiant_member
         ${officiant}=    Extract Member Name    ${officiant}
-    ELSE
+    ELSE IF    ${officiant_non_member}
         ${officiant_first_name}=    Get Value    id:officiant_first_name
         ${officiant_mid_name}=    Get Value    id:officiant_mid_name
         ${officiant_last_name}=    Get Value    id:officiant_last_name
@@ -160,7 +162,6 @@ Save Officiant Data in Edit Baptismal Page
 
 Save Baptismal Form Data in Edit Baptismal Page
     #Member
-    Log To Console    ${member}
     ${member_exists}=    Get Variable Value    ${member}
     IF    ${member_exists} == ${None}
         ${member_first_name}=    Get Text    id:member_first_name_view
@@ -168,8 +169,6 @@ Save Baptismal Form Data in Edit Baptismal Page
         ${member_last_name}=    Get Text    id:member_last_name_view
         ${member}=    Create List    ${member_first_name}    ${member_mid_name}    ${member_last_name}
         Set Test Variable    ${member}
-        Log To Console    Member Var No Exist
-        Log To Console    ${member}
     END
     #Location
     ${location}=    Get Value    id:location
@@ -179,7 +178,6 @@ Save Baptismal Form Data in Edit Baptismal Page
     ${date}=    Format Date    ${date}
     Set Test Variable    ${date}
     #Officiant
-    Log To Console    ${officiant}
     ${officiant_exists}=    Get Variable Value    ${officiant}
     IF    ${officiant_exists} == ${None}
         ${officiant_first_name}=    Get Text    id:officiant_first_name_view
@@ -187,7 +185,6 @@ Save Baptismal Form Data in Edit Baptismal Page
         ${officiant_last_name}=    Get Text    id:officiant_last_name_view
         ${officiant}=    Create List    ${officiant_first_name}    ${officiant_mid_name}    ${officiant_last_name}
         Set Test Variable    ${officiant}
-        Log To Console    Off Var No Exist
     END
 
 View Baptismal Page Should Match Form Inputs

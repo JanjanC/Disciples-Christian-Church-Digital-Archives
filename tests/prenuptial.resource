@@ -125,11 +125,12 @@ Wedding Date Error Should Be Shown
 
 Save Prenuptial Form Data
     #Bride
-    ${bride_visible}=    Run Keyword And Return Status    Element Should Be Visible    id:bride_member_div
-    IF    ${bride_visible}
+    ${bride_member}=    Get Radio Button Status    id:bride_member
+    ${bride_non_member}=    Get Radio Button Status    id:bride_non_member
+    IF    ${bride_member}
         ${bride}=    Get Value    id:input_bride_member
         ${bride}=    Extract Member Name    ${bride}
-    ELSE
+    ELSE IF    ${bride_non_member}
         ${bride_first_name}=    Get Value    id:bride_first_name
         ${bride_mid_name}=    Get Value    id:bride_mid_name
         ${bride_last_name}=    Get Value    id:bride_last_name
@@ -137,11 +138,12 @@ Save Prenuptial Form Data
     END
     Set Test Variable    ${bride}
     #Groom
-    ${groom_visible}=    Run Keyword And Return Status    Element Should Be Visible    id:groom_member_div
-    IF    ${groom_visible}
+    ${groom_member}=    Get Radio Button Status    id:groom_member
+    ${groom_non_member}=    Get Radio Button Status    id:groom_non_member
+    IF    ${groom_member}
         ${groom}=    Get Value    id:input_groom_member
         ${groom}=    Extract Member Name    ${groom}
-    ELSE
+    ELSE IF    ${groom_non_member}
         ${groom_first_name}=    Get Value    id:groom_first_name
         ${groom_mid_name}=    Get Value    id:groom_mid_name
         ${groom_last_name}=    Get Value    id:groom_last_name
