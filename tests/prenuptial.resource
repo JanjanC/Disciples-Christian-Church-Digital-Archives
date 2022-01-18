@@ -91,10 +91,12 @@ Submit Prenuptial Form
     Click Button    id:create-prenup
 
 Save Bride Detail Changes
+    Save Bride Data in Edit Prenuptial Page
     Click Button    id:save_bride_btn
     Sleep    0.5s    Wait for Modal to Close
 
 Save Groom Detail Changes
+    Save Groom Data in Edit Prenuptial Page
     Click Button    id:save_groom_btn
     Sleep    0.5s    Wait for Modal to Close
 
@@ -120,6 +122,89 @@ Groom Information Error Should Be Shown
 
 Wedding Date Error Should Be Shown
     Element Should Contain    id:wedding_date_error    Wedding date should not be earlier than current date
+
+Save Prenuptial Form Data
+    #Bride
+    ${bride_visible}=    Run Keyword And Return Status    Element Should Be Visible    id:bride_member_div
+    IF    ${bride_visible}
+        ${bride}=    Get Value    id:input_bride_member
+        ${bride}=    Extract Member Name    ${bride}
+    ELSE
+        ${bride_first_name}=    Get Value    id:bride_first_name
+        ${bride_mid_name}=    Get Value    id:bride_mid_name
+        ${bride_last_name}=    Get Value    id:bride_last_name
+        ${bride}=    Create List    ${bride_first_name}    ${bride_mid_name}    ${bride_last_name}
+    END
+    Set Test Variable    ${bride}
+    #Groom
+    ${groom_visible}=    Run Keyword And Return Status    Element Should Be Visible    id:groom_member_div
+    IF    ${groom_visible}
+        ${groom}=    Get Value    id:input_groom_member
+        ${groom}=    Extract Member Name    ${groom}
+    ELSE
+        ${groom_first_name}=    Get Value    id:groom_first_name
+        ${groom_mid_name}=    Get Value    id:groom_mid_name
+        ${groom_last_name}=    Get Value    id:groom_last_name
+        ${groom}=    Create List    ${groom_first_name}    ${groom_mid_name}    ${groom_last_name}
+    END
+    Set Test Variable    ${groom}
+    #Current Date
+    ${current_date}=    Get Value    id:current_date
+    ${current_date}=    Format Date    ${current_date}
+    Set Test Variable    ${current_date}
+    #Wedding Date
+    ${wedding_date}=    Get Value    id:wedding_date
+    ${wedding_date}=    Format Date    ${wedding_date}
+    Set Test Variable    ${wedding_date}
+
+Save Groom Data in Edit Prenuptial Page
+    Log To Console    Hi
+    #TODO Implement once bug fix is done
+
+Save Bride Data in Edit Prenuptial Page
+    Log To Console    Hi
+    #TODO Implement once bug fix is done
+
+Save Prenuptial Form Data in Edit Prenuptial Page
+    #Bride
+    ${bride_exists}=    Get Variable Value    ${bride}
+    IF    ${bride_exists} == ${None}
+        ${bride_first_name}=    Get Text    id:bride_first_name_view
+        ${bride_mid_name}=    Get Text    id:bride_mid_name_view
+        ${bride_last_name}=    Get Text    id:bride_last_name_view
+        ${bride}=    Create List    ${bride_first_name}    ${bride_mid_name}    ${bride_last_name}
+        Set Test Variable    ${bride}
+    END
+    #Groom
+    ${groom_exists}=    Get Variable Value    ${groom}
+    IF    ${groom_exists} == ${None}
+        ${groom_first_name}=    Get Text    id:groom_first_name_view
+        ${groom_mid_name}=    Get Text    id:groom_mid_name_view
+        ${groom_last_name}=    Get Text    id:groom_last_name_view
+        ${groom}=    Create List    ${groom_first_name}    ${groom_mid_name}    ${groom_last_name}
+        Set Test Variable    ${groom}
+    END
+    #Date Created
+    ${current_date}=    Get Value    id:date_added
+    Set Test Variable    ${current_date}
+    #Wedding Date
+    ${wedding_date}=    Get Value    id:wedding_date
+    ${wedding_date}=    Format Date    ${wedding_date}
+    Set Test Variable    ${wedding_date}
+
+View Prenuptial Page Should Match Form Inputs
+    #Date Created
+    Element Should Contain    id:date_created    ${current_date}
+    #Bride
+    Element Should Contain    id:bride_first_name    ${bride[0]}
+    Element Should Contain    id:bride_mid_name    ${bride[1]}
+    Element Should Contain    id:bride_last_name    ${bride[2]}
+    #Groom
+    Element Should Contain    id:groom_first_name    ${groom[0]}
+    Element Should Contain    id:groom_mid_name    ${groom[1]}
+    Element Should Contain    id:groom_last_name    ${groom[2]}
+    #Wedding Date
+    Element Should Contain    id:wedding_date    ${wedding_date}
 
 Forms Main Page Should Be Open
     Wait Until Page Contains    Baptismal Record

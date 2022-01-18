@@ -61,8 +61,10 @@ Edit Non-Member Bride Prenuptial Record
     Select Non-Member Bride Form
     Input Non Member Bride Details    Natalia    N    Silang
     Save Bride Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
     Save Prenuptial Form Changes
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
 
 Edit Member Bride Prenuptial Record
     Open Browser to Login Page
@@ -80,8 +82,10 @@ Edit Member Bride Prenuptial Record
     Select Member Bride Form
     Select Random Member Bride
     Save Bride Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
     Save Prenuptial Form Changes
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
 
 Edit Non-Member Groom Prenuptial Record
     Open Browser to Login Page
@@ -99,8 +103,10 @@ Edit Non-Member Groom Prenuptial Record
     Select Non-Member Groom Form
     Input Non Member Groom Details    Jonathan Jr.    J    Dela Pena
     Save Groom Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
     Save Prenuptial Form Changes
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
 
 Edit Member Groom Prenuptial Record
     Open Browser to Login Page
@@ -118,8 +124,10 @@ Edit Member Groom Prenuptial Record
     Select Member Groom Form
     Select Random Member Groom
     Save Groom Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
     Save Prenuptial Form Changes
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
 
 Edit Wedding Date Prenuptial Record
     Open Browser to Login Page
@@ -134,8 +142,10 @@ Edit Wedding Date Prenuptial Record
     Navigate to Edit Prenuptial Page From View Prenuptial Page
     Edit Prenuptial Page Should Be Open
     Input Wedding Date    08    14    2023
+    Save Prenuptial Form Data in Edit Prenuptial Page
     Save Prenuptial Form Changes
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
 
 Edit Every Field Prenuptial Record
     Open Browser to Login Page
@@ -158,8 +168,10 @@ Edit Every Field Prenuptial Record
     Save Groom Detail Changes
     Edit Prenuptial Page Should Be Open
     Input Wedding Date    08    14    2023
+    Save Prenuptial Form Data in Edit Prenuptial Page
     Save Prenuptial Form Changes
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
 
 Delete Prenuptial Record
     Open Browser to Login Page

@@ -54,8 +54,10 @@ Complete Non-Members Input (Level 1):
     Input Non Member Groom Details    Francisco    A    Dela Cruz
     Input Current Date    08    02    2021
     Input Wedding Date    10    23    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Complete Non-Members Input (Level 2):
@@ -74,8 +76,10 @@ Complete Non-Members Input (Level 2):
     Input Non Member Groom Details    Elroy    B    Spalding
     Input Current Date    08    02    2021
     Input Wedding Date    09    09    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Complete Non-Members Input (Level 3):
@@ -94,8 +98,10 @@ Complete Non-Members Input (Level 3):
     Input Non Member Groom Details    Clayton    S    Kersey
     Input Current Date    08    02    2021
     Input Wedding Date    05    14    2022
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Blank Non-Members Input (Level 1):
@@ -380,8 +386,10 @@ Complete Members Input (Level 1)
     Select Random Member Groom
     Input Current Date    08    07    2021
     Input Wedding Date    12    11    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Complete Members Input (Level 2):
@@ -400,8 +408,10 @@ Complete Members Input (Level 2):
     Select Random Member Groom
     Input Current Date    08    02    2021
     Input Wedding Date    02    22    2023
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Complete Members Input (Level 3):
@@ -420,8 +430,10 @@ Complete Members Input (Level 3):
     Select Random Member Groom
     Input Current Date    08    02    2021
     Input Wedding Date    09    25    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Blank Members Input (Level 1):
@@ -700,8 +712,10 @@ Complete Non-Member Bride and Member Groom Input (Level 1):
     Select Random Member Groom
     Input Current Date    08    07    2021
     Input Wedding Date    07    13    2022
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Complete Non-Member Bride and Member Groom Input (Level 2):
@@ -720,8 +734,10 @@ Complete Non-Member Bride and Member Groom Input (Level 2):
     Select Random Member Groom
     Input Current Date    08    07    2021
     Input Wedding Date    07    13    2022
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Complete Non-Member Bride and Member Groom Input (Level 3):
@@ -740,8 +756,10 @@ Complete Non-Member Bride and Member Groom Input (Level 3):
     Select Random Member Groom
     Input Current Date    08    07    2021
     Input Wedding Date    09    30    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Blank Non-Member Bride and Member Groom Input (Level 1):
@@ -1023,8 +1041,10 @@ Complete Member Bride and Non-Member Groom Input (Level 1):
     Input Non Member Groom Details    Juan    A    Dela Cruz
     Input Current Date    08    07    2021
     Input Wedding Date    11    06    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Complete Member Bride and Non-Member Groom Input (Level 2):
@@ -1043,8 +1063,10 @@ Complete Member Bride and Non-Member Groom Input (Level 2):
     Input Non Member Groom Details    Juan    A    Dela Cruz
     Input Current Date    08    07    2021
     Input Wedding Date    10    31    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Complete Member Bride and Non-Member Groom Input (Level 3):
@@ -1063,8 +1085,10 @@ Complete Member Bride and Non-Member Groom Input (Level 3):
     Input Non Member Groom Details    Juan    A    Dela Cruz
     Input Current Date    08    07    2021
     Input Wedding Date    04    10    2022
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Delete Prenuptial Record
 
 Blank Member Bride and Non-Member Groom Input (Level 1):

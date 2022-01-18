@@ -14,50 +14,50 @@
     <hr>
     <div class="row">
       <div class="col-4">
-        <legend>Registry Number</legend>
-        <p>{{prenupId}}</p>
+        <legend for="reg_id">Registry Number</legend>
+        <p id="reg_id">{{prenupId}}</p>
       </div>
       <div class="col">
-        <legend>Date Added</legend>
-        <p>{{dateView date}}</p>
+        <legend for="date_created">Date Added</legend>
+        <p id="date_created">{{dateView date}}</p>
       </div>
     </div>
     <hr>
     <div class="row person_info" data-member="{{brideMemberId}}" data-person="{{bridePersonId}}">
       <legend>Bride's Name</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
-        <p>{{brideFirst}}</p>
+        <u for="bride_first_name">First Name</u>
+        <p id="bride_first_name">{{brideFirst}}</p>
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
-        <p>{{brideMid}}</p>
+        <u for="bride_mid_name">Middle Initial</u>
+        <p id="bride_mid_name">{{brideMid}}</p>
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
-        <p>{{brideLast}}</p>
+        <u for="bride_last_name">Last Name</u>
+        <p id="bride_last_name">{{brideLast}}</p>
       </div>
     </div>
     <hr>
     <div class="row person_info" data-member="{{groomMemberId}}" data-person="{{groomPersonId}}">
       <legend>Groom's Name</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
-        <p>{{groomFirst}}</p>
+        <u for="groom_first_name">First Name</u>
+        <p id="groom_first_name">{{groomFirst}}</p>
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
-        <p>{{groomMid}}</p>
+        <u for="groom_mid_name">Middle Initial</u>
+        <p id="groom_mid_name">{{groomMid}}</p>
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
-        <p>{{groomLast}}</p>
+        <u for="groom_last_name">Last Name</u>
+        <p id="groom_last_name">{{groomLast}}</p>
       </div>
     </div>
     <hr>
     <div class="row">
-        <u> Planned Wedding Date </u>
-        <p>{{dateView weddingDate}}</p>
+        <u for="wedding_date"> Planned Wedding Date </u>
+        <p id="wedding_date">{{dateView weddingDate}}</p>
     </div>
     <hr>
     <div class="row my-3">

@@ -24,8 +24,10 @@ Navigate to View Prenuptial Page (Level 1):
     Input Non Member Groom Details    Francisco    A    Dela Cruz
     Input Current Date    08    02    2021
     Input Wedding Date    10    23    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Navigate to Prenuptial Main Page From View Prenuptial Page
     Forms Main Page Should Be Open
     Navigate to Prenuptial Page From Forms Main Page
@@ -47,8 +49,10 @@ Navigate to View Prenuptial Page (Level 2):
     Input Non Member Groom Details    Elroy    B    Spalding
     Input Current Date    08    02    2021
     Input Wedding Date    09    09    2021
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Navigate to Prenuptial Main Page From View Prenuptial Page
     Prenuptial Main Page Should Be Open
     Navigate to View Prenuptial Page From Prenuptial Main Page
@@ -71,8 +75,10 @@ Navigate to View Prenuptial Page (Level 3):
     Input Non Member Groom Details    Clayton    S    Kersey
     Input Current Date    08    02    2021
     Input Wedding Date    05    14    2022
+    Save Prenuptial Form Data
     Submit Prenuptial Form
     View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Navigate to Prenuptial Main Page From View Prenuptial Page
     Prenuptial Main Page Should Be Open
     Navigate to View Prenuptial Page From Prenuptial Main Page
