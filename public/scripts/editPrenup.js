@@ -337,7 +337,6 @@ $(document).ready(function () {
         }
 
         data.person = JSON.stringify(data.person);
-        console.log(data);
         $.ajax({
             type: "PUT",
             url: "/update_prenup/groom",
