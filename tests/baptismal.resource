@@ -77,10 +77,12 @@ Submit Baptismal Form
     Click Button    id:create-baptismal
 
 Save Member Detail Changes
+    Save Member Data in Edit Baptismal Page
     Click Button    id:save_edit_member
     Sleep    0.5s    Wait for Modal to Close
 
 Save Officiant Detail Changes
+    Save Officiant Data in Edit Baptismal Page
     Click Button    id:save_edit_officiant
     Sleep    0.5s    Wait for Modal to Close
 
@@ -113,6 +115,95 @@ Non-Member Officiant Middle Initial Error Should Be Shown
 Member Officiant Error Should Be Shown
     Element Should Contain    id:officiant_error    Please select member
 
+Save Baptismal Form Data
+    #Member
+    ${member}=    Get Value    id:input_member
+    ${member}=    Extract Member Name    ${member}
+    Set Test Variable    ${member}
+    #Location
+    ${location}=    Get Value    id:location
+    Set Test Variable    ${location}
+    #Date
+    ${date}=    Get Value    id:date
+    ${date}=    Format Date    ${date}
+    Set Test Variable    ${date}
+    #Officiant
+    ${officiant_visible}=    Run Keyword And Return Status    Element Should Be Visible    id:officiant_member_div
+    IF    ${officiant_visible}
+        ${officiant}=    Get Value    id:input_officiant_member
+        ${officiant}=    Extract Member Name    ${officiant}
+    ELSE
+        ${officiant_first_name}=    Get Value    id:officiant_first_name
+        ${officiant_mid_name}=    Get Value    id:officiant_mid_name
+        ${officiant_last_name}=    Get Value    id:officiant_last_name
+        ${officiant}=    Create List    ${officiant_first_name}    ${officiant_mid_name}    ${officiant_last_name}
+    END
+    Set Test Variable    ${officiant}
+
+Save Member Data in Edit Baptismal Page
+    ${member}=    Get Value    id:input_member
+    ${member}=    Extract Member Name    ${member}
+    Set Test Variable    ${member}
+
+Save Officiant Data in Edit Baptismal Page
+    ${officiant_visible}=    Run Keyword And Return Status    Element Should Be Visible    id:officiant_member_div
+    IF    ${officiant_visible}
+        ${officiant}=    Get Value    id:input_officiant_member
+        ${officiant}=    Extract Member Name    ${officiant}
+    ELSE
+        ${officiant_first_name}=    Get Value    id:officiant_first_name
+        ${officiant_mid_name}=    Get Value    id:officiant_mid_name
+        ${officiant_last_name}=    Get Value    id:officiant_last_name
+        ${officiant}=    Create List    ${officiant_first_name}    ${officiant_mid_name}    ${officiant_last_name}
+    END
+    Set Test Variable    ${officiant}
+
+Save Baptismal Form Data in Edit Baptismal Page
+    #Member
+    Log To Console    ${member}
+    ${member_exists}=    Get Variable Value    ${member}
+    IF    ${member_exists} == ${None}
+        ${member_first_name}=    Get Text    id:member_first_name_view
+        ${member_mid_name}=    Get Text    id:member_mid_name_view
+        ${member_last_name}=    Get Text    id:member_last_name_view
+        ${member}=    Create List    ${member_first_name}    ${member_mid_name}    ${member_last_name}
+        Set Test Variable    ${member}
+        Log To Console    Member Var No Exist
+        Log To Console    ${member}
+    END
+    #Location
+    ${location}=    Get Value    id:location
+    Set Test Variable    ${location}
+    #Date
+    ${date}=    Get Value    id:date
+    ${date}=    Format Date    ${date}
+    Set Test Variable    ${date}
+    #Officiant
+    Log To Console    ${officiant}
+    ${officiant_exists}=    Get Variable Value    ${officiant}
+    IF    ${officiant_exists} == ${None}
+        ${officiant_first_name}=    Get Text    id:officiant_first_name_view
+        ${officiant_mid_name}=    Get Text    id:officiant_mid_name_view
+        ${officiant_last_name}=    Get Text    id:officiant_last_name_view
+        ${officiant}=    Create List    ${officiant_first_name}    ${officiant_mid_name}    ${officiant_last_name}
+        Set Test Variable    ${officiant}
+        Log To Console    Off Var No Exist
+    END
+
+View Baptismal Page Should Match Form Inputs
+    #Date
+    Element Should Contain    id:date    ${date}
+    #Member
+    Element Should Contain    id:member_first_name    ${member[0]}
+    Element Should Contain    id:member_mid_name    ${member[1]}
+    Element Should Contain    id:member_last_name    ${member[2]}
+    #Officiant
+    Element Should Contain    id:officiant_first_name    ${officiant[0]}
+    Element Should Contain    id:officiant_mid_name    ${officiant[1]}
+    Element Should Contain    id:officiant_last_name    ${officiant[2]}
+    #Location
+    Element Should Contain    id:place    ${location}
+
 Forms Main Page Should Be Open
     Wait Until Page Contains    Baptismal Record
     Element Should Contain    id:baptismal    Baptismal Record
@@ -137,4 +228,4 @@ Add Baptismal Page Should Be Open
 
 Edit Baptismal Page Should Be Open
     Wait Until Page Contains    Edit Baptismal Record
-        Element Should Contain    id:title    Edit Baptismal Record
+    Element Should Contain    id:title    Edit Baptismal Record

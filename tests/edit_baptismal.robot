@@ -58,8 +58,10 @@ Edit Baptism Date Baptismal Record:
     Navigate to Edit Baptismal Page From View Baptismal Page
     Edit Baptismal Page Should Be Open
     Input Baptism Date    10    31    2021
+    Save Baptismal Form Data in Edit Baptismal Page
     Save Baptismal Form Changes
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
 
 Edit Member Baptismal Record:
     Open Browser to Login Page
@@ -76,8 +78,10 @@ Edit Member Baptismal Record:
     Select Edit Member Details
     Select Random Member for Baptism
     Save Member Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
     Save Baptismal Form Changes
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
 
 Edit Non-Member Officiant Baptismal Record:
     Open Browser to Login Page
@@ -95,8 +99,10 @@ Edit Non-Member Officiant Baptismal Record:
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    John    C    Shepard
     Save Officiant Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
     Save Baptismal Form Changes
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
 
 Edit Member Officiant Baptismal Record:
     Open Browser to Login Page
@@ -114,8 +120,10 @@ Edit Member Officiant Baptismal Record:
     Select Member Officiant Form
     Select Random Member Officiant
     Save Officiant Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
     Save Baptismal Form Changes
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
 
 Edit Baptism Location Baptismal Record:
     Open Browser to Login Page
@@ -130,8 +138,10 @@ Edit Baptism Location Baptismal Record:
     Navigate to Edit Baptismal Page From View Baptismal Page
     Edit Baptismal Page Should Be Open
     Input Baptism Location    Citadel
+    Save Baptismal Form Data in Edit Baptismal Page
     Save Baptismal Form Changes
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
 
 Delete Baptismal Record
     Open Browser to Login Page

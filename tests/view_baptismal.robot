@@ -23,8 +23,10 @@ Navigate to View Baptismal Page (Level 1):
     Input Baptism Date    02    21    2017
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Loren    O    Odonell
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Navigate to Baptismal Main Page From View Baptismal Page
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
@@ -45,8 +47,10 @@ Navigate to View Baptismal Page (Level 2):
     Input Baptism Date    02    21    2017
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Loren    O    Odonell
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Navigate to Baptismal Main Page From View Baptismal Page
     Baptismal Main Page Should Be Open
     Navigate to View Baptismal Page From Baptismal Main Page
@@ -68,8 +72,10 @@ Navigate to View Baptismal Page (Level 3):
     Input Baptism Date    02    03    2022
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Turner    M    Galloway
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Navigate to Baptismal Main Page From View Baptismal Page
     Baptismal Main Page Should Be Open
     Navigate to View Baptismal Page From Baptismal Main Page

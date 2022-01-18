@@ -54,8 +54,10 @@ Validate Baptism Location Input Field
     Input Baptism Date    01    17    2021
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Ray    P    Phillips
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
 Validate Baptism Date Input Field
@@ -87,8 +89,10 @@ Validate Non-Member Officiant Input Field
     Input Baptism Date    01    17    2021
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Ray    P    Phillips
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
 Validate Non-Member Officiant Middle Name Input Field
@@ -120,8 +124,10 @@ Complete Non-Member Officiant Input (Level 1):
     Input Baptism Date    10    09    2010
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Wilburn    A    Maxwell
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
 Complete Member Officiant Input (Level 1):
@@ -137,8 +143,10 @@ Complete Member Officiant Input (Level 1):
     Input Baptism Date    01    17    2021
     Select Member Officiant Form
     Select Random Member Officiant
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
 Complete Non-Member Officiant Input (Level 2):
@@ -156,8 +164,10 @@ Complete Non-Member Officiant Input (Level 2):
     Input Baptism Date    02    21    2017
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Loren    O    Odonell
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
 Complete Member Officiant Input (Level 2):
@@ -175,8 +185,10 @@ Complete Member Officiant Input (Level 2):
     Input Baptism Date    05    02    2016
     Select Member Officiant Form
     Select Random Member Officiant
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
 Complete Non-Member Officiant Input (Level 3):
@@ -194,8 +206,10 @@ Complete Non-Member Officiant Input (Level 3):
     Input Baptism Date    02    03    2022
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Turner    M    Galloway
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
 Complete Member Officiant Input (Level 3):
@@ -213,8 +227,10 @@ Complete Member Officiant Input (Level 3):
     Input Baptism Date    06    18    2021
     Select Member Officiant Form
     Select Random Member Officiant
+    Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
 Missing Member for Baptism Input:
