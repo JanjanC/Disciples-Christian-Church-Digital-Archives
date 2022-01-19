@@ -247,7 +247,7 @@ $(document).ready(function() {
         const witness_info = $('#input_witness_gmother_member').val()
         witnessName = witness_info.replace(/\d+/g, '')
         witnessName = witnessName.replace(/,/g, '')
-        $('#gmother_witness_row').append("<div class='col-4' style='margin-bottom: 1em;'><div class='card witness' data-member-info=\"" + witness_info + "\"><div class='card-body'><p class='card-text'>" + witnessName + "</p><button type='button' class='fas fa-trash delGMotherWitnessBtn '></button> </div></div></div>")
+        $('#gmother_witness_row').append("<div class='col-4' style='margin-bottom: 1em;'><div class='card witness female' data-member-info=\"" + witness_info + "\"><div class='card-body'><p class='card-text'>" + witnessName + "</p><button type='button' class='fas fa-trash delGMotherWitnessBtn '></button> </div></div></div>")
       }
       $('#witness_gmother_info_error').text('')
       $('#witness_gfather_info_error').text('')
