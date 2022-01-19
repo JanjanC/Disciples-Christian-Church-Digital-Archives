@@ -49,7 +49,7 @@ app.use(
         }),
         saveUninitialized: true,
         resave: false,
-        secret: "christian-church",
+        secret: process.env.COOKIE_SECRET || "christian-church",
     })
 );
 app.use(nocache());

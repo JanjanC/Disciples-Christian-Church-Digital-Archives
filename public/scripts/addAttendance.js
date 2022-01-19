@@ -1,8 +1,4 @@
 $(document).ready(function() {
-  var GMotherWitnessCtr = 0
-  var GFatherWitnessCtr = 0
-  var addedWitness = false
-  var witnessType = null
   var dateExists = true
   const selectChild = $('#input_member').selectize()
   const selectParent1 = $('#input_parent1_member').selectize()
@@ -47,9 +43,6 @@ $(document).ready(function() {
       $('#no-attendees-error').text('')
       $('#witness_gfather_info_error').text('')
   })
-
-  var addedWitness = false
-  var witnessType = null
 
   initDate()
   initSelectize()
@@ -351,7 +344,6 @@ $(document).ready(function() {
   })
 
   $('.modal').on('hide.bs.modal', resetModal)
-
   /**
    * This function hides the selected choice for all select fields to avoid duplication of choices
    */
@@ -440,9 +432,11 @@ $(document).ready(function() {
   }
 
   function initDate() {
-    const today = new Date()
-    $('#date').val(today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0'))
-    
+    let passedDate = window.location.search.slice(1).replace("date=", "")
+    if (Date.parse(passedDate) != NaN)
+      $('#date').val(passedDate)
+    else
+      $('#date').val(new Date().toISOString().split('T')[0])
   }
   
   // used to validate middle initial
