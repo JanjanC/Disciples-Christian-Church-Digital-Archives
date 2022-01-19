@@ -61,11 +61,15 @@ Complete Input (Level 1)
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
 
 Complete Input (Level 2)
     Open Browser to Login Page
@@ -89,11 +93,15 @@ Complete Input (Level 2)
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Input (Level 3)
@@ -118,11 +126,15 @@ Complete Input (Level 3)
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Blank Member Child Input
@@ -145,9 +157,11 @@ Blank Member Child Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Submit Dedication Form
     Child Error Should Be Shown
 
@@ -171,9 +185,11 @@ Blank Member Parents Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Submit Dedication Form
     Parent 1 Error Should Be Shown
     Parent 2 Error Should Be Shown
@@ -198,9 +214,11 @@ Blank Officiant Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Submit Dedication Form
     Officiant Error Should Be Shown
 
@@ -224,9 +242,11 @@ Blank Address of Dedication Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Submit Dedication Form
     Address of Dedication Error Should Be Shown
 
@@ -251,9 +271,11 @@ Blank Date of Dedication Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Submit Dedication Form
     Date of Dedication Error Should Be Shown
 
@@ -298,9 +320,11 @@ Blank Non-Member Child Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Submit Dedication Form
     Child Error Should Be Shown
 
@@ -324,9 +348,11 @@ Blank Non-Member Parents Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Submit Dedication Form
     Parent 1 Error Should Be Shown
     Parent 2 Error Should Be Shown
@@ -352,6 +378,7 @@ Blank Non-Member Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    ${EMPTY}    ${EMPTY}    ${EMPTY}
+    Confirm Add Godmother
     Godmother Modal Error Should Be Shown
 
 Blank Non-Member Godfather Input
@@ -375,6 +402,7 @@ Blank Non-Member Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    ${EMPTY}    ${EMPTY}    ${EMPTY}
+    Confirm Add Godfather
     Godfather Modal Error Should Be Shown
 
 Complete Non-Members Input
@@ -398,11 +426,15 @@ Complete Non-Members Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Member - Child, Parent, and Witness & Non-Member - Parent and Witness Input
@@ -427,11 +459,15 @@ Complete Member - Child, Parent, and Witness & Non-Member - Parent and Witness I
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Member - Parent and Witness & Non-Member - Child, Parent, and Witness Input
@@ -456,11 +492,15 @@ Complete Member - Parent and Witness & Non-Member - Child, Parent, and Witness I
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Member - Parent and Witness & Non-Member - Child and Witness Input
@@ -484,11 +524,15 @@ Complete Member - Parent and Witness & Non-Member - Child and Witness Input
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Member - Witness & Non-Member - Child, Parent, and Witness Input
@@ -512,11 +556,15 @@ Complete Member - Witness & Non-Member - Child, Parent, and Witness Input
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete One Godfather and One Godmother Input
@@ -540,11 +588,15 @@ Complete One Godfather and One Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete One Godmother Input
@@ -568,8 +620,11 @@ Complete One Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete One Godfather Input
@@ -593,8 +648,11 @@ Complete One Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Six Godmother and Six Godfather Input
@@ -618,41 +676,55 @@ Complete Six Godmother and Six Godfather Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Six Godmother Input
@@ -676,23 +748,31 @@ Complete Six Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Six Godfather Input
@@ -716,23 +796,31 @@ Complete Six Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Seven Godmother and Seven Godfather Input
@@ -756,45 +844,59 @@ Complete Seven Godmother and Seven Godfather Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
     Select Add Godmother Button
     Godmother Maximum Warning Should Be Shown
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
     Select Add Godfather Button
     Godfather Maximum Warning Should Be Shown
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Seven Godmother Input
@@ -818,25 +920,33 @@ Complete Seven Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
     Select Add Godmother Button
     Godmother Maximum Warning Should Be Shown
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Seven Godfather Input
@@ -860,25 +970,33 @@ Complete Seven Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
     Select Add Godfather Button
     Godfather Maximum Warning Should Be Shown
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Deleted Godmother Input
@@ -902,14 +1020,18 @@ Complete Deleted Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Remove Godmother
     Submit Dedication Form
     Godmother and Godfather Error Should Be Shown
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
 Complete Deleted Godfather Input
@@ -933,12 +1055,16 @@ Complete Deleted Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Remove Godfather
     Submit Dedication Form
     Godmother and Godfather Error Should Be Shown
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Delete Dedication Record

@@ -34,3 +34,14 @@ Format Date
     ${date}=    Split String    ${raw}    -
     ${date}=    Catenate    SEPARATOR=/    ${date[1]}    ${date[2]}    ${date[0]}
     [Return]    ${date}
+
+Get Child WebElements
+    [Arguments]    ${locator}
+
+    ${element}=    Get WebElement    ${locator}
+    ${children}=    Call Method
+    ...    ${element}
+    ...    find_elements
+    ...    by=xpath    value=child::*
+
+    [Return]    ${children}

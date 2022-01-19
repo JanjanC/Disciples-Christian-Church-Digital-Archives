@@ -29,11 +29,15 @@ Navigate to View Dedication Page (Level 1):
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Navigate to Dedication Main Page From View Dedication Page
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
@@ -60,11 +64,15 @@ Navigate to View Dedication Page (Level 2):
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Navigate to Dedication Main Page From View Dedication Page
     Dedication Main Page Should Be Open
     Navigate to View Dedication Page From Dedication Main Page
@@ -92,11 +100,15 @@ Navigate to View Dedication Page (Level 3):
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Navigate to Dedication Main Page From View Dedication Page
     Dedication Main Page Should Be Open
     Navigate to View Dedication Page From Dedication Main Page

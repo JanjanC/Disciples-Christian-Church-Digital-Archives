@@ -149,12 +149,14 @@ Input Non-Member Godmother Details
     Input Text    id:witness_gmother_first_name    ${first}
     Input Text    id:witness_gmother_mid_name    ${middle}
     Input Text    id:witness_gmother_last_name    ${last}
-    Click Button    id:add_gmother_witness
-    Sleep    0.5s    Wait for Modal to Close
 
 Select Random Member Godmother
     Click Element    css:#witness_gmother_member_div .selectize-input
     Click Element    css:#witness_gmother_member_div .selectize-dropdown-content>[data-selectable]
+
+Confirm Add Godmother
+    ${godmother}=    Get Godmother Data
+    Append to List of Godmothers    ${godmother}
     Click Button    id:add_gmother_witness
     Sleep    0.5s    Wait for Modal to Close
 
@@ -169,22 +171,26 @@ Input Non-Member Godfather Details
     Input Text    id:witness_gfather_first_name    ${first}
     Input Text    id:witness_gfather_mid_name    ${middle}
     Input Text    id:witness_gfather_last_name    ${last}
-    Click Button    id:add_gfather_witness
-    Sleep    0.5s    Wait for Modal to Close
 
 Select Random Member Godfather
     Click Element    css:#witness_gfather_member_div .selectize-input
     Click Element    css:#witness_gfather_member_div .selectize-dropdown-content>[data-selectable]
+
+Confirm Add Godfather
+    ${godfather}=    Get Godfather Data
+    Append to List of Godfathers    ${godfather}
     Click Button    id:add_gfather_witness
     Sleep    0.5s    Wait for Modal to Close
 
 Remove Godmother
     Scroll To Element    class:delGMotherWitnessBtn
     Click Element    class:delGMotherWitnessBtn
+    Remove From List of Godmothers    0
 
 Remove Godfather
     Scroll To Element    class:delGFatherWitnessBtn
     Click Element    class:delGFatherWitnessBtn
+    Remove From List of Godfathers    0
 
 Remove Godmother in Edit Dedication Page
     Scroll to Element    class:delete_female_witness_btn
@@ -192,6 +198,7 @@ Remove Godmother in Edit Dedication Page
     Sleep    0.5s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
     Sleep    0.5s    Wait for Modal to Close
+    Remove From List of Godmothers    0
 
 Remove Godfather in Edit Dedication Page
     Scroll to Element    class:delete_male_witness_btn
@@ -199,6 +206,7 @@ Remove Godfather in Edit Dedication Page
     Sleep    0.5s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
     Sleep    0.5s    Wait for Modal to Close
+    Remove From List of Godfathers    0
 
 Submit Dedication Form
     Scroll To Element    id:create-dedication
@@ -206,14 +214,29 @@ Submit Dedication Form
 
 Save Child Detail Changes
     Click Button    id:save_edit_child
+    Save Child Data
     Sleep    0.5s    Wait for Modal to Close
 
 Save Parent 1 Detail Changes
     Click Button    id:save_edit_parent_one
+    Save Parent 1 Data
     Sleep    0.5s    Wait for Modal to Close
 
 Save Parent 2 Detail Changes
     Click Button    id:save_edit_parent_two
+    Save Parent 2 Data
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Godmother Detail Changes
+    ${godmother}=    Get Godmother Data
+    Replace in List of Godmothers    0    ${godmother}
+    Click Button    id:add_gmother_witness
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Godfather Detail Changes
+    ${godfather}=    Get Godfather Data
+    Replace in List of Godfathers    0    ${godfather}
+    Click Button    id:add_gfather_witness
     Sleep    0.5s    Wait for Modal to Close
 
 Save Dedication Form Changes
@@ -260,6 +283,262 @@ Godmother Maximum Warning Should Be Shown
 
 Godfather Maximum Warning Should Be Shown
     Element Should Contain    id:witness_gfather_info_error    You have reached the maximum number of witnesses
+
+Save Child Data
+    ${child_member}=    Get Radio Button Status    id:child_member
+    ${child_non_member}=    Get Radio Button Status    id:child_non_member
+    IF    ${child_member}
+        ${child}=    Get Value    id:input_child_member
+        ${child}=    Extract Member Name    ${child}
+    ELSE IF    ${child_non_member}
+        ${child_first_name}=    Get Value    id:child_first_name
+        ${child_mid_name}=    Get Value    id:child_mid_name
+        ${child_last_name}=    Get Value    id:child_last_name
+        ${child}=    Create List    ${child_first_name}    ${child_mid_name}    ${child_last_name}
+    END
+    Set Test Variable    ${child}
+
+Save Parent 1 Data
+    ${parent1_member}=    Get Radio Button Status    id:parent1_member
+    ${parent1_non_member}=    Get Radio Button Status    id:parent1_non_member
+    IF    ${parent1_member}
+        ${parent1}=    Get Value    id:input_parent1_member
+        ${parent1}=    Extract Member Name    ${parent1}
+    ELSE IF    ${parent1_non_member}
+        ${parent1_first_name}=    Get Value    id:parent1_first_name
+        ${parent1_mid_name}=    Get Value    id:parent1_mid_name
+        ${parent1_last_name}=    Get Value    id:parent1_last_name
+        ${parent1}=    Create List    ${parent1_first_name}    ${parent1_mid_name}    ${parent1_last_name}
+    END
+    Set Test Variable    ${parent1}
+
+Save Parent 2 Data
+    #Parent 2
+    ${parent2_member}=    Get Radio Button Status    id:parent2_member
+    ${parent2_non_member}=    Get Radio Button Status    id:parent2_non_member
+    ${parent2_none}=    Get Radio Button Status    id:parent2_none
+    IF    ${parent2_member}
+        ${parent2}=    Get Value    id:input_parent2_member
+        ${parent2}=    Extract Member Name    ${parent2}
+    ELSE IF    ${parent2_non_member}
+        ${parent2_first_name}=    Get Value    id:parent2_first_name
+        ${parent2_mid_name}=    Get Value    id:parent2_mid_name
+        ${parent2_last_name}=    Get Value    id:parent2_last_name
+        ${parent2}=    Create List    ${parent2_first_name}    ${parent2_mid_name}    ${parent2_last_name}
+    ELSE IF    ${parent2_none}
+        ${parent2}=    Create List    'N/A'    'N/A'    'N/A'
+    END
+    Set Test Variable    ${parent2}
+
+Get Godmother Data
+    #Current Godmother
+    ${godmother_member}=    Get Radio Button Status    id:witness_gmother_member
+    ${godmother_non_member}=    Get Radio Button Status    id:witness_gmother_non_member
+    IF    ${godmother_member}
+        ${godmother}=    Get Value    id:input_witness_gmother_member
+        ${godmother}=    Extract Member Name    ${godmother}
+    ELSE IF    ${godmother_non_member}
+        ${godmother_first_name}=    Get Value    id:witness_gmother_first_name
+        ${godmother_mid_name}=    Get Value    id:witness_gmother_mid_name
+        ${godmother_last_name}=    Get Value    id:witness_gmother_last_name
+        ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
+    END
+    [Return]    ${godmother}
+
+Get Godfather Data
+    #Current Godfather
+    ${godfather_member}=    Get Radio Button Status    id:witness_gfather_member
+    ${godfather_non_member}=    Get Radio Button Status    id:witness_gfather_non_member
+    IF    ${godfather_member}
+        ${godfather}=    Get Value    id:input_witness_gfather_member
+        ${godfather}=    Extract Member Name    ${godfather}
+    ELSE IF    ${godfather_non_member}
+        ${godfather_first_name}=    Get Value    id:witness_gfather_first_name
+        ${godfather_mid_name}=    Get Value    id:witness_gfather_mid_name
+        ${godfather_last_name}=    Get Value    id:witness_gfather_last_name
+        ${godfather}=    Create List    ${godfather_first_name}    ${godfather_mid_name}    ${godfather_last_name}
+    END
+    [Return]    ${godfather}
+
+Save List of Godmothers
+    #List of Godmothers
+    ${godmother_exists}=    Get Variable Value    ${godmother_list}
+    IF    ${godmother_exists} == ${None}
+        ${godmothers}=    Get WebElements    css:.female.witness
+        ${godmother_list}=    Create List
+        FOR    ${godmother}    IN    @{godmothers}
+            #Locators
+            ${godmother_first_name_locator}=    Create List    ${godmother}    class:witness_first_name_view
+            ${godmother_mid_name_locator}=    Create List    ${godmother}    class:witness_mid_name_view
+            ${godmother_last_name_locator}=    Create List    ${godmother}    class:witness_last_name_view
+            #Name
+            ${godmother_first_name}=    Get Text    ${godmother_first_name_locator}
+            ${godmother_mid_name}=    Get Text    ${godmother_mid_name_locator}
+            ${godmother_last_name}=    Get Text    ${godmother_last_name_locator}
+            ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
+            Log To Console    ${godmother}
+            Append To List    ${godmother_list}    ${godmother}
+        END
+        Log To Console    ${godmother_list}
+        Set Test Variable    ${godmother_list}
+    END
+
+Replace in List of Godmothers
+    [Arguments]    ${index}    ${godmother}
+    Save List of Godmothers
+    Set List Value    ${godmother_list}    ${index}    ${godmother}
+
+Replace in List of Godfathers
+    [Arguments]    ${index}    ${godfather}
+    Save List of Godfathers
+    Append To List    ${godfather_list}    ${index}    ${godfather}
+
+Append to List of Godmothers
+    [Arguments]    ${godmother}
+    Save List of Godmothers
+    Append To List    ${godmother_list}    ${godmother}
+
+Append To List of Godfathers
+    [Arguments]    ${godfather}
+    Save List of Godfathers
+    Append To List    ${godfather_list}    ${godfather}
+
+Remove From List of Godmothers
+    [Arguments]    ${index}
+    Save List of Godmothers
+    Remove From List    ${godmother_list}    ${index}
+
+Remove From List of Godfathers
+    [Arguments]    ${index}
+    Save List of Godfathers
+    Remove From List    ${godfather_list}    ${index}
+
+Save List of Godfathers
+    #List of Godfathers
+    ${godfather_exists}=    Get Variable Value    ${godfather_list}
+    IF    ${godfather_exists} == ${None}
+        ${godfathers}=    Get WebElements    css:.male.witness
+        ${godfather_list}=    Create List
+        FOR    ${godfather}    IN    @{godfathers}
+            #Locators
+            ${godfather_first_name_locator}=    Create List    ${godfather}    class:witness_first_name_view
+            ${godfather_mid_name_locator}=    Create List    ${godfather}    class:witness_mid_name_view
+            ${godfather_last_name_locator}=    Create List    ${godfather}    class:witness_last_name_view
+            #Name
+            ${godfather_first_name}=    Get Text    ${godfather_first_name_locator}
+            ${godfather_mid_name}=    Get Text    ${godfather_mid_name_locator}
+            ${godfather_last_name}=    Get Text    ${godfather_last_name_locator}
+            ${godfather}=    Create List    ${godfather_first_name}    ${godfather_mid_name}    ${godfather_last_name}
+            Log To Console    ${godfather}
+            Append To List    ${godfather_list}    ${godfather}
+        END
+        Log To Console    ${godfather_list}
+        Set Test Variable    ${godfather_list}
+    END
+
+Save Dedication Form Data
+    #Child
+    Save Child Data
+    #Parent 1
+    Save Parent 1 Data
+    #Parent 2
+    Save Parent 2 Data
+    #Officiant
+    ${officiant}=    Get Value    id:officiant
+    Set Test Variable    ${officiant}
+    #Address of Dedication
+    ${address}=    Get Value    id:address
+    Set Test Variable    ${address}
+    #Date of Dedication
+    ${date}=    Get Value    id:date
+    ${date}=    Format Date    ${date}
+    Set Test Variable    ${date}
+    #Witnesses
+    Save List of Godmothers
+    Save List of Godfathers
+
+Save Dedication Form Data in Edit Dedication Page
+    #Date of Dedication
+    ${date}=    Get Value    id:date
+    ${date}=    Format Date    ${date}
+    Set Test Variable    ${date}
+    #Child
+    ${child_exists}=    Get Variable Value    ${child}
+    IF    ${child_exists} == ${None}
+        ${child_first_name}=    Get Text    id:child_first_name_view
+        ${child_mid_name}=    Get Text    id:child_mid_name_view
+        ${child_last_name}=    Get Text    id:child_last_name_view
+        ${child}=    Create List    ${child_first_name}    ${child_mid_name}    ${child_last_name}
+        Set Test Variable    ${child}
+    END
+    #Parent 1
+    ${parent1_exists}=    Get Variable Value    ${parent1}
+    IF    ${parent1_exists} == ${None}
+        ${parent1_first_name}=    Get Text    id:parent1_first_name_view
+        ${parent1_mid_name}=    Get Text    id:parent1_mid_name_view
+        ${parent1_last_name}=    Get Text    id:parent1_last_name_view
+        ${parent1}=    Create List    ${parent1_first_name}    ${parent1_mid_name}    ${parent1_last_name}
+        Set Test Variable    ${parent1}
+    END
+    #Parent 2
+    ${parent2_exists}=    Get Variable Value    ${parent2}
+    IF    ${parent2_exists} == ${None}
+        ${parent2_first_name}=    Get Text    id:parent2_first_name_view
+        ${parent2_mid_name}=    Get Text    id:parent2_mid_name_view
+        ${parent2_last_name}=    Get Text    id:parent2_last_name_view
+        ${parent2}=    Create List    ${parent2_first_name}    ${parent2_mid_name}    ${parent2_last_name}
+        Set Test Variable    ${parent2}
+    END
+    #Officiant
+    ${officiant}=    Get Value    id:officiant
+    Set Test Variable    ${officiant}
+    #Address of Dedication
+    ${address}=    Get Value    id:address
+    Set Test Variable    ${address}
+    #Witnesses
+    Save List of Godmothers
+    Save List of Godfathers
+
+View Dedication Page Should Match Form Inputs
+    Log To Console    ${godmother_list}
+    #Date of Dedication
+    Element Should Contain    id:dedication_date    ${date}
+    #Child
+    Element Should Contain    id:child_first_name    ${child[0]}
+    Element Should Contain    id:child_mid_name    ${child[1]}
+    Element Should Contain    id:child_last_name    ${child[2]}
+    #Parent 1
+    Element Should Contain    id:parent1_first_name    ${parent1[0]}
+    Element Should Contain    id:parent1_mid_name    ${parent1[1]}
+    Element Should Contain    id:parent1_last_name    ${parent1[2]}
+    #Parent 2
+    Element Should Contain    id:parent2_first_name    ${parent2[0]}
+    Element Should Contain    id:parent2_mid_name    ${parent2[1]}
+    Element Should Contain    id:parent2_last_name    ${parent2[2]}
+    #Officiant
+    Element Should Contain    id:officiant    ${officiant}
+    #Address
+    Element Should Contain    id:address    ${address}
+    #Godfather
+    ${godfather_ctr}=    Set Variable    ${0}
+    ${godfathers_elements}=    Get WebElements    css:#godfathers .witness
+    FOR    ${godfather}    IN    @{godfather_list}
+        ${godfather_name}=    Catenate    ${godfather[0]}    ${godfather[1]}.    ${godfather[2]}
+        Element Should Contain    ${godfathers_elements[${godfather_ctr}]}    ${godfather_name}
+        ${godfather_ctr}=    Evaluate    ${godfather_ctr} + 1
+        Log To Console    ${godfather_ctr}
+        Log To Console    ${godfather_name}
+    END
+    #Godmother
+    ${godmother_ctr}=    Set Variable    ${0}
+    ${godmothers_elements}=    Get WebElements    css:#godmothers .witness
+    FOR    ${godmother}    IN    @{godmother_list}
+        ${godmother_name}=    Catenate    ${godmother[0]}    ${godmother[1]}.    ${godmother[2]}
+        Element Should Contain    ${godmothers_elements[${godmother_ctr}]}    ${godmother_name}
+        ${godmother_ctr}=    Evaluate    ${godmother_ctr} + 1
+        Log To Console    ${godmother_ctr}
+        Log To Console    ${godmother_name}
+    END
 
 Forms Main Page Should Be Open
     Wait Until Page Contains    Baptismal Record
