@@ -873,27 +873,23 @@ const weddingController = {
 
             // Finally, time to insert to wedding table
             console.log("Insert data into the wedding table.");
-            let weddingId = null;
-            if (coupleIds.brideParents && coupleIds.groomBride && coupleIds.groomParents) {
-                const insertWeddingData = {};
+            const insertWeddingData = {};
+            insertWeddingData[weddingRegFields.BRIDE_PARENTS] = coupleIds.brideParents;
+            insertWeddingData[weddingRegFields.GROOM_PARENTS] = coupleIds.groomParents;
+            insertWeddingData[weddingRegFields.COUPLE] = coupleIds.groomBride;
+            insertWeddingData[weddingRegFields.CONTRACT] = weddingData.contract;
+            insertWeddingData[weddingRegFields.DATE] = weddingData.date;
+            insertWeddingData[weddingRegFields.DATE_OF_WEDDING] = weddingData.weddingDate;
+            insertWeddingData[weddingRegFields.LOCATION] = weddingData.location;
+            insertWeddingData[weddingRegFields.SOLEMNIZER] = weddingData.solemnizer;
+            insertWeddingData[weddingRegFields.WEDDING_OFFICIANT] = weddingData.officiant;
 
-                insertWeddingData[weddingRegFields.BRIDE_PARENTS] = coupleIds.brideParents;
-                insertWeddingData[weddingRegFields.GROOM_PARENTS] = coupleIds.groomParents;
-                insertWeddingData[weddingRegFields.COUPLE] = coupleIds.groomBride;
-                insertWeddingData[weddingRegFields.CONTRACT] = weddingData.contract;
-                insertWeddingData[weddingRegFields.DATE] = weddingData.date;
-                insertWeddingData[weddingRegFields.DATE_OF_WEDDING] = weddingData.weddingDate;
-                insertWeddingData[weddingRegFields.LOCATION] = weddingData.location;
-                insertWeddingData[weddingRegFields.SOLEMNIZER] = weddingData.solemnizer;
-                insertWeddingData[weddingRegFields.WEDDING_OFFICIANT] = weddingData.officiant;
+            // console.log("insert wedding data:");
+            // console.log(insertWeddingData);
 
-                // console.log("insert wedding data:");
-                // console.log(insertWeddingData);
-
-                // Insert the wedding data
-                const weddingInsertResult = await dbInsert(db.tables.WEDDING_TABLE, insertWeddingData);
-                weddingId = weddingInsertResult[0];
-            }
+            // Insert the wedding data
+            const weddingInsertResult = await dbInsert(db.tables.WEDDING_TABLE, insertWeddingData);
+            const weddingId = weddingInsertResult[0];
 
             // Process the witnesses
             // Male witnesses
@@ -971,7 +967,7 @@ const weddingController = {
                             insertData[personFields.MID_NAME] = witness.mid_name;
                             insertData[personFields.LAST_NAME] = witness.last_name;
                             const witnessPersonInsertResult = await dbInsert(db.tables.PERSON_TABLE, insertData);
-                            if (witnessPersonInsertResult.lenght > 0) {
+                            if (witnessPersonInsertResult.length > 0) {
                                 // Save the person id to the witness
                                 weddingData.witnessFemale[i].person_id = witnessPersonInsertResult[0];
                             } else {
@@ -994,7 +990,7 @@ const weddingController = {
                 })
             );
 
-            return res.status(200).send(weddingId);
+            return res.json(weddingId);
         } catch (err) {
             console.error("Flip me, there's an error!");
             console.error(err);
