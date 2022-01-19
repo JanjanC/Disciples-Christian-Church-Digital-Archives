@@ -622,30 +622,6 @@ const weddingController = {
             const dbInsert = promisify(wrapDbInsert);
             const dbFind = promisify(wrapDbFind);
 
-            // const dbInsert = async (table, data) => {
-            //     db.insert(table, data, (result) => {
-            //         if (result) {
-            //             return result;
-            //         } else {
-            //             throw new Error(`Unable to insert into ${table}`);
-            //         }
-            //     });
-            // };
-
-            // const dbFind = async (table, conditions) => {
-            //     db.find(
-            //         table,
-            //         (conditions = conditions),
-            //         (callback = (result) => {
-            //             if (result) {
-            //                 return result;
-            //             } else {
-            //                 throw new Error(`Unable to find from ${table}`);
-            //             }
-            //         })
-            //     );
-            // };
-
             // Check if the couple is/are members
             // If not, create a people entry for them.
             // console.log("Checking if groom is member. Insert person entry if groom is not member.");
