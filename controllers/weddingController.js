@@ -648,7 +648,7 @@ const weddingController = {
 
             // Check if the couple is/are members
             // If not, create a people entry for them.
-            console.log("Checking if groom is member. Insert person entry if groom is not member.");
+            // console.log("Checking if groom is member. Insert person entry if groom is not member.");
             if (!weddingData.groom.isMember) {
                 const result = await dbInsert(db.tables.PERSON_TABLE, {
                     first_name: weddingData.groom.first_name,
@@ -663,7 +663,7 @@ const weddingController = {
                 weddingData.groom.person_id = result[0];
             }
 
-            console.log("Checking if bride is member. Insert person entry if bride is not member.");
+            // console.log("Checking if bride is member. Insert person entry if bride is not member.");
             if (!weddingData.bride.isMember) {
                 const result = await dbInsert(db.tables.PERSON_TABLE, {
                     first_name: weddingData.bride.first_name,
@@ -678,7 +678,7 @@ const weddingController = {
                 weddingData.bride.person_id = result[0];
             }
 
-            console.log("If bride's mother is not null, check if member. If not member, create a person record.");
+            // console.log("If bride's mother is not null, check if member. If not member, create a person record.");
             if (weddingData.brideMother && !weddingData.brideMother.isMember) {
                 const result = await dbInsert(db.tables.PERSON_TABLE, {
                     first_name: weddingData.brideMother.first_name,
@@ -693,7 +693,7 @@ const weddingController = {
                 weddingData.brideMother.person_id = result[0];
             }
 
-            console.log("If bride's father is not null, check if member. If not member, create a person record.");
+            // console.log("If bride's father is not null, check if member. If not member, create a person record.");
             if (weddingData.brideFather && !weddingData.brideFather.isMember) {
                 const result = await dbInsert(db.tables.PERSON_TABLE, {
                     first_name: weddingData.brideFather.first_name,
@@ -708,7 +708,7 @@ const weddingController = {
                 weddingData.brideFather.person_id = result[0];
             }
 
-            console.log("If groom's mother is not null, check if member. If not member, create a person record.");
+            // console.log("If groom's mother is not null, check if member. If not member, create a person record.");
             if (weddingData.groomMother && !weddingData.groomMother.isMember) {
                 const result = await dbInsert(db.tables.PERSON_TABLE, {
                     first_name: weddingData.groomMother.first_name,
@@ -723,7 +723,7 @@ const weddingController = {
                 weddingData.groomMother.person_id = result[0];
             }
 
-            console.log("If groom's father is not null, check if member. If not member, create a person record.");
+            // console.log("If groom's father is not null, check if member. If not member, create a person record.");
             if (weddingData.groomFather && !weddingData.groomFather.isMember) {
                 const result = await dbInsert(db.tables.PERSON_TABLE, {
                     first_name: weddingData.groomFather.first_name,
@@ -755,7 +755,7 @@ const weddingController = {
             };
 
             // Bride & Groom
-            console.log("Checking for existing couple ID for groom & bride. If one does not exist, create one.");
+            // console.log("Checking for existing couple ID for groom & bride. If one does not exist, create one.");
             const brideCondition = new Condition(queryTypes.where);
             const groomCondition = new Condition(queryTypes.where);
             brideCondition.setKeyValue(coupleFields.FEMALE, weddingData.bride.person_id);
@@ -784,7 +784,7 @@ const weddingController = {
             }
 
             // Bride's Parents
-            console.log("Checking for existing couple ID for the bride's parents. If one does not exist, create one.");
+            // console.log("Checking for existing couple ID for the bride's parents. If one does not exist, create one.");
             if (weddingData.brideMother || weddingData.brideFather) {
                 const brideParentsConditions = [];
                 const brideMotherCondition = new Condition(queryTypes.where);
@@ -828,7 +828,7 @@ const weddingController = {
             }
 
             // Groom's Parents
-            console.log("Checking for existing couple ID for the groom's parents. If one does not exist, create one.");
+            // console.log("Checking for existing couple ID for the groom's parents. If one does not exist, create one.");
             if (weddingData.groomMother || weddingData.groomFather) {
                 const groomParentsConditions = [];
                 const groomMotherCondition = new Condition(queryTypes.where);
@@ -872,7 +872,7 @@ const weddingController = {
             }
 
             // Finally, time to insert to wedding table
-            console.log("Insert data into the wedding table.");
+            // console.log("Insert data into the wedding table.");
             const insertWeddingData = {};
             insertWeddingData[weddingRegFields.BRIDE_PARENTS] = coupleIds.brideParents;
             insertWeddingData[weddingRegFields.GROOM_PARENTS] = coupleIds.groomParents;
@@ -893,7 +893,7 @@ const weddingController = {
 
             // Process the witnesses
             // Male witnesses
-            console.log("Check if each male witness is a member. If not a member, create a person record for them.");
+            // console.log("Check if each male witness is a member. If not a member, create a person record for them.");
             await Promise.all(
                 weddingData.witnessMale.map(async (witness, i) => {
                     // Execute if not member
@@ -942,7 +942,7 @@ const weddingController = {
             );
 
             // Female witnesses
-            console.log("Check if each female witness is a member. If not a member, create a person record for them.");
+            // console.log("Check if each female witness is a member. If not a member, create a person record for them.");
             await Promise.all(
                 weddingData.witnessFemale.map(async (witness, i) => {
                     // Execute if not member
