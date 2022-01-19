@@ -128,22 +128,22 @@ const database = {
     find: function (table, conditions = null, join = null, projection = "*", callback, rawSelect = []) {
         const tableClient = knexClient(table);
 
-        console.log("db.find parameters:");
-        console.log("Table");
-        console.log(table);
-        console.log("Conditions");
-        console.log(conditions);
-        console.log("Join");
-        console.log(join);
-        console.log("Projection");
-        console.log(projection);
-        console.log("Callback");
-        console.log(callback);
-        console.log("RawSelect");
-        console.log(rawSelect);
+        // console.log("db.find parameters:");
+        // console.log("Table");
+        // console.log(table);
+        // console.log("Conditions");
+        // console.log(conditions);
+        // console.log("Join");
+        // console.log(join);
+        // console.log("Projection");
+        // console.log(projection);
+        // console.log("Callback");
+        // console.log(callback);
+        // console.log("RawSelect");
+        // console.log(rawSelect);
 
         if (join !== null && join !== undefined) {
-            console.log("JOINING!");
+            // console.log("JOINING!");
             if (!Array.isArray(join)) {
                 join = [join];
             }

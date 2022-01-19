@@ -585,7 +585,7 @@ const weddingController = {
             });
 
             // Remove after debugging
-            console.log(weddingData);
+            // console.log(weddingData);
 
             // Pre-promisify wrappers
             const wrapDbFind = (table, conditions = null, join = null, projection = "*", callback, rawSelect = []) => {
@@ -871,6 +871,30 @@ const weddingController = {
                 }
             }
 
+            // Finally, time to insert to wedding table
+            console.log("Insert data into the wedding table.");
+            let weddingId = null;
+            if (coupleIds.brideParents && coupleIds.groomBride && coupleIds.groomParents) {
+                const insertWeddingData = {};
+
+                insertWeddingData[weddingRegFields.BRIDE_PARENTS] = coupleIds.brideParents;
+                insertWeddingData[weddingRegFields.GROOM_PARENTS] = coupleIds.groomParents;
+                insertWeddingData[weddingRegFields.COUPLE] = coupleIds.groomBride;
+                insertWeddingData[weddingRegFields.CONTRACT] = weddingData.contract;
+                insertWeddingData[weddingRegFields.DATE] = weddingData.date;
+                insertWeddingData[weddingRegFields.DATE_OF_WEDDING] = weddingData.weddingDate;
+                insertWeddingData[weddingRegFields.LOCATION] = weddingData.location;
+                insertWeddingData[weddingRegFields.SOLEMNIZER] = weddingData.solemnizer;
+                insertWeddingData[weddingRegFields.WEDDING_OFFICIANT] = weddingData.officiant;
+
+                // console.log("insert wedding data:");
+                // console.log(insertWeddingData);
+
+                // Insert the wedding data
+                const weddingInsertResult = await dbInsert(db.tables.WEDDING_TABLE, insertWeddingData);
+                weddingId = weddingInsertResult[0];
+            }
+
             // Process the witnesses
             // Male witnesses
             console.log("Check if each male witness is a member. If not a member, create a person record for them.");
@@ -885,11 +909,12 @@ const weddingController = {
                         witnessFirstNameCondition.setKeyValue(personFields.FIRST_NAME, witness.first_name);
                         witnessMiddleNameCondition.setKeyValue(personFields.MID_NAME, witness.mid_name);
                         witnessLastNameCondition.setKeyValue(personFields.LAST_NAME, witness.last_name);
-                        const witnessPersonLookupResult = await dbFind(db.tables.PERSON_TABLE, [
-                            witnessFirstNameCondition,
-                            witnessMiddleNameCondition,
-                            witnessLastNameCondition,
-                        ]);
+                        const witnessPersonLookupResult = await dbFind(
+                            db.tables.PERSON_TABLE,
+                            [witnessFirstNameCondition, witnessMiddleNameCondition, witnessLastNameCondition],
+                            null,
+                            personFields.ID
+                        );
                         if (witnessPersonLookupResult.length === 0) {
                             // Create new record for this person
                             const insertData = {};
@@ -908,6 +933,15 @@ const weddingController = {
                             weddingData.witnessMale[i].person_id = witnessPersonLookupResult[0].couple_id;
                         }
                     }
+                    // Insert the witness to the witness table
+                    const witnessInsertionResult = await dbInsert(db.tables.WITNESS_TABLE, {
+                        wedding_id: weddingId,
+                        type: "Godfather",
+                        person_id: weddingData.witnessMale[i].person_id,
+                    });
+                    if (witnessInsertionResult.length === 0) {
+                        console.error("Unable to insert male witness into witness table");
+                    }
                 })
             );
 
@@ -924,11 +958,12 @@ const weddingController = {
                         witnessFirstNameCondition.setKeyValue(personFields.FIRST_NAME, witness.first_name);
                         witnessMiddleNameCondition.setKeyValue(personFields.MID_NAME, witness.mid_name);
                         witnessLastNameCondition.setKeyValue(personFields.LAST_NAME, witness.last_name);
-                        const witnessPersonLookupResult = await dbFind(db.tables.PERSON_TABLE, [
-                            witnessFirstNameCondition,
-                            witnessMiddleNameCondition,
-                            witnessLastNameCondition,
-                        ]);
+                        const witnessPersonLookupResult = await dbFind(
+                            db.tables.PERSON_TABLE,
+                            [witnessFirstNameCondition, witnessMiddleNameCondition, witnessLastNameCondition],
+                            null,
+                            personFields.ID
+                        );
                         if (witnessPersonLookupResult.length === 0) {
                             // Create new record for this person
                             const insertData = {};
@@ -947,36 +982,19 @@ const weddingController = {
                             weddingData.witnessFemale[i].person_id = witnessPersonLookupResult[0].couple_id;
                         }
                     }
+                    // Insert the witness to the witness table
+                    const witnessInsertionResult = await dbInsert(db.tables.WITNESS_TABLE, {
+                        wedding_id: weddingId,
+                        type: "Godmother",
+                        person_id: weddingData.witnessFemale[i].person_id,
+                    });
+                    if (witnessInsertionResult.length === 0) {
+                        console.error("Unable to insert female witness into witness table");
+                    }
                 })
             );
 
-            // Finally, time to insert to wedding table
-            console.log("Insert data into the wedding table.");
-            console.log("CoupleIds");
-            console.log(coupleIds);
-            if (coupleIds.brideParents && coupleIds.groomBride && coupleIds.groomParents) {
-                const insertWeddingData = {};
-
-                insertWeddingData[weddingRegFields.BRIDE_PARENTS] = coupleIds.brideParents;
-                insertWeddingData[weddingRegFields.GROOM_PARENTS] = coupleIds.groomParents;
-                insertWeddingData[weddingRegFields.COUPLE] = coupleIds.groomBride;
-                insertWeddingData[weddingRegFields.CONTRACT] = weddingData.contract;
-                insertWeddingData[weddingRegFields.DATE] = weddingData.date;
-                insertWeddingData[weddingRegFields.DATE_OF_WEDDING] = weddingData.weddingDate;
-                insertWeddingData[weddingRegFields.LOCATION] = weddingData.location;
-                insertWeddingData[weddingRegFields.SOLEMNIZER] = weddingData.solemnizer;
-                insertWeddingData[weddingRegFields.WEDDING_OFFICIANT] = weddingData.officiant;
-
-                console.log("insert wedding data:");
-                console.log(insertWeddingData);
-
-                const weddingInsertResult = await dbInsert(db.tables.WEDDING_TABLE, insertWeddingData);
-                if (weddingInsertResult) {
-                    return res.send(weddingInsertResult);
-                }
-                console.error("Unable to add data into the wedding table");
-                return res.send(false);
-            }
+            return res.status(200).send(weddingId);
         } catch (err) {
             console.error("Flip me, there's an error!");
             console.error(err);
