@@ -91,12 +91,12 @@ Submit Prenuptial Form
     Click Button    id:create-prenup
 
 Save Bride Detail Changes
-    Save Bride Data in Edit Prenuptial Page
+    Save Bride Data
     Click Button    id:save_bride_btn
     Sleep    0.5s    Wait for Modal to Close
 
 Save Groom Detail Changes
-    Save Groom Data in Edit Prenuptial Page
+    Save Groom Data
     Click Button    id:save_groom_btn
     Sleep    0.5s    Wait for Modal to Close
 
@@ -123,8 +123,7 @@ Groom Information Error Should Be Shown
 Wedding Date Error Should Be Shown
     Element Should Contain    id:wedding_date_error    Wedding date should not be earlier than current date
 
-Save Prenuptial Form Data
-    #Bride
+Save Bride Data
     ${bride_member}=    Get Radio Button Status    id:bride_member
     ${bride_non_member}=    Get Radio Button Status    id:bride_non_member
     IF    ${bride_member}
@@ -137,7 +136,8 @@ Save Prenuptial Form Data
         ${bride}=    Create List    ${bride_first_name}    ${bride_mid_name}    ${bride_last_name}
     END
     Set Test Variable    ${bride}
-    #Groom
+
+Save Groom Data
     ${groom_member}=    Get Radio Button Status    id:groom_member
     ${groom_non_member}=    Get Radio Button Status    id:groom_non_member
     IF    ${groom_member}
@@ -150,6 +150,12 @@ Save Prenuptial Form Data
         ${groom}=    Create List    ${groom_first_name}    ${groom_mid_name}    ${groom_last_name}
     END
     Set Test Variable    ${groom}
+
+Save Prenuptial Form Data
+    #Bride
+    Save Bride Data
+    #Groom
+    Save Groom Data
     #Current Date
     ${current_date}=    Get Value    id:current_date
     ${current_date}=    Format Date    ${current_date}
@@ -158,14 +164,6 @@ Save Prenuptial Form Data
     ${wedding_date}=    Get Value    id:wedding_date
     ${wedding_date}=    Format Date    ${wedding_date}
     Set Test Variable    ${wedding_date}
-
-Save Groom Data in Edit Prenuptial Page
-    Log To Console    Hi
-    #TODO Implement once bug fix is done
-
-Save Bride Data in Edit Prenuptial Page
-    Log To Console    Hi
-    #TODO Implement once bug fix is done
 
 Save Prenuptial Form Data in Edit Prenuptial Page
     #Bride
