@@ -256,9 +256,10 @@ $(document).ready(function () {
             coupleId: coupleId,
             oldPersonId: oldBridePersonId,
         };
-        if (!data.person.isMember) {
-            data.person.personId = inputBrideInfo[1];
+        if (!data.person.isMember && data.oldPersonId != null) {
+            data.person.personId = data.oldPersonId;
         }
+
         data.person = JSON.stringify(data.person);
 
         $.ajax({
@@ -272,7 +273,7 @@ $(document).ready(function () {
                     console.log(newBrideInfo);
                     if (newBrideInfo.isMember) {
                         $("#bride-info").data("memberid", newBrideInfo.memberId);
-                        $("#bride-info").data("personid", newBrideInfo.personId);
+                        $("#bride-info").data("personid", parseInt(newBrideInfo.personId));
                         $("#bride-info").data("first", inputBrideInfo[2]);
                         $("#bride-info").data("middle", inputBrideInfo[3]);
                         $("#bride-info").data("last", inputBrideInfo[4]);
@@ -287,7 +288,7 @@ $(document).ready(function () {
                         $("#brideModal").modal("hide");
                     } else {
                         $("#bride-info").data("memberid", "");
-                        $("#bride-info").data("personid", result);
+                        $("#bride-info").data("personid", parseInt(newBrideInfo.personId));
                         $("#bride-info").data("first", newBrideInfo.firstName);
                         $("#bride-info").data("middle", newBrideInfo.midName);
                         $("#bride-info").data("last", newBrideInfo.lastName);
@@ -331,114 +332,11 @@ $(document).ready(function () {
             coupleId: coupleId,
             oldPersonId: oldGroomPersonId,
         };
-        if (!data.person.isMember) {
-            data.person.personId = inputGroomInfo[1];
-=======
-      }
-    })
-  })
-
-  function submitBride() {
-    const bridePerson = getDetails($('#bride_member'), null, $('#input_bride_member'), $('#bride_first_name'), $('#bride_mid_name'), $('#bride_last_name'))
-    const oldBrideMemberId = currPerson.memberId
-    const oldBridePersonId = currPerson.personId
-    const inputBrideInfo = $('#input_bride_member').val().split(', ')
-    const prenupRecordId = $('#prenup-info').data('prenuprecord-id')
-    const coupleId = $('#prenup-info').data('couple-id')
-
-    const data = {
-      isOldMember: oldBrideMemberId !== null && oldBrideMemberId !== undefined && oldBrideMemberId !== '',
-      person: bridePerson,
-      recordId: prenupRecordId,
-      coupleId: coupleId,
-      oldPersonId: oldBridePersonId,
-    }
-    if (!data.person.isMember && data.oldPersonId != null) {
-      data.person.personId = data.oldPersonId
-    }
-
-    data.person = JSON.stringify(data.person)
-
-    $.ajax({
-      type: 'PUT',
-      url: '/update_prenup/bride',
-      data: data,
-      success: function (result) {
-        if (result) {
-          // update the frontend bride details
-          const newBrideInfo = JSON.parse(data.person)
-          console.log(newBrideInfo)
-          if (newBrideInfo.isMember) {
-            $('#bride-info').data('memberid', newBrideInfo.memberId)
-            $('#bride-info').data('personid', parseInt(newBrideInfo.personId))
-            $('#bride-info').data('first', inputBrideInfo[2])
-            $('#bride-info').data('middle', inputBrideInfo[3])
-            $('#bride-info').data('last', inputBrideInfo[4])
-            $('#bride_first_name_view').text(inputBrideInfo[2])
-            $('#bride_mid_name_view').text(inputBrideInfo[3])
-            $('#bride_last_name_view').text(inputBrideInfo[4])
-
-            // clear modal fields and hide bride modal
-            $('#bride_first_name').text('')
-            $('#bride_mid_name').text('')
-            $('#bride_last_name').text('')
-            $('#brideModal').modal('hide')
-          } else {
-            $('#bride-info').data('memberid', '')
-            $('#bride-info').data('personid', parseInt(newBrideInfo.personId))
-            $('#bride-info').data('first', newBrideInfo.firstName)
-            $('#bride-info').data('middle', newBrideInfo.midName)
-            $('#bride-info').data('last', newBrideInfo.lastName)
-            $('#bride_first_name_view').text(newBrideInfo.firstName)
-            $('#bride_mid_name_view').text(newBrideInfo.midName)
-            $('#bride_last_name_view').text(newBrideInfo.lastName)
-
-            // clear modal fields and hide bride modal
-            $('#bride_first_name').text('')
-            $('#bride_mid_name').text('')
-            $('#bride_last_name').text('')
-            $('#brideModal').modal('hide')
-          }
-          if (oldBrideMemberId) {
-            selectizeEnable(getValue(oldBrideMemberId))
-          }
+        if (!data.person.isMember && data.oldPersonId != null) {
+            data.person.personId = data.oldPersonId;
         }
-      }
-    })
-  }
 
-  function submitGroom() {
-    const groomPerson = getDetails($('#groom_member'), null, $('#input_groom_member'), $('#groom_first_name'), $('#groom_mid_name'), $('#groom_last_name'))
-    const oldGroomMemberId = currPerson.memberId
-    const oldGroomPersonId = currPerson.personId
-    const inputGroomInfo = $('#input_groom_member').val().split(', ')
-    const prenupRecordId = $('#prenup-info').data('prenuprecord-id')
-    const coupleId = $('#prenup-info').data('couple-id')
-
-    const data = {
-      isOldMember: oldGroomMemberId !== null && oldGroomMemberId !== undefined && oldGroomMemberId !== '',
-      person: groomPerson,
-      recordId: prenupRecordId,
-      coupleId: coupleId,
-      oldPersonId: oldGroomPersonId
-    }
-    if (!data.person.isMember && data.oldPersonId != null) {
-      data.person.personId = data.oldPersonId
-    }
-
-    data.person = JSON.stringify(data.person)
-    console.log(JSON.stringify(data.person))
-    $.ajax({
-      type: 'PUT',
-      url: '/update_prenup/groom',
-      data: data,
-      success: function (result) {
-        if (result) {
-          // update the frontend bride details
-          const newGroomInfo = JSON.parse(data.person)
-        }
         data.person = JSON.stringify(data.person);
-
         $.ajax({
             type: "PUT",
             url: "/update_prenup/groom",
