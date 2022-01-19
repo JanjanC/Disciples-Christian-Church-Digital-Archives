@@ -80,7 +80,7 @@ const controller = {
       db.find(db.tables.MEMBER_TABLE, null, joinTables, '*', function (result) {
         if (result) {
           const data = {
-            styles: ['lists'],
+            styles: ['lists','memberMainPage'],
             scripts: ['convertDataTable'],
             canSee: parseInt(req.session.level) === 3
           }

@@ -18,7 +18,7 @@ $(document).ready(function () {
   }
 
   function triggerResponsiveScreen(){
-    if (screen.width <= 860) {
+    if (screen.width <= 1000) {
       $("#personal-info-div").removeClass('row');
       $("#membership-status-div").removeClass('row');
       $("#occupation-div").removeClass('col');

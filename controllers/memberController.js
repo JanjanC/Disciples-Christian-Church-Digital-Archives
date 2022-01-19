@@ -44,8 +44,8 @@ const memberController = {
   getEditMember: function (req, res) {
     if (req.session.editId === parseInt(req.params.member_id) || parseInt(req.session.level) === 3) {
       const data = {
-        styles: ['forms'],
-        scripts: ['member']
+        styles: ['forms','editMember'],
+        scripts: ['member','editMember']
       }
       const condition = new Condition(queryTypes.where)
       const churchCondition = new Condition(queryTypes.where)
