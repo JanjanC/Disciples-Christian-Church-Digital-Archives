@@ -587,9 +587,40 @@ const weddingController = {
             // Remove after debugging
             console.log(weddingData);
 
+            // Pre-promisify wrappers
+            const wrapDbFind = (table, conditions = null, join = null, projection = "*", callback, rawSelect = []) => {
+                db.find(
+                    table,
+                    conditions,
+                    join,
+                    projection,
+                    (result) => {
+                        if (result === false) {
+                            callback("[DBFind Wrapper] Error occurred.", null);
+                        } else {
+                            console.log("Find Result:");
+                            console.log(result);
+                            callback(null, result);
+                        }
+                    },
+                    rawSelect
+                );
+            };
+            const wrapDbInsert = (table, data, callback) => {
+                db.insert(table, data, (result) => {
+                    if (result === false) {
+                        callback("[DBInsert Wrapper] Error occurred.", null);
+                    } else {
+                        callback(null, result);
+                        console.log("Insert Result:");
+                        console.log(result);
+                    }
+                });
+            };
+
             // Promisified Methods
-            const dbInsert = promisify(db.insert);
-            const dbFind = promisify(db.find);
+            const dbInsert = promisify(wrapDbInsert);
+            const dbFind = promisify(wrapDbFind);
 
             // const dbInsert = async (table, data) => {
             //     db.insert(table, data, (result) => {
@@ -602,13 +633,17 @@ const weddingController = {
             // };
 
             // const dbFind = async (table, conditions) => {
-            //     db.find(table, conditions=conditions, callback=(result) => {
-            //         if (result) {
-            //             return result;
-            //         } else {
-            //             throw new Error(`Unable to find from ${table}`);
-            //         }
-            //     });
+            //     db.find(
+            //         table,
+            //         (conditions = conditions),
+            //         (callback = (result) => {
+            //             if (result) {
+            //                 return result;
+            //             } else {
+            //                 throw new Error(`Unable to find from ${table}`);
+            //             }
+            //         })
+            //     );
             // };
 
             // Check if the couple is/are members
@@ -625,7 +660,7 @@ const weddingController = {
                     return res.send(false);
                 }
 
-                weddingData.groom.person_id = result;
+                weddingData.groom.person_id = result[0];
             }
 
             console.log("Checking if bride is member. Insert person entry if bride is not member.");
@@ -640,7 +675,7 @@ const weddingController = {
                     return res.send(false);
                 }
 
-                weddingData.bride.person_id = result;
+                weddingData.bride.person_id = result[0];
             }
 
             console.log("If bride's mother is not null, check if member. If not member, create a person record.");
@@ -655,7 +690,7 @@ const weddingController = {
                     return res.send(false);
                 }
 
-                weddingData.brideMother.person_id = result;
+                weddingData.brideMother.person_id = result[0];
             }
 
             console.log("If bride's father is not null, check if member. If not member, create a person record.");
@@ -670,7 +705,7 @@ const weddingController = {
                     return res.send(false);
                 }
 
-                weddingData.brideFather.person_id = result;
+                weddingData.brideFather.person_id = result[0];
             }
 
             console.log("If groom's mother is not null, check if member. If not member, create a person record.");
@@ -685,7 +720,7 @@ const weddingController = {
                     return res.send(false);
                 }
 
-                weddingData.groomMother.person_id = result;
+                weddingData.groomMother.person_id = result[0];
             }
 
             console.log("If groom's father is not null, check if member. If not member, create a person record.");
@@ -700,7 +735,7 @@ const weddingController = {
                     return res.send(false);
                 }
 
-                weddingData.groomFather.person_id = result;
+                weddingData.groomFather.person_id = result[0];
             }
 
             // At this point, we are now sure that all entries have a person_id
@@ -728,10 +763,11 @@ const weddingController = {
             const brideGroomCoupleId = await dbFind(
                 db.tables.COUPLE_TABLE,
                 [brideCondition, groomCondition],
+                null,
                 coupleFields.ID
             );
-            if (brideGroomCoupleId) {
-                coupleIds.groomBride = brideGroomCoupleId;
+            if (brideGroomCoupleId.length > 0) {
+                coupleIds.groomBride = brideGroomCoupleId[0].couple_id;
             } else {
                 // Insert couple to table
                 const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
@@ -744,56 +780,86 @@ const weddingController = {
                     return res.send(false);
                 }
 
-                coupleIds.groomBride = coupleInsertResult;
+                coupleIds.groomBride = coupleInsertResult[0];
             }
 
             // Bride's Parents
             console.log("Checking for existing couple ID for the bride's parents. If one does not exist, create one.");
-            const brideMotherCondition = new Condition(queryTypes.where);
-            const brideFatherCondition = new Condition(queryTypes.where);
-            brideMotherCondition.setKeyValue(coupleFields.FEMALE, weddingData.brideMother.person_id);
-            brideFatherCondition.setKeyValue(coupleFields.MALE, weddingData.brideFather.person_id);
-            const brideParentsCoupleId = await dbFind(
-                db.tables.COUPLE_TABLE,
-                [brideMotherCondition, brideFatherCondition],
-                coupleFields.ID
-            );
-            if (brideParentsCoupleId) {
-                coupleIds.brideParents = brideParentsCoupleId;
-            } else {
-                // Insert couple to table
-                const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
-                    female_id: weddingData.brideMother.person_id || null,
-                    male_id: weddingData.brideFather.person_id || null,
-                });
-
-                if (coupleInsertResult === false) {
-                    console.error("Error inserting bride's parents' couple entry");
-                    return res.send(false);
+            if (weddingData.brideMother || weddingData.brideFather) {
+                const brideParentsConditions = [];
+                const brideMotherCondition = new Condition(queryTypes.where);
+                const brideFatherCondition = new Condition(queryTypes.where);
+                if (weddingData.brideMother) {
+                    brideMotherCondition.setKeyValue(coupleFields.FEMALE, weddingData.brideMother.person_id);
+                    brideParentsConditions.push(brideMotherCondition);
+                } else {
+                    brideMotherCondition.setKeyValue(coupleFields.FEMALE, null);
+                    brideParentsConditions.push(brideMotherCondition);
                 }
+                if (weddingData.brideFather) {
+                    brideFatherCondition.setKeyValue(coupleFields.MALE, weddingData.brideFather.person_id);
+                    brideParentsConditions.push(brideFatherCondition);
+                } else {
+                    brideFatherCondition.setKeyValue(coupleFields.MALE, null);
+                    brideParentsConditions.push(brideFatherCondition);
+                }
+                const brideParentsCoupleId = await dbFind(
+                    db.tables.COUPLE_TABLE,
+                    brideParentsConditions,
+                    null,
+                    coupleFields.ID
+                );
+                if (brideParentsCoupleId.length > 0) {
+                    coupleIds.brideParents = brideParentsCoupleId[0];
+                } else {
+                    // Insert couple to table
+                    const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
+                        female_id: weddingData.brideMother ? weddingData.brideMother.person_id : null,
+                        male_id: weddingData.brideFather ? weddingData.brideFather.person_id : null,
+                    });
 
-                coupleIds.brideParents = coupleInsertResult;
+                    if (coupleInsertResult === false) {
+                        console.error("Error inserting bride's parents' couple entry");
+                        return res.send(false);
+                    }
+
+                    coupleIds.brideParents = coupleInsertResult[0];
+                }
             }
 
             // Groom's Parents
             console.log("Checking for existing couple ID for the groom's parents. If one does not exist, create one.");
-            if (weddingData.groomMother && weddingData.groomFather) {
+            if (weddingData.groomMother || weddingData.groomFather) {
+                const groomParentsConditions = [];
                 const groomMotherCondition = new Condition(queryTypes.where);
                 const groomFatherCondition = new Condition(queryTypes.where);
-                groomMotherCondition.setKeyValue(coupleFields.FEMALE, weddingData.groomMother.person_id);
-                groomFatherCondition.setKeyValue(coupleFields.MALE, weddingData.groomFather.person_id);
+                if (weddingData.groomMother) {
+                    groomMotherCondition.setKeyValue(coupleFields.FEMALE, weddingData.groomMother.person_id);
+                    groomParentsConditions.push(groomMotherCondition);
+                } else {
+                    groomMotherCondition.setKeyValue(coupleFields.FEMALE, null);
+                    groomParentsConditions.push(groomMotherCondition);
+                }
+                if (weddingData.groomFather) {
+                    groomFatherCondition.setKeyValue(coupleFields.MALE, weddingData.groomFather.person_id);
+                    groomParentsConditions.push(groomFatherCondition);
+                } else {
+                    groomFatherCondition.setKeyValue(coupleFields.MALE, null);
+                    groomParentsConditions.push(groomFatherCondition);
+                }
                 const groomParentsCoupleId = await dbFind(
                     db.tables.COUPLE_TABLE,
-                    [groomMotherCondition, groomFatherCondition],
+                    groomParentsConditions,
+                    null,
                     coupleFields.ID
                 );
-                if (groomParentsCoupleId) {
-                    coupleIds.groomParents = groomParentsCoupleId;
+                if (groomParentsCoupleId.length > 0) {
+                    coupleIds.groomParents = groomParentsCoupleId[0].couple_id;
                 } else {
                     // Insert couple to table
                     const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
-                        female_id: weddingData.groomMother.person_id || null,
-                        male_id: weddingData.groomFather.person_id || null,
+                        female_id: weddingData.groomMother ? weddingData.groomMother.person_id : null,
+                        male_id: weddingData.groomFather ? weddingData.groomFather.person_id : null,
                     });
 
                     if (coupleInsertResult === false) {
@@ -801,7 +867,7 @@ const weddingController = {
                         return res.send(false);
                     }
 
-                    coupleIds.groomParents = coupleInsertResult;
+                    coupleIds.groomParents = coupleInsertResult[0];
                 }
             }
 
@@ -824,22 +890,22 @@ const weddingController = {
                             witnessMiddleNameCondition,
                             witnessLastNameCondition,
                         ]);
-                        if (!witnessPersonLookupResult) {
+                        if (witnessPersonLookupResult.length === 0) {
                             // Create new record for this person
                             const insertData = {};
                             insertData[personFields.FIRST_NAME] = witness.first_name;
                             insertData[personFields.MID_NAME] = witness.mid_name;
                             insertData[personFields.LAST_NAME] = witness.last_name;
                             const witnessPersonInsertResult = await dbInsert(db.tables.PERSON_TABLE, insertData);
-                            if (witnessPersonInsertResult) {
+                            if (witnessPersonInsertResult.length > 0) {
                                 // Save the person id to the witness
-                                weddingData.witnessMale[i].person_id = witnessPersonInsertResult;
+                                weddingData.witnessMale[i].person_id = witnessPersonInsertResult[0];
                             } else {
                                 console.error("Unable to insert male witnesses");
                                 return res.send(false);
                             }
                         } else {
-                            weddingData.witnessMale[i].person_id = witnessPersonLookupResult;
+                            weddingData.witnessMale[i].person_id = witnessPersonLookupResult[0].couple_id;
                         }
                     }
                 })
@@ -863,22 +929,22 @@ const weddingController = {
                             witnessMiddleNameCondition,
                             witnessLastNameCondition,
                         ]);
-                        if (!witnessPersonLookupResult) {
+                        if (witnessPersonLookupResult.length === 0) {
                             // Create new record for this person
                             const insertData = {};
                             insertData[personFields.FIRST_NAME] = witness.first_name;
                             insertData[personFields.MID_NAME] = witness.mid_name;
                             insertData[personFields.LAST_NAME] = witness.last_name;
                             const witnessPersonInsertResult = await dbInsert(db.tables.PERSON_TABLE, insertData);
-                            if (witnessPersonInsertResult) {
+                            if (witnessPersonInsertResult.lenght > 0) {
                                 // Save the person id to the witness
-                                weddingData.witnessFemale[i].person_id = witnessPersonInsertResult;
+                                weddingData.witnessFemale[i].person_id = witnessPersonInsertResult[0];
                             } else {
                                 console.error("Unable to insert female witnesses");
                                 return res.send(false);
                             }
                         } else {
-                            weddingData.witnessFemale[i].person_id = witnessPersonLookupResult;
+                            weddingData.witnessFemale[i].person_id = witnessPersonLookupResult[0].couple_id;
                         }
                     }
                 })
@@ -886,6 +952,8 @@ const weddingController = {
 
             // Finally, time to insert to wedding table
             console.log("Insert data into the wedding table.");
+            console.log("CoupleIds");
+            console.log(coupleIds);
             if (coupleIds.brideParents && coupleIds.groomBride && coupleIds.groomParents) {
                 const insertWeddingData = {};
 
@@ -898,6 +966,9 @@ const weddingController = {
                 insertWeddingData[weddingRegFields.LOCATION] = weddingData.location;
                 insertWeddingData[weddingRegFields.SOLEMNIZER] = weddingData.solemnizer;
                 insertWeddingData[weddingRegFields.WEDDING_OFFICIANT] = weddingData.officiant;
+
+                console.log("insert wedding data:");
+                console.log(insertWeddingData);
 
                 const weddingInsertResult = await dbInsert(db.tables.WEDDING_TABLE, insertWeddingData);
                 if (weddingInsertResult) {
