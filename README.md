@@ -21,6 +21,11 @@
 1. delete `church.db`
 2. Run app
 
+#### auth
+- Low Level: NormandyN7
+- Mid Level: HelloSweng
+- High Level: Coffee118
+
 #### dependencies
 - [async](https://www.npmjs.com/package/async)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
