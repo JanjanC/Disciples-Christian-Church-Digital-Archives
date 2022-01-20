@@ -620,8 +620,8 @@ $(document).ready(function() {
     $('#names_char_error').text('')
   })
 
-  function checkSpecialChar(str){
-    var regex = /[ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
+  function checkSpecialChar(str) {
+    var regex = /[!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
     return regex.test(str);
   }
 
