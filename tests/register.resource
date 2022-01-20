@@ -45,25 +45,21 @@ Submit Credentials
     Sleep                           2
 
 Go To Add Members 1
-    Click Image                     ../images/people.png
-    Sleep                           2
+    Wait Until Page Contains Element    css:*[src="../images/people.png"]
+    Click Image                         ../images/people.png
 
 Go To Add Members 2
     Go To Add Members 1
-    Click Element                   css:*[data-icon="plus-square"]
-    Sleep                           2
+    Wait Until Page Contains Element    css:*[data-icon="plus-square"]
+    Click Element                       css:*[data-icon="plus-square"]
 
 Go To Edit Members
-    [Arguments]                     ${member}
+    [Arguments]                         ${member}
     Go To Add Members 1
-    Set Focus To Element            css:*[data-href="/member/${member}"]
-    Sleep                           2
-    Click Element                   css:*[data-href="/member/${member}"]
-    Sleep                           2
-    Set Focus To Element            css:*[href="/edit_member/${member}"]
-    Sleep                           2
-    Click Element                   css:*[href="/edit_member/${member}"]
-    Sleep                           2
+    Wait Until Page Contains Element    css:*[data-href="/member/${member}"]
+    Click Element                       css:*[data-href="/member/${member}"]
+    Wait Until Page Contains Element    css:*[href="/edit_member/${member}"]
+    Click Element                       css:*[href="/edit_member/${member}"]
 
 Enter Member Information
     Set Focus To Element            create-member
