@@ -340,7 +340,6 @@ $(document).ready(function () {
   })
 
   $('.modal').on('hide.bs.modal', resetModal)
-
   /**
    * This function hides the selected choice for all select fields to avoid duplication of choices
    */
@@ -457,7 +456,7 @@ $(document).ready(function () {
   })
 
   function checkSpecialChar(str) {
-    var regex = /[ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
+    var regex = /[!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
     return regex.test(str);
   }
 
