@@ -22,5 +22,9 @@ Navigate To Edit Member (Level 2)
 Navigate To Edit Member (Level 3)
     Login Level 3 User
     Has Access To Edit
-    Return To Main Menu
+    Go To Level 3 Home Page
+
+Edit Member
+    Go To Edit Members                1
+    Edit Member [All Inputs]
     Close Browser
