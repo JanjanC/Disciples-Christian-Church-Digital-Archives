@@ -885,24 +885,18 @@ const prenupController = {
     const recordCond = new Condition(queryTypes.where)
     recordCond.setKeyValue(prenupRecordFields.ID, recordId)
 
-    db.find(db.tables.COUPLE_TABLE, couplesCond, null, "*", function (result) {
-      if (result) {
-        const members = [result[0].female_id, result[0].male_id]
-        const memberCond = new Condition(queryTypes.whereIn)
-        memberCond.setArray(memberFields.PERSON, members);
-        db.update(db.tables.MEMBER_TABLE, { prenup_record_id: null }, memberCond, function (result) {
-          if (result || result === 0) {
-            db.delete(db.tables.COUPLE_TABLE, couplesCond, function (result) {
-              if (result) {
-                db.delete(db.tables.PERSON_TABLE, nonMembersCond, function (result) {
-                  if (nonMembers.length === 0 || result) {
-                    db.delete(db.tables.PRENUPTIAL_TABLE, recordCond, function (result) {
-                      if (result || result === 0) {
-                        res.send(true)
-                      } else {
-                        res.send(false)
-                      }
-                    })
+    const memberCond = new Condition(queryTypes.where)
+    memberCond.setKeyValue(memberFields.PRENUP_RECORD, recordId)
+
+    db.update(db.tables.MEMBER_TABLE, { prenup_record_id: null }, memberCond, function (result) {
+      if (result || result === 0) {
+        db.delete(db.tables.COUPLE_TABLE, couplesCond, function (result) {
+          if (result) {
+            db.delete(db.tables.PERSON_TABLE, nonMembersCond, function (result) {
+              if (nonMembers.length === 0 || result) {
+                db.delete(db.tables.PRENUPTIAL_TABLE, recordCond, function (result) {
+                  if (result || result === 0) {
+                    res.send(true)
                   } else {
                     res.send(false)
                   }
@@ -919,6 +913,8 @@ const prenupController = {
         res.send(false)
       }
     })
+
+
   }
 }
 
