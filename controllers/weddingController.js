@@ -598,8 +598,6 @@ const weddingController = {
                         if (result === false) {
                             callback("[DBFind Wrapper] Error occurred.", null);
                         } else {
-                            console.log("Find Result:");
-                            console.log(result);
                             callback(null, result);
                         }
                     },
@@ -612,8 +610,6 @@ const weddingController = {
                         callback("[DBInsert Wrapper] Error occurred.", null);
                     } else {
                         callback(null, result);
-                        console.log("Insert Result:");
-                        console.log(result);
                     }
                 });
             };
