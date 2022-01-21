@@ -168,7 +168,7 @@ Edit Non-Member Bride Mother Wedding Record
     Select Edit Bride Mother Details
     Select Non-Member Female Form
     Input Non-Member Female Details    Jaiden    C    Connor
-    Save Female Detail Changes
+    Save Bride Mother Detail Changes
     Save Wedding Form Changes
     View Wedding Page Should Be Open
 
@@ -187,7 +187,7 @@ Edit Member Bride Mother Wedding Record
     Select Edit Bride Mother Details
     Select Member Female Form
     Select Random Member Female
-    Save Female Detail Changes
+    Save Bride Mother Detail Changes
     Save Wedding Form Changes
     View Wedding Page Should Be Open
 
@@ -206,7 +206,7 @@ Edit Non-Member Bride Father Wedding Record
     Select Edit Bride Father Details
     Select Non-Member Male Form
     Input Non-Member Male Details    Jordan    C    Connor
-    Save Male Detail Changes
+    Save Bride Father Detail Changes
     Save Wedding Form Changes
     View Wedding Page Should Be Open
 
@@ -225,7 +225,7 @@ Edit Member Bride Father Wedding Record
     Select Edit Bride Father Details
     Select Member Male Form
     Select Random Member Male
-    Save Male Detail Changes
+    Save Bride Father Detail Changes
     Save Wedding Form Changes
     View Wedding Page Should Be Open
 
@@ -244,7 +244,7 @@ Edit Non-Member Groom Mother Wedding Record
     Select Edit Groom Mother Details
     Select Non-Member Female Form
     Input Non-Member Female Details    Kirsten    M    Bishop
-    Save Female Detail Changes
+    Save Groom Mother Detail Changes
     Save Wedding Form Changes
     View Wedding Page Should Be Open
 
@@ -263,7 +263,7 @@ Edit Member Groom Mother Wedding Record
     Select Edit Groom Mother Details
     Select Member Female Form
     Select Random Member Female
-    Save Female Detail Changes
+    Save Groom Mother Detail Changes
     Save Wedding Form Changes
     View Wedding Page Should Be Open
 
@@ -282,7 +282,7 @@ Edit Non-Member Groom Father Wedding Record
     Select Edit Groom Father Details
     Select Non-Member Male Form
     Input Non-Member Male Details    Maynard    M    Bishop
-    Save Male Detail Changes
+    Save Groom Father Detail Changes
     Save Wedding Form Changes
     View Wedding Page Should Be Open
 
@@ -301,7 +301,7 @@ Edit Member Groom Father Wedding Record
     Select Edit Groom Father Details
     Select Member Male Form
     Select Random Member Male
-    Save Male Detail Changes
+    Save Groom Father Detail Changes
     Save Wedding Form Changes
     View Wedding Page Should Be Open
 
