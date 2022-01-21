@@ -2,8 +2,6 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
-    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.js"></script>
   </head>
   <body>
     {{>navbar}}
@@ -15,8 +13,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="table-responsive">
-        <table id="dataTable" class="display table responsive " width="100%" cellspacing="0">
+        <div class="table-responsive" style="overflow-x:auto;">
+        <table id="dataTable" class="display table responsive " style="width: 100%; overflow-x:auto;" cellspacing="0">
           <thead>
             <tr>
               <th>ID</th>
@@ -35,31 +33,31 @@
             {{#if fromSearch}}
             {{#each members}}
             <tr data-href="/member/{{this.member_id}}">
-              <td>{{this.member_id}}</td>
-              <td>{{this.first_name}} {{this.last_name}}</td>
+              <td class="tb-data">{{this.member_id}}</td>
+              <td class="tb-data">{{this.first_name}} {{this.last_name}}</td>
     
               {{#if ../canSee}}
-              <td>{{this.age}}</td>
-              <td>{{dateView this.birthday}}</td>
-              <td>{{this.mobile}}</td>
-              <td>{{this.email}}</td>
-              <td>{{this.address}}</td>
-              <td>{{dateView this.date_created}}</td>
+              <td class="tb-data">{{this.age}}</td>
+              <td class="tb-data">{{dateView this.birthday}}</td>
+              <td class="tb-data">{{this.mobile}}</td>
+              <td class="tb-data">{{this.email}}</td>
+              <td class="tb-data">{{this.address}}</td>
+              <td class="tb-data">{{dateView this.date_created}}</td>
               {{/if}}
             </tr>
             {{/each}}
             {{else}}
             {{#each members}}
             <tr data-href="/member/{{this.member_id}}">
-              <td>{{this.member_id}}</td>
-              <td>{{this.first_name}} {{this.last_name}}</td>
+              <td class="tb-data">{{this.member_id}}</td>
+              <td class="tb-data">{{this.first_name}} {{this.last_name}}</td>
     
               {{#if ../canSee}}
-              <td>{{this.age}}</td>
-              <td>{{dateView this.birthday}}</td>
-              <td>{{this.mobile}}</td>
-              <td>{{this.email}}</td>
-              <td>{{this.address}}</td>
+              <td class="tb-data">{{this.age}}</td>
+              <td class="tb-data">{{dateView this.birthday}}</td>
+              <td class="tb-data">{{this.mobile}}</td>
+              <td class="tb-data">{{this.email}}</td>
+              <td class="tb-data">{{this.address}}</td>
               {{/if}}
             </tr>
             {{/each}}
