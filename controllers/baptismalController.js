@@ -356,30 +356,43 @@ const baptismalController = {
         db.find(db.tables.BAPTISMAL_TABLE, recordCond, joinTables, columns, function (result) {
             if (result) {
                 const nonMembers = [];
+                const members = []
+
                 result = result[0];
 
-                if (result.member_id === null) {
-                    nonMembers.push(result.person_id);
+                if (result.member_member_id === null) {
+                    nonMembers.push(result.member_person_id);
+                } else {
+                    members.push(result.member_member_id);
                 }
 
                 if (result.officiant_member_id === null) {
                     nonMembers.push(result.officiant_person_id);
+                } else {
+                    members.push(result.officiant_member_id);
                 }
 
                 db.delete(db.tables.BAPTISMAL_TABLE, recordCond, function (result) {
                     const nonMemberCond = new Condition(queryTypes.whereIn);
                     nonMemberCond.setArray(personFields.ID, nonMembers);
+                    //A baptismal record is deleted
                     if (result) {
+                        //Delete for non members
                         db.delete(db.tables.PERSON_TABLE, nonMemberCond, function (result) {
-                            if (result === 0) {
-                                result = true;
-                            }
-
-                            if (result) {
-                                res.send(true);
-                            } else {
-                                res.send(false);
-                            }
+                            const nonMemResult = result;
+                            const memberCond = new Condition(queryTypes.whereIn);
+                            memberCond.setArray(memberFields.ID, members);
+                            //Delete registry for members 
+                            db.update(db.tables.MEMBER_TABLE, { bap_reg_id: null }, memberCond, function (result) {
+                                if (result === 0 || nonMemResult === 0) {
+                                    result = true;
+                                }
+                                if (result) {
+                                    res.send(true);
+                                } else {
+                                    res.send(false);
+                                }
+                            })
                         });
                     } else {
                         res.send(false);
