@@ -130,7 +130,6 @@ $(document).ready(function () {
       }
 
       data.person = JSON.stringify(data.person)
-      console.log(JSON.stringify(data))
       $.ajax({
         type: 'PUT',
         url: '/update_dedication/child',
@@ -764,7 +763,6 @@ $(document).ready(function () {
         lastNameFormField = $('#witness_gfather_last_name')
         modal = $('#GFatherWitnessModal')
       }
-
       let memberId = currPerson.memberId
       let personId = currPerson.personId
       let info = $(infoSelect).val().split(', ')
@@ -782,12 +780,11 @@ $(document).ready(function () {
 
       let infoField = trigger
 
-      if (data.person !== null)
-        data.person.personId = info[1]
-      if (data.person.isMember && data.oldPersonId != null) {
+      //if (data.person !== null)
+      //  data.person.personId = info[1]
+      if (!data.person.isMember && data.oldPersonId != null) {
         data.person.personId = data.oldPersonId
       }
-      console.log(data)
 
       data.person = JSON.stringify(data.person)
       $.ajax({
