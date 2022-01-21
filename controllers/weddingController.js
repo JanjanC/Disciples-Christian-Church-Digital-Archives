@@ -900,20 +900,28 @@ const weddingController = {
     const recordCond = new Condition(queryTypes.where)
     recordCond.setKeyValue(weddingRegFields.ID, recordId)
 
-    // Delete Witnesses
-    db.delete(tables.WITNESS_TABLE, witnessesCond, function (result) {
-      if (result === 0) {
-        result = true
-      }
+    const memberCond = new Condition(queryTypes.where)
+    memberCond.setKeyValue(memberFields.WEDDING_REG, recordId)
 
-      if (result) {
-        db.delete(tables.COUPLE_TABLE, couplesCond, function (result) {
+    db.update(db.tables.MEMBER_TABLE, { wedding_reg_id: null }, memberCond, function (result) {
+      if (result || result === 0) {
+        // Delete Witnesses
+        db.delete(tables.WITNESS_TABLE, witnessesCond, function (result) {
+          if (result === 0) {
+            result = true
+          }
           if (result) {
-            db.delete(tables.PERSON_TABLE, nonMembersCond, function (result) {
-              if (nonMembers.length === 0 || result) {
-                db.delete(tables.WEDDING_TABLE, recordCond, function (result) {
-                  if (result || result === 0) { // Wedding record should be deleted because of FK constraint
-                    res.send(true)
+            db.delete(tables.COUPLE_TABLE, couplesCond, function (result) {
+              if (result) {
+                db.delete(tables.PERSON_TABLE, nonMembersCond, function (result) {
+                  if (nonMembers.length === 0 || result) {
+                    db.delete(tables.WEDDING_TABLE, recordCond, function (result) {
+                      if (result || result === 0) { // Wedding record should be deleted because of FK constraint
+                        res.send(true)
+                      } else {
+                        res.send(false)
+                      }
+                    })
                   } else {
                     res.send(false)
                   }
@@ -927,7 +935,7 @@ const weddingController = {
           }
         })
       } else {
-        res.send(false)
+        res.send(false);
       }
     })
   },
@@ -972,7 +980,7 @@ const weddingController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -1007,7 +1015,7 @@ const weddingController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
