@@ -83,3 +83,10 @@ nav {
 }
 
 }
+
+@media 
+only screen and (max-width: 760px){
+    .form-select,.form-control{
+        margin-bottom: 15px;
+    }
+}
