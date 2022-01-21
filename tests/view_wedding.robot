@@ -38,9 +38,11 @@ Navigate to View Wedding Page (Level 1):
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
+    Confirm Add Godfather
     Submit Wedding Registry
     View Wedding Page Should Be Open
     Navigate to Wedding Main Page From View Wedding Page
@@ -78,9 +80,11 @@ Navigate to View Wedding Page (Level 2):
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
+    Confirm Add Godfather
     Submit Wedding Registry
     View Wedding Page Should Be Open
     Navigate to Wedding Main Page From View Wedding Page
@@ -119,9 +123,11 @@ Navigate to View Wedding Page (Level 3):
     Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
+    Confirm Add Godfather
     Submit Wedding Registry
     View Wedding Page Should Be Open
     Navigate to Wedding Main Page From View Wedding Page

@@ -69,11 +69,15 @@ Complete Members Input (Level 1)
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Complete Members Input (Level 2)
@@ -106,11 +110,15 @@ Complete Members Input (Level 2)
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Complete Members Input (Level 3)
@@ -143,11 +151,15 @@ Complete Members Input (Level 3)
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Blank Non-Member Bride Input
@@ -179,9 +191,11 @@ Blank Non-Member Bride Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Bride Error Should Be Shown
 
@@ -214,9 +228,11 @@ Blank Member Bride Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Bride Error Should Be Shown
 Blank Non-Member Groom Input
@@ -248,9 +264,11 @@ Blank Non-Member Groom Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Groom Error Should Be Shown
 
@@ -283,9 +301,11 @@ Blank Member Groom Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Groom Error Should Be Shown
 
@@ -318,9 +338,11 @@ Blank Non-Member Groom Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Groom Error Should Be Shown
 
@@ -353,9 +375,11 @@ Blank Non-Member Bride Mother Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Bride Mother Error Should Be Shown
 
@@ -388,9 +412,11 @@ Blank Member Bride Mother Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Bride Mother Error Should Be Shown
 Blank Non-Member Bride Father Input
@@ -422,9 +448,11 @@ Blank Non-Member Bride Father Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Bride Father Error Should Be Shown
 
@@ -457,9 +485,11 @@ Blank Member Bride Father Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Bride Father Error Should Be Shown
 
@@ -492,9 +522,11 @@ Blank Non-Member Groom Mother Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Groom Mother Error Should Be Shown
 
@@ -527,9 +559,11 @@ Blank Member Groom Mother Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Groom Mother Error Should Be Shown
 
@@ -562,9 +596,11 @@ Blank Wedding Location Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Wedding Location Error Should Be Shown
 
@@ -598,9 +634,11 @@ Blank Wedding Date Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Wedding Date Error Should Be Shown
 
@@ -633,9 +671,11 @@ Blank Officiant Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Officiant Error Should Be Shown
 
@@ -668,9 +708,11 @@ Blank Solemnizing Officer Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Solemnizing Officer Error Should Be Shown
 
@@ -703,9 +745,11 @@ Blank Contract Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Submit Wedding Registry
    Contract Error Should Be Shown
 
@@ -739,8 +783,11 @@ No Godmother Input
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 No Godfather Input
@@ -773,8 +820,11 @@ No Godfather Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 No Godmother and Godfather Input
@@ -837,11 +887,15 @@ Complete Member - Bride, Bride Father, Groom Mother, and Witness & Non-Member - 
    Select Add Godmother Button
    Select Non-Member Godmother Form
    Input Non-Member Godmother Details    Jane    C    Lara
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Complete Member - Groom, Bride Mother, Groom Father, and Witness & Non-Member Bride, Bride Father, Groom Mother, and Witness Input
@@ -874,11 +928,15 @@ Complete Member - Groom, Bride Mother, Groom Father, and Witness & Non-Member Br
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Non-Member Godfather Form
    Input Non-Member Godfather Details    Nathan    K    Sera
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Complete Non-Members Input
@@ -911,11 +969,15 @@ Complete Non-Members Input
    Select Add Godmother Button
    Select Non-Member Godmother Form
    Input Non-Member Godmother Details    Samara    S    Justicar
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Non-Member Godfather Form
    Input Non-Member Godfather Details    MOrdin    M    Solus
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Complete Member - Bride, Groom, Bride Mother, Groom Mother, and Witness & Non-Member Bride Father, Groom Father, and Witness Input
@@ -948,17 +1010,23 @@ Complete Member - Bride, Groom, Bride Mother, Groom Mother, and Witness & Non-Me
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godmother Button
    Select Non-Member Godmother Form
    Input Non-Member Godmother Details    Lisa    T    Pan
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
    Select Add Godfather Button
    Select Non-Member Godfather Form
    Input Non-Member Godfather Details    Josuke    S    Higashikata
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Complete Member - Bride, Groom, and Witness Input
@@ -987,11 +1055,15 @@ Complete Member - Bride, Groom, and Witness Input
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Complete Non-Member - Bride, Groom, and Groom Mother & Member - Bride Father and Witness Input
@@ -1022,11 +1094,15 @@ Complete Non-Member - Bride, Groom, and Groom Mother & Member - Bride Father and
    Select Add Godmother Button
    Select Member Godmother Form
    Select Random Member Godmother
+   Confirm Add Godmother
    Select Add Godfather Button
    Select Member Godfather Form
    Select Random Member Godfather
+   Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    View Wedding Page Should Be Open
+   View Wedding Page Should Match Form Inputs
    Delete Wedding Record
 
 Complete One Godfather and One Godmother Input
@@ -1059,11 +1135,15 @@ Complete One Godfather and One Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete One Godmother Input
@@ -1096,8 +1176,11 @@ Complete One Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete One Godfather Input
@@ -1130,8 +1213,11 @@ Complete One Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete Six Godmother and Six Godfather Input
@@ -1164,41 +1250,55 @@ Complete Six Godmother and Six Godfather Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete Six Godmother Input
@@ -1231,23 +1331,31 @@ Complete Six Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete Six Godfather Input
@@ -1280,23 +1388,31 @@ Complete Six Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete Seven Godmother and Seven Godfather Input
@@ -1329,45 +1445,59 @@ Complete Seven Godmother and Seven Godfather Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
     Select Add Godmother Button
     Godmother Maximum Warning Should Be Shown
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
     Select Add Godfather Button
     Godfather Maximum Warning Should Be Shown
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete Seven Godmother and No Godfather Input
@@ -1400,25 +1530,33 @@ Complete Seven Godmother and No Godfather Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
     Select Add Godmother Button
     Godmother Maximum Warning Should Be Shown
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete No Godmother and Seven Godfather Input
@@ -1451,25 +1589,33 @@ Complete No Godmother and Seven Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
     Select Add Godfather Button
     Godfather Maximum Warning Should Be Shown
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete Seven Godmother and Valid Godfather Input
@@ -1502,28 +1648,37 @@ Complete Seven Godmother and Valid Godfather Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
     Select Add Godmother Button
     Godmother Maximum Warning Should Be Shown
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete Valid Godmother and Seven Godfather Input
@@ -1556,28 +1711,37 @@ Complete Valid Godmother and Seven Godfather Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Isaac    C    Clarke
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Garrus    D    Vakarian
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Josuke    F    Higashikata
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Miguel    D    Adajar
+    Confirm Add Godfather
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
+    Confirm Add Godfather
     Select Add Godfather Button
     Godfather Maximum Warning Should Be Shown
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Blank Godmother and Godfather Input
@@ -1640,14 +1804,18 @@ Complete Deleted Godmother Input
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Remove Godmother
     Submit Wedding Registry
     Godmother and Godfather Error Should Be Shown
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record
 
 Complete Deleted Godfather Input
@@ -1680,12 +1848,16 @@ Complete Deleted Godfather Input
     Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
     Remove Godfather
     Submit Wedding Registry
     Godmother and Godfather Error Should Be Shown
     Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Save Wedding Form Data
     Submit Wedding Registry
     View Wedding Page Should Be Open
+    View Wedding Page Should Match Form Inputs
     Delete Wedding Record

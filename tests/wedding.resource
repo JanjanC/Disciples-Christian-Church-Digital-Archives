@@ -283,12 +283,14 @@ Input Non-Member Godmother Details
     Input Text    id:witness_gmother_first_name    ${first}
     Input Text    id:witness_gmother_mid_name    ${middle}
     Input Text    id:witness_gmother_last_name    ${last}
-    Click Button    id:add_gmother_witness
-    Sleep    0.5s    Wait for Modal to Close
 
 Select Random Member Godmother
     Click Element    css:#witness_gmother_member_div .selectize-input
     Click Element    css:#witness_gmother_member_div .selectize-dropdown-content>[data-selectable]
+
+Confirm Add Godmother
+    ${godmother}=    Get Godmother Data
+    Append to List of Godmothers    ${godmother}
     Click Button    id:add_gmother_witness
     Sleep    0.5s    Wait for Modal to Close
 
@@ -303,22 +305,26 @@ Input Non-Member Godfather Details
     Input Text    id:witness_gfather_first_name    ${first}
     Input Text    id:witness_gfather_mid_name    ${middle}
     Input Text    id:witness_gfather_last_name    ${last}
-    Click Button    id:add_gfather_witness
-    Sleep    0.5s    Wait for Modal to Close
 
 Select Random Member Godfather
     Click Element    css:#witness_gfather_member_div .selectize-input
     Click Element    css:#witness_gfather_member_div .selectize-dropdown-content>[data-selectable]
+
+Confirm Add Godfather
+    ${godfather}=    Get Godfather Data
+    Append to List of Godfathers    ${godfather}
     Click Button    id:add_gfather_witness
     Sleep    0.5s    Wait for Modal to Close
 
 Remove Godmother
     Scroll to Element    class:delGMotherWitnessBtn
     Click Element    class:delGMotherWitnessBtn
+    Remove From List of Godmothers    0
 
 Remove Godfather
     Scroll to Element    class:delGFatherWitnessBtn
     Click Element    class:delGFatherWitnessBtn
+    Remove From List of Godfathers    0
 
 Select Non-Member Godmother Form in Edit Wedding Page
     Click Button    id:female_witness_non_member
@@ -358,6 +364,7 @@ Remove Godmother in Edit Wedding Page
     Sleep    0.5s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
     Sleep    0.5s    Wait for Modal to Close
+    Remove From List of Godmothers    0
 
 Remove Godfather in Edit Wedding Page
     Scroll to Element    class:delete_male_witness_btn
@@ -365,32 +372,55 @@ Remove Godfather in Edit Wedding Page
     Sleep    0.5s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
     Sleep    0.5s    Wait for Modal to Close
+    Remove From List of Godfathers    0
 
 Submit Wedding Registry
     Scroll to Element    id:create-wedding-registry
     Click Button    id:create-wedding-registry
 
 Save Bride Detail Changes
+    Save Bride Data
     Click Button    id:save_bride_btn
     Sleep    0.5s    Wait for Modal to Close
 
 Save Groom Detail Changes
+    Save Groom Data
     Click Button    id:save_groom_btn
     Sleep    0.5s    Wait for Modal to Close
 
-Save Female Detail Changes
+Save Bride Mother Detail Changes
+    ${bride_mother}=    Get Female Data
+    Set Test Variable    ${bride_mother}
     Click Button    id:save_female_btn
     Sleep    0.5s    Wait for Modal to Close
 
-Save Male Detail Changes
+Save Bride Father Detail Changes
+    ${bride_father}=    Get Male Data
+    Set Test Variable    ${bride_father}
+    Click Button    id:save_male_btn
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Groom Mother Detail Changes
+    ${groom_mother}=    Get Female Data
+    Set Test Variable    ${groom_mother}
+    Click Button    id:save_female_btn
+    Sleep    0.5s    Wait for Modal to Close
+
+Save Groom Father Detail Changes
+    ${groom_father}=    Get Male Data
+    Set Test Variable    ${groom_father}
     Click Button    id:save_male_btn
     Sleep    0.5s    Wait for Modal to Close
 
 Save Godmother Detail Changes
+    ${godmother}=    Get Female Data
+    Replace in List of Godmothers    0    ${godmother}
     Click Button    id:save_female_witness_btn
     Sleep    0.5s    Wait for Modal to Close
 
 Save Godfather Detail Changes
+    ${godmother}=    Get Female Data
+    Replace in List of Godmothers    0    ${godmother}
     Click Button    id:save_male_witness_btn
     Sleep    0.5s    Wait for Modal to Close
 
@@ -453,6 +483,420 @@ Godmother Maximum Warning Should Be Shown
 
 Godfather Maximum Warning Should Be Shown
     Element Should Contain    id:witness_gfather_info_error    You have reached the maximum number of witnesses
+
+#TODO: START
+
+Save Bride Data
+    ${bride_member}=    Get Radio Button Status    id:bride_member
+    ${bride_non_member}=    Get Radio Button Status    id:bride_non_member
+    IF    ${bride_member}
+        ${bride}=    Get Value    id:input_bride_member
+        ${bride}=    Extract Member Name    ${bride}
+    ELSE IF    ${bride_non_member}
+        ${bride_first_name}=    Get Value    id:bride_first_name
+        ${bride_mid_name}=    Get Value    id:bride_mid_name
+        ${bride_last_name}=    Get Value    id:bride_last_name
+        ${bride}=    Create List    ${bride_first_name}    ${bride_mid_name}    ${bride_last_name}
+    END
+    Set Test Variable    ${bride}
+
+Save Groom Data
+    ${groom_member}=    Get Radio Button Status    id:groom_member
+    ${groom_non_member}=    Get Radio Button Status    id:groom_non_member
+    IF    ${groom_member}
+        ${groom}=    Get Value    id:input_groom_member
+        ${groom}=    Extract Member Name    ${groom}
+    ELSE IF    ${groom_non_member}
+        ${groom_first_name}=    Get Value    id:groom_first_name
+        ${groom_mid_name}=    Get Value    id:groom_mid_name
+        ${groom_last_name}=    Get Value    id:groom_last_name
+        ${groom}=    Create List    ${groom_first_name}    ${groom_mid_name}    ${groom_last_name}
+    END
+    Set Test Variable    ${groom}
+
+Save Bride Mother Data
+    ${bride_mother_member}=    Get Radio Button Status    id:bride_mother_member
+    ${bride_mother_non_member}=    Get Radio Button Status    id:bride_mother_non_member
+    ${bride_mother_none}=    Get Radio Button Status    id:bride_mother_none
+    IF    ${bride_mother_member}
+        ${bride_mother}=    Get Value    id:input_bride_mother_member
+        ${bride_mother}=    Extract Member Name    ${bride_mother}
+    ELSE IF    ${bride_mother_non_member}
+        ${bride_mother_first_name}=    Get Value    id:bride_mother_first_name
+        ${bride_mother_mid_name}=    Get Value    id:bride_mother_mid_name
+        ${bride_mother_last_name}=    Get Value    id:bride_mother_last_name
+        ${bride_mother}=    Create List    ${bride_mother_first_name}    ${bride_mother_mid_name}
+        ...    ${bride_mother_last_name}
+    ELSE IF    ${bride_mother_none}
+        ${bride_mother}=    Create List    'N/A'    'N/A'    'N/A'
+    END
+    Set Test Variable    ${bride_mother}
+
+Save Bride Father Data
+    ${bride_father_member}=    Get Radio Button Status    id:bride_father_member
+    ${bride_father_non_member}=    Get Radio Button Status    id:bride_father_non_member
+    ${bride_father_none}=    Get Radio Button Status    id:bride_father_none
+    IF    ${bride_father_member}
+        ${bride_father}=    Get Value    id:input_bride_father_member
+        ${bride_father}=    Extract Member Name    ${bride_father}
+    ELSE IF    ${bride_father_non_member}
+        ${bride_father_first_name}=    Get Value    id:bride_father_first_name
+        ${bride_father_mid_name}=    Get Value    id:bride_father_mid_name
+        ${bride_father_last_name}=    Get Value    id:bride_father_last_name
+        ${bride_father}=    Create List    ${bride_father_first_name}    ${bride_father_mid_name}
+        ...    ${bride_father_last_name}
+    ELSE IF    ${bride_father_none}
+        ${bride_father}=    Create List    'N/A'    'N/A'    'N/A'
+    END
+    Set Test Variable    ${bride_father}
+
+Save Groom Mother Data
+    ${groom_mother_member}=    Get Radio Button Status    id:groom_mother_member
+    ${groom_mother_non_member}=    Get Radio Button Status    id:groom_mother_non_member
+    ${groom_mother_none}=    Get Radio Button Status    id:groom_mother_none
+    IF    ${groom_mother_member}
+        ${groom_mother}=    Get Value    id:input_groom_mother_member
+        ${groom_mother}=    Extract Member Name    ${groom_mother}
+    ELSE IF    ${groom_mother_non_member}
+        ${groom_mother_first_name}=    Get Value    id:groom_mother_first_name
+        ${groom_mother_mid_name}=    Get Value    id:groom_mother_mid_name
+        ${groom_mother_last_name}=    Get Value    id:groom_mother_last_name
+        ${groom_mother}=    Create List    ${groom_mother_first_name}    ${groom_mother_mid_name}
+        ...    ${groom_mother_last_name}
+    ELSE IF    ${groom_mother_none}
+        ${groom_mother}=    Create List    'N/A'    'N/A'    'N/A'
+    END
+    Set Test Variable    ${groom_mother}
+
+Save Groom Father Data
+    ${groom_father_member}=    Get Radio Button Status    id:groom_father_member
+    ${groom_father_non_member}=    Get Radio Button Status    id:groom_father_non_member
+    ${groom_father_none}=    Get Radio Button Status    id:groom_father_none
+    IF    ${groom_father_member}
+        ${groom_father}=    Get Value    id:input_groom_father_member
+        ${groom_father}=    Extract Member Name    ${groom_father}
+    ELSE IF    ${groom_father_non_member}
+        ${groom_father_first_name}=    Get Value    id:groom_father_first_name
+        ${groom_father_mid_name}=    Get Value    id:groom_father_mid_name
+        ${groom_father_last_name}=    Get Value    id:groom_father_last_name
+        ${groom_father}=    Create List    ${groom_father_first_name}    ${groom_father_mid_name}
+        ...    ${groom_father_last_name}
+    ELSE IF    ${groom_father_none}
+        ${groom_father}=    Create List    'N/A'    'N/A'    'N/A'
+    END
+    Set Test Variable    ${groom_father}
+
+Get Godmother Data
+    #Current Godmother
+    ${godmother_member}=    Get Radio Button Status    id:witness_gmother_member
+    ${godmother_non_member}=    Get Radio Button Status    id:witness_gmother_non_member
+    IF    ${godmother_member}
+        ${godmother}=    Get Value    id:input_witness_gmother_member
+        ${godmother}=    Extract Member Name    ${godmother}
+    ELSE IF    ${godmother_non_member}
+        ${godmother_first_name}=    Get Value    id:witness_gmother_first_name
+        ${godmother_mid_name}=    Get Value    id:witness_gmother_mid_name
+        ${godmother_last_name}=    Get Value    id:witness_gmother_last_name
+        ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
+    END
+    [Return]    ${godmother}
+
+Get Godfather Data
+    #Current Godfather
+    ${godfather_member}=    Get Radio Button Status    id:witness_gfather_member
+    ${godfather_non_member}=    Get Radio Button Status    id:witness_gfather_non_member
+    IF    ${godfather_member}
+        ${godfather}=    Get Value    id:input_witness_gfather_member
+        ${godfather}=    Extract Member Name    ${godfather}
+    ELSE IF    ${godfather_non_member}
+        ${godfather_first_name}=    Get Value    id:witness_gfather_first_name
+        ${godfather_mid_name}=    Get Value    id:witness_gfather_mid_name
+        ${godfather_last_name}=    Get Value    id:witness_gfather_last_name
+        ${godfather}=    Create List    ${godfather_first_name}    ${godfather_mid_name}    ${godfather_last_name}
+    END
+    [Return]    ${godfather}
+
+Get Female Data
+    ${female_member}=    Get Radio Button Status    id:female_member
+    ${female_non_member}=    Get Radio Button Status    id:female_non_member
+    ${female_none}=    Get Radio Button Status    id:female_none
+    IF    ${female_member}
+        ${female}=    Get Value    id:input_female_member
+        ${female}=    Extract Member Name    ${female}
+    ELSE IF    ${female_non_member}
+        ${female_first_name}=    Get Value    id:female_first_name
+        ${female_mid_name}=    Get Value    id:female_mid_name
+        ${female_last_name}=    Get Value    id:female_last_name
+        ${female}=    Create List    ${female_first_name}    ${female_mid_name}
+        ...    ${female_last_name}
+    ELSE IF    ${female_none}
+        ${female}=    Create List    'N/A'    'N/A'    'N/A'
+    END
+    [Return]    ${female}
+
+Get Male Data
+    ${male_member}=    Get Radio Button Status    id:male_member
+    ${male_non_member}=    Get Radio Button Status    id:male_non_member
+    ${male_none}=    Get Radio Button Status    id:male_none
+    IF    ${male_member}
+        ${male}=    Get Value    id:input_male_member
+        ${male}=    Extract Member Name    ${male}
+    ELSE IF    ${male_non_member}
+        ${male_first_name}=    Get Value    id:male_first_name
+        ${male_mid_name}=    Get Value    id:male_mid_name
+        ${male_last_name}=    Get Value    id:male_last_name
+        ${male}=    Create List    ${male_first_name}    ${male_mid_name}
+        ...    ${male_last_name}
+    ELSE IF    ${male_none}
+        ${male}=    Create List    'N/A'    'N/A'    'N/A'
+    END
+    [Return]    ${male}
+
+Replace in List of Godmothers
+    [Arguments]    ${index}    ${godmother}
+    Save List of Godmothers
+    Set List Value    ${godmother_list}    ${index}    ${godmother}
+
+Replace in List of Godfathers
+    [Arguments]    ${index}    ${godfather}
+    Save List of Godfathers
+    Append To List    ${godfather_list}    ${index}    ${godfather}
+
+Append to List of Godmothers
+    [Arguments]    ${godmother}
+    Save List of Godmothers
+    Append To List    ${godmother_list}    ${godmother}
+
+Append To List of Godfathers
+    [Arguments]    ${godfather}
+    Save List of Godfathers
+    Append To List    ${godfather_list}    ${godfather}
+
+Remove From List of Godmothers
+    [Arguments]    ${index}
+    Save List of Godmothers
+    Remove From List    ${godmother_list}    ${index}
+
+Remove From List of Godfathers
+    [Arguments]    ${index}
+    Save List of Godfathers
+    Remove From List    ${godfather_list}    ${index}
+
+Save List of Godmothers
+    #List of Godmothers
+    ${godmother_exists}=    Get Variable Value    ${godmother_list}
+    IF    ${godmother_exists} == ${None}
+        ${godmothers}=    Get WebElements    css:.female.witness
+        ${godmother_list}=    Create List
+        FOR    ${godmother}    IN    @{godmothers}
+            #Locators
+            ${godmother_first_name_locator}=    Create List    ${godmother}    class:witness_first_name_view
+            ${godmother_mid_name_locator}=    Create List    ${godmother}    class:witness_mid_name_view
+            ${godmother_last_name_locator}=    Create List    ${godmother}    class:witness_last_name_view
+            #Name
+            ${godmother_first_name}=    Get Text    ${godmother_first_name_locator}
+            ${godmother_mid_name}=    Get Text    ${godmother_mid_name_locator}
+            ${godmother_last_name}=    Get Text    ${godmother_last_name_locator}
+            ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
+            Log To Console    ${godmother}
+            Append To List    ${godmother_list}    ${godmother}
+        END
+        Log To Console    ${godmother_list}
+        Set Test Variable    ${godmother_list}
+    END
+
+Save List of Godfathers
+    #List of Godfathers
+    ${godfather_exists}=    Get Variable Value    ${godfather_list}
+    IF    ${godfather_exists} == ${None}
+        ${godfathers}=    Get WebElements    css:.male.witness
+        ${godfather_list}=    Create List
+        FOR    ${godfather}    IN    @{godfathers}
+            #Locators
+            ${godfather_first_name_locator}=    Create List    ${godfather}    class:witness_first_name_view
+            ${godfather_mid_name_locator}=    Create List    ${godfather}    class:witness_mid_name_view
+            ${godfather_last_name_locator}=    Create List    ${godfather}    class:witness_last_name_view
+            #Name
+            ${godfather_first_name}=    Get Text    ${godfather_first_name_locator}
+            ${godfather_mid_name}=    Get Text    ${godfather_mid_name_locator}
+            ${godfather_last_name}=    Get Text    ${godfather_last_name_locator}
+            ${godfather}=    Create List    ${godfather_first_name}    ${godfather_mid_name}    ${godfather_last_name}
+            Log To Console    ${godfather}
+            Append To List    ${godfather_list}    ${godfather}
+        END
+        Log To Console    ${godfather_list}
+        Set Test Variable    ${godfather_list}
+    END
+
+Save Wedding Form Data
+    #Bride
+    Save Bride Data
+    #Groom
+    Save Groom Data
+    #Bride Mother
+    Save Bride Mother Data
+    #Bride Father
+    Save Bride Father Data
+    #Groom Mother
+    Save Groom Mother Data
+    #Groom Father
+    Save Groom Father Data
+    #Wedding Location
+    ${location}=    Get Value    id:location
+    Set Test Variable    ${location}
+    #Wedding Date
+    ${date}=    Get Value    id:current_date
+    ${date}=    Format Date    ${date}
+    Set Test Variable    ${date}
+    #Officiant
+    ${officiant}=    Get Value    id:officiant
+    Set Test Variable    ${officiant}
+    #Solemnizing Officer
+    ${solemnizer}=    Get Value    id:solemnizer
+    Set Test Variable    ${solemnizer}
+    #Contract
+    ${contract}=    Get Value    id:contract
+    Set Test Variable    ${contract}
+    #Witnesses
+    Save List of Godmothers
+    Save List of Godfathers
+
+Save Wedding Form Data in Edit Wedding Page
+    #Date of Dedication
+    ${date}=    Get Value    id:date
+    ${date}=    Format Date    ${date}
+    Set Test Variable    ${date}
+    #Bride
+    ${bride_exists}=    Get Variable Value    ${bride}
+    IF    ${bride_exists} == ${None}
+        ${bride_first_name}=    Get Text    id:bride_first_name_view
+        ${bride_mid_name}=    Get Text    id:bride_mid_name_view
+        ${bride_last_name}=    Get Text    id:bride_last_name_view
+        ${bride}=    Create List    ${bride_first_name}    ${bride_mid_name}    ${bride_last_name}
+        Set Test Variable    ${bride}
+    END
+    #Groom
+    ${groom_exists}=    Get Variable Value    ${groom}
+    IF    ${groom_exists} == ${None}
+        ${groom_first_name}=    Get Text    id:groom_first_name_view
+        ${groom_mid_name}=    Get Text    id:groom_mid_name_view
+        ${groom_last_name}=    Get Text    id:groom_last_name_view
+        ${groom}=    Create List    ${groom_first_name}    ${groom_mid_name}    ${groom_last_name}
+        Set Test Variable    ${groom}
+    END
+    #Bride Mother
+    ${bride_mother_exists}=    Get Variable Value    ${bride_mother}
+    IF    ${bride_mother_exists} == ${None}
+        ${bride_mother_first_name}=    Get Text    id:bride_mother_first_name_view
+        ${bride_mother_mid_name}=    Get Text    id:bride_mother_mid_name_view
+        ${bride_mother_last_name}=    Get Text    id:bride_mother_last_name_view
+        ${bride_mother}=    Create List    ${bride_mother_first_name}    ${bride_mother_mid_name}
+        ...    ${bride_mother_last_name}
+        Set Test Variable    ${bride_mother}
+    END
+    #Bride Father
+    ${bride_father_exists}=    Get Variable Value    ${bride_father}
+    IF    ${bride_father_exists} == ${None}
+        ${bride_father_first_name}=    Get Text    id:bride_father_first_name_view
+        ${bride_father_mid_name}=    Get Text    id:bride_father_mid_name_view
+        ${bride_father_last_name}=    Get Text    id:bride_father_last_name_view
+        ${bride_father}=    Create List    ${bride_father_first_name}    ${bride_father_mid_name}
+        ...    ${bride_father_last_name}
+        Set Test Variable    ${bride_father}
+    END
+    #Groom Mother
+    ${groom_mother_exists}=    Get Variable Value    ${groom_mother}
+    IF    ${groom_mother_exists} == ${None}
+        ${groom_mother_first_name}=    Get Text    id:groom_mother_first_name_view
+        ${groom_mother_mid_name}=    Get Text    id:groom_mother_mid_name_view
+        ${groom_mother_last_name}=    Get Text    id:groom_mother_last_name_view
+        ${groom_mother}=    Create List    ${groom_mother_first_name}    ${groom_mother_mid_name}
+        ...    ${groom_mother_last_name}
+        Set Test Variable    ${groom_mother}
+    END
+    #Groom Father
+    ${groom_father_exists}=    Get Variable Value    ${groom_father}
+    IF    ${groom_father_exists} == ${None}
+        ${groom_father_first_name}=    Get Text    id:groom_father_first_name_view
+        ${groom_father_mid_name}=    Get Text    id:groom_father_mid_name_view
+        ${groom_father_last_name}=    Get Text    id:groom_father_last_name_view
+        ${groom_father}=    Create List    ${groom_father_first_name}    ${groom_father_mid_name}
+        ...    ${groom_father_last_name}
+        Set Test Variable    ${groom_father}
+    END
+    #Officiant
+    ${officiant}=    Get Value    id:officiant
+    Set Test Variable    ${officiant}
+    #Solemnizing Officer
+    ${solemnizer}=    Get Value    id:solemnizer
+    Set Test Variable    ${solemnizer}
+    #Wedding Location
+    ${location}=    Get Value    id:location
+    Set Test Variable    ${location}
+    #Witnesses
+    Save List of Godmothers
+    Save List of Godfathers
+
+View Wedding Page Should Match Form Inputs
+    #Contract
+    Element Should Contain    id:contract    ${contract}
+    #Wedding Date
+    Element Should Contain    id:wedding_date    ${date}
+    #Bride
+    Element Should Contain    id:bride_first_name    ${bride[0]}
+    Element Should Contain    id:bride_mid_name    ${bride[1]}
+    Element Should Contain    id:bride_last_name    ${bride[2]}
+    #Groom
+    Element Should Contain    id:groom_first_name    ${groom[0]}
+    Element Should Contain    id:groom_mid_name    ${groom[1]}
+    Element Should Contain    id:groom_last_name    ${groom[2]}
+    #Bride Mother
+    Element Should Contain    id:bride_mother_first_name    ${bride_mother[0]}
+    Element Should Contain    id:bride_mother_mid_name    ${bride_mother[1]}
+    Element Should Contain    id:bride_mother_last_name    ${bride_mother[2]}
+    #Bride Father
+    Element Should Contain    id:bride_father_first_name    ${bride_father[0]}
+    Element Should Contain    id:bride_father_mid_name    ${bride_father[1]}
+    Element Should Contain    id:bride_father_last_name    ${bride_father[2]}
+    #Groom Mother
+    Element Should Contain    id:groom_mother_first_name    ${groom_mother[0]}
+    Element Should Contain    id:groom_mother_mid_name    ${groom_mother[1]}
+    Element Should Contain    id:groom_mother_last_name    ${groom_mother[2]}
+    #Groom Father
+    Element Should Contain    id:groom_father_first_name    ${groom_father[0]}
+    Element Should Contain    id:groom_father_mid_name    ${groom_father[1]}
+    Element Should Contain    id:groom_father_last_name    ${groom_father[2]}
+    #Officiant
+    Element Should Contain    id:officiant    ${officiant}
+    #Solemnizing Officer
+    Element Should Contain    id:solemnizer    ${solemnizer}
+    #Wedding Location
+    Element Should Contain    id:location    ${location}
+    #Godfather
+    ${godfather_ctr}=    Set Variable    ${0}
+    ${godfathers_elements}=    Get WebElements    css:#godfathers .witness
+    ${godfather_length}=    Get Length    {godfather_length}
+    Length Should Be    ${godfather_list}    ${length}
+    FOR    ${godfather}    IN    @{godfather_list}
+        ${godfather_name}=    Catenate    ${godfather[0]}    ${godfather[1]}.    ${godfather[2]}
+        Element Should Contain    ${godfathers_elements[${godfather_ctr}]}    ${godfather_name}
+        ${godfather_ctr}=    Evaluate    ${godfather_ctr} + 1
+        Log To Console    ${godfather_ctr}
+        Log To Console    ${godfather_name}
+    END
+    #Godmother
+    ${godmother_ctr}=    Set Variable    ${0}
+    ${godmothers_elements}=    Get WebElements    css:#godmothers .witness
+    ${godmother_length}=    Get Length    {godmothers_elements}
+    Length Should Be    ${godmother_list}    ${godmother_length}
+    FOR    ${godmother}    IN    @{godmother_list}
+        ${godmother_name}=    Catenate    ${godmother[0]}    ${godmother[1]}.    ${godmother[2]}
+        Element Should Contain    ${godmothers_elements[${godmother_ctr}]}    ${godmother_name}
+        ${godmother_ctr}=    Evaluate    ${godmother_ctr} + 1
+        Log To Console    ${godmother_ctr}
+        Log To Console    ${godmother_name}
+    END
+#TODO: END
 
 Forms Main Page Should Be Open
     Wait Until Page Contains    Baptismal Record
