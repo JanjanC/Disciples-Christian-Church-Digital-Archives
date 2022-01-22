@@ -616,7 +616,7 @@ $(document).ready(function () {
   })
 
   function checkSpecialChar(str) {
-    var regex = /[ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
+    var regex = /[!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g;
     return regex.test(str);
   }
 
