@@ -35,6 +35,25 @@ Format Date
     ${date}=    Catenate    SEPARATOR=/    ${date[1]}    ${date[2]}    ${date[0]}
     [Return]    ${date}
 
+Convert Date to String
+    [Arguments]    ${raw}
+    ${date}=    Split String    ${raw}    -
+    ${month}=    Set Variable If
+    ...    '${date[1]}'=='01'    January
+    ...    '${date[1]}'=='02'    February
+    ...    '${date[1]}'=='03'    March
+    ...    '${date[1]}'=='04'    April
+    ...    '${date[1]}'=='05'    May
+    ...    '${date[1]}'=='06'    June
+    ...    '${date[1]}'=='07'    July
+    ...    '${date[1]}'=='08'    August
+    ...    '${date[1]}'=='09'    September
+    ...    '${date[1]}'=='10'    October
+    ...    '${date[1]}'=='11'    November
+    ...    '${date[1]}'=='12'    December
+    ${date}=    Catenate    ${month}    ${date[2]},    ${date[0]}
+    [Return]    ${date}
+
 Get Child WebElements
     [Arguments]    ${locator}
 

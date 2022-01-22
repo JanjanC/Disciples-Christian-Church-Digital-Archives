@@ -360,29 +360,6 @@ Get Godfather Data
     END
     [Return]    ${godfather}
 
-Save List of Godmothers
-    #List of Godmothers
-    ${godmother_exists}=    Get Variable Value    ${godmother_list}
-    IF    ${godmother_exists} == ${None}
-        ${godmothers}=    Get WebElements    css:.female.witness
-        ${godmother_list}=    Create List
-        FOR    ${godmother}    IN    @{godmothers}
-            #Locators
-            ${godmother_first_name_locator}=    Create List    ${godmother}    class:witness_first_name_view
-            ${godmother_mid_name_locator}=    Create List    ${godmother}    class:witness_mid_name_view
-            ${godmother_last_name_locator}=    Create List    ${godmother}    class:witness_last_name_view
-            #Name
-            ${godmother_first_name}=    Get Text    ${godmother_first_name_locator}
-            ${godmother_mid_name}=    Get Text    ${godmother_mid_name_locator}
-            ${godmother_last_name}=    Get Text    ${godmother_last_name_locator}
-            ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
-            Log To Console    ${godmother}
-            Append To List    ${godmother_list}    ${godmother}
-        END
-        Log To Console    ${godmother_list}
-        Set Test Variable    ${godmother_list}
-    END
-
 Replace in List of Godmothers
     [Arguments]    ${index}    ${godmother}
     Save List of Godmothers
@@ -412,6 +389,29 @@ Remove From List of Godfathers
     [Arguments]    ${index}
     Save List of Godfathers
     Remove From List    ${godfather_list}    ${index}
+
+Save List of Godmothers
+    #List of Godmothers
+    ${godmother_exists}=    Get Variable Value    ${godmother_list}
+    IF    ${godmother_exists} == ${None}
+        ${godmothers}=    Get WebElements    css:.female.witness
+        ${godmother_list}=    Create List
+        FOR    ${godmother}    IN    @{godmothers}
+            #Locators
+            ${godmother_first_name_locator}=    Create List    ${godmother}    class:witness_first_name_view
+            ${godmother_mid_name_locator}=    Create List    ${godmother}    class:witness_mid_name_view
+            ${godmother_last_name_locator}=    Create List    ${godmother}    class:witness_last_name_view
+            #Name
+            ${godmother_first_name}=    Get Text    ${godmother_first_name_locator}
+            ${godmother_mid_name}=    Get Text    ${godmother_mid_name_locator}
+            ${godmother_last_name}=    Get Text    ${godmother_last_name_locator}
+            ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
+            Log To Console    ${godmother}
+            Append To List    ${godmother_list}    ${godmother}
+        END
+        Log To Console    ${godmother_list}
+        Set Test Variable    ${godmother_list}
+    END
 
 Save List of Godfathers
     #List of Godfathers
