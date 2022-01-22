@@ -6,19 +6,33 @@
 only screen and (max-width: 1000px){
 
 	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
+	table, thead, tbody,  td, tr { 
 		display: block; 
+		
 	}
 	
+	.sorting{
+		border:none !important;
+	}
+	
+	
 	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
+	thead{ 
+		position: relative;
+		bottom: 30px;
+		border:none
+		
+	}
+	
+
+	th{
+		font-size: 14px;
+		height:80px;
+		background-color: none;
 	}
 
       
-    tr:nth-child(odd) {
+    tr:nth-child(even) {
         background: #e3e3e3;
     }
 

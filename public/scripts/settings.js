@@ -2,21 +2,44 @@ $(document).ready(function () {
 
     $('#btn-passwords').click(function() {
         $('#btn-database').css('border-bottom' , '2px solid white')
+        $('#btn-member').css('border-bottom', '2px solid white')
         $('#btn-passwords').css('border-bottom' , '2px solid black')
         $('#database-div').hide()
+        $("#member-div").hide()
         $('#passwords-div').show()
     })
 
     $('#btn-database').click(function() {
         $('#btn-passwords').css('border-bottom' , '2px solid white')
+        $('#btn-member').css('border-bottom', '2px solid white')
         $('#btn-database').css('border-bottom' , '2px solid black')
         $('#passwords-div').hide()
         $('#database-div').show()
+        $("#member-div").hide()
 
         $('#level-one-enter-pass').hide()
         $('#level-two-enter-pass').hide()
         $('#level-three-enter-pass').hide()
         
+        $('#level-one-conf-pass').hide()
+        $('#level-two-conf-pass').hide()
+        $('#level-three-conf-pass').hide()
+    })
+
+
+    $('#btn-member').click(function(){
+        $('#btn-passwords').css('border-bottom', '2px solid white')
+        $('#btn-database').css('border-bottom', '2px solid white')
+        $("#btn-member").css('border-bottom','2px solid black')
+        $("#member-div").show()
+
+        $('#passwords-div').hide()
+        $('#database-div').hide()
+
+        $('#level-one-enter-pass').hide()
+        $('#level-two-enter-pass').hide()
+        $('#level-three-enter-pass').hide()
+
         $('#level-one-conf-pass').hide()
         $('#level-two-conf-pass').hide()
         $('#level-three-conf-pass').hide()
