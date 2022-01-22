@@ -47,7 +47,7 @@ $(document).ready(function () {
     })
   })
 
-  if ($("#gfather_witness_row").children().length < 1 && $("#member_row").children().length < 1) {
+  if ($("#non_member_row").children().length < 1 && $("#member_row").children().length < 1) {
     $('#redirectAddModal').modal({
       backdrop: 'static',
       keyboard: false
@@ -299,13 +299,13 @@ $(document).ready(function () {
         const lastName = $('#witness_gmother_last_name').val()
         $('#member_row').append(
           "<div class='col-4' style='margin-bottom: 1em;'>" +
-          "<div class='card witness female'><div class='card-body'>" +
+          "<div class='card witness member'><div class='card-body'>" +
           "<p class='card-text member-text'>" +
           "<span class='first_name'>" + firstName + "</span> " +
           "<span class='mid_name'>" + midName + "</span> " +
           "<span class='last_name'>" + lastName + "</span>" +
           "</p>" +
-          "<button type='button' class='fas fa-trash delGMotherWitnessBtn '></button>" +
+          "<button type='button' class='fas fa-trash delMemberBtn '></button>" +
           "</div>" +
           "</div>" +
           "</div>")
@@ -319,7 +319,7 @@ $(document).ready(function () {
         // witnessName = witnessName.replace(/,/g, '')
         $('#member_row').append(
           "<div class='col-4' style='margin-bottom: 1em;'>" +
-          "<div class='card witness female'><div class='card-body'>" +
+          "<div class='card witness member'><div class='card-body'>" +
           "<p class='card-text member-text'>" +
           "<span class='first_name'>" + firstName + "</span> " +
           "<span class='mid_name'>" + midName + "</span> " +
@@ -328,7 +328,7 @@ $(document).ready(function () {
           "<input type='hidden' class='id_member' value='" + member_id + "'>" +
 
           "</p>" +
-          "<button type='button' class='fas fa-trash delGMotherWitnessBtn '></button>" +
+          "<button type='button' class='fas fa-trash delMemberBtn '></button>" +
           "</div>" +
           "</div>" +
           "</div>")
@@ -386,15 +386,15 @@ $(document).ready(function () {
       const firstName = $('#non_member_first_name').val()
       const midName = $('#non_member_mid_name').val()
       const lastName = $('#non_member_last_name').val()
-      $('#gfather_witness_row').append(
+      $('#non_member_row').append(
         "<div class='col-4' style='margin-bottom: 1em;'>" +
-        "<div class='card witness male'><div class='card-body'>" +
+        "<div class='card witness non-member'><div class='card-body'>" +
         "<p class='card-text non-member-text'>" +
         "<span class='first_name'>" + firstName + "</span> " +
         "<span class='mid_name'>" + midName + "</span> " +
         "<span class='last_name'>" + lastName + "</span>" +
         "</p>" +
-        "<button type='button' class='fas fa-trash delGFatherWitnessBtn '></button>" +
+        "<button type='button' class='fas fa-trash delNonMemberBtn '></button>" +
         "</div>" +
         "</div>" +
         "</div>")
@@ -417,7 +417,7 @@ $(document).ready(function () {
   })
 
 
-  $(document).on('click', '.delGMotherWitnessBtn', function () {
+  $(document).on('click', '.delMemberBtn', function () {
     const member = $(this).closest('.card').attr('data-member-info')
     if (member !== null) {
       selectizeEnable(member)
@@ -425,7 +425,7 @@ $(document).ready(function () {
     $(this).closest('.col-4').remove()
   })
 
-  $(document).on('click', '.delGFatherWitnessBtn', function () {
+  $(document).on('click', '.delNonMemberBtn', function () {
     const member = $(this).closest('.card').attr('data-member-info')
     if (member !== null) {
       selectizeEnable(member)
@@ -459,7 +459,7 @@ $(document).ready(function () {
   function validateFields() {
     var isValid = true
 
-    var nonMembers = $('#gfather_witness_row').children().length
+    var nonMembers = $('#non_member_row').children().length
     var members = $('#member_row').children().length
 
     if (nonMembers < 1 && members < 1) {
