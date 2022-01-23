@@ -45,7 +45,7 @@ Navigate to Edit Prenuptial Record (Level 3):
     Navigate to Edit Prenuptial Page From View Prenuptial Page
     Edit Prenuptial Page Should Be Open
 
-Edit Non-Member Bride Prenuptial Record
+Edit Non-Member Bride From Non-Member Prenuptial Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -59,6 +59,16 @@ Edit Non-Member Bride Prenuptial Record
     Edit Prenuptial Page Should Be Open
     Select Edit Bride Details
     Select Non-Member Bride Form
+    Input Non Member Bride Details    Donna    A    Grant
+    Save Bride Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Bride Details
+    Select Non-Member Bride Form
     Input Non Member Bride Details    Natalia    N    Silang
     Save Bride Detail Changes
     Save Prenuptial Form Data in Edit Prenuptial Page
@@ -66,7 +76,7 @@ Edit Non-Member Bride Prenuptial Record
     View Prenuptial Page Should Be Open
     View Prenuptial Page Should Match Form Inputs
 
-Edit Member Bride Prenuptial Record
+Edit Non-Member Bride From Member Prenuptial Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -86,8 +96,80 @@ Edit Member Bride Prenuptial Record
     Save Prenuptial Form Changes
     View Prenuptial Page Should Be Open
     View Prenuptial Page Should Match Form Inputs
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Bride Details
+    Select Non-Member Bride Form
+    Input Non Member Bride Details    Natalia    N    Silang
+    Save Bride Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
 
-Edit Non-Member Groom Prenuptial Record
+Edit Member Bride From Non-Member Prenuptial Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Prenuptial Page From Forms Main Page
+    Prenuptial Main Page Should Be Open
+    Navigate to View Prenuptial Page From Prenuptial Main Page
+    View Prenuptial Page Should Be Open
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Bride Details
+    Select Non-Member Bride Form
+    Input Non Member Bride Details    Donna    A    Grant
+    Save Bride Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Bride Details
+    Select Member Bride Form
+    Select Random Member Bride
+    Save Bride Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+
+Edit Member Bride From Member Prenuptial Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Prenuptial Page From Forms Main Page
+    Prenuptial Main Page Should Be Open
+    Navigate to View Prenuptial Page From Prenuptial Main Page
+    View Prenuptial Page Should Be Open
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Bride Details
+    Select Member Bride Form
+    Select Random Member Bride
+    Save Bride Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Bride Details
+    Select Member Bride Form
+    Select Random Member Bride
+    Save Bride Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+
+Edit Non-Member Groom From Non-Member Prenuptial Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -101,6 +183,16 @@ Edit Non-Member Groom Prenuptial Record
     Edit Prenuptial Page Should Be Open
     Select Edit Groom Details
     Select Non-Member Groom Form
+    Input Non Member Groom Details    Maximo Sr.    K    De Leon
+    Save Groom Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Groom Details
+    Select Non-Member Groom Form
     Input Non Member Groom Details    Jonathan Jr.    J    Dela Pena
     Save Groom Detail Changes
     Save Prenuptial Form Data in Edit Prenuptial Page
@@ -108,7 +200,7 @@ Edit Non-Member Groom Prenuptial Record
     View Prenuptial Page Should Be Open
     View Prenuptial Page Should Match Form Inputs
 
-Edit Member Groom Prenuptial Record
+Edit Non-Member Groom From Member Prenuptial Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -118,6 +210,78 @@ Edit Member Groom Prenuptial Record
     Prenuptial Main Page Should Be Open
     Navigate to View Prenuptial Page From Prenuptial Main Page
     View Prenuptial Page Should Be Open
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Groom Details
+    Select Member Groom Form
+    Select Random Member Groom
+    Save Groom Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Groom Details
+    Select Non-Member Groom Form
+    Input Non Member Groom Details    Jonathan Jr.    J    Dela Pena
+    Save Groom Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+
+Edit Member Groom From Non-Member Prenuptial Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Prenuptial Page From Forms Main Page
+    Prenuptial Main Page Should Be Open
+    Navigate to View Prenuptial Page From Prenuptial Main Page
+    View Prenuptial Page Should Be Open
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Groom Details
+    Select Non-Member Groom Form
+    Input Non Member Groom Details    Maximo Sr.    K    De Leon
+    Save Groom Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Groom Details
+    Select Member Groom Form
+    Select Random Member Groom
+    Save Groom Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
+
+Edit Member Groom From Member Prenuptial Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Prenuptial Page From Forms Main Page
+    Prenuptial Main Page Should Be Open
+    Navigate to View Prenuptial Page From Prenuptial Main Page
+    View Prenuptial Page Should Be Open
+    Navigate to Edit Prenuptial Page From View Prenuptial Page
+    Edit Prenuptial Page Should Be Open
+    Select Edit Groom Details
+    Select Member Groom Form
+    Select Random Member Groom
+    Save Groom Detail Changes
+    Save Prenuptial Form Data in Edit Prenuptial Page
+    Save Prenuptial Form Changes
+    View Prenuptial Page Should Be Open
+    View Prenuptial Page Should Match Form Inputs
     Navigate to Edit Prenuptial Page From View Prenuptial Page
     Edit Prenuptial Page Should Be Open
     Select Edit Groom Details
