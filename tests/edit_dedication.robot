@@ -63,7 +63,39 @@ Edit Dedication Date Dedication Record
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
 
-Edit Member Child Dedication Record
+Edit Non-Member Child From Non-Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Child Details
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Save Child Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Child Details
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Joseph    Z    Miranda
+    Save Child Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+
+Edit Non-Member Child From Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -83,8 +115,80 @@ Edit Member Child Dedication Record
     Save Dedication Form Changes
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Child Details
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Joseph    Z    Miranda
+    Save Child Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
 
-Edit Non-Member Parent 1 Dedication Record
+Edit Member Child From Non-Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Child Details
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Save Child Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Child Details
+    Select Member Child Form
+    Select Random Member Child
+    Save Child Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Child From Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Child Details
+    Select Member Child Form
+    Select Random Member Child
+    Save Child Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Child Details
+    Select Member Child Form
+    Select Random Member Child
+    Save Child Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Non-Member Parent 1 From Non-Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -98,6 +202,16 @@ Edit Non-Member Parent 1 Dedication Record
     Edit Dedication Page Should Be Open
     Select Edit Parent 1 Details
     Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Rick    D    Kendall
+    Save Parent 1 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 1 Details
+    Select Non-Member Parent 1 Form
     Input Non-Member Parent 1 Details    Steven    M    Harris
     Save Parent 1 Detail Changes
     Save Dedication Form Data in Edit Dedication Page
@@ -105,7 +219,7 @@ Edit Non-Member Parent 1 Dedication Record
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
 
-Edit Member Parent 1 Dedication Record
+Edit Non-Member Parent 1 From Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -125,8 +239,80 @@ Edit Member Parent 1 Dedication Record
     Save Dedication Form Changes
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 1 Details
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Steven    M    Harris
+    Save Parent 1 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
 
-Edit Non-Member Parent 2 Dedication Record
+Edit Member Parent 1 From Non-Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 1 Details
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Rick    D    Kendall
+    Save Parent 1 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 1 Details
+    Select Member Parent 1 Form
+    Select Random Member Parent 1
+    Save Parent 1 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Parent 1 From Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 1 Details
+    Select Member Parent 1 Form
+    Select Random Member Parent 1
+    Save Parent 1 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 1 Details
+    Select Member Parent 1 Form
+    Select Random Member Parent 1
+    Save Parent 1 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Non-Member Parent 2 From Non-Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -140,6 +326,16 @@ Edit Non-Member Parent 2 Dedication Record
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
     Select Non-Member Parent 2 Form
+    Input Non-Member Parent 2 Details    Emily    D    Elmer
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Non-Member Parent 2 Form
     Input Non-Member Parent 2 Details    Kyrsten    L    Pressley
     Save Parent 2 Detail Changes
     Save Dedication Form Data in Edit Dedication Page
@@ -147,7 +343,7 @@ Edit Non-Member Parent 2 Dedication Record
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
 
-Edit Member Parent 2 Dedication Record
+Edit Non-Member Parent 2 From Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -167,8 +363,18 @@ Edit Member Parent 2 Dedication Record
     Save Dedication Form Changes
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Non-Member Parent 2 Form
+    Input Non-Member Parent 2 Details    Kyrsten    L    Pressley
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
 
-Edit No Parent 2 Dedication Record
+Edit Non-Member Parent 2 From None Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -178,6 +384,197 @@ Edit No Parent 2 Dedication Record
     Dedication Main Page Should Be Open
     Navigate to View Dedication Page From Dedication Main Page
     View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select No Parent 2 Form
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Non-Member Parent 2 Form
+    Input Non-Member Parent 2 Details    Kyrsten    L    Pressley
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Parent 2 From Non-Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Non-Member Parent 2 Form
+    Input Non-Member Parent 2 Details    Emily    D    Elmer
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Member Parent 2 Form
+    Select Random Member Parent 2
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Parent 2 From Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Member Parent 2 Form
+    Select Random Member Parent 2
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Member Parent 2 Form
+    Select Random Member Parent 2
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Parent 2 From None Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select No Parent 2 Form
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Member Parent 2 Form
+    Select Random Member Parent 2
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit No Parent 2 From Non-Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Non-Member Parent 2 Form
+    Input Non-Member Parent 2 Details    Emily    D    Elmer
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select No Parent 2 Form
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit No Parent 2 From Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select Member Parent 2 Form
+    Select Random Member Parent 2
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select No Parent 2 Form
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit No Parent 2 From None Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Parent 2 Details
+    Select No Parent 2 Form
+    Save Parent 2 Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -223,8 +620,7 @@ Edit Adress of Dedication Dedication Record
     Save Dedication Form Changes
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
-
-Edit Non-Member Godmother Dedication Record
+Edit Non-Member Godmother From Non-Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -238,6 +634,16 @@ Edit Non-Member Godmother Dedication Record
     Edit Dedication Page Should Be Open
     Select Edit Godmother Details
     Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Save Godmother Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godmother Details
+    Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Pamela    F    Jackson
     Save Godmother Detail Changes
     Save Dedication Form Data in Edit Dedication Page
@@ -245,7 +651,7 @@ Edit Non-Member Godmother Dedication Record
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
 
-Edit Member Godmother Dedication Record
+Edit Non-Member Godmother From Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -255,6 +661,78 @@ Edit Member Godmother Dedication Record
     Dedication Main Page Should Be Open
     Navigate to View Dedication Page From Dedication Main Page
     View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godmother Details
+    Select Member Godmother Form
+    Select Random Member Godmother
+    Save Godmother Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godmother Details
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Pamela    F    Jackson
+    Save Godmother Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Godmother From Non-Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godmother Details
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Brenda    G    Pond
+    Save Godmother Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godmother Details
+    Select Member Godmother Form
+    Select Random Member Godmother
+    Save Godmother Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Godmother From Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godmother Details
+    Select Member Godmother Form
+    Select Random Member Godmother
+    Save Godmother Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godmother Details
@@ -326,7 +804,7 @@ Add Member Godmother Dedication Record
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
 
-Edit Non-Member Godfather Dedication Record
+Edit Non-Member Godfather From Non-Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -340,6 +818,16 @@ Edit Non-Member Godfather Dedication Record
     Edit Dedication Page Should Be Open
     Select Edit Godfather Details
     Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Mike    S    Oliver
+    Save Godfather Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godfather Details
+    Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Samuel    L    Jackson
     Save Godfather Detail Changes
     Save Dedication Form Data in Edit Dedication Page
@@ -347,7 +835,7 @@ Edit Non-Member Godfather Dedication Record
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
 
-Edit Member Godfather Dedication Record
+Edit Non-Member Godfather From Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -357,6 +845,78 @@ Edit Member Godfather Dedication Record
     Dedication Main Page Should Be Open
     Navigate to View Dedication Page From Dedication Main Page
     View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godfather Details
+    Select Member Godfather Form
+    Select Random Member Godfather
+    Save Godfather Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godfather Details
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Samuel    L    Jackson
+    Save Godfather Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Godfather From Non-Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godfather Details
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Darren    A    Kane
+    Save Godfather Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godfather Details
+    Select Member Godfather Form
+    Select Random Member Godfather
+    Save Godfather Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+
+Edit Member Godfather From Member Dedication Record
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to View Dedication Page From Dedication Main Page
+    View Dedication Page Should Be Open
+    Navigate to Edit Dedication Page From View Dedication Page
+    Edit Dedication Page Should Be Open
+    Select Edit Godfather Details
+    Select Member Godfather Form
+    Select Random Member Godfather
+    Save Godfather Detail Changes
+    Save Dedication Form Data in Edit Dedication Page
+    Save Dedication Form Changes
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godfather Details

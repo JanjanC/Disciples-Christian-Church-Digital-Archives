@@ -183,30 +183,30 @@ Confirm Add Godfather
     Sleep    0.5s    Wait for Modal to Close
 
 Remove Godmother
+    Remove From List of Godmothers    0
     Scroll To Element    class:delGMotherWitnessBtn
     Click Element    class:delGMotherWitnessBtn
-    Remove From List of Godmothers    0
 
 Remove Godfather
+    Remove From List of Godfathers    0
     Scroll To Element    class:delGFatherWitnessBtn
     Click Element    class:delGFatherWitnessBtn
-    Remove From List of Godfathers    0
 
 Remove Godmother in Edit Dedication Page
+    Remove From List of Godmothers    0
     Scroll to Element    class:delete_female_witness_btn
     Click Element    class:delete_female_witness_btn
     Sleep    0.5s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
     Sleep    0.5s    Wait for Modal to Close
-    Remove From List of Godmothers    0
 
 Remove Godfather in Edit Dedication Page
+    Remove From List of Godfathers    0
     Scroll to Element    class:delete_male_witness_btn
     Click Element    class:delete_male_witness_btn
     Sleep    0.5s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
     Sleep    0.5s    Wait for Modal to Close
-    Remove From List of Godfathers    0
 
 Submit Dedication Form
     Scroll To Element    id:create-dedication
@@ -326,7 +326,7 @@ Save Parent 2 Data
         ${parent2_last_name}=    Get Value    id:parent2_last_name
         ${parent2}=    Create List    ${parent2_first_name}    ${parent2_mid_name}    ${parent2_last_name}
     ELSE IF    ${parent2_none}
-        ${parent2}=    Create List    'N/A'    'N/A'    'N/A'
+        ${parent2}=    Create List    N/A    N/A    N/A
     END
     Set Test Variable    ${parent2}
 
@@ -368,7 +368,7 @@ Replace in List of Godmothers
 Replace in List of Godfathers
     [Arguments]    ${index}    ${godfather}
     Save List of Godfathers
-    Append To List    ${godfather_list}    ${index}    ${godfather}
+    Set List Value    ${godfather_list}    ${index}    ${godfather}
 
 Append to List of Godmothers
     [Arguments]    ${godmother}
@@ -394,7 +394,7 @@ Save List of Godmothers
     #List of Godmothers
     ${godmother_exists}=    Get Variable Value    ${godmother_list}
     IF    ${godmother_exists} == ${None}
-        ${godmothers}=    Get WebElements    css:.female.witness
+        ${godmothers}=    Get WebElements    css:.witness.female
         ${godmother_list}=    Create List
         FOR    ${godmother}    IN    @{godmothers}
             #Locators
@@ -406,10 +406,8 @@ Save List of Godmothers
             ${godmother_mid_name}=    Get Text    ${godmother_mid_name_locator}
             ${godmother_last_name}=    Get Text    ${godmother_last_name_locator}
             ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
-            Log To Console    ${godmother}
             Append To List    ${godmother_list}    ${godmother}
         END
-        Log To Console    ${godmother_list}
         Set Test Variable    ${godmother_list}
     END
 
@@ -417,7 +415,7 @@ Save List of Godfathers
     #List of Godfathers
     ${godfather_exists}=    Get Variable Value    ${godfather_list}
     IF    ${godfather_exists} == ${None}
-        ${godfathers}=    Get WebElements    css:.male.witness
+        ${godfathers}=    Get WebElements    css:.witness.male
         ${godfather_list}=    Create List
         FOR    ${godfather}    IN    @{godfathers}
             #Locators
@@ -429,10 +427,8 @@ Save List of Godfathers
             ${godfather_mid_name}=    Get Text    ${godfather_mid_name_locator}
             ${godfather_last_name}=    Get Text    ${godfather_last_name_locator}
             ${godfather}=    Create List    ${godfather_first_name}    ${godfather_mid_name}    ${godfather_last_name}
-            Log To Console    ${godfather}
             Append To List    ${godfather_list}    ${godfather}
         END
-        Log To Console    ${godfather_list}
         Set Test Variable    ${godfather_list}
     END
 
@@ -500,7 +496,6 @@ Save Dedication Form Data in Edit Dedication Page
     Save List of Godfathers
 
 View Dedication Page Should Match Form Inputs
-    Log To Console    ${godmother_list}
     #Date of Dedication
     Element Should Contain    id:dedication_date    ${date}
     #Child
@@ -522,22 +517,22 @@ View Dedication Page Should Match Form Inputs
     #Godfather
     ${godfather_ctr}=    Set Variable    ${0}
     ${godfathers_elements}=    Get WebElements    css:#godfathers .witness
+    ${godfather_length}=    Get Length    ${godfathers_elements}
+    Length Should Be    ${godfather_list}    ${godfather_length}
     FOR    ${godfather}    IN    @{godfather_list}
         ${godfather_name}=    Catenate    ${godfather[0]}    ${godfather[1]}.    ${godfather[2]}
         Element Should Contain    ${godfathers_elements[${godfather_ctr}]}    ${godfather_name}
         ${godfather_ctr}=    Evaluate    ${godfather_ctr} + 1
-        Log To Console    ${godfather_ctr}
-        Log To Console    ${godfather_name}
     END
     #Godmother
     ${godmother_ctr}=    Set Variable    ${0}
     ${godmothers_elements}=    Get WebElements    css:#godmothers .witness
+    ${godmother_length}=    Get Length    ${godmothers_elements}
+    Length Should Be    ${godmother_list}    ${godmother_length}
     FOR    ${godmother}    IN    @{godmother_list}
         ${godmother_name}=    Catenate    ${godmother[0]}    ${godmother[1]}.    ${godmother[2]}
         Element Should Contain    ${godmothers_elements[${godmother_ctr}]}    ${godmother_name}
         ${godmother_ctr}=    Evaluate    ${godmother_ctr} + 1
-        Log To Console    ${godmother_ctr}
-        Log To Console    ${godmother_name}
     END
 
 Forms Main Page Should Be Open
