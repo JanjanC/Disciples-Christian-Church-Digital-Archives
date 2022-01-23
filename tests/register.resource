@@ -5,7 +5,7 @@ Documentation   A resource file with reusable keywords and variables
 ...              from SeleniumLibrary
 Library          SeleniumLibrary
 *** Variables ***
-${SERVER}              localhost:8080
+${SERVER}              localhost:3000
 ${BROWSER}             chrome
 ${DELAY}               0
 ${LEVEL 1 PASSWORD}    NormandyN7
