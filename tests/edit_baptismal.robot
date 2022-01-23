@@ -83,7 +83,7 @@ Edit Member Baptismal Record:
     View Baptismal Page Should Be Open
     View Baptismal Page Should Match Form Inputs
 
-Edit Non-Member Officiant Baptismal Record:
+Edit Non-Member Officiant From Non-Member Baptismal Record:
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -97,6 +97,16 @@ Edit Non-Member Officiant Baptismal Record:
     Edit Baptismal Page Should Be Open
     Select Edit Officiant Details
     Select Non-Member Officiant Form
+    Input Non Member Officiant Details    Jonathan    B    Richards
+    Save Officiant Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
+    Save Baptismal Form Changes
+    View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
+    Navigate to Edit Baptismal Page From View Baptismal Page
+    Edit Baptismal Page Should Be Open
+    Select Edit Officiant Details
+    Select Non-Member Officiant Form
     Input Non Member Officiant Details    John    C    Shepard
     Save Officiant Detail Changes
     Save Baptismal Form Data in Edit Baptismal Page
@@ -104,7 +114,7 @@ Edit Non-Member Officiant Baptismal Record:
     View Baptismal Page Should Be Open
     View Baptismal Page Should Match Form Inputs
 
-Edit Member Officiant Baptismal Record:
+Edit Non-Member Officiant From Member Baptismal Record:
     Open Browser to Login Page
     Login Level 3 User
     Main Page Should Be Open
@@ -114,6 +124,78 @@ Edit Member Officiant Baptismal Record:
     Baptismal Main Page Should Be Open
     Navigate to View Baptismal Page From Baptismal Main Page
     View Baptismal Page Should Be Open
+    Navigate to Edit Baptismal Page From View Baptismal Page
+    Edit Baptismal Page Should Be Open
+    Select Edit Officiant Details
+    Select Member Officiant Form
+    Select Random Member Officiant
+    Save Officiant Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
+    Save Baptismal Form Changes
+    View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
+    Navigate to Edit Baptismal Page From View Baptismal Page
+    Edit Baptismal Page Should Be Open
+    Select Edit Officiant Details
+    Select Non-Member Officiant Form
+    Input Non Member Officiant Details    John    C    Shepard
+    Save Officiant Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
+    Save Baptismal Form Changes
+    View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
+
+Edit Member Officiant From Non-Member Baptismal Record:
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
+    Baptismal Main Page Should Be Open
+    Navigate to View Baptismal Page From Baptismal Main Page
+    View Baptismal Page Should Be Open
+    Navigate to Edit Baptismal Page From View Baptismal Page
+    Edit Baptismal Page Should Be Open
+    Select Edit Officiant Details
+    Select Non-Member Officiant Form
+    Input Non Member Officiant Details    Jonathan    B    Richards
+    Save Officiant Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
+    Save Baptismal Form Changes
+    View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
+    Navigate to Edit Baptismal Page From View Baptismal Page
+    Edit Baptismal Page Should Be Open
+    Select Edit Officiant Details
+    Select Member Officiant Form
+    Select Random Member Officiant
+    Save Officiant Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
+    Save Baptismal Form Changes
+    View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
+
+Edit Member Officiant From Member Baptismal Record:
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
+    Baptismal Main Page Should Be Open
+    Navigate to View Baptismal Page From Baptismal Main Page
+    View Baptismal Page Should Be Open
+    Navigate to Edit Baptismal Page From View Baptismal Page
+    Edit Baptismal Page Should Be Open
+    Select Edit Officiant Details
+    Select Member Officiant Form
+    Select Random Member Officiant
+    Save Officiant Detail Changes
+    Save Baptismal Form Data in Edit Baptismal Page
+    Save Baptismal Form Changes
+    View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
     Navigate to Edit Baptismal Page From View Baptismal Page
     Edit Baptismal Page Should Be Open
     Select Edit Officiant Details
