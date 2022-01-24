@@ -52,7 +52,6 @@ const attendanceController = {
                 data.scripts = ["viewAttendance"];
                 data.styles = ["attendanceView"];
                 data.backLink = "attendance_main_page";
-                console.log(data)
                 res.render("view-attendance", data);
             });
         }
@@ -74,8 +73,7 @@ const attendanceController = {
                     message: "Unauthorized access",
                 },
             });
-        }
-        else {
+        } else {
             const joinTables1 = [
                 {
                     tableName: db.tables.PERSON_TABLE,
@@ -152,7 +150,7 @@ const attendanceController = {
                             result -= 1;
                         });
                     }
-                    
+
                     // insert each person into a new attendance table
                     db.insert(db.tables.ATTENDANCE_TABLE, attendees, function (result) {
                         if (result !== false) {
@@ -177,7 +175,7 @@ const attendanceController = {
         if (parseInt(req.session.level) === 3 || parseInt(req.session.level) === 2 || req.session.editId === date) {
             const data = {
                 scripts: ["editAttendance", "edit"],
-                styles: ["forms","attendanceEdit"],
+                styles: ["forms", "attendanceEdit"],
                 attendeesMembers: [],
                 attendeesNonMembers: [],
                 attendees: [],
