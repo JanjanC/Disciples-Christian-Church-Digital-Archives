@@ -554,7 +554,7 @@ const dedicationController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -600,7 +600,7 @@ const dedicationController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -659,7 +659,7 @@ const dedicationController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -765,7 +765,7 @@ const dedicationController = {
     const couples = JSON.parse(req.body.couples)
     const witnesses = JSON.parse(req.body.witnesses)
     const recordId = req.body.recordId
-
+    console.log(JSON.stringify(req.body))
     const nonMembersCond = new Condition(queryTypes.whereIn)
     nonMembersCond.setArray(personFields.ID, nonMembers)
 
@@ -778,20 +778,28 @@ const dedicationController = {
     const recordCond = new Condition(queryTypes.where)
     recordCond.setKeyValue(infDedFields.ID, recordId)
 
-    // Delete Witnesses
-    db.delete(tables.WITNESS_TABLE, witnessesCond, function (result) {
-      if (result === 0) {
-        result = true
-      }
+    const memberCond = new Condition(queryTypes.where)
+    memberCond.setKeyValue(memberFields.CHILD_DEDICATION, recordId)
 
-      if (result) {
-        db.delete(tables.COUPLE_TABLE, couplesCond, function (result) {
+    db.update(db.tables.MEMBER_TABLE, { child_dedication_id: null }, memberCond, function (result) {
+      if (result || result === 0) {
+        //Delete Witnesses
+        db.delete(tables.WITNESS_TABLE, witnessesCond, function (result) {
+          if (result === 0) {
+            result = true
+          }
           if (result) {
-            db.delete(tables.PERSON_TABLE, nonMembersCond, function (result) {
-              if (nonMembers.length === 0 || result) {
-                db.delete(tables.INFANT_TABLE, recordCond, function (result) {
-                  if (result || result === 0) { // Dedication record should be deleted because of FK constraint
-                    res.send(true)
+            db.delete(tables.COUPLE_TABLE, couplesCond, function (result) {
+              if (result) {
+                db.delete(tables.PERSON_TABLE, nonMembersCond, function (result) {
+                  if (nonMembers.length === 0 || result) {
+                    db.delete(tables.INFANT_TABLE, recordCond, function (result) {
+                      if (result || result === 0) { // Dedication record should be deleted because of FK constraint
+                        res.send(true)
+                      } else {
+                        res.send(false)
+                      }
+                    })
                   } else {
                     res.send(false)
                   }
@@ -805,7 +813,7 @@ const dedicationController = {
           }
         })
       } else {
-        res.send(false)
+        res.send(false);
       }
     })
   }
