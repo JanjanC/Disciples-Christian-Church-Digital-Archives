@@ -311,6 +311,22 @@ $(document).ready(function () {
         }
     })
 
+    $('#togBtn').change(function() {
+        $.ajax({
+            type: 'POST',
+            url: '/postChangeSettings',
+            data: {
+                name: "allow_level_0",
+                value: $(this).prop("checked").toString()
+            },
+            success: function (result) {
+                if (!result) {
+                    alert("Something went wrong while changing this setting")
+                }
+            }
+        })
+    })
+
     $('#delete-db').click(function () {
         $.ajax({
             type: 'POST',
