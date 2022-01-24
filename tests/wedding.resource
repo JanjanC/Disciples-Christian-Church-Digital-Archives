@@ -317,14 +317,14 @@ Confirm Add Godfather
     Sleep    0.5s    Wait for Modal to Close
 
 Remove Godmother
+    Remove From List of Godmothers    0
     Scroll to Element    class:delGMotherWitnessBtn
     Click Element    class:delGMotherWitnessBtn
-    Remove From List of Godmothers    0
 
 Remove Godfather
+    Remove From List of Godfathers    0
     Scroll to Element    class:delGFatherWitnessBtn
     Click Element    class:delGFatherWitnessBtn
-    Remove From List of Godfathers    0
 
 Select Non-Member Godmother Form in Edit Wedding Page
     Click Button    id:female_witness_non_member
@@ -359,20 +359,20 @@ Select Random Member Godfather in Edit Wedding Page
     Click Element    css:#male_witness_member_div .selectize-dropdown-content>[data-selectable]
 
 Remove Godmother in Edit Wedding Page
+    Remove From List of Godmothers    0
     Scroll to Element    class:delete_female_witness_btn
     Click Element    class:delete_female_witness_btn
     Sleep    0.5s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
     Sleep    0.5s    Wait for Modal to Close
-    Remove From List of Godmothers    0
 
 Remove Godfather in Edit Wedding Page
+    Remove From List of Godfathers    0
     Scroll to Element    class:delete_male_witness_btn
     Click Element    class:delete_male_witness_btn
     Sleep    0.5s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
     Sleep    0.5s    Wait for Modal to Close
-    Remove From List of Godfathers    0
 
 Submit Wedding Registry
     Scroll to Element    id:create-wedding-registry
@@ -413,14 +413,26 @@ Save Groom Father Detail Changes
     Sleep    0.5s    Wait for Modal to Close
 
 Save Godmother Detail Changes
-    ${godmother}=    Get Female Data
+    ${godmother}=    Get Godmother Data in Edit Wedding Page
     Replace in List of Godmothers    0    ${godmother}
     Click Button    id:save_female_witness_btn
     Sleep    0.5s    Wait for Modal to Close
 
 Save Godfather Detail Changes
-    ${godmother}=    Get Female Data
-    Replace in List of Godmothers    0    ${godmother}
+    ${godfather}=    Get Godfather Data in Edit Wedding Page
+    Replace in List of Godfathers    0    ${godfather}
+    Click Button    id:save_male_witness_btn
+    Sleep    0.5s    Wait for Modal to Close
+
+Confirm Add Godmother in Edit Wedding Page
+    ${godmother}=    Get Godmother Data in Edit Wedding Page
+    Append to List of Godmothers    ${godmother}
+    Click Button    id:save_female_witness_btn
+    Sleep    0.5s    Wait for Modal to Close
+
+Confirm Add Godfather in Edit Wedding Page
+    ${godfather}=    Get Godfather Data in Edit Wedding Page
+    Append to List of Godfathers    ${godfather}
     Click Button    id:save_male_witness_btn
     Sleep    0.5s    Wait for Modal to Close
 
@@ -528,7 +540,7 @@ Save Bride Mother Data
         ${bride_mother}=    Create List    ${bride_mother_first_name}    ${bride_mother_mid_name}
         ...    ${bride_mother_last_name}
     ELSE IF    ${bride_mother_none}
-        ${bride_mother}=    Create List    'N/A'    'N/A'    'N/A'
+        ${bride_mother}=    Create List    N/A    N/A    N/A
     END
     Set Test Variable    ${bride_mother}
 
@@ -652,6 +664,36 @@ Get Male Data
     END
     [Return]    ${male}
 
+Get Godmother Data in Edit Wedding Page
+    #Current Godmother
+    ${godmother_member}=    Get Radio Button Status    id:female_witness_member
+    ${godmother_non_member}=    Get Radio Button Status    id:female_witness_non_member
+    IF    ${godmother_member}
+        ${godmother}=    Get Value    id:input_female_witness_member
+        ${godmother}=    Extract Member Name    ${godmother}
+    ELSE IF    ${godmother_non_member}
+        ${godmother_first_name}=    Get Value    id:female_witness_first_name
+        ${godmother_mid_name}=    Get Value    id:female_witness_mid_name
+        ${godmother_last_name}=    Get Value    id:female_witness_last_name
+        ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
+    END
+    [Return]    ${godmother}
+
+Get Godfather Data in Edit Wedding Page
+    #Current Godfather
+    ${godfather_member}=    Get Radio Button Status    id:male_witness_member
+    ${godfather_non_member}=    Get Radio Button Status    id:male_witness_non_member
+    IF    ${godfather_member}
+        ${godfather}=    Get Value    id:input_male_witness_member
+        ${godfather}=    Extract Member Name    ${godfather}
+    ELSE IF    ${godfather_non_member}
+        ${godfather_first_name}=    Get Value    id:male_witness_first_name
+        ${godfather_mid_name}=    Get Value    id:male_witness_mid_name
+        ${godfather_last_name}=    Get Value    id:male_witness_last_name
+        ${godfather}=    Create List    ${godfather_first_name}    ${godfather_mid_name}    ${godfather_last_name}
+    END
+    [Return]    ${godfather}
+
 Replace in List of Godmothers
     [Arguments]    ${index}    ${godmother}
     Save List of Godmothers
@@ -660,7 +702,7 @@ Replace in List of Godmothers
 Replace in List of Godfathers
     [Arguments]    ${index}    ${godfather}
     Save List of Godfathers
-    Append To List    ${godfather_list}    ${index}    ${godfather}
+    Set List Value    ${godfather_list}    ${index}    ${godfather}
 
 Append to List of Godmothers
     [Arguments]    ${godmother}
@@ -686,7 +728,7 @@ Save List of Godmothers
     #List of Godmothers
     ${godmother_exists}=    Get Variable Value    ${godmother_list}
     IF    ${godmother_exists} == ${None}
-        ${godmothers}=    Get WebElements    css:.female.witness
+        ${godmothers}=    Get WebElements    css:.witness.female
         ${godmother_list}=    Create List
         FOR    ${godmother}    IN    @{godmothers}
             #Locators
@@ -698,10 +740,8 @@ Save List of Godmothers
             ${godmother_mid_name}=    Get Text    ${godmother_mid_name_locator}
             ${godmother_last_name}=    Get Text    ${godmother_last_name_locator}
             ${godmother}=    Create List    ${godmother_first_name}    ${godmother_mid_name}    ${godmother_last_name}
-            Log To Console    ${godmother}
             Append To List    ${godmother_list}    ${godmother}
         END
-        Log To Console    ${godmother_list}
         Set Test Variable    ${godmother_list}
     END
 
@@ -709,7 +749,7 @@ Save List of Godfathers
     #List of Godfathers
     ${godfather_exists}=    Get Variable Value    ${godfather_list}
     IF    ${godfather_exists} == ${None}
-        ${godfathers}=    Get WebElements    css:.male.witness
+        ${godfathers}=    Get WebElements    css:.witness.male
         ${godfather_list}=    Create List
         FOR    ${godfather}    IN    @{godfathers}
             #Locators
@@ -721,10 +761,8 @@ Save List of Godfathers
             ${godfather_mid_name}=    Get Text    ${godfather_mid_name_locator}
             ${godfather_last_name}=    Get Text    ${godfather_last_name_locator}
             ${godfather}=    Create List    ${godfather_first_name}    ${godfather_mid_name}    ${godfather_last_name}
-            Log To Console    ${godfather}
             Append To List    ${godfather_list}    ${godfather}
         END
-        Log To Console    ${godfather_list}
         Set Test Variable    ${godfather_list}
     END
 
@@ -766,6 +804,9 @@ Save Wedding Form Data in Edit Wedding Page
     ${date}=    Get Value    id:date
     ${date}=    Format Date    ${date}
     Set Test Variable    ${date}
+    #Contract
+    ${contract}=    Get Value    id:contract
+    Set Test Variable    ${contract}
     #Bride
     ${bride_exists}=    Get Variable Value    ${bride}
     IF    ${bride_exists} == ${None}
@@ -875,26 +916,22 @@ View Wedding Page Should Match Form Inputs
     #Godfather
     ${godfather_ctr}=    Set Variable    ${0}
     ${godfathers_elements}=    Get WebElements    css:#godfathers .witness
-    ${godfather_length}=    Get Length    {godfather_length}
-    Length Should Be    ${godfather_list}    ${length}
+    ${godfather_length}=    Get Length    ${godfathers_elements}
+    Length Should Be    ${godfather_list}    ${godfather_length}
     FOR    ${godfather}    IN    @{godfather_list}
         ${godfather_name}=    Catenate    ${godfather[0]}    ${godfather[1]}.    ${godfather[2]}
         Element Should Contain    ${godfathers_elements[${godfather_ctr}]}    ${godfather_name}
         ${godfather_ctr}=    Evaluate    ${godfather_ctr} + 1
-        Log To Console    ${godfather_ctr}
-        Log To Console    ${godfather_name}
     END
     #Godmother
     ${godmother_ctr}=    Set Variable    ${0}
     ${godmothers_elements}=    Get WebElements    css:#godmothers .witness
-    ${godmother_length}=    Get Length    {godmothers_elements}
+    ${godmother_length}=    Get Length    ${godmothers_elements}
     Length Should Be    ${godmother_list}    ${godmother_length}
     FOR    ${godmother}    IN    @{godmother_list}
         ${godmother_name}=    Catenate    ${godmother[0]}    ${godmother[1]}.    ${godmother[2]}
         Element Should Contain    ${godmothers_elements[${godmother_ctr}]}    ${godmother_name}
         ${godmother_ctr}=    Evaluate    ${godmother_ctr} + 1
-        Log To Console    ${godmother_ctr}
-        Log To Console    ${godmother_name}
     END
 #TODO: END
 
