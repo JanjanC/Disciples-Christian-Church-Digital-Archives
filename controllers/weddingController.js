@@ -596,7 +596,7 @@ const weddingController = {
                     projection,
                     (result) => {
                         if (result === false) {
-                            callback("[DBFind Wrapper] Error occurred.", null);
+                            callback("[DBFind Wrapper] Error occurred for FIND.", null);
                         } else {
                             callback(null, result);
                         }
@@ -607,7 +607,16 @@ const weddingController = {
             const wrapDbInsert = (table, data, callback) => {
                 db.insert(table, data, (result) => {
                     if (result === false) {
-                        callback("[DBInsert Wrapper] Error occurred.", null);
+                        callback("[DBInsert Wrapper] Error occurred for INSERT.", null);
+                    } else {
+                        callback(null, result);
+                    }
+                });
+            };
+            const wrapDbUpdate = (table, data, conditions, callback) => {
+                db.update(table, data, conditions, (result) => {
+                    if (result === false) {
+                        callback("[DBInsert Wrapper] Error occured for UPDATE.", null);
                     } else {
                         callback(null, result);
                     }
@@ -617,6 +626,7 @@ const weddingController = {
             // Promisified Methods
             const dbInsert = promisify(wrapDbInsert);
             const dbFind = promisify(wrapDbFind);
+            const dbUpdate = promisify(wrapDbUpdate);
 
             // Check if the couple is/are members
             // If not, create a people entry for them.
@@ -863,6 +873,25 @@ const weddingController = {
             const weddingInsertResult = await dbInsert(db.tables.WEDDING_TABLE, insertWeddingData);
             const weddingId = weddingInsertResult[0];
 
+            // Add the wedding ID to the wedding_reg field on the member table for the couple if they are members
+            // Bride
+            if (weddingData.bride.isMember) {
+                const brideMemberFindCondition = new Condition(queryTypes.where);
+                brideMemberFindCondition.setKeyValue(memberFields.ID, weddingData.bride.member_id);
+                const updateData = {};
+                updateData[memberFields.WEDDING_REG] = weddingId;
+                await dbUpdate(db.tables.MEMBER_TABLE, updateData, [brideMemberFindCondition]);
+            }
+
+            // Groom
+            if (weddingData.groom.isMember) {
+                const groomMemberFindCondition = new Condition(queryTypes.where);
+                groomMemberFindCondition.setKeyValue(memberFields.ID, weddingData.groom.member_id);
+                const updateData = {};
+                updateData[memberFields.WEDDING_REG] = weddingId;
+                await dbUpdate(db.tables.MEMBER_TABLE, updateData, [groomMemberFindCondition]);
+            }
+
             // Process the witnesses
             // Male witnesses
             // console.log("Check if each male witness is a member. If not a member, create a person record for them.");
@@ -964,7 +993,7 @@ const weddingController = {
 
             return res.json(weddingId);
         } catch (err) {
-            console.error("Flip me, there's an error!");
+            console.error("[WedingController] Error occured while creating new wedding registry record.");
             console.error(err);
             return res.send(false);
         }
