@@ -26,18 +26,18 @@ describe("Get attendance records given a date range", () => {
     it("Should return the correct bins if it finds attendance records within the given date", () => {
         // Arrange
         const expectedResult = {
-            "January": 1,
-            "February": 0,
-            "March": 1,
-            "April": 2,
-            "May": 0,
-            "June": 0,
-            "July": 0,
-            "August": 0,
-            "September": 0,
-            "October": 0,
-            "November": 0,
-            "December": 1
+            "January 2021": 1,
+            "February 2021": 0,
+            "March 2021": 1,
+            "April 2021": 2,
+            "May 2021": 0,
+            "June 2021": 0,
+            "July 2021": 0,
+            "August 2021": 0,
+            "September 2021": 0,
+            "October 2021": 0,
+            "November 2021": 0,
+            "December 2021": 1
         };
         sandbox.stub(db, "find").yields([
             {date: '2021-03-01T00:00:00.000Z'},
