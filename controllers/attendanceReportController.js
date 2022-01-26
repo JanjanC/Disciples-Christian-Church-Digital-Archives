@@ -26,8 +26,11 @@ const attendanceReportController = {
         withinDateRange.setRange(db.tables.ATTENDANCE_TABLE + "." + attendanceFields.DATE, startDate, endDate);
 
         db.find(db.tables.ATTENDANCE_TABLE, [withinDateRange], [], "date", function (result) {
-            if (result == null || result == undefined || result == []) {
-                res.send(data);
+            if (result == null || result == undefined || result.length == 0) {
+                res.send({
+                    error: true,
+                    message: "No data found."
+                });
             }
             else {
                 result.forEach(attendance => {
@@ -37,11 +40,10 @@ const attendanceReportController = {
                     else
                         data[date] = 1;
                 });
-                if (data[startDate] == undefined)
-                    data[startDate] = 0;
-                if (data[endDate] == undefined)
-                    data[endDate] = 0;
-                console.log(data)
+                if (data[req.body.startDate] == undefined)
+                    data[req.body.startDate] = 0;
+                if (data[req.body.endDate] == undefined)
+                    data[req.body.endDate] = 0;
                 var orderedData = Object.keys(data).sort().reduce((obj, key) => {
                     obj[key] = data[key];
                     return obj;

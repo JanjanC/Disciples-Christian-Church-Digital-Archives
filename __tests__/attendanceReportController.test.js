@@ -77,7 +77,7 @@ describe("Get attendance records given a date range", () => {
         sinon.assert.calledWith(res.send, sinon.match({error: expectedResult.error}));
     });
 
-    it("Should return an error if it cannot find any attendance records within the given date", () => {
+    it("Should return an error if the date range is greater than 20 years", () => {
         // Arrange
         req.body = {
             startDate: "2010-11-11",
