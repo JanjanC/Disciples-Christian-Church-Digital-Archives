@@ -33,11 +33,15 @@ const attendanceReportController = {
                 result.forEach(attendance => {
                     date = new Date(attendance.date).toISOString().split('T')[0];
                     if (typeof(data[date]) == "number")
-                        data[date]++
+                        data[date]++;
                     else
-                        data[date] = 1
+                        data[date] = 1;
                 });
-                
+                if (data[startDate] == undefined)
+                    data[startDate] = 0;
+                if (data[endDate] == undefined)
+                    data[endDate] = 0;
+                console.log(data)
                 var orderedData = Object.keys(data).sort().reduce((obj, key) => {
                     obj[key] = data[key];
                     return obj;
