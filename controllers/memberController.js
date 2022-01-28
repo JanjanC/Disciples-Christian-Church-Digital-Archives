@@ -18,26 +18,30 @@ const memberController = {
    * @param res - the result to be sent out after processing the request
    */
   getAddMemberPage: function (req, res) {
-    const level = req.session.level;
+    let level = req.session.level;
     req.session.editId = null
-    const matchesSettingName = new Condition(queryTypes.where)
-    matchesSettingName.setKeyValue(settingsFields.ID, "allow_level_0")
-    db.find(db.tables.SETTINGS_TABLE, matchesSettingName, [], 'value', function (result) {
-      if ((level === undefined || level === null) && result == "false") {
+    const matchesSettingName = new Condition(queryTypes.where);
+    matchesSettingName.setKeyValue(settingsFields.ID, "allow_level_0");
+    db.find(db.tables.SETTINGS_TABLE, matchesSettingName, [], settingsFields.VALUE, function (result) {
+      if ((level === undefined || level === null) && result[0].settings_value == "false") {
           res.status(401);
           res.render("error", {
               title: "401 Unauthorized Access",
               css: ["global", "error"],
               status: {
                   code: "401",
-                  message: "Unauthorized access",
+                  message: "Adding new members isn't allowed at this time. Contact a church admin for more info.",
               },
           });
       }
-      res.render('add-member-temp', {
-        styles: ['forms','addMember'],
-        scripts: ['member']
-      })
+      else {
+        if (!level)
+          level = 0;
+        res.render('add-member-temp', {
+          styles: ['forms','addMember'],
+          scripts: ['member']
+        })
+      }
     });
   },
 

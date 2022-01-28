@@ -386,20 +386,25 @@ const controller = {
       const data = {
         scripts: ['settings'],
         styles: ['settings'],
+        settings: {},
         passwords: {}
       }
-      db.findAll(db.tables.ACCOUNT_TABLE, '*', function (result) {
-        // data.passwords = result
-        for (let i = 0; i < result.length; i++) {
-          if (result[i].level === '1') {
-            data.passwords.low = result[i].hashed_password
-          } else if (result[i].level === '2') {
-            data.passwords.med = result[i].hashed_password
-          } else if (result[i].level === '3') {
-            data.passwords.high = result[i].hashed_password
+      db.findAll(db.tables.SETTINGS_TABLE, "*", function (result) {
+        for (let i = 0; i < result.length; i++) 
+          data.settings[result[i].settings_name] = (result[i].settings_value) === "true"
+        db.findAll(db.tables.ACCOUNT_TABLE, '*', function (result) {
+          // data.passwords = result
+          for (let i = 0; i < result.length; i++) {
+            if (result[i].level === '1') {
+              data.passwords.low = result[i].hashed_password
+            } else if (result[i].level === '2') {
+              data.passwords.med = result[i].hashed_password
+            } else if (result[i].level === '3') {
+              data.passwords.high = result[i].hashed_password
+            }
           }
-        }
-        res.render('settings-page', data)
+          res.render('settings-page', data)
+        })
       })
     } else {
       sendError(req, res, 401)
@@ -463,7 +468,7 @@ const controller = {
       const value = req.body.value
       const matchesSettingName = new Condition(queryTypes.where)
       matchesSettingName.setKeyValue(settingsFields.ID, name)
-      db.update(db.tables.SETTINGS_TABLE, {value: value}, matchesSettingName, function (result) {
+      db.update(db.tables.SETTINGS_TABLE, {settings_value: value}, matchesSettingName, function (result) {
         if (result) {
           res.send(true)
         } else {

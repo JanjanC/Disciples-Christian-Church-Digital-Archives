@@ -1,6 +1,6 @@
 const settingsFields = {
-    ID: 'name',
-    VALUE: 'value',
+    ID: 'settings_name',
+    VALUE: 'settings_value',
 }
   
 module.exports = settingsFields
