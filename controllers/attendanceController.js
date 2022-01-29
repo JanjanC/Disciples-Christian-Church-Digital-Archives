@@ -139,6 +139,7 @@ const attendanceController = {
                     res.send("EXISTS");
                     return;
                 }
+
                 db.insert(db.tables.PERSON_TABLE, nonMemberAttendees, function (result) {
                     if (result) {
                         result = result[0];
@@ -147,7 +148,7 @@ const attendanceController = {
                             curAttendee[attendanceFields.DATE] = date;
                             curAttendee[attendanceFields.PERSON] = result;
                             attendees.push(curAttendee);
-                            result -= 1;
+                            result += 1;
                         });
                     }
 
@@ -322,7 +323,7 @@ const attendanceController = {
 
         // find the the person ids of each attendance record that was removed in the update
         db.find(db.tables.ATTENDANCE_TABLE, condition, [], "*", function (result) {
-            if (result == 0) res.send(true);
+            if (result.length === 0) res.send(true);
             else res.send(false);
         });
     },
