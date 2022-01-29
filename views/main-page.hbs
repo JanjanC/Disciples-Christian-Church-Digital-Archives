@@ -25,7 +25,7 @@
 
 <div id="maindiv" class="container maindiv d-flex justify-content-center align-items-center">
   <div class="row">
-    <div class="col mx-3 pt-3 pt-xxl-0">
+    <div class="col mx-3 pt-3 pt-xxl-0" id="members">
       <a href="{{#if canSee}}/member_main_page{{else}}/add_member{{/if}}" class="mainBtns">
         <div class="card" style="width: 14rem;">
           <img src="../images/people.png" class="card-img-top" alt="...">
@@ -36,7 +36,7 @@
         </div>
       </a>
     </div>
-    <div class="col mx-3 pt-3 pt-xxl-0">
+    <div class="col mx-3 pt-3 pt-xxl-0" id="registries">
       <a href="/forms_main_page" class="mainBtns">
         <div class="card" style="width: 14rem;">
           <img src="../images/doc.jpg" class="card-img-top" alt="...">
@@ -47,7 +47,7 @@
         </div>
       </a>
   </div>
-  <div class="col mx-3 pt-3 pt-xxl-0">
+  <div class="col mx-3 pt-3 pt-xxl-0"  id="attendance">
       <a href="{{#if canSee}}/attendance_main_page{{else}}/add_attendance{{/if}}" class="mainBtns">
         <div class="card" style="width: 14rem;">
           <img src="../images/attendance.png" class="card-img-top" alt="...">

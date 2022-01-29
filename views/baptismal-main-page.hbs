@@ -11,8 +11,8 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col d-flex justify-content-between">
-      <h1>{{#if fromSearch}}Search Results Baptismal{{else}}Baptismal Records{{/if}}</h1>
-      <a href="/add_baptismal"><i class="far fa-plus-square"></i></a>
+      <h1 id="title">{{#if fromSearch}}Search Results Baptismal{{else}}Baptismal Records{{/if}}</h1>
+      <a href="/add_baptismal" id="add-baptismal"><i class="far fa-plus-square"></i></a>
     </div>
   </div>
   <div class="row">
@@ -29,7 +29,7 @@
       </thead>
       <tbody>
         {{#each records}}
-        <tr data-href="/view_baptismal/{{this.reg_id}}">
+        <tr data-href="/view_baptismal/{{this.reg_id}}" class="record">
           <td>{{this.reg_id}}</td>
           <td>{{this.member_first_name}} {{this.member_last_name}}</td>
           <td>{{dateView this.date}}</td>

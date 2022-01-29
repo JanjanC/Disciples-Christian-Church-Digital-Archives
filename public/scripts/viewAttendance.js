@@ -87,10 +87,12 @@ function getMonth (mm)
   for(var i = 0; i < status.length; i++)
   {
     if(status[i].textContent == '' || status[i].textContent == null){
-      status[i].innerHTML = "Non-member"
+      status[i].innerHTML = "Non-Member";
+      status[i].parentNode.classList.add("non-member");
     }
     else{
-      status[i].textContent = 'Member'
+      status[i].textContent = 'Member';
+      status[i].parentNode.classList.add("member");
     }
   }
 

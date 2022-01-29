@@ -13,124 +13,124 @@
 
 <div id="wedding_div" style="display: none"></div>
   <div class="container" style="padding-left: 18%; padding-right: 10%;">
-    <h1 class="my-3"> View Wedding Registry </h1>
+    <h1 class="my-3" id="title"> View Wedding Registry </h1>
     <hr>
     <div class="row">
       <div class="col-4">
-        <legend>Registry Number</legend>
-        <p>{{wedding_id}}</p>
+        <legend for="reg_id">Registry Number</legend>
+        <p id="reg_id">{{wedding_id}}</p>
       </div>
       <div class="col">
-        <legend> Contract No. </legend>
-        <p>{{contract_no}}</p>
+        <legend for="contract"> Contract No. </legend>
+        <p id="contract">{{contract_no}}</p>
       </div>
     </div>
     <div class="row">
       <div class="col-4">
-        <legend>Date Created</legend>
-        <p>{{dateView date}}</p>
+        <legend for="date_created">Date Created</legend>
+        <p id="date_created">{{dateView date}}</p>
       </div>
       <div class="col">
-        <legend>Wedding Date</legend>
-        <p>{{dateView wedding_date}}</p>
+        <legend for="wedding_date">Wedding Date</legend>
+        <p id="wedding_date">{{dateView wedding_date}}</p>
       </div>
     </div>
     <hr>
     <div class="row person_info" id="bride_info" data-member="{{bride_member_id}}" data-person="{{bride_person_id}}">
       <legend>Bride's Name</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
-        <p>{{bride_first_name}}</p>
+        <u for="bride_first_name">First Name</u>
+        <p id="bride_first_name">{{bride_first_name}}</p>
         {{#if bride_member_id}}
           <a href="/member/{{bride_member_id}}"><button class="btn btn-secondary mb-4">Bride's Member Profile</button></a>
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
-        <p>{{bride_mid_name}}</p>
+        <u for="bride_mid_name">Middle Initial</u>
+        <p id="bride_mid_name">{{bride_mid_name}}</p>
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
-        <p>{{bride_last_name}}</p>
+        <u for="bride_last_name">Last Name</u>
+        <p id="bride_last_name">{{bride_last_name}}</p>
       </div>
     </div>
     <hr>
     <div class="row person_info" id="groom_info" data-member="{{groom_member_id}}" data-person="{{groom_person_id}}">
       <legend>Groom's Name</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
-        <p>{{groom_first_name}}</p>
+        <u for="groom_first_name">First Name</u>
+        <p id="groom_first_name">{{groom_first_name}}</p>
         {{#if groom_member_id}}
           <a href="/member/{{groom_member_id}}"><button class="btn btn-secondary mb-4">Groom's Member Profile</button></a>
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
-        <p>{{groom_mid_name}}</p>
+        <u for="groom_mid_name">Middle Initial</u>
+        <p id="groom_mid_name">{{groom_mid_name}}</p>
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
-        <p>{{groom_last_name}}</p>
+        <u for="groom_last_name">Last Name</u>
+        <p id="groom_last_name">{{groom_last_name}}</p>
       </div>
     </div>
     <hr>
     <div class="row person_info" id="bride_mother_info" data-member="{{bride_mother_member_id}}" data-person="{{bride_mother_person_id}}">
       <legend>Bride's Mother</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
+        <u for="bride_mother_first_name">First Name</u>
         {{#if (isUndefined bride_mother_first_name)}}
-          <p>N/A</p>
+          <p id="bride_mother_first_name">N/A</p>
         {{else}}
-          <p>{{bride_mother_first_name}}</p>
+          <p id="bride_mother_first_name">{{bride_mother_first_name}}</p>
           {{#if bride_mother_member_id}}
           <a href="/member/{{bride_mother_member_id}}"><button class="btn btn-secondary mb-4">Member Profile</button></a>
           {{/if}}
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
+        <u for="bride_mother_mid_name">Middle Initial</u>
         {{#if (isUndefined bride_mother_mid_name)}}
-          <p>N/A</p>
+          <p id="bride_mother_mid_name">N/A</p>
         {{else}}
-          <p>{{bride_mother_mid_name}}</p>
+          <p id="bride_mother_mid_name">{{bride_mother_mid_name}}</p>
         {{/if}}
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
+        <u for="bride_mother_last_name">Last Name</u>
         {{#if (isUndefined bride_mother_last_name)}}
-          <p>N/A</p>
+          <p id="bride_mother_last_name">N/A</p>
         {{else}}
-          <p>{{bride_mother_last_name}}</p>
+          <p id="bride_mother_last_name">{{bride_mother_last_name}}</p>
         {{/if}}
       </div>
     </div>
     <div  class="row person_info" id="bride_father_info" data-member="{{bride_father_member_id}}" data-person="{{bride_father_person_id}}">
       <legend>Bride's Father</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
+        <u for="bride_father_first_name">First Name</u>
         {{#if (isUndefined bride_father_first_name)}}
-          <p>N/A</p>
+          <p id="bride_father_first_name">N/A</p>
         {{else}}
-          <p>{{bride_father_first_name}}</p>
+          <p id="bride_father_first_name">{{bride_father_first_name}}</p>
           {{#if bride_father_member_id}}
           <a href="/member/{{bride_father_member_id}}"><button class="btn btn-secondary mb-4">Member Profile</button></a>
           {{/if}}
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
+        <u for="bride_father_mid_name">Middle Initial</u>
         {{#if (isUndefined bride_father_mid_name)}}
-          <p>N/A</p>
+          <p id="bride_father_mid_name">N/A</p>
         {{else}}
-          <p>{{bride_father_mid_name}}</p>
+          <p id="bride_father_mid_name">{{bride_father_mid_name}}</p>
         {{/if}}
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
+        <u for="bride_father_last_name">Last Name</u>
         {{#if (isUndefined bride_father_last_name)}}
-          <p>N/A</p>
+          <p id="bride_father_last_name">N/A</p>
         {{else}}
-          <p>{{bride_father_last_name}}</p>
+          <p id="bride_father_last_name">{{bride_father_last_name}}</p>
         {{/if}}
       </div>
     </div>
@@ -138,81 +138,82 @@
     <div class="row person_info" id="groom_mother_info" data-member="{{groom_mother_member_id}}" data-person="{{groom_mother_person_id}}">
       <legend>Groom's Mother</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
+        <u for="groom_mother_first_name">First Name</u>
         {{#if (isUndefined groom_mother_first_name)}}
-          <p>N/A</p>
+          <p id="groom_mother_first_name">N/A</p>
         {{else}}
-          <p>{{groom_mother_first_name}}</p>
+          <p id="groom_mother_first_name">{{groom_mother_first_name}}</p>
           {{#if groom_mother_member_id}}
           <a href="/member/{{groom_mother_member_id}}"><button class="btn btn-secondary mb-4">Member Profile</button></a>
           {{/if}}
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
-        {{#if (isUndefined groom_mother_mid_name)}}
-          <p>N/A</p>
+        <u for="groom_mother_mid_name">Middle Initial</u>
+        {{#if (isUndefined groom_mother_first_name)}}
+          <p id="groom_mother_mid_name">N/A</p>
         {{else}}
-          <p>{{groom_mother_mid_name}}</p>
+          <p id="groom_mother_mid_name">{{groom_mother_mid_name}}</p>
         {{/if}}
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
+        <u for="groom_mother_last_name">Last Name</u>
         {{#if (isUndefined groom_mother_last_name)}}
-          <p>N/A</p>
+          <p id="groom_mother_last_name">N/A</p>
         {{else}}
-          <p>{{groom_mother_last_name}}</p>
+          <p id="groom_mother_last_name">{{groom_mother_last_name}}</p>
         {{/if}}
       </div>
     </div>
     <div class="row person_info" id="groom_father_info" data-member="{{groom_father_member_id}}" data-person="{{groom_father_person_id}}">
       <legend>Groom's Father</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
+        <u for="groom_father_first_name">First Name</u>
         {{#if (isUndefined groom_father_first_name)}}
-          <p>N/A</p>
+          <p id="groom_father_first_name">N/A</p>
         {{else}}
-          <p>{{groom_father_first_name}}</p>
+          <p id="groom_father_first_name">{{groom_father_first_name}}</p>
           {{#if groom_father_member_id}}
           <a href="/member/{{groom_father_member_id}}"><button class="btn btn-secondary mb-4">Member Profile</button></a>
           {{/if}}
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
+        <u for="groom_father_mid_name">Middle Initial</u>
         {{#if (isUndefined groom_father_mid_name)}}
-          <p>N/A</p>
+          <p id="groom_father_mid_name">N/A</p>
         {{else}}
-          <p>{{groom_father_mid_name}}</p>
+          <p id="groom_father_mid_name">{{groom_father_mid_name}}</p>
         {{/if}}
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
+        <u for="groom_father_last_name">Last Name</u>
         {{#if (isUndefined groom_father_last_name)}}
-          <p>N/A</p>
+          <p id="groom_father_last_name">N/A</p>
         {{else}}
-          <p>{{groom_father_last_name}}</p>
+          <p id="groom_father_last_name">{{groom_father_last_name}}</p>
         {{/if}}
       </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-4">
-            <u> Solemnizer</u>
-            <p>{{solemnizer}}</p>
+            <u for="solemnizer"> Solemnizer</u>
+            <p id="solemnizer">{{solemnizer}}</p>
         </div>
         <div class="col-4">
-            <u> Officiant</u>
-            <p>{{officiant}}</p>
+            <u for="officiant"> Officiant</u>
+            <p id="officiant">{{officiant}}</p>
         </div>
         <div class="col-4">
-            <u> Location </u>
-            <p>{{location}}</p>
+            <u for="location"> Location </u>
+            <p id="location">{{location}}</p>
         </div>
     </div>
     <hr>
     <div class="row">
       <legend>Sponsors (Male)</legend>
+        <div id="godfathers">
         {{#if witnessMale}}
           {{#each witnessMale}}
           {{>witness this}}
@@ -221,8 +222,10 @@
         {{else}}
           <p>N/A</p>
         {{/if}}
+        </div>
 
       <legend>Sponsors (Female)</legend>
+        <div id="godmothers">
         {{#if witnessFemale}}
           {{#each witnessFemale}}
           {{>witness this}}
@@ -230,12 +233,13 @@
         {{else}}
           <p>N/A</p>
         {{/if}}
+        </div>
     </div>
     <hr>
     {{#if canSee}}
     <div class="row my-3">
       <div class="col">
-        <a href="/edit_wedding/{{wedding_id}}"><button class="btn btn-secondary mb-4">Edit Wedding Form</button></a>
+        <a href="/edit_wedding/{{wedding_id}}"><button class="btn btn-secondary mb-4" id="edit_wedding">Edit Wedding Form</button></a>
         <button type="button" class="btn btn-danger mb-4" id="delete_wedding">Delete Form</button>
       </div>
     </div>
