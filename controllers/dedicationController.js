@@ -190,7 +190,7 @@ const dedicationController = {
             key === "date"
           )
         ) {
-          data[key] = JSON.parse(req.body[key]);
+          data[key] = (req.body[key] ? JSON.parse(req.body[key]) : req.body[key]);
         } else {
           data[key] = req.body[key];
         }
@@ -258,7 +258,7 @@ const dedicationController = {
       }
 
       // console.log("Checking if guardian1 is member. Insert person entry if groom is not member.");
-      if (!data.guardian1.isMember) {
+      if (data.guardian1 && !data.guardian1.isMember) {
         const result = await dbInsert(db.tables.PERSON_TABLE, {
           first_name: data.guardian1.first_name,
           middle_name: data.guardian1.mid_name,
@@ -353,6 +353,9 @@ const dedicationController = {
       insertDedicationData[infDedFields.PARENTS] = coupleIds.childGuardians;
 
       //console.log(JSON.stringify(insertDedicationData) + "\n");
+      //console.log("FEMALE: " + JSON.stringify(data.witnessFemale));
+      //console.log("MALE: " + JSON.stringify(data.witnessMale));
+
       // Insert the dedication data
       const dedicationInsertResult = await dbInsert(db.tables.INFANT_TABLE, insertDedicationData);
       const dedicationId = dedicationInsertResult[0];
@@ -403,7 +406,7 @@ const dedicationController = {
                 return res.send(false);
               }
             } else {
-              data.witnessMale[i].person_id = witnessPersonLookupResult[0].couple_id;
+              data.witnessMale[i].person_id = witnessPersonLookupResult[0].person_id;
             }
           }
           // Insert the witness to the witness table
@@ -437,6 +440,7 @@ const dedicationController = {
               null,
               personFields.ID
             );
+            //console.log("PERSON LOOK UP IS " + JSON.stringify(witnessPersonLookupResult));
             if (witnessPersonLookupResult.length === 0) {
               // Create new record for this person
               const insertData = {};
@@ -452,7 +456,7 @@ const dedicationController = {
                 return res.send(false);
               }
             } else {
-              data.witnessFemale[i].person_id = witnessPersonLookupResult[0].couple_id;
+              data.witnessFemale[i].person_id = witnessPersonLookupResult[0].person_id;
             }
           }
           // Insert the witness to the witness table
