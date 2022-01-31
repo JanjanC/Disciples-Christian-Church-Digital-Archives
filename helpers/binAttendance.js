@@ -51,7 +51,7 @@ function binAttendance(orderedData) {
     }
 
     // Bins: Annual
-    else if (difference <= 365 * 20) {
+    else if (difference <= 365 * 5) {
         // Initialize bins
         for (let i = 0; earliestDate.getFullYear() + i <= latestDate.getFullYear(); i++)
             bins[earliestDate.getFullYear() + i] = 0;
