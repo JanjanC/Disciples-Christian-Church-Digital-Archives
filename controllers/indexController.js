@@ -118,7 +118,7 @@ const controller = {
    * @param req - the incoming request containing either the query or body
    * @param res - the result to be sent out after processing the request
    */
-  getAttendanceMainPage: function (req,res){
+  getAttendanceMainPage: function (req, res) {
     req.session.editId = null
     res.render('attendance-main-page', {
       level: req.session.level,
@@ -451,16 +451,8 @@ const controller = {
       res.send(result) // sends boolean true or false
     })
   },
-  /**
-   * This function drops all tables in the database
-   * @param req - the incoming request containing either the query or body
-   * @param res - the result to be sent out after processing the request
-   */
-  postDropAllTables: function (req, res) {
-    db.deleteAndReset()
-    res.send(true)
-  },
-  getStatisticsPage: function (req,res){
+
+  getStatisticsPage: function (req, res) {
     if (parseInt(req.session.level) === 3) {
       const level = req.body.level
       const password = req.body.password
@@ -469,7 +461,7 @@ const controller = {
         styles: ['statistics'],
       }
 
-      res.render('statistics-page',data)
+      res.render('statistics-page', data)
     } else {
       sendError(req, res, 401)
     }
