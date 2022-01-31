@@ -536,21 +536,5 @@ describe('Index Controller', () => {
             // Assert
             sinon.assert.calledWith(res.send, expectedResult);
         });
-
-        it("PostDropAllTables should be passing accordingly", () => {
-            // Arrange
-            res = {
-                send: sandbox.spy()
-            }
-
-            sandbox.stub(db, "deleteAndReset");
-            expectedResult = true;
-
-            // Act
-            indexController.postDropAllTables(req, res);
-
-            // Assert
-            sinon.assert.calledWith(res.send, expectedResult);
-        });
     })
 });
