@@ -1,16 +1,18 @@
-const sinon = require("sinon");
-const LoginController = require("../controllers/loginController");
+const sinon = require('sinon');
+const loginController = require('../controllers/loginController');
 
-describe("Login Controller", () => {
-    let req = {};
-    let res = {};
+describe('Login Controller', () => {
+
+    let req = {}
+    let res = {}
+    let expectedResult;
 
     const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
         res = {
             render: sandbox.spy(),
-            redirect: sandbox.spy(),
+            redirect: sandbox.spy()
         };
     });
 
@@ -18,34 +20,34 @@ describe("Login Controller", () => {
         sandbox.restore();
     });
 
-    it("Should be able to access getLoginPage", () => {
+    it('Should be able to access getLoginPage', () => {
         //Arrange
         req = {
             session: {
-                editMemberId: null,
-            },
-        };
+                editMemberId: null
+            }
+        }
 
         expectedResult = {
-            styles: ["login"],
-            scripts: ["login"],
-        };
+            styles: ['login'],
+            scripts: ['login']
+        }
 
         //Act
-        LoginController.getLoginPage(req, res);
+        loginController.getLoginPage(req, res);
 
         //Assert
-        sinon.assert.calledWith(res.render, "login", sinon.match({ styles: expectedResult.styles }));
-        sinon.assert.calledWith(res.render, "login", sinon.match({ scripts: expectedResult.scripts }));
+        sinon.assert.calledWith(res.render, 'login', sinon.match({ styles: expectedResult.styles }));
+        sinon.assert.calledWith(res.render, 'login', sinon.match({ scripts: expectedResult.scripts }));
     });
 
     /*
     it('Should be able to access getLogout', () => {
         //Arrange
         expectedResult =  '/';
-
+        sandbox.stub(req.session, "destroy").yields(true)
         //Act
-        LoginController.getLogout(req, res);
+        loginController.getLogout(req, res);
 
         //Assert
         sinon.assert.calledWith(res.redirect, '/');        
