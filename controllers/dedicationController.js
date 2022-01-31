@@ -470,7 +470,7 @@ const dedicationController = {
           }
         })
       );
-
+      req.session.editId = dedicationId;
       return res.json(dedicationId);
     } catch (err) {
       console.error("[DedicationController] Error occured while creating new dedication registry record.");
