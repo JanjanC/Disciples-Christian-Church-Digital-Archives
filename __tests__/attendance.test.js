@@ -76,7 +76,7 @@ describe("Attendance Controller", () => {
 
         it("Should return true if attendance does not yet exist", () => {
             //Arrange
-            sandbox.stub(db, "find").yields(0);
+            sandbox.stub(db, "find").yields([]);
             const expectedResult = true;
 
             //Act
@@ -88,7 +88,7 @@ describe("Attendance Controller", () => {
 
         it("Should return false if attendance exists", () => {
             //Arrange
-            sandbox.stub(db, "find").yields(3);
+            sandbox.stub(db, "find").yields([{}, {}, {}]);
             const expectedResult = false;
 
             //Act
@@ -366,7 +366,7 @@ describe("Attendance Controller", () => {
             sandbox.stub(db, "find").yields([{ member_id: null }]);
             const expectedResult = {
                 scripts: ["editAttendance", "edit"],
-                styles: [ 'forms', 'attendanceEdit' ],
+                styles: ["forms", "attendanceEdit"],
                 attendeesMembers: [],
                 attendeesNonMembers: [{ member_id: null }],
                 attendees: [{ member_id: null }],
@@ -571,7 +571,7 @@ describe("Attendance Controller", () => {
             sandbox.stub(db, "find").yields([{ member_id: null }]);
             const expectedResult = {
                 scripts: ["editAttendance", "edit"],
-                styles: [ 'forms', 'attendanceEdit' ],
+                styles: ["forms", "attendanceEdit"],
                 attendeesMembers: [],
                 attendeesNonMembers: [{ member_id: null }],
                 attendees: [{ member_id: null }],
@@ -776,7 +776,7 @@ describe("Attendance Controller", () => {
             sandbox.stub(db, "find").yields([{ member_id: null }]);
             const expectedResult = {
                 scripts: ["editAttendance", "edit"],
-                styles: [ 'forms', 'attendanceEdit' ],
+                styles: ["forms", "attendanceEdit"],
                 attendeesMembers: [],
                 attendeesNonMembers: [{ member_id: null }],
                 attendees: [{ member_id: null }],
