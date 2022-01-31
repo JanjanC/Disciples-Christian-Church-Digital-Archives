@@ -22,10 +22,12 @@ function binAttendance(orderedData) {
             "July", "August", "September", "October", "November", "December"];
 
         // Initialize bins
-        let i = earliestDate;
-        i.setDate(latestDate.getDate())
-        for (; i <= latestDate; i.setMonth(i.getMonth() + 1))
-            bins[months[i.getMonth()] + " " + i.getFullYear()] = 0;
+        let ctr = earliestDate;
+        ctr.setDate(1);
+        let last = latestDate;
+        last.setDate(1);
+        for (; ctr <= last; ctr.setMonth(ctr.getMonth() + 1))
+            bins[months[ctr.getMonth()] + " " + ctr.getFullYear()] = 0;
         
         // Transfer each date to its proper bin
         for (const date in orderedData) {
