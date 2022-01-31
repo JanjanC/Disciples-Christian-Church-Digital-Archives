@@ -390,6 +390,7 @@ const controller = {
         passwords: {}
       }
       db.findAll(db.tables.SETTINGS_TABLE, "*", function (result) {
+        // for each setting name, convert the value to a boolean and store in data.settings
         for (let i = 0; i < result.length; i++) 
           data.settings[result[i].settings_name] = (result[i].settings_value) === "true"
         db.findAll(db.tables.ACCOUNT_TABLE, '*', function (result) {
