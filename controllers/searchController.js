@@ -42,6 +42,18 @@ const searchController = {
    * @param res - the result to be sent out after processing the request
    */
   getSearchMember: function (req, res) {
+    const level = req.session.level;
+    if (level === undefined || level === null) {
+      res.status(401);
+      res.render("error", {
+        title: "401 Unauthorized Access",
+        css: ["global", "error"],
+        status: {
+          code: "401",
+          message: "Unauthorized access",
+        },
+      });
+    }
     /*
     The advanced search for member profiles allows you to search based
     on the following: name, sex, age, birthday, address (by city),
@@ -117,7 +129,7 @@ const searchController = {
       cond.setKeyValue(db.tables.MEMBER_TABLE + '.' + memberFields.SEX, data.member[memberFields.SEX], '=')
       conditions.push(cond)
     }
-    const ageColumn = ['cast(strftime(\'%Y-%m-%d\', \'now\') - strftime(\'%Y-%m-%d\', ' + tables.MEMBER_TABLE + '.' + memberFields.BIRTHDAY + ') as int) AS age']
+    const ageColumn = ['CAST(DATE_FORMAT(NOW(), \'%Y-%m-%d\') - DATE_FORMAT(' + tables.MEMBER_TABLE + '.' + memberFields.BIRTHDAY + ', \'%Y-%m-%d\') AS unsigned) AS age']
 
     // age is only provided
     if (ageChecked) {
@@ -199,11 +211,22 @@ const searchController = {
    * @param res - the result to be sent out after processing the request
    */
   getSearchPrenup: function (req, res) {
+    const level = req.session.level;
+    if (level === undefined || level === null) {
+      res.status(401);
+      res.render("error", {
+        title: "401 Unauthorized Access",
+        css: ["global", "error"],
+        status: {
+          code: "401",
+          message: "Unauthorized access",
+        },
+      });
+    }
     /*
     The advanced search for the prenuptial record allows you to search based
     on the following: bride’s name, groom’s name, date created, and
     proposed date of the wedding.
-
     */
     const people = {
       bride: {
@@ -332,6 +355,18 @@ const searchController = {
    * @param res - the result to be sent out after processing the request
    */
   getSearchWedding: function (req, res) {
+    const level = req.session.level;
+    if (level === undefined || level === null) {
+      res.status(401);
+      res.render("error", {
+        title: "401 Unauthorized Access",
+        css: ["global", "error"],
+        status: {
+          code: "401",
+          message: "Unauthorized access",
+        },
+      });
+    }
     /*
     The advanced search for the wedding record allows you to search based
     on the following: bride’s name, groom’s name, bride and groom’s parents,
@@ -633,7 +668,7 @@ const searchController = {
 
     db.find(db.tables.WEDDING_TABLE, conditions, joinTables, columns, function (result) {
       if (result) {
-        
+
         res.render('wedding-main-page', {
           styles: ['lists'],
           scripts: ['convertDataTable'],
@@ -653,6 +688,18 @@ const searchController = {
    * @param res - the result to be sent out after processing the request
    */
   getSearchDedication: function (req, res) {
+    const level = req.session.level;
+    if (level === undefined || level === null) {
+      res.status(401);
+      res.render("error", {
+        title: "401 Unauthorized Access",
+        css: ["global", "error"],
+        status: {
+          code: "401",
+          message: "Unauthorized access",
+        },
+      });
+    }
     /*
     The advanced search for the child dedication record allows you to search based on the following:
     name of the child, name of the parents, date of dedication, place of dedication (string matching),
@@ -802,7 +849,7 @@ const searchController = {
     }
 
     db.find(db.tables.INFANT_TABLE, conditions, joinTables, columns, function (result) {
-      
+
       res.render('dedication-main-page', {
         styles: ['lists'],
         scripts: ['convertDataTable'],
@@ -819,6 +866,18 @@ const searchController = {
    * @param res - the result to be sent out after processing the request
    */
   getSearchBaptismal: function (req, res) {
+    const level = req.session.level;
+    if (level === undefined || level === null) {
+      res.status(401);
+      res.render("error", {
+        title: "401 Unauthorized Access",
+        css: ["global", "error"],
+        status: {
+          code: "401",
+          message: "Unauthorized access",
+        },
+      });
+    }
     /*
     The advanced search for the baptismal record allows you to search based on the following:
     name of the baptized person, date of baptism, place of baptism (string matching), and officiant.

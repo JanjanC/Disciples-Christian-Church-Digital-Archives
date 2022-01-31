@@ -1,0 +1,138 @@
+{{>navbar}}
+<form id="add_dedication_form" class="container">
+  <div class="container" style="padding-left: 20%; padding-right: 20%;">
+    <div class="row d-flex justify-content-between">
+      <div class="col-12"><h1 class="my-3" id="title"> Add Service Attendance Form </h1></div>
+      <div class="col-12 align-self-end"><p style="text-align:end; margin:0;"> <span style="color: red;">*</span> - required</p></div>
+    </div>
+    <hr style="margin-top: 0;">
+    <div class="row">
+      <div class="col-12">
+        <label for="address">Date of Service <span style="color: red;">*</span></label>
+        <input type="date" id="date" name="date" class="form-control" max="9999-12-31">
+        <p id="date-exists-error"class="error_codes"></p>
+        <p id="date_info_error"> </p>
+      </div>
+    </div>
+
+    <legend>Attendees <span style="color: red;">*</span></legend>
+    <p id="no-attendees-error"class="error_codes"></p>
+    <hr>
+
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between">
+        <legend>Members</legend>
+        <button id="add_member_button" class="plus-btn" type="button"><i style="width: 2.5em; height: 2.5em; color:black;" class="far fa-plus-square"></i></button>
+      </div>
+    </div>
+
+    <div class="row" id="member_row">
+      <p id="witness_gmother_info_error" class="error_codes"> </p>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between">
+        <legend>Non-members</legend>
+        <button class="plus-btn" id="add_non_member_button" type="button"><i style="width: 2.5em; height: 2.5em; color:black;" class="far fa-plus-square"></i></button>
+      </div>
+    </div>
+
+    <div class="row" id="non_member_row">
+      <p id="witness_gfather_info_error" class="error_codes"> </p>
+    </div>
+    <button id="create-attendance" type="button" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+<div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Member</h5>
+        <button type="button" id="close_modal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <div id="display_member_div" style="display:block">
+              <label>Member</label>
+              <select name="input_member" id="input_member">
+                   {{>dropdown membersNames}}
+              </select>
+            </div>
+            <p id="witness_gmother_modal_info_error" class="error_codes"> </p>
+            <p id="witness_gmother_modal_middle_error" class="error_codes"> </p>
+            <p id="witness_gmother_modal_middle_len_error" class="error_codes"> </p>
+          </div>
+          <fieldset class="form-group" id="witness_gmother_non_member_div" style="display:none">
+              <div class="div">
+                <div class="row">
+                  <div class="col-12">
+                    
+                    <label for="witness_first_name">First Name</label>
+                    <input type="text" id="witness_gmother_first_name" name="witness_first_name" class="form-control">
+                  </div>
+                  <div class="col-12">
+                    <label for="witness_mid_name">Middle Initial</label>
+                    <input type="text" id="witness_gmother_mid_name" name="witness_mid_name" class="form-control">
+                  </div>
+                  <div class="col-12">
+                    <label for="witness_last_name">Last Name</label>
+                    <input type="text" id="witness_gmother_last_name" name="witness_last_name" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel_modal" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="add_member">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="nonMemberModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Non-member</h5>
+        <button type="button" id="close_modal_exit_btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <fieldset class="form-group">
+              <div class="div">
+                <div class="row">
+                  <div class="col-12">
+                 <div class="col-12 align-self-end"><p style="text-align:end; margin:0;"> <span style="color: red;">*</span> - required</p></div>
+                    <label for="nonmember_first_name">First Name<span style="color: red;">*</span></label>
+                    <input type="text" id="non_member_first_name" name="nonmember_first_name" class="form-control" placeholder="First name">
+                  </div>
+                  <div class="col-12">
+                    <label for="nonmember_mid_name">Middle Initial</label>
+                    <input type="text" id="non_member_mid_name" name="nonmember_mid_name" class="form-control" placeholder="Middle name">
+                  </div>
+                  <div class="col-12">
+                    <label for="nonmember_last_name">Last Name<span style="color: red;">*</span></label>
+                    <input type="text" id="non_member_last_name" name="nonmember_last_name" class="form-control" placeholder="Last name">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <p id="witness_gfather_modal_info_error" class="error_codes"> </p>
+            <p id="middle_name_single_error" class="error_codes"> </p>
+            <p id="middle_name_char_error" class="error_codes"> </p>
+            <p id ='empty_names_error' class="error_codes"></p>
+            <p id ='names_char_error' class="error_codes"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close_modal_non_member" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="add_non_member">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

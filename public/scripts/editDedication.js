@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var GMotherWitnessCtr = $('#gmother_witness_row > div').length
   var GFatherWitnessCtr = $('#gfather_witness_row > div').length
   var addedWitness = false
@@ -22,11 +22,11 @@ $(document).ready(function() {
 
   initSelectize()
   initSelectizeOptions()
-  
+
   $('select').change(hideChoices)
 
   // Show child modal
-  $('#edit_child').click(function() {
+  $('#edit_child').click(function () {
     currPerson.memberId = $('#infant_info').data('member')
     currPerson.personId = $('#infant_info').data('person')
     currPerson.firstName = $('#child_first_name_view').text()
@@ -52,7 +52,7 @@ $(document).ready(function() {
   })
 
   // Show parent 1 modal
-  $('#edit_parent_one').click(function() {
+  $('#edit_parent_one').click(function () {
     currPerson.memberId = $('#parent1_info').data('member')
     currPerson.personId = $('#parent1_info').data('person')
     currPerson.firstName = $('#parent1_first_name_view').text()
@@ -78,7 +78,7 @@ $(document).ready(function() {
   })
 
   // Show parent 2 modal
-  $('#edit_parent_two').click(function() {
+  $('#edit_parent_two').click(function () {
     currPerson.memberId = $('#parent2_info').data('member')
     currPerson.personId = $('#parent2_info').data('person')
     currPerson.firstName = $('#parent2_first_name_view').text()
@@ -91,7 +91,7 @@ $(document).ready(function() {
       $('#parent2_member_div').show()
       $('#parent2_non_member_div').hide()
       $(selectParent2)[0].selectize.setValue(getValue(currPerson.memberId))
-    } else if(currPerson.doesExist) {
+    } else if (currPerson.doesExist) {
       $('#parent2_non_member').prop('checked', true)
       $('#parent2_non_member_div').show()
       $('#parent2_member_div').hide()
@@ -107,12 +107,12 @@ $(document).ready(function() {
     $('#editParentTwo').modal('show')
   })
 
-  $('#save_edit_child').click(function() {
+  $('#save_edit_child').click(function () {
     const button = this
 
     $(button).prop('disabled', true)
 
-    if(validateChild()) {
+    if (validateChild()) {
       let memberId = currPerson.memberId
       let personId = currPerson.personId
       let newPersonInfo = $('#input_child_member').val().split(', ')
@@ -125,18 +125,17 @@ $(document).ready(function() {
         oldPersonId: personId
       }
 
-      if (!data.person.isMember) {
-        data.person.personId = newPersonInfo[1]
+      if (!data.person.isMember && data.oldPersonId != null) {
+        data.person.personId = data.oldPersonId;
       }
 
       data.person = JSON.stringify(data.person)
-
       $.ajax({
         type: 'PUT',
         url: '/update_dedication/child',
         data: data,
         success: function (result) {
-          if (result) { 
+          if (result) {
             const personInfo = JSON.parse(data.person)
             let infoField = $('#infant_info')
             let firstNameField = $('#child_first_name_view')
@@ -150,7 +149,7 @@ $(document).ready(function() {
               $(lastNameField).html(newPersonInfo[4])
             } else {
               $(infoField).data('member', null)
-              $(infoField).data('person', result)
+              $(infoField).data('person', data.person.personId)
               $(firstNameField).html(personInfo.firstName)
               $(midNameField).html(personInfo.midName)
               $(lastNameField).html(personInfo.lastName)
@@ -207,7 +206,7 @@ $(document).ready(function() {
     return isValid
   }
 
-  $('#save_edit_parent_one').click(function() {
+  $('#save_edit_parent_one').click(function () {
 
     const button = this
 
@@ -227,8 +226,8 @@ $(document).ready(function() {
         isFirstGuardian: true
       }
 
-      if (!data.person.isMember) {
-        data.person.personId = newPersonInfo[1]
+      if (!data.person.isMember && data.oldPersonId != null) {
+        data.person.personId = data.oldPersonId
       }
 
       data.person = JSON.stringify(data.person)
@@ -252,7 +251,7 @@ $(document).ready(function() {
               $(lastNameField).html(newPersonInfo[4])
             } else {
               $(infoField).data('member', null)
-              $(infoField).data('person', result)
+              $(infoField).data('person', data.person.personId)
               $(firstNameField).html(personInfo.firstName)
               $(midNameField).html(personInfo.midName)
               $(lastNameField).html(personInfo.lastName)
@@ -310,7 +309,7 @@ $(document).ready(function() {
     return isValid
   }
 
-  $('#save_edit_parent_two').click(function() {
+  $('#save_edit_parent_two').click(function () {
 
     const button = this
 
@@ -331,8 +330,8 @@ $(document).ready(function() {
       }
 
       if (data.person !== null) {
-        if (data.person.isMember) {
-          data.person.personId = newPersonInfo[1]
+        if (data.person.isMember && data.oldPersonId != null) {
+          data.person.personId = data.oldPersonId
         }
       }
 
@@ -363,7 +362,7 @@ $(document).ready(function() {
               $(lastNameField).html(newPersonInfo[4])
             } else {
               $(infoField).data('member', null)
-              $(infoField).data('person', result)
+              $(infoField).data('person', data.person.personId)
               $(firstNameField).html(personInfo.firstName)
               $(midNameField).html(personInfo.midName)
               $(lastNameField).html(personInfo.lastName)
@@ -421,7 +420,7 @@ $(document).ready(function() {
 
   $('#edit-dedication').click(function () {
     let button = this
-    $(button).prop('disabled', true) 
+    $(button).prop('disabled', true)
 
     if (validateMisc()) {
       const data = {
@@ -450,7 +449,7 @@ $(document).ready(function() {
   })
 
   // bind function to child non-member
-  $('#child_non_member').change(function() {
+  $('#child_non_member').change(function () {
     $('#child_member_div').hide()
     $('#child_non_member_div').show()
 
@@ -469,7 +468,7 @@ $(document).ready(function() {
   $('#child_member').change(function () {
     $('#child_member_div').show()
     $('#child_non_member_div').hide()
-    
+
     let value = '0'
 
     if (currPerson.memberId !== null && currPerson.memberId !== '') {
@@ -478,7 +477,7 @@ $(document).ready(function() {
     $(selectChild)[0].selectize.setValue(value)
   })
 
-  $('#witness_gmother_non_member').change(function() {
+  $('#witness_gmother_non_member').change(function () {
     $('#witness_gmother_member_div').hide()
     $('#witness_gmother_non_member_div').show()
 
@@ -506,7 +505,7 @@ $(document).ready(function() {
     $(selectWitnessGMother)[0].selectize.setValue(value)
   })
 
-  $('#witness_gfather_non_member').change(function() {
+  $('#witness_gfather_non_member').change(function () {
     $('#witness_gfather_member_div').hide()
     $('#witness_gfather_non_member_div').show()
 
@@ -535,7 +534,7 @@ $(document).ready(function() {
   })
 
   // bind function to parent1 non member
-  $('#parent1_non_member').change(function() {
+  $('#parent1_non_member').change(function () {
     $('#parent1_member_div').hide()
     $('#parent1_non_member_div').show()
 
@@ -566,11 +565,11 @@ $(document).ready(function() {
     $('#parent2_member_div').hide()
     $('#parent2_non_member_div').show()
 
-    if (currPerson.memberId !== null && currPerson.memberId !== '' ) {
+    if (currPerson.memberId !== null && currPerson.memberId !== '') {
       $('#parent2_first_name').val('')
       $('#parent2_mid_name').val('')
       $('#parent2_last_name').val('')
-    } else if (currPerson.personId !== null && currPerson.personId !== ''){
+    } else if (currPerson.personId !== null && currPerson.personId !== '') {
       $('#parent2_first_name').val(currPerson.firstName)
       $('#parent2_mid_name').val(currPerson.midName)
       $('#parent2_last_name').val(currPerson.lastName)
@@ -597,8 +596,8 @@ $(document).ready(function() {
     $('#parent2_member_div').hide()
   })
 
-  $('#add_gmother_button').click(function() {
-    if(GMotherWitnessCtr === 6) {
+  $('#add_gmother_button').click(function () {
+    if (GMotherWitnessCtr === 6) {
       $('#witness_gmother_info_error').text('You have reached the maximum number of witnesses')
     } else {
       currPerson = {}
@@ -609,8 +608,8 @@ $(document).ready(function() {
     }
   })
 
-  $('#add_gfather_button').click(function() {
-    if(GFatherWitnessCtr === 6) {
+  $('#add_gfather_button').click(function () {
+    if (GFatherWitnessCtr === 6) {
       $('#witness_gfather_info_error').text('You have reached the maximum number of witnesses')
     } else {
       currPerson = {}
@@ -764,7 +763,6 @@ $(document).ready(function() {
         lastNameFormField = $('#witness_gfather_last_name')
         modal = $('#GFatherWitnessModal')
       }
-
       let memberId = currPerson.memberId
       let personId = currPerson.personId
       let info = $(infoSelect).val().split(', ')
@@ -782,10 +780,11 @@ $(document).ready(function() {
 
       let infoField = trigger
 
-      if (data.person !== null)
-        data.person.personId = info[1]
-
-        console.log(data)
+      //if (data.person !== null)
+      //  data.person.personId = info[1]
+      if (!data.person.isMember && data.oldPersonId != null) {
+        data.person.personId = data.oldPersonId
+      }
 
       data.person = JSON.stringify(data.person)
       $.ajax({
@@ -802,13 +801,13 @@ $(document).ready(function() {
               let lastNameField = trigger.find('.witness_last_name_view')
               if (personInfo.isMember) {
                 $(infoField).data('member', personInfo.memberId)
-                $(infoField).data('person', info[1])
+                $(infoField).data('person', parseInt(personInfo.personId))
                 $(firstNameField).html(info[2])
                 $(midNameField).html(info[3])
                 $(lastNameField).html(info[4])
               } else {
                 $(infoField).data('member', null)
-                $(infoField).data('person', JSON.parse(result))
+                $(infoField).data('person', parseInt(personInfo.personId))
                 $(firstNameField).html(personInfo.firstName)
                 $(midNameField).html(personInfo.midName)
                 $(lastNameField).html(personInfo.lastName)
@@ -965,9 +964,9 @@ $(document).ready(function() {
     $('.selectize-input').removeClass('focus input-active dropdown-active');
     $('div.selectize-input > input').blur();
   }
-  
+
   // used to validate middle initial
-  function validateMidInitial (mid) {
+  function validateMidInitial(mid) {
     const re = /^[A-Z]/
     return re.test(mid)
   }
@@ -1106,6 +1105,5 @@ $(document).ready(function() {
   }
 
 })
-  
-  
-  
+
+
