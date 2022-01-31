@@ -12,22 +12,18 @@ function binAttendance(orderedData) {
     const dateKeys = Object.keys(orderedData);
 
     // Obtain only the year from the string
-    const earliestDate = new Date(dateKeys[0]);
-    const latestDate = new Date(dateKeys.slice(-1));
+    const earliestDate = new Date(dateKeys[0]).setDate(1);
+    const latestDate = new Date(dateKeys.slice(-1)).setDate(1);
     const difference = Math.floor((latestDate - earliestDate) / (1000 * 60 * 60 * 24));
-
+    
     // Bins: Less than a year
     if (difference <= 365) {
         const months = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"];
 
         // Initialize bins
-        let ctr = earliestDate;
-        ctr.setDate(1);
-        let last = latestDate;
-        last.setDate(1);
-        for (; ctr <= last; ctr.setMonth(ctr.getMonth() + 1))
-            bins[months[ctr.getMonth()] + " " + ctr.getFullYear()] = 0;
+        for (let i = new Date(earliestDate); i <= latestDate; i.setMonth(i.getMonth() + 1))
+            bins[months[i.getMonth()] + " " + i.getFullYear()] = 0;
         
         // Transfer each date to its proper bin
         for (const date in orderedData) {
@@ -35,32 +31,64 @@ function binAttendance(orderedData) {
             bins[months[curDate.getMonth()] + " " + curDate.getFullYear()] += orderedData[date];
         }
     }
-    // Bins: Semi annual
-    else if (difference <= 365 * 5) {
+    // Bins: Tri annual
+    else if (difference <= 365 * 3) {
         // Initialize bins
-        for (let i = 0; earliestDate.getFullYear() + i <= latestDate.getFullYear(); i++) {
-            bins[(earliestDate.getFullYear() + i) + " Jan-Jun"] = 0;
-            bins[(earliestDate.getFullYear() + i) + " Jul-Dec"] = 0;
+        for (let i = new Date(earliestDate); i <= latestDate; i.setMonth(i.getMonth() + 4)) {
+            let curBin = i.getFullYear()
+            if (i.getMonth() <= 3)
+                curBin += " Jan-Apr";
+            else if (i.getMonth() <= 7)
+                curBin += " May-Aug";
+            else
+                curBin += " Sept-Dec";
+            bins[curBin] = 0;
         }
         // Transfer each date to its proper bin
         for (const date in orderedData) {
             const curDate = new Date(date);
-            let curBin = curDate.getFullYear() + ((curDate.getMonth() < 6) ? " Jan-Jun" : " Jul-Dec");
+            let curBin = curDate.getFullYear()
+            if (curDate.getMonth() <= 3)
+                curBin += " Jan-Apr";
+            else if (curDate.getMonth() <= 7)
+                curBin += " May-Aug";
+            else
+                curBin += " Sept-Dec";
+            bins[curBin] += orderedData[date];
+        }
+    }
+    // Bins: Semi Annual
+    else if (difference <= 365 * 5) {
+        for (let i = new Date(earliestDate); i <= latestDate; i.setMonth(i.getMonth() + 6)) {
+            let curBin = i.getFullYear()
+            if (i.getMonth() < 6)
+                curBin += " Jan-Jun";
+            else
+                curBin += " Jul-Dec";
+            bins[curBin] = 0;
+        }
+        for (const date in orderedData) {
+            const curDate = new Date(date);
+            let curBin = curDate.getFullYear()
+            if (curDate.getMonth() < 6)
+                curBin += " Jan-Jun";
+            else
+                curBin += " Jul-Dec";
             bins[curBin] += orderedData[date];
         }
     }
 
-    // Bins: Annual
-    else if (difference <= 365 * 20) {
-        // Initialize bins
-        for (let i = 0; earliestDate.getFullYear() + i <= latestDate.getFullYear(); i++)
-            bins[earliestDate.getFullYear() + i] = 0;
-        // Transfer each date to its proper bin
-        for (const date in orderedData) {
-            const curDate = new Date(date);
-            bins[curDate.getFullYear()] += orderedData[date];
-        }
-    }
+    // // Bins: Annual
+    // else if (difference <= 365 * 5) {
+    //     // Initialize bins
+    //     for (let i = 0; earliestDate.getFullYear() + i <= latestDate.getFullYear(); i++)
+    //         bins[earliestDate.getFullYear() + i] = 0;
+    //     // Transfer each date to its proper bin
+    //     for (const date in orderedData) {
+    //         const curDate = new Date(date);
+    //         bins[curDate.getFullYear()] += orderedData[date];
+    //     }
+    // }
 
     // Invalid
     else {
