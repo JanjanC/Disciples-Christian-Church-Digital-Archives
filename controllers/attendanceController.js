@@ -182,7 +182,7 @@ const attendanceController = {
                 attendees: [],
                 members: [],
             };
-            // join table for the groom
+            
             const joinTables1 = [
                 {
                     tableName: { person: db.tables.PERSON_TABLE },
