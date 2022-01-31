@@ -58,7 +58,7 @@ const dedicationController = {
   getViewDedication: function (req, res) {
     // function execution starts here
     const dedicationId = parseInt(req.params.dedication_id)
-    if (parseInt(req.session.level) >= 1 || parseInt(req.session.editId) === dedicationId) {
+    if (parseInt(req.session.level) >= 2 || parseInt(req.session.editId) === dedicationId) {
       const cond1 = new Condition(queryTypes.where)
       cond1.setKeyValue(db.tables.INFANT_TABLE + '.' + infDedFields.ID, dedicationId)
       const witnessCond = new Condition(queryTypes.where)
