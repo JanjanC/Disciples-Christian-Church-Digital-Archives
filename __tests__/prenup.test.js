@@ -63,7 +63,7 @@ describe('Prenup Controller', () => {
                 canSee: true,
                 styles: ['view'],
                 scripts: ['deletePrenup'],
-                backLink: '/forms_main_page'
+                backLink: '/prenup_main_page'
             };
 
             //Act
