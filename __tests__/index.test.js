@@ -204,7 +204,7 @@ describe('Index Controller', () => {
             }]);
 
             expectedResult = {
-                styles: ['lists'],
+                styles: [ 'lists', 'memberMainPage' ],
                 scripts: ['convertDataTable'],
                 canSee: true
             };
