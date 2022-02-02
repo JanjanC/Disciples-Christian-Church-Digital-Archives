@@ -68,7 +68,7 @@ app.get('/wedding_main_page', indexController.getWeddingMainPage)
 app.get('/baptismal_main_page', indexController.getBapRecordsMainPage)
 
 //Statistics
-app.get('/statistics_page',indexController.getStatisticsPage)
+app.get('/statistics_page', indexController.getStatisticsPage)
 
 app.post('/login', loginController.postLogIn)
 app.post('/add_member', validation.addMemberValidation(), memberController.createMember)
@@ -103,7 +103,7 @@ app.post('/checkCredentials', loginController.checkCredentials)
 app.post('/postComparePasswords', indexController.postComparePasswords)
 app.post('/postChangePassword', indexController.postChangePassword)
 app.post('/postChangeSettings', indexController.postChangeSettings)
-app.post('/deleteAndReset', indexController.postDropAllTables)
+//app.post('/deleteAndReset', indexController.postDropAllTables)
 
 app.put('/update_observation', validation.observationValidation(), observationController.putUpdateObservation)
 app.put('/update_church', validation.churchValidation(), churchController.putUpdateChurch)

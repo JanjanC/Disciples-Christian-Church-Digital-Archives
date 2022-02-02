@@ -127,7 +127,9 @@ const database = {
      */
     find: function (table, conditions = null, join = null, projection = "*", callback, rawSelect = []) {
         const tableClient = knexClient(table);
-        if (join !== null) {
+
+        if (join !== null && join !== undefined) {
+            // console.log("JOINING!");
             if (!Array.isArray(join)) {
                 join = [join];
             }
@@ -174,7 +176,7 @@ const database = {
                     if (!Array.isArray(conditions)) {
                         conditions = [conditions];
                     }
-                    async.each(conditions, function (condition, callback) {
+                    async.each(conditions, function (condition, eCallback) {
                         switch (condition.type) {
                             case "where":
                                 if (condition.conditionType === "object") {

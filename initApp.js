@@ -4,8 +4,6 @@ const mysql = require("mysql2");
 const fs = require("fs");
 const { dbInfo } = require("./models/dbInfo");
 const startIds = dbInfo.startIds;
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
 const data = require("./models/dummyData");
 dotenv.config();
 
