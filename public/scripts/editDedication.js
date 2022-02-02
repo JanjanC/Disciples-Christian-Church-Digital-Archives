@@ -330,7 +330,7 @@ $(document).ready(function () {
       }
 
       if (data.person !== null) {
-        if (data.person.isMember && data.oldPersonId != null) {
+        if (!data.person.isMember && data.oldPersonId != null) {
           data.person.personId = data.oldPersonId
         }
       }

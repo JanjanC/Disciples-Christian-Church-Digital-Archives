@@ -480,7 +480,6 @@ const dedicationController = {
   },
 
   getEditDedication: function (req, res) {
-    req.session.level = 3
     const dedicationId = req.params.dedication_id
     if (parseInt(req.session.level) >= 2 || parseInt(req.session.editId) === parseInt(dedicationId)) {
       const cond1 = new Condition(queryTypes.where)
@@ -833,7 +832,6 @@ const dedicationController = {
     const couples = JSON.parse(req.body.couples)
     const witnesses = JSON.parse(req.body.witnesses)
     const recordId = req.body.recordId
-    console.log(JSON.stringify(req.body))
     const nonMembersCond = new Condition(queryTypes.whereIn)
     nonMembersCond.setArray(personFields.ID, nonMembers)
 
