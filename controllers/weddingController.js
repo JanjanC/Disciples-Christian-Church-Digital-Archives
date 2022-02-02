@@ -7,7 +7,7 @@ const witnessFields = require("../models/witness");
 const memberFields = require("../models/members");
 const { Condition, queryTypes } = require("../models/condition");
 const { sendError } = require("../controllers/errorController");
-const { tables, insert } = require("../models/db.js");
+const { tables } = require("../models/db.js");
 const {
     updateMemberToMember,
     updateMemberToNonMember,
@@ -18,7 +18,6 @@ const {
     updateMemberToNone,
     updateNonMemberToNone,
 } = require("./updateController.js");
-const { request } = require("http");
 
 const weddingController = {
     /**
@@ -807,6 +806,19 @@ const weddingController = {
 
                     coupleIds.brideParents = coupleInsertResult[0];
                 }
+            } else {
+                // Create an empty couple entry
+                const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
+                    female_id: null,
+                    male_id: null,
+                });
+
+                if (coupleInsertResult === false) {
+                    console.error("Error inserting bride's parents' couple entry");
+                    return res.send(false);
+                }
+
+                coupleIds.brideParents = coupleInsertResult[0];
             }
 
             // Groom's Parents
@@ -851,6 +863,18 @@ const weddingController = {
 
                     coupleIds.groomParents = coupleInsertResult[0];
                 }
+            } else {
+                const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
+                    female_id: null,
+                    male_id: null,
+                });
+
+                if (coupleInsertResult === false) {
+                    console.error("Error inserting groom's parents' couple entry");
+                    return res.send(false);
+                }
+
+                coupleIds.groomParents = coupleInsertResult[0];
             }
 
             // Finally, time to insert to wedding table
@@ -1056,8 +1080,8 @@ const weddingController = {
         const recordCond = new Condition(queryTypes.where);
         recordCond.setKeyValue(weddingRegFields.ID, recordId);
 
-        const memberCond = new Condition(queryTypes.where)
-        memberCond.setKeyValue(memberFields.WEDDING_REG, recordId)
+        const memberCond = new Condition(queryTypes.where);
+        memberCond.setKeyValue(memberFields.WEDDING_REG, recordId);
 
         db.update(db.tables.MEMBER_TABLE, { wedding_reg_id: null }, memberCond, function (result) {
             if (result || result === 0) {
@@ -1092,10 +1116,11 @@ const weddingController = {
                     }
                 });
             }
-        })
+        });
     },
 
     putUpdateCouple: function (req, res) {
+        console.log(req.body);
         const isFemale = req.body.isFemale === "true";
         const isOldMember = req.body.isOldMember === "true";
         const isParent = req.body.isParent === "true";
@@ -1117,23 +1142,31 @@ const weddingController = {
         };
 
         if (isOldNone && !isNewNone && isNewMember) {
+            console.log("[WeddingController] Update Couple: None To Member Called");
             updateNoneToMember(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (isOldNone && !isNewNone && !isNewMember) {
+            console.log("[WeddingController] Update Couple: None To Non-Member Called");
             updateNoneToNonMember(person, ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (isOldMember && isNewNone) {
+            console.log("[WeddingController] Update Couple: Member To None Called");
             updateMemberToNone(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (!isOldMember && isNewNone) {
+            console.log("[WeddingController] Update Couple: Non-Member To None Called");
             updateNonMemberToNone(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (isOldMember && isNewMember) {
             // From member to member
+            console.log("[WeddingController] Update Couple: Member To Member Called");
             updateMemberToMember(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (isOldMember && !isNewMember) {
             // From member to non member
+            console.log("[WeddingController] Update Couple: Member To Non-Member Called");
             updateMemberToNonMember(person, ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (!isOldMember && isNewMember) {
             // From non member to member
+            console.log("[WeddingController] Update Couple: Non-Member To Member Called");
             updateNonMemberToMember(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else {
+            console.log("[WeddingController] Update Couple: Non-Member to Non-Member Called");
             person.personId = ids.oldPersonId;
             updateNonMemberToNonMember(person, sendReply);
         }
