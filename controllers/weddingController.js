@@ -1142,31 +1142,23 @@ const weddingController = {
         };
 
         if (isOldNone && !isNewNone && isNewMember) {
-            console.log("[WeddingController] Update Couple: None To Member Called");
             updateNoneToMember(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (isOldNone && !isNewNone && !isNewMember) {
-            console.log("[WeddingController] Update Couple: None To Non-Member Called");
             updateNoneToNonMember(person, ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (isOldMember && isNewNone) {
-            console.log("[WeddingController] Update Couple: Member To None Called");
             updateMemberToNone(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (!isOldMember && isNewNone) {
-            console.log("[WeddingController] Update Couple: Non-Member To None Called");
             updateNonMemberToNone(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (isOldMember && isNewMember) {
             // From member to member
-            console.log("[WeddingController] Update Couple: Member To Member Called");
             updateMemberToMember(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (isOldMember && !isNewMember) {
             // From member to non member
-            console.log("[WeddingController] Update Couple: Member To Non-Member Called");
             updateMemberToNonMember(person, ids, fields, tables.COUPLE_TABLE, sendReply);
         } else if (!isOldMember && isNewMember) {
             // From non member to member
-            console.log("[WeddingController] Update Couple: Non-Member To Member Called");
             updateNonMemberToMember(ids, fields, tables.COUPLE_TABLE, sendReply);
         } else {
-            console.log("[WeddingController] Update Couple: Non-Member to Non-Member Called");
             person.personId = ids.oldPersonId;
             updateNonMemberToNonMember(person, sendReply);
         }
