@@ -186,8 +186,8 @@ $(document).ready(function () {
     var startYear = startDate.getFullYear()
     var endYear = endDate.getFullYear()
 
-    if((endYear - startYear) > 20){
-      $("#error-msg").text('The date range should not exceed 20 years')
+    if((endYear - startYear) > 5){
+      $("#error-msg").text('The date range should not exceed 5 years')
       $("#error-msg").css('display','block')
       return false
     }
