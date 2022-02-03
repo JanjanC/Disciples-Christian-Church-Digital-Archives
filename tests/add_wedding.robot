@@ -10,13 +10,15 @@ Resource            wedding.resource
 Test Teardown       Close Browser
 
 *** Test Cases ***
-Navigate to Add Wedding Page (Level 1)
+Navigate to Add Wedding Page (Level 3)
    Open Browser to Login Page
-   Login Level 1 User
+   Login Level 3 User
    Main Page Should Be Open
    Navigate to Forms Main Page From Main Page
    Forms Main Page Should Be Open
    Navigate to Wedding Page From Forms Main Page
+   Wedding Main Page Should Be Open
+   Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
 
 Navigate to Add Wedding Page (Level 2)
@@ -30,15 +32,13 @@ Navigate to Add Wedding Page (Level 2)
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
 
-Navigate to Add Wedding Page (Level 3)
+Navigate to Add Wedding Page (Level 1)
    Open Browser to Login Page
-   Login Level 3 User
+   Login Level 1 User
    Main Page Should Be Open
    Navigate to Forms Main Page From Main Page
    Forms Main Page Should Be Open
    Navigate to Wedding Page From Forms Main Page
-   Wedding Main Page Should Be Open
-   Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
 
 Complete Members Input (Level 1)
@@ -235,6 +235,7 @@ Blank Member Bride Input
    Confirm Add Godfather
    Submit Wedding Registry
    Bride Error Should Be Shown
+
 Blank Non-Member Groom Input
    Open Browser to Login Page
    Login Level 3 User
@@ -419,6 +420,7 @@ Blank Member Bride Mother Input
    Confirm Add Godfather
    Submit Wedding Registry
    Bride Mother Error Should Be Shown
+   
 Blank Non-Member Bride Father Input
    Open Browser to Login Page
    Login Level 3 User
