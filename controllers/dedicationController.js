@@ -652,6 +652,9 @@ const dedicationController = {
       updateNoneToMember(ids, fields, tables.COUPLE_TABLE, sendReply)
     } else if (isOldNone && !isNewNone && !isNewMember) {
       updateNoneToNonMember(person, ids, fields, tables.COUPLE_TABLE, sendReply)
+    } else if (isOldNone && isNewNone) {
+      // None to None do nothing
+      sendReply(true)
     } else if (isOldMember && isNewNone) {
       updateMemberToNone(ids, fields, tables.COUPLE_TABLE, sendReply)
     } else if (!isOldMember && isNewNone) {
