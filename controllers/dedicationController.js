@@ -17,7 +17,7 @@ const dedicationController = {
    * @param res - the result to be sent out after processing the request
    */
   getAddDedicationPage: function (req, res) {
-    if (req.session.level === null || req.session.level === undefined) {
+    if (req.session.level === null || req.session.level === undefined || req.session.level === 0) {
       res.render('error', {
         title: '401 Unauthorized Access',
         css: ['global', 'error'],

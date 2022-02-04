@@ -25,7 +25,9 @@ $(document).ready(function() {
       url: '/delete_member',
       data: data,
       success: function (result) {
-        if (result) {
+        if (result.result === true && parseInt(result.level) === 0) {
+          location.href = '/login_page'
+        } else if (result.result === true && parseInt(result.level) >= 1) {
           location.href = '/member_main_page'
         } else {
           alert("SOMETHING WENT WRONG")

@@ -15,7 +15,7 @@ const attendanceController = {
     getViewAttendance: function (req, res) {
         const level = req.session.level;
         const date = new Date(req.params.date).toISOString();
-        if (level === undefined || level === null || (parseInt(level) === 1 && req.session.editId != date)) {
+        if (level === undefined || level === null || level === 0 || (parseInt(level) === 1 && req.session.editId != date)) {
             res.status(401);
             res.render("error", {
                 title: "401 Unauthorized Access",
@@ -63,7 +63,7 @@ const attendanceController = {
      */
     getAddAttendance: function (req, res) {
         const level = req.session.level;
-        if (level === undefined || level === null) {
+        if (level === undefined || level === null || level === 0) {
             res.status(401);
             res.render("error", {
                 title: "401 Unauthorized Access",
