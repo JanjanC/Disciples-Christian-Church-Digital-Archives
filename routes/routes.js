@@ -67,7 +67,6 @@ app.get("/dedication_main_page", indexController.getDedicationMainPage);
 app.get("/wedding_main_page", indexController.getWeddingMainPage);
 app.get("/baptismal_main_page", indexController.getBapRecordsMainPage);
 
-//Statistics
 app.get("/statistics_page", indexController.getStatisticsPage);
 
 app.post("/login", loginController.postLogIn);
