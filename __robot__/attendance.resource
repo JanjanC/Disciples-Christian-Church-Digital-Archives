@@ -88,7 +88,7 @@ Submit Service Attendance Record
 Input Date of Service to Edit
     [Arguments]    ${month}    ${day}    ${year}
     Sleep    0.5s    Wait for Modal to Open
-    Press Keys    id:edit-date    ${year}    ARROW_LEFT    ${month}    ARROW_LEFT    ${day}
+    Press Keys    id:edit-date    ${year}    ARROW_LEFT    ${month}    ARROW_LEFT   ARROW_LEFT     ${day}
     Click Button    id:change-date-btn
     Sleep    0.5s    Wait for Modal to Close
 
