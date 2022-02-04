@@ -15,9 +15,6 @@ function getMySQLInstance() {
         user: process.env.DB_USER,
         password: process.env.DB_PASS,
         database: process.env.DB_NAME,
-        ssl: {
-            ca: fs.readFileSync("/etc/ssl/cert.pem"),
-        },
     });
     conn.connect((err) => {
         if (err) {
@@ -106,6 +103,23 @@ function insertAccounts() {
         });
 }
 
+function insertSettings() {
+    knexClient("settings")
+        .select()
+        .then(function (res) {
+            if (res.length === 0) {
+                knexClient("settings")
+                    .insert({
+                        name: "allow_level_0",
+                        value: "false",
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            }
+        });
+}
+
 function insertData() {
     // insert accounts
     data.forEach((record) => {
@@ -150,6 +164,7 @@ function insertData() {
 }
 
 // Uncomment these to run the database initialization script.
-initDatabase();
-insertAccounts();
-insertData();
+ initDatabase();
+ insertAccounts();
+ insertSettings();
+ insertData();

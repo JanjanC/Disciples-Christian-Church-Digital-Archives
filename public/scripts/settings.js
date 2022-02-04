@@ -2,21 +2,44 @@ $(document).ready(function () {
 
     $('#btn-passwords').click(function() {
         $('#btn-database').css('border-bottom' , '2px solid white')
+        $('#btn-member').css('border-bottom', '2px solid white')
         $('#btn-passwords').css('border-bottom' , '2px solid black')
         $('#database-div').hide()
+        $("#member-div").hide()
         $('#passwords-div').show()
     })
 
     $('#btn-database').click(function() {
         $('#btn-passwords').css('border-bottom' , '2px solid white')
+        $('#btn-member').css('border-bottom', '2px solid white')
         $('#btn-database').css('border-bottom' , '2px solid black')
         $('#passwords-div').hide()
         $('#database-div').show()
+        $("#member-div").hide()
 
         $('#level-one-enter-pass').hide()
         $('#level-two-enter-pass').hide()
         $('#level-three-enter-pass').hide()
         
+        $('#level-one-conf-pass').hide()
+        $('#level-two-conf-pass').hide()
+        $('#level-three-conf-pass').hide()
+    })
+
+
+    $('#btn-member').click(function(){
+        $('#btn-passwords').css('border-bottom', '2px solid white')
+        $('#btn-database').css('border-bottom', '2px solid white')
+        $("#btn-member").css('border-bottom','2px solid black')
+        $("#member-div").show()
+
+        $('#passwords-div').hide()
+        $('#database-div').hide()
+
+        $('#level-one-enter-pass').hide()
+        $('#level-two-enter-pass').hide()
+        $('#level-three-enter-pass').hide()
+
         $('#level-one-conf-pass').hide()
         $('#level-two-conf-pass').hide()
         $('#level-three-conf-pass').hide()
@@ -286,6 +309,22 @@ $(document).ready(function () {
                 $('#confirm-pass-error').text('Current password should not be empty!')
             }
         }
+    })
+
+    $('#togBtn').change(function() {
+        $.ajax({
+            type: 'POST',
+            url: '/postChangeSettings',
+            data: {
+                name: "allow_level_0",
+                value: $(this).prop("checked").toString()
+            },
+            success: function (result) {
+                if (!result) {
+                    alert("Something went wrong while changing this setting")
+                }
+            }
+        })
     })
 
     $('#delete-db').click(function () {

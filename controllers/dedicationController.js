@@ -1,4 +1,5 @@
 const db = require('../models/db')
+const { promisify } = require("util");
 const coupleFields = require('../models/couple')
 const personFields = require('../models/person')
 const witnessFields = require('../models/witness')
@@ -168,251 +169,317 @@ const dedicationController = {
       sendError(req, res, 401)
     }
   },
+
   /**
    * This function adds a child dedication record to the database
    * @param req - the incoming request containing either the query or body
    * @param res - the result to be sent out after processing the request
    */
-  postAddDedication: function (req, res) {
-    // The Data to be inserted to Infant Dedication Table
-    const data = {}
+  postAddDedication: async function (req, res) {
+    try {
+      // Parse the body fields into the data object
+      const data = {};
+      data['newDate'] = new Date().toISOString()
+      const bodyKeys = Object.keys(req.body);
+      bodyKeys.forEach((key) => {
+        //console.log("KEY IS: " + key);
+        if (
+          !(
+            key === "officiant" ||
+            key === "place" ||
+            key === "date"
+          )
+        ) {
+          data[key] = (req.body[key] ? JSON.parse(req.body[key]) : req.body[key]);
+        } else {
+          data[key] = req.body[key];
+        }
+        if (key === "date") data[key] = new Date(req.body[key]);
+      })
 
-    // The information of the guardians and child
-    const people = {
-      guardian1: {},
-      guardian2: {},
-      child: {}
-    }
+      // Pre-promisify wrappers
+      const wrapDbFind = (table, conditions = null, join = null, projection = "*", callback, rawSelect = []) => {
+        db.find(
+          table,
+          conditions,
+          join,
+          projection,
+          (result) => {
+            if (result === false) {
+              callback("[DBFind Wrapper] Error occurred for FIND.", null);
+            } else {
+              callback(null, result);
+            }
+          },
+          rawSelect
+        );
+      };
 
-    // The information of the couple to be inserted in the Couple Table
-    const couple = {}
-
-    // Store officiant, date and place to data
-    data[infDedFields.OFFICIANT] = req.body.officiant
-    data[infDedFields.DATE] = new Date().toISOString()
-    data[infDedFields.PLACE] = req.body.place
-    data[infDedFields.DEDICATION_DATE] = req.body.date
-
-    /* req.body.guardian1 fields:
-       personId
-       isMember
-       first_name
-       mid_name
-       last_name
-
-       as JSON String
-       NOTE: If isMember is true, personId should not be null
-     */
-    people.guardian1 = JSON.parse(req.body.guardian1)
-
-    // If second guardian is available`
-    if (req.body.guardian2 === null || req.body.guardian2 === undefined || req.body.guardian2 === '') {
-      people.guardian2 = null
-    } else {
-      people.guardian2 = JSON.parse(req.body.guardian2)
-    }
-    people.child = JSON.parse(req.body.child)
-    // people.witnesses = JSON.parse(req.body.witnesses)
-    people.witnessMale = JSON.parse(req.body.witnessMale)
-    people.witnessFemale = JSON.parse(req.body.witnessFemale)
-
-    // people to be inserted in the people table
-    const peopleInfo = []
-    const offsets = {
-      guardian1: 0,
-      guardian2: 0,
-      child: 0
-    }
-    // If first guardian is not a member
-    if (!people.guardian1.isMember) {
-      const guardian = {}
-      guardian[personFields.FIRST_NAME] = people.guardian1.first_name
-      guardian[personFields.MID_NAME] = people.guardian1.mid_name
-      guardian[personFields.LAST_NAME] = people.guardian1.last_name
-      peopleInfo.push(guardian)
-    } else {
-      couple[coupleFields.FEMALE] = people.guardian1.person_id
-    }
-
-    // If there is a second guardian and is not a member
-    if (people.guardian2 !== null && !people.guardian2.isMember) {
-      const guardian = {}
-      guardian[personFields.FIRST_NAME] = people.guardian2.first_name
-      guardian[personFields.MID_NAME] = people.guardian2.mid_name
-      guardian[personFields.LAST_NAME] = people.guardian2.last_name
-      peopleInfo.push(guardian)
-      offsets.guardian1 = offsets.guardian1 + 1
-    } else if (people.guardian2 !== null) {
-      couple[coupleFields.MALE] = people.guardian2.person_id
-    }
-
-    if (!people.child.isMember) {
-      const child = {}
-
-      child[personFields.FIRST_NAME] = people.child.first_name
-      child[personFields.MID_NAME] = people.child.mid_name
-      child[personFields.LAST_NAME] = people.child.last_name
-      peopleInfo.push(child)
-      offsets.guardian1 = offsets.guardian1 + 1
-      offsets.guardian2 = offsets.guardian2 + 1
-    } else {
-      data[infDedFields.PERSON] = people.child.person_id
-    }
-
-    // Insert people (not including witnesses)
-    db.insert(db.tables.PERSON_TABLE, peopleInfo, function (result) {
-      if (result) {
-        if (result.length > 0) {
-          if (people.child.person_id === null || people.child.person_id === undefined) {
-            data[infDedFields.PERSON] = result[0] - offsets.child
+      const wrapDbInsert = (table, data, callback) => {
+        db.insert(table, data, (result) => {
+          if (result === false) {
+            callback("[DBInsert Wrapper] Error occurred for INSERT.", null);
+          } else {
+            callback(null, result);
           }
-          if (people.guardian1.person_id === null || people.guardian1.person_id === undefined) {
-            couple[coupleFields.FEMALE] = result[0] - offsets.guardian1
+        });
+      };
+
+      const wrapDbUpdate = (table, data, conditions, callback) => {
+        db.update(table, data, conditions, (result) => {
+          if (result === false) {
+            callback("[DBInsert Wrapper] Error occured for UPDATE.", null);
+          } else {
+            callback(null, result);
           }
-          if (people.guardian2 !== null && (people.guardian2.person_id === null || people.guardian2.person_id === undefined)) {
-            couple[coupleFields.MALE] = result[0] - offsets.guardian2
-          }
+        });
+      };
+
+      // Promisified Methods
+      const dbInsert = promisify(wrapDbInsert);
+      const dbFind = promisify(wrapDbFind);
+      const dbUpdate = promisify(wrapDbUpdate);
+
+      // Check if the child is a member
+      // If not, create a people entry for them.
+      // console.log("Checking if child is member. Insert person entry if child is not member.");
+      if (!data.child.isMember) {
+        const result = await dbInsert(db.tables.PERSON_TABLE, {
+          first_name: data.child.first_name,
+          middle_name: data.child.mid_name,
+          last_name: data.child.last_name,
+        });
+
+        if (result === false) {
+          return res.send(false);
         }
 
-        // Insert guardians/parents to couple table
-        db.insert(db.tables.COUPLE_TABLE, couple, function (result) {
-          if (result) {
-            data[infDedFields.PARENTS] = result[0]
+        data.child.person_id = result[0];
+      }
 
-            // Insert Acutal Dedication to table
-            db.insert(db.tables.INFANT_TABLE, data, function (result) {
-              if (result) {
-                if (people.witnessFemale.length + people.witnessMale.length > 0) {
-                  const dedicationId = result[0]
+      // console.log("Checking if guardian1 is member. Insert person entry if groom is not member.");
+      if (data.guardian1 && !data.guardian1.isMember) {
+        const result = await dbInsert(db.tables.PERSON_TABLE, {
+          first_name: data.guardian1.first_name,
+          middle_name: data.guardian1.mid_name,
+          last_name: data.guardian1.last_name,
+        });
 
-                  const witnessMaleInfo = []
-                  const witnessFemaleInfo = []
-                  const witnesses = []
+        if (result === false) {
+          return res.send(false);
+        }
 
-                  people.witnessMale.forEach(function (witness) {
-                    const currWitness = {}
-                    if (witness.isMember) {
-                      currWitness[witnessFields.TYPE] = 'Godfather'
-                      currWitness[witnessFields.DEDICATION] = dedicationId
-                      currWitness[witnessFields.PERSON] = witness.person_id
-                      witnesses.push(currWitness)
-                    } else { // For every non-member witness, add to witnessInfo to insert to people table
-                      currWitness[personFields.FIRST_NAME] = witness.first_name
-                      currWitness[personFields.MID_NAME] = witness.mid_name
-                      currWitness[personFields.LAST_NAME] = witness.last_name
+        data.guardian1.person_id = result[0];
+      }
 
-                      witnessMaleInfo.push(currWitness)
-                    }
-                  })
+      // console.log("If guardian2 is not null, check if member. If not member, create a person record.");
+      if (data.guardian2 && !data.guardian2.isMember) {
+        const result = await dbInsert(db.tables.PERSON_TABLE, {
+          first_name: data.guardian2.first_name,
+          middle_name: data.guardian2.mid_name,
+          last_name: data.guardian2.last_name,
+        });
 
-                  people.witnessFemale.forEach(function (witness) {
-                    const currWitness = {}
-                    if (witness.isMember) {
-                      currWitness[witnessFields.TYPE] = 'Godmother'
-                      currWitness[witnessFields.DEDICATION] = dedicationId
-                      currWitness[witnessFields.PERSON] = witness.person_id
-                      witnesses.push(currWitness)
-                    } else { // For every non-member witness, add to witnessInfo to insert to people table
-                      currWitness[personFields.FIRST_NAME] = witness.first_name
-                      currWitness[personFields.MID_NAME] = witness.mid_name
-                      currWitness[personFields.LAST_NAME] = witness.last_name
+        if (result === false) {
+          return res.send(false);
+        }
 
-                      witnessFemaleInfo.push(currWitness)
-                    }
-                  })
+        data.guardian2.person_id = result[0];
+      }
 
-                  db.insert(db.tables.PERSON_TABLE, witnessMaleInfo, function (result) {
-                    if (result) {
-                      result = result[0]
+      if (!(data.child.person_id)) {
+        console.error("Child person_id somewhere");
+        return res.send(false);
+      }
 
-                      const maleWitnesses = witnessMaleInfo.map(function (witness) {
-                        const witnessInfo = {}
-                        witnessInfo[witnessFields.DEDICATION] = dedicationId
-                        witnessInfo[witnessFields.PERSON] = result
-                        witnessInfo[witnessFields.TYPE] = 'Godfather'
-                        result -= 1
+      const coupleIds = {
+        childGuardians: null
+      };
 
-                        return witnessInfo
-                      })
+      //Parents
+      if (data.guardian1 || data.guardian2) {
+        //console.log("GUARDIAN1 " + JSON.stringify(data.guardian1))
+        //console.log("GUARDIAN2 " + JSON.stringify(data.guardian2))
+        const childGuardiansConditions = [];
+        const childGuardian1Condition = new Condition(queryTypes.where);
+        const childGuardian2Condition = new Condition(queryTypes.where);
 
-                      db.insert(db.tables.PERSON_TABLE, witnessFemaleInfo, function (result) {
-                        if (result) {
-                          result = result[0]
+        if (data.guardian1) {
+          childGuardian1Condition.setKeyValue(coupleFields.FEMALE, data.guardian1.person_id);
+          childGuardiansConditions.push(childGuardian1Condition);
+        } else {
+          childGuardian1Condition.setKeyValue(coupleFields.FEMALE, null);
+          childGuardiansConditions.push(childGuardian1Condition);
+        }
+        if (data.guardian2) {
+          childGuardian2Condition.setKeyValue(coupleFields.MALE, data.guardian2.person_id);
+          childGuardiansConditions.push(childGuardian2Condition);
+        } else {
+          childGuardian2Condition.setKeyValue(coupleFields.MALE, null);
+          childGuardiansConditions.push(childGuardian2Condition);
+        }
+        const childGuardiansCoupleId = await dbFind(
+          db.tables.COUPLE_TABLE,
+          childGuardiansConditions,
+          null,
+          coupleFields.ID
+        );
+        if (childGuardiansCoupleId.length > 0) {
+          coupleIds.childGuardians = childGuardiansCoupleId[0].couple_id; // returns {"couple_id":159}
+          //console.log("CHILD GUARDIANS COUPLE ID: " + JSON.stringify(coupleIds.childGuardians))
+        } else {
+          // Insert couple to table
+          const coupleInsertResult = await dbInsert(db.tables.COUPLE_TABLE, {
+            female_id: data.guardian1 ? data.guardian1.person_id : null,
+            male_id: data.guardian2 ? data.guardian2.person_id : null,
+          });
 
-                          const femaleWitnesses = witnessFemaleInfo.map(function (witness) {
-                            const witnessInfo = {}
-                            witnessInfo[witnessFields.DEDICATION] = dedicationId
-                            witnessInfo[witnessFields.PERSON] = result
-                            witnessInfo[witnessFields.TYPE] = 'Godmother'
-                            result -= 1
+          if (coupleInsertResult === false) {
+            console.error("Error inserting child's parents' couple entry");
+            return res.send(false);
+          }
+          coupleIds.childGuardians = coupleInsertResult[0]; // returns 159
+          //console.log("COUPLE INSERT RESULT[0]: " + JSON.stringify(coupleIds.childGuardians))
+        }
 
-                            return witnessInfo
-                          })
+      }
 
-                          const allWitnesses = witnesses.concat(maleWitnesses).concat(femaleWitnesses)
+      const insertDedicationData = {};
+      insertDedicationData[infDedFields.PERSON] = data.child.person_id;
+      insertDedicationData[infDedFields.DATE] = data.newDate;
+      insertDedicationData[infDedFields.DEDICATION_DATE] = data.date;
+      insertDedicationData[infDedFields.PLACE] = data.place;
+      insertDedicationData[infDedFields.OFFICIANT] = data.officiant;
+      insertDedicationData[infDedFields.PARENTS] = coupleIds.childGuardians;
 
-                          db.insert(db.tables.WITNESS_TABLE, allWitnesses, function (result) {
-                            if (result) {
-                              const memberUpdateData = {}
-                              memberUpdateData[memberFields.CHILD_DEDICATION] = dedicationId
+      //console.log(JSON.stringify(insertDedicationData) + "\n");
+      //console.log("FEMALE: " + JSON.stringify(data.witnessFemale));
+      //console.log("MALE: " + JSON.stringify(data.witnessMale));
 
-                              const updateConditions = []
+      // Insert the dedication data
+      const dedicationInsertResult = await dbInsert(db.tables.INFANT_TABLE, insertDedicationData);
+      const dedicationId = dedicationInsertResult[0];
 
-                              if (people.child.isMember) {
-                                const condition = new Condition(queryTypes.where)
-                                condition.setKeyValue(memberFields.ID, people.child.member_id)
-                                updateConditions.push(condition)
-                              }
+      // Add the dedication ID to the child_dedication_id field on the member table for the child if they are a member
+      //Child
+      if (data.child.isMember) {
+        const childMemberFindCondition = new Condition(queryTypes.where);
+        childMemberFindCondition.setKeyValue(memberFields.ID, data.child.member_id);
+        const updateData = {};
+        updateData[memberFields.CHILD_DEDICATION] = dedicationId;
+        await dbUpdate(db.tables.MEMBER_TABLE, updateData, [childMemberFindCondition]);
+      }
 
-                              if (updateConditions.length === 0) {
-                                const condition = new Condition(queryTypes.whereNull)
-                                condition.setField(memberFields.ID)
-                                updateConditions.push(condition)
-                              }
+      //Process the witnesses
 
-                              db.update(db.tables.MEMBER_TABLE, memberUpdateData, updateConditions, function (result) {
-                                if (result === 0) {
-                                  result = true
-                                }
-
-                                if (result) {
-                                  req.session.editId = dedicationId
-                                  res.send(JSON.stringify(dedicationId))
-                                } else {
-                                  res.send(false)
-                                }
-                              })
-                            } else {
-                              res.send(false)
-                            }
-                          })
-                        } else {
-                          res.send(false)
-                        }
-                      })
-                    } else {
-                      res.send(false)
-                    }
-                  })
-                } else {
-                  res.send(false)
-                }
+      //Male witnesses
+      //console.log("Check if each male witness is a member. If not a member, create a person record for them.");
+      await Promise.all(
+        data.witnessMale.map(async (witness, i) => {
+          // Execute if not member
+          if (!witness.isMember) {
+            // Find a person record for this person. Match via first name, middle name, and last name.
+            const witnessFirstNameCondition = new Condition(queryTypes.where);
+            const witnessMiddleNameCondition = new Condition(queryTypes.where);
+            const witnessLastNameCondition = new Condition(queryTypes.where);
+            witnessFirstNameCondition.setKeyValue(personFields.FIRST_NAME, witness.first_name);
+            witnessMiddleNameCondition.setKeyValue(personFields.MID_NAME, witness.mid_name);
+            witnessLastNameCondition.setKeyValue(personFields.LAST_NAME, witness.last_name);
+            const witnessPersonLookupResult = await dbFind(
+              db.tables.PERSON_TABLE,
+              [witnessFirstNameCondition, witnessMiddleNameCondition, witnessLastNameCondition],
+              null,
+              personFields.ID
+            );
+            if (witnessPersonLookupResult.length === 0) {
+              // Create new record for this person
+              const insertData = {};
+              insertData[personFields.FIRST_NAME] = witness.first_name;
+              insertData[personFields.MID_NAME] = witness.mid_name;
+              insertData[personFields.LAST_NAME] = witness.last_name;
+              const witnessPersonInsertResult = await dbInsert(db.tables.PERSON_TABLE, insertData);
+              if (witnessPersonInsertResult.length > 0) {
+                // Save the person id to the witness
+                data.witnessMale[i].person_id = witnessPersonInsertResult[0];
               } else {
-                res.send(false)
+                console.error("Unable to insert male witnesses");
+                return res.send(false);
               }
-            })
-          } else {
-            res.send(false)
+            } else {
+              data.witnessMale[i].person_id = witnessPersonLookupResult[0].person_id;
+            }
+          }
+          // Insert the witness to the witness table
+          const witnessInsertionResult = await dbInsert(db.tables.WITNESS_TABLE, {
+            dedication_id: dedicationId,
+            type: "Godfather",
+            person_id: data.witnessMale[i].person_id,
+          });
+          if (witnessInsertionResult.length === 0) {
+            console.error("Unable to insert male witness into witness table");
           }
         })
-      } else {
-        res.send(false)
-      }
-    })
+      );
+
+      // Female witnesses
+      // console.log("Check if each female witness is a member. If not a member, create a person record for them.");
+      await Promise.all(
+        data.witnessFemale.map(async (witness, i) => {
+          // Execute if not member
+          if (!witness.isMember) {
+            // Find a person record for this person. Match via first name, middle name, and last name.
+            const witnessFirstNameCondition = new Condition(queryTypes.where);
+            const witnessMiddleNameCondition = new Condition(queryTypes.where);
+            const witnessLastNameCondition = new Condition(queryTypes.where);
+            witnessFirstNameCondition.setKeyValue(personFields.FIRST_NAME, witness.first_name);
+            witnessMiddleNameCondition.setKeyValue(personFields.MID_NAME, witness.mid_name);
+            witnessLastNameCondition.setKeyValue(personFields.LAST_NAME, witness.last_name);
+            const witnessPersonLookupResult = await dbFind(
+              db.tables.PERSON_TABLE,
+              [witnessFirstNameCondition, witnessMiddleNameCondition, witnessLastNameCondition],
+              null,
+              personFields.ID
+            );
+            //console.log("PERSON LOOK UP IS " + JSON.stringify(witnessPersonLookupResult));
+            if (witnessPersonLookupResult.length === 0) {
+              // Create new record for this person
+              const insertData = {};
+              insertData[personFields.FIRST_NAME] = witness.first_name;
+              insertData[personFields.MID_NAME] = witness.mid_name;
+              insertData[personFields.LAST_NAME] = witness.last_name;
+              const witnessPersonInsertResult = await dbInsert(db.tables.PERSON_TABLE, insertData);
+              if (witnessPersonInsertResult.length > 0) {
+                // Save the person id to the witness
+                data.witnessFemale[i].person_id = witnessPersonInsertResult[0];
+              } else {
+                console.error("Unable to insert female witnesses");
+                return res.send(false);
+              }
+            } else {
+              data.witnessFemale[i].person_id = witnessPersonLookupResult[0].person_id;
+            }
+          }
+          // Insert the witness to the witness table
+          const witnessInsertionResult = await dbInsert(db.tables.WITNESS_TABLE, {
+            dedication_id: dedicationId,
+            type: "Godmother",
+            person_id: data.witnessFemale[i].person_id,
+          });
+          if (witnessInsertionResult.length === 0) {
+            console.error("Unable to insert female witness into witness table");
+          }
+        })
+      );
+      req.session.editId = dedicationId;
+      return res.json(dedicationId);
+    } catch (err) {
+      console.error("[DedicationController] Error occured while creating new dedication registry record.");
+      console.error(err);
+      return res.send(false);
+    }
   },
 
   getEditDedication: function (req, res) {
-    req.session.level = 3
     const dedicationId = req.params.dedication_id
     if (parseInt(req.session.level) >= 2 || parseInt(req.session.editId) === parseInt(dedicationId)) {
       const cond1 = new Condition(queryTypes.where)
@@ -554,7 +621,7 @@ const dedicationController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -585,6 +652,9 @@ const dedicationController = {
       updateNoneToMember(ids, fields, tables.COUPLE_TABLE, sendReply)
     } else if (isOldNone && !isNewNone && !isNewMember) {
       updateNoneToNonMember(person, ids, fields, tables.COUPLE_TABLE, sendReply)
+    } else if (isOldNone && isNewNone) {
+      // None to None do nothing
+      sendReply(true)
     } else if (isOldMember && isNewNone) {
       updateMemberToNone(ids, fields, tables.COUPLE_TABLE, sendReply)
     } else if (!isOldMember && isNewNone) {
@@ -600,7 +670,7 @@ const dedicationController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -659,7 +729,7 @@ const dedicationController = {
       updateNonMemberToNonMember(person, sendReply)
     }
 
-    function sendReply (result) {
+    function sendReply(result) {
       if (result) {
         res.send(JSON.stringify(result))
       } else {
@@ -765,7 +835,6 @@ const dedicationController = {
     const couples = JSON.parse(req.body.couples)
     const witnesses = JSON.parse(req.body.witnesses)
     const recordId = req.body.recordId
-
     const nonMembersCond = new Condition(queryTypes.whereIn)
     nonMembersCond.setArray(personFields.ID, nonMembers)
 
@@ -778,20 +847,28 @@ const dedicationController = {
     const recordCond = new Condition(queryTypes.where)
     recordCond.setKeyValue(infDedFields.ID, recordId)
 
-    // Delete Witnesses
-    db.delete(tables.WITNESS_TABLE, witnessesCond, function (result) {
-      if (result === 0) {
-        result = true
-      }
+    const memberCond = new Condition(queryTypes.where)
+    memberCond.setKeyValue(memberFields.CHILD_DEDICATION, recordId)
 
-      if (result) {
-        db.delete(tables.COUPLE_TABLE, couplesCond, function (result) {
+    db.update(db.tables.MEMBER_TABLE, { child_dedication_id: null }, memberCond, function (result) {
+      if (result || result === 0) {
+        //Delete Witnesses
+        db.delete(tables.WITNESS_TABLE, witnessesCond, function (result) {
+          if (result === 0) {
+            result = true
+          }
           if (result) {
-            db.delete(tables.PERSON_TABLE, nonMembersCond, function (result) {
-              if (nonMembers.length === 0 || result) {
-                db.delete(tables.INFANT_TABLE, recordCond, function (result) {
-                  if (result || result === 0) { // Dedication record should be deleted because of FK constraint
-                    res.send(true)
+            db.delete(tables.COUPLE_TABLE, couplesCond, function (result) {
+              if (result) {
+                db.delete(tables.PERSON_TABLE, nonMembersCond, function (result) {
+                  if (nonMembers.length === 0 || result) {
+                    db.delete(tables.INFANT_TABLE, recordCond, function (result) {
+                      if (result || result === 0) { // Dedication record should be deleted because of FK constraint
+                        res.send(true)
+                      } else {
+                        res.send(false)
+                      }
+                    })
                   } else {
                     res.send(false)
                   }
@@ -805,7 +882,7 @@ const dedicationController = {
           }
         })
       } else {
-        res.send(false)
+        res.send(false);
       }
     })
   }

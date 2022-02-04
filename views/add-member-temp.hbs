@@ -1,32 +1,38 @@
-{{>navbar}}
 
-<form action="/add_member" method="POST" class="container" id="create-member-form">
-  <div class="container" style="padding-left: 20%; padding-right: 20%;">
-    <div class="row d-flex justify-content-between">
-      <div class="col"><h1 class="my-3"> Add Member </h1></div>
-      <div class="col align-self-end"><p style="text-align:end; margin:0;"> <span style="color: red;">*</span> - required</p></div>
-    </div>
-    <hr style="margin-top: 0;">
-    <div class="row">
-      <legend>Personal Information</legend>
-      <div class="col">
-        <label for="first_name">First Name <span style="color: red;">*</span></label>
-        <input type="text" id="first_name" name="first_name" class="form-control" >
-        <p id="first_name_error" class="error_codes">  </p>
-      </div>
-      <div class="col">
-        <label for="mid_name">Middle Initial <span style="color: red;">*</span></label>
-        <input type="text" id="mid_name" name="middle_name" class="form-control" >
-        <p id="mid_name_error" class="error_codes">  </p>
-      </div>
-      <div class="col">
-        <label for="last_name">Last Name <span style="color: red;">*</span></label>
-        <input type="text" id="last_name" name="last_name" class="form-control" >
-        <p id="last_name_error" class="error_codes">  </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+   <body>
+    {{>navbar}}
+    <form action="/add_member" method="POST" class="container" id="create-member-form">
+      <div class="container" style="padding-left: 20%; padding-right: 20%;">
+        <div class="row d-flex justify-content-between">
+          <div class="col"><h1 class="my-3"> Add Member </h1></div>
+          <div class="col align-self-end"><p style="text-align:end; margin:0;"> <span style="color: red;">*</span> - required</p></div>
+        </div>
+        <hr style="margin-top: 0;">
+        <div class="row" id="personal-info-div">
+          <legend>Personal Information</legend>
+          <div class="col" id="first-name-div">
+            <label for="first_name">First Name <span style="color: red;">*</span></label>
+            <input type="text" id="first_name" name="first_name" class="form-control" >
+            <p id="first_name_error" class="error_codes">  </p>
+          </div>
+          <div class="col" id="mid-init-div">
+            <label for="mid_name">Middle Initial <span style="color: red;">*</span></label>
+            <input type="text" id="mid_name" name="middle_name" class="form-control" >
+            <p id="mid_name_error" class="error_codes">  </p>
+          </div>
+          <div class="col" id="last-name-div">
+            <label for="last_name">Last Name <span style="color: red;">*</span></label>
+            <input type="text" id="last_name" name="last_name" class="form-control" >
+            <p id="last_name_error" class="error_codes">  </p>
+          </div>
+       </div>
+    <div class="row" id="membership-status-div">
+      <div class="col" id="member-status-div">
         <label for="membership_status">Membership Status</label>
         <select id="membership_status" name="membership_status" class="form-select">
           <option selected> Active </option>
@@ -35,7 +41,7 @@
         </select>
         <p id="membership_status_error" class="error_codes">  </p>
       </div>
-      <div class="col">
+      <div class="col" id="member-type-div">
         <label for="membership_type">Membership Type</label>
         <select name="membership_type" id="membership_type" class="form-select">
           <option>Regular Member (Resident)</option>
@@ -46,7 +52,7 @@
           <option>Honorary Member</option>
         </select>
       </div>
-      <div class="col">
+      <div class="col" id="civil-status-div">
         <label for="civil_status">Civil Status</label>
         <select id="civil_status" name="civil_status" class="form-select">
           <option selected> Single </option>
@@ -75,7 +81,7 @@
         <input type="date" id="birthday" name="birthday" class="form-control" >
         <p id="birthday_error" class="error_codes">  </p>
       </div>
-      <div class="col">
+      <div class="col" id="occupation-div">
         <label for="occupation">Occupation <span style="color: red;">*</span></label>
         <input type="text" id="occupation" name="occupation" class="form-control" >
         <p id="occupation_error" class="error_codes">  </p>
@@ -85,12 +91,12 @@
     <fieldset class="form-group">
       <div class="row">
         <legend>Address</legend>
-        <div class="col">
+        <div class="col" id="addressline1-div">
           <label for="adress_line">Address Line 1 <span style="color: red;">*</span></label>
           <input type="text" id="address_line" name="address_line" class="form-control" >
           <p id="address_line_error" class="error_codes">  </p>
         </div>
-        <div class="col">
+        <div class="col" id="addressline2-div">
           <label for="address_line2">Address Line 2</label>
           <input type="text" id="address_line2" name="address_line2" class="form-control" >
         </div>
@@ -132,7 +138,7 @@
         <p id="telephone_error" class="error_codes"> </p>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="workplace-info-div">
       <div class="col">
         <label for="workplace">Workplace</label>
         <input type="text" id="workplace" name="workplace" class="form-control" >
@@ -143,7 +149,7 @@
         <p id="email_error" class="error_codes">  </p>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="education-info-div">
       <div class="col">
         <label for="educational_attainment">Educational Attainment</label>
         <input type="text" id="educational_attainment" name="educational_attainment" class="form-control">
@@ -166,4 +172,7 @@
 
     <button type="button" id="create-member" class="btn btn-primary">Submit</button>
   </div>
-</form>
+    </form>
+</body>
+</html>
+

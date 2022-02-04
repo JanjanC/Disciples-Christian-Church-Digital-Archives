@@ -52,7 +52,6 @@ const attendanceController = {
                 data.scripts = ["viewAttendance"];
                 data.styles = ["attendanceView"];
                 data.backLink = "attendance_main_page";
-                console.log(data)
                 res.render("view-attendance", data);
             });
         }
@@ -74,8 +73,7 @@ const attendanceController = {
                     message: "Unauthorized access",
                 },
             });
-        }
-        else {
+        } else {
             const joinTables1 = [
                 {
                     tableName: db.tables.PERSON_TABLE,
@@ -141,6 +139,7 @@ const attendanceController = {
                     res.send("EXISTS");
                     return;
                 }
+
                 db.insert(db.tables.PERSON_TABLE, nonMemberAttendees, function (result) {
                     if (result) {
                         result = result[0];
@@ -149,10 +148,10 @@ const attendanceController = {
                             curAttendee[attendanceFields.DATE] = date;
                             curAttendee[attendanceFields.PERSON] = result;
                             attendees.push(curAttendee);
-                            result -= 1;
+                            result += 1;
                         });
                     }
-                    
+
                     // insert each person into a new attendance table
                     db.insert(db.tables.ATTENDANCE_TABLE, attendees, function (result) {
                         if (result !== false) {
@@ -177,13 +176,13 @@ const attendanceController = {
         if (parseInt(req.session.level) === 3 || parseInt(req.session.level) === 2 || req.session.editId === date) {
             const data = {
                 scripts: ["editAttendance", "edit"],
-                styles: ["forms","attendanceEdit"],
+                styles: ["forms", "attendanceEdit"],
                 attendeesMembers: [],
                 attendeesNonMembers: [],
                 attendees: [],
                 members: [],
             };
-            // join table for the groom
+            
             const joinTables1 = [
                 {
                     tableName: { person: db.tables.PERSON_TABLE },
@@ -324,7 +323,7 @@ const attendanceController = {
 
         // find the the person ids of each attendance record that was removed in the update
         db.find(db.tables.ATTENDANCE_TABLE, condition, [], "*", function (result) {
-            if (result == 0) res.send(true);
+            if (result.length === 0) res.send(true);
             else res.send(false);
         });
     },

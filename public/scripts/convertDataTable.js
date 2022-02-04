@@ -2,6 +2,7 @@ $(document).ready(function() {
   $.fn.dataTable.moment('MM/DD/YYYY')
 
   var table = $('#dataTable').DataTable({
+    responsive: true,
     dom: 'Blfrtip',
     columnDefs: [
       {
