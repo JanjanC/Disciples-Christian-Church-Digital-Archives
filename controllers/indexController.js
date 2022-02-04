@@ -7,6 +7,7 @@ const coupleFields = require('../models/couple')
 const weddingRegFields = require('../models/weddingRegistry')
 const infDedFields = require('../models/infantDedication')
 const bapRegFields = require('../models/baptismalRegistry')
+const settingsFields = require('../models/settings')
 const { Condition, queryTypes } = require('../models/condition')
 const { sendError } = require('./errorController')
 const moment = require('moment')
@@ -79,7 +80,7 @@ const controller = {
       db.find(db.tables.MEMBER_TABLE, null, joinTables, '*', function (result) {
         if (result) {
           const data = {
-            styles: ['lists'],
+            styles: ['lists','memberMainPage'],
             scripts: ['convertDataTable'],
             canSee: parseInt(req.session.level) === 3
           }
@@ -385,20 +386,26 @@ const controller = {
       const data = {
         scripts: ['settings'],
         styles: ['settings'],
+        settings: {},
         passwords: {}
       }
-      db.findAll(db.tables.ACCOUNT_TABLE, '*', function (result) {
-        // data.passwords = result
-        for (let i = 0; i < result.length; i++) {
-          if (result[i].level === '1') {
-            data.passwords.low = result[i].hashed_password
-          } else if (result[i].level === '2') {
-            data.passwords.med = result[i].hashed_password
-          } else if (result[i].level === '3') {
-            data.passwords.high = result[i].hashed_password
+      db.findAll(db.tables.SETTINGS_TABLE, "*", function (result) {
+        // for each setting name, convert the value to a boolean and store in data.settings
+        for (let i = 0; i < result.length; i++) 
+          data.settings[result[i].settings_name] = (result[i].settings_value) === "true"
+        db.findAll(db.tables.ACCOUNT_TABLE, '*', function (result) {
+          // data.passwords = result
+          for (let i = 0; i < result.length; i++) {
+            if (result[i].level === '1') {
+              data.passwords.low = result[i].hashed_password
+            } else if (result[i].level === '2') {
+              data.passwords.med = result[i].hashed_password
+            } else if (result[i].level === '3') {
+              data.passwords.high = result[i].hashed_password
+            }
           }
-        }
-        res.render('settings-page', data)
+          res.render('settings-page', data)
+        })
       })
     } else {
       sendError(req, res, 401)
@@ -451,8 +458,38 @@ const controller = {
       res.send(result) // sends boolean true or false
     })
   },
-
-  getStatisticsPage: function (req, res) {
+  /**
+   * This function changes the given settings
+   * @param req - the incoming request containing either the query or body
+   * @param res - the result to be sent out after processing the request
+   */
+   postChangeSettings: function (req, res) {
+    if (parseInt(req.session.level) === 3) {
+      const name = req.body.name
+      const value = req.body.value
+      const matchesSettingName = new Condition(queryTypes.where)
+      matchesSettingName.setKeyValue(settingsFields.ID, name)
+      db.update(db.tables.SETTINGS_TABLE, {settings_value: value}, matchesSettingName, function (result) {
+        if (result) {
+          res.send(true)
+        } else {
+          res.send(false)
+        }
+      })
+    } else {
+      sendError(req, res, 401)
+    }
+  },
+  /**
+   * This function drops all tables in the database
+   * @param req - the incoming request containing either the query or body
+   * @param res - the result to be sent out after processing the request
+   */
+  postDropAllTables: function (req, res) {
+    db.deleteAndReset()
+    res.send(true)
+  },
+  getStatisticsPage: function (req,res){
     if (parseInt(req.session.level) === 3) {
       const level = req.body.level
       const password = req.body.password

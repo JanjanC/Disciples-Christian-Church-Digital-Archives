@@ -8,7 +8,7 @@
       <div class="col-4 align-self-end"><p style="text-align:end; margin:0;"><span style="color: red;">*</span> - required</p></div>
     </div>
     <hr style="margin-top: 0;">
-    <div class="row">
+    <div class="row" id="name-div">
       <div class="col">
         <label for="first_name">First Name <span style="color: red;">*</span></label>
         <input type="text" id="first_name" name="first_name" class="form-control" value="{{member.first_name}}">
@@ -25,7 +25,7 @@
         <p id="last_name_error" class="error_codes">  </p>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="member-status-div">
       <div class="col">
         <label for="membership_status">Membership Status</label>
         <select id="membership_status" name="membership_status" class="form-select">
@@ -66,7 +66,7 @@
         <input type="date" id="birthday" name="birthday" class="form-control" value="{{date member.birthday}}">
         <p id="birthday_error" class="error_codes"> </p>
       </div>
-      <div class="col">
+      <div class="col" id="occupation-col-div">
         <label for="occupation">Occupation <span style="color: red;">*</span></label>
         <input type="text" id="occupation" name="occupation" class="form-control" value="{{member.occupation}}">
         <p id="occupation_error" class="error_codes">  </p>
@@ -85,8 +85,8 @@
         <p id="telephone_error" class="error_codes"> </p>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
+    <div class="row" id="workplace-div">
+      <div class="col" id="workplace-col">
         <label for="workplace">Workplace</label>
         <input type="text" id="workplace" name="workplace" class="form-control" value="{{member.workplace}}">
       </div>
@@ -96,8 +96,8 @@
         <p id="email_error" class="error_codes">  </p>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
+    <div class="row" id="education-div">
+      <div class="col" id="educ-attain-col">
         <label for="educational_attainment">Educational Attainment</label>
         <input type="text" id="educational_attainment" name="educational_attainment" class="form-control" value="{{member.educ_attainment}}">
       </div>
@@ -114,7 +114,7 @@
     <input type="textarea" id="skills" name="skills" class="form-control" value="{{member.skills}}">
     <hr>
     <fieldset class="form-group">
-      <div class="row">
+      <div class="row" id="address-line-1">
         <div class="col">
           <label for="adress_line">Address Line 1 <span style="color: red;">*</span></label>
           <input type="text" id="address_line" name="address_line" class="form-control" value="{{member.address_line}}">

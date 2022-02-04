@@ -4,6 +4,7 @@ const memberFields = require('../models/members')
 const addressFields = require('../models/address')
 const bapRegFields = require('../models/baptismalRegistry')
 const churchFields = require('../models/church')
+const settingsFields = require('../models/settings')
 const { validationResult } = require('express-validator')
 const observationFields = require('../models/observation')
 const { Condition, queryTypes } = require('../models/condition.js')
@@ -17,30 +18,38 @@ const memberController = {
    * @param res - the result to be sent out after processing the request
    */
   getAddMemberPage: function (req, res) {
-    const level = req.session.level;
+    let level = req.session.level;
     req.session.editId = null
-    if (level === undefined || level === null) {
-        res.status(401);
-        res.render("error", {
-            title: "401 Unauthorized Access",
-            css: ["global", "error"],
-            status: {
-                code: "401",
-                message: "Unauthorized access",
-            },
-        });
-    }    
-    res.render('add-member-temp', {
-      styles: ['forms'],
-      scripts: ['member']
-    })
+    const matchesSettingName = new Condition(queryTypes.where);
+    matchesSettingName.setKeyValue(settingsFields.ID, "allow_level_0");
+    db.find(db.tables.SETTINGS_TABLE, matchesSettingName, [], settingsFields.VALUE, function (result) {
+      if ((level === undefined || level === null) && result[0].settings_value == "false") {
+          res.status(401);
+          res.render("error", {
+              title: "401 Unauthorized Access",
+              css: ["global", "error"],
+              status: {
+                  code: "401",
+                  message: "Adding new members isn't allowed at this time. Contact a church admin for more info.",
+              },
+          });
+      }
+      else {
+        if (!level)
+          level = 0;
+        res.render('add-member-temp', {
+          styles: ['forms','addMember'],
+          scripts: ['member']
+        })
+      }
+    });
   },
 
   getEditMember: function (req, res) {
     if (req.session.editId === parseInt(req.params.member_id) || parseInt(req.session.level) === 3) {
       const data = {
-        styles: ['forms'],
-        scripts: ['member']
+        styles: ['forms','editMember'],
+        scripts: ['member','editMember']
       }
       const condition = new Condition(queryTypes.where)
       const churchCondition = new Condition(queryTypes.where)
