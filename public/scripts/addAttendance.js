@@ -304,25 +304,20 @@ $(document).ready(function () {
             const firstName = $("#non_member_first_name").val();
             const midName = $("#non_member_mid_name").val();
             const lastName = $("#non_member_last_name").val();
-            $("#gfather_witness_row").append(
-                "<div class='col-4' style='margin-bottom: 1em;'>" +
-                    "<div class='card witness male'><div class='card-body'>" +
-                    "<p class='card-text non-member-text'>" +
-                    "<span class='first_name'>" +
-                    firstName +
-                    "</span> " +
-                    "<span class='mid_name'>" +
-                    midName +
-                    "</span> " +
-                    "<span class='last_name'>" +
-                    lastName +
-                    "</span>" +
-                    "</p>" +
-                    "<button type='button' class='fas fa-trash delGFatherWitnessBtn '></button>" +
-                    "</div>" +
-                    "</div>" +
-                    "</div>"
-            );
+            $("#non_member_row").append(`
+                <div class='col-4' style='margin-bottom: 1em;'>
+                    <div class='card witness male'>
+                        <div class='card-body'>
+                            <p class='card-text non-member-text'>
+                                <span class='first_name'>${firstName}</span>
+                                <span class='mid_name'>${midName}</span>
+                                <span class='last_name'>${lastName}</span>
+                            </p>
+                            <button type='button' class='fas fa-trash delGFatherWitnessBtn '></button>
+                        </div>
+                    </div>
+                </div>
+            `);
 
             $("#witness_gfather_info_error").text("");
             $("#witness_gmother_info_error").text("");
