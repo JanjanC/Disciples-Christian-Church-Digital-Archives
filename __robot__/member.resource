@@ -495,3 +495,7 @@ Edit Member [All Inputs]
     Check Province                      Cebu
     Check Postal Code                   1000
     Check Country                       Philippines
+
+Go To Level 0 Member Registration
+    Wait Until Element Is Visible       id:member-reg-btn
+    Click Element                       id:member-reg-btn

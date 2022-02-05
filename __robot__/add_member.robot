@@ -121,3 +121,10 @@ Add Member Skill
     Go To Edit Members              1000001
     Add Skill
     Check Added Skill
+
+Register with Level 0 [Required Only]
+    Open Browser To Login Page
+    Go To Level 0 Member Registration
+    Add Member                              John    D    Bainto     02      22      2001    Student     Block 1     Manila      Philippines
+    Check Added Member                      John    D    Bainto     02      22      2001    Student     Block 1     Manila      Philippines
+    Close Browser
