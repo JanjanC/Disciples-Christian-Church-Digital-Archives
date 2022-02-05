@@ -59,7 +59,7 @@ async function script() {
         user: useEnv ? process.env.DB_USER : connectionDetails["Database_User"],
         password: useEnv ? process.env.DB_PASS : connectionDetails["Database_Password"],
         database: useEnv ? process.env.DB_NAME : connectionDetails["Database_Name"],
-        port: useEnv ? process.env.DB_PORT : connectionDetails["Port"],
+        port: (useEnv ? process.env.DB_PORT : connectionDetails["Port"]) || 3306,
         ssl: {
             rejectUnauthorized: false,
         },
