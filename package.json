@@ -8,7 +8,8 @@
         "dev": "nodemon app.js",
         "test": "jest",
         "testDev": "jest --watchAll --verbose",
-        "testOpenHandles": "jest --detectOpenHandles"
+        "testOpenHandles": "jest --detectOpenHandles",
+        "initdb": "node initialize_database.js"
     },
     "repository": {
         "type": "git",
@@ -40,9 +41,9 @@
         "knex": "^0.95.14",
         "memorystore": "^1.6.6",
         "moment": "^2.29.1",
-        "mysql": "^2.18.1",
         "mysql2": "^2.3.3",
         "nocache": "^3.0.1",
+        "prompt": "^1.2.1",
         "validator": "^13.6.0"
     },
     "devDependencies": {
