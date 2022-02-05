@@ -3,39 +3,10 @@ Documentation   A test suite with for the old Register feature created during CS
 ...
 ...              This test follows the example using keywords from
 ...              the SeleniumLibrary
-Resource         register.resource
+Resource         member.resource
 Test Teardown    Close Browser
 
 *** Test Cases ***
-Valid Login For Level 1
-    Open Browser To Login Page
-    Input Pass                      ${LEVEL 1 PASSWORD}
-    Submit Credentials
-    Menu Page 1 Should Be Open
-
-Valid Login For Level 2
-    Open Browser To Login Page
-    Input Pass                      ${LEVEL 2 PASSWORD}
-    Submit Credentials
-    Menu Page 2 Should Be Open
-
-Valid Login For Level 3
-    Open Browser To Login Page
-    Input Pass                      ${LEVEL 3 PASSWORD}
-    Submit Credentials
-    Menu Page 3 Should Be Open
-
-Invalid Login
-    Open Browser To Login Page
-    Input Pass                      ${INVALID PASSWORD}
-    Submit Credentials
-    Error Message Shown             Invalid Password
-
-Blank Login
-    Open Browser To Login Page
-    Submit Credentials
-    Page Should Contain             —In heart, in mind, in deed; Strengthened to Obey God's Will in this Fast Changing - Critical Time
-
 Register with Level 1 [Required Only]
     Open Browser To Login Page
     Input Pass                      ${LEVEL 1 PASSWORD}
@@ -124,15 +95,6 @@ Validate Email
     Enter Member Information
     Is Valid Email
 
-Validate Edit
-    Open Browser To Login Page
-    Input Pass                      ${LEVEL 3 PASSWORD}
-    Submit Credentials
-    Menu Page 3 Should Be Open
-    Go To Edit Members              1000001
-    Edit Member                     Soma    Y       Ahcac       05      25      1002        Tneduts      Block 2     Paranaque City    Philippine
-    Check Edited Member             Soma    Y       Ahcac       05      25      1002        Tneduts      Block 2     Paranaque City    Philippine
-
 Add Observation
     Open Browser To Login Page
     Input Pass                      ${LEVEL 3 PASSWORD}
@@ -151,8 +113,6 @@ Invalid Observation
     Add Invalid Observation
     Check Invalid Observation
 
-
-
 Add Member Skill
     Open Browser To Login Page
     Input Pass                      ${LEVEL 3 PASSWORD}
@@ -161,18 +121,3 @@ Add Member Skill
     Go To Edit Members              1000001
     Add Skill
     Check Added Skill
-
-Level 1 Edit
-    Open Browser To Login Page
-    Input Pass                      ${LEVEL 1 PASSWORD}
-    Submit Credentials
-    Menu Page 1 Should Be Open
-    Go To Add Members 1
-    Page Should Contain             Add Member
-
-Level 2 Edit
-    Open Browser To Login Page
-    Input Pass                      ${LEVEL 2 PASSWORD}
-    Submit Credentials
-    Menu Page 2 Should Be Open
-    Go To Member                    1000001
