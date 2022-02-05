@@ -911,24 +911,22 @@ View Wedding Page Should Match Form Inputs
     #Wedding Location
     Element Should Contain    id:location    ${location}
     #Godfather
-    ${godfather_ctr}=    Set Variable    ${0}
     ${godfathers_elements}=    Get WebElements    css:#godfathers .witness
     ${godfather_length}=    Get Length    ${godfathers_elements}
     Length Should Be    ${godfather_list}    ${godfather_length}
+    ${godfather_section}=    Get WebElements    css:#godfathers
     FOR    ${godfather}    IN    @{godfather_list}
         ${godfather_name}=    Catenate    ${godfather[0]}    ${godfather[1]}.    ${godfather[2]}
-        Element Should Contain    ${godfathers_elements[${godfather_ctr}]}    ${godfather_name}
-        ${godfather_ctr}=    Evaluate    ${godfather_ctr} + 1
+        Element Should Contain    ${godfather_section}    ${godfather_name}
     END
     #Godmother
-    ${godmother_ctr}=    Set Variable    ${0}
     ${godmothers_elements}=    Get WebElements    css:#godmothers .witness
     ${godmother_length}=    Get Length    ${godmothers_elements}
     Length Should Be    ${godmother_list}    ${godmother_length}
+    ${godmother_section}=    Get WebElements    css:#godmothers
     FOR    ${godmother}    IN    @{godmother_list}
         ${godmother_name}=    Catenate    ${godmother[0]}    ${godmother[1]}.    ${godmother[2]}
-        Element Should Contain    ${godmothers_elements[${godmother_ctr}]}    ${godmother_name}
-        ${godmother_ctr}=    Evaluate    ${godmother_ctr} + 1
+        Element Should Contain    ${godmother_section}    ${godmother_name}
     END
 #TODO: END
 

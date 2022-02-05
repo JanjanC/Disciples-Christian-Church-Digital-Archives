@@ -525,10 +525,10 @@ View Dedication Page Should Match Form Inputs
     ${godmothers_elements}=    Get WebElements    css:#godmothers .witness
     ${godmother_length}=    Get Length    ${godmothers_elements}
     Length Should Be    ${godmother_list}    ${godmother_length}
-    ${godmothers_elements}=    Get WebElements    css:#godmothers
+    ${godmother_section}=    Get WebElements    css:#godmothers
     FOR    ${godmother}    IN    @{godmother_list}
         ${godmother_name}=    Catenate    ${godmother[0]}    ${godmother[1]}.    ${godmother[2]}
-        Element Should Contain    ${godmothers_elements}    ${godmother_name}
+        Element Should Contain    ${godmother_section}    ${godmother_name}
     END
 
 Forms Main Page Should Be Open
