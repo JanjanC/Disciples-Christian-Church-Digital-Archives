@@ -1,14 +1,12 @@
 *** Settings ***
-Documentation       A resource file with reusable keywords and variables
+Documentation     A resource file with reusable keywords and variables
 ...
-...                 Creating system specific keywords from default keywords
-...                 from SeleniumLibrary
-
-Library             SeleniumLibrary
-Library             DateTime
-Resource            login.resource
-Resource            common.resource
-Variables           variables.py
+...               Creating system specific keywords from default keywords
+...               from SeleniumLibrary
+Library           SeleniumLibrary
+Resource          login.resource
+Resource          common.resource
+Variables         variables.py
 
 *** Keywords ***
 Navigate to Forms Main Page From Main Page
@@ -33,12 +31,12 @@ Navigate to Edit Prenuptial Page From View Prenuptial Page
 Select Edit Bride Details
     Scroll To Element    id:edit_bride
     Click Button    id:edit_bride
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Groom Details
     Scroll To Element    id:edit_groom
     Click Button    id:edit_groom
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Non-Member Bride Form
     Scroll To Element    id:bride_non_member
@@ -79,12 +77,12 @@ Select Random Member Groom
 Input Current Date
     [Arguments]    ${month}    ${day}    ${year}
     Scroll To Element    id:current_date
-    Press Keys    id:current_date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
+    Press Keys    id:current_date    ${month}    ${day}    ${year}
 
 Input Wedding Date
     [Arguments]    ${month}    ${day}    ${year}
     Scroll To Element    id:wedding_date
-    Press Keys    id:wedding_date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
+    Press Keys    id:wedding_date    ${month}    ${day}    ${year}
 
 Submit Prenuptial Form
     Scroll To Element    id:create-prenup
@@ -93,26 +91,26 @@ Submit Prenuptial Form
 Save Bride Detail Changes
     Save Bride Data
     Click Button    id:save_bride_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Groom Detail Changes
     Save Groom Data
     Click Button    id:save_groom_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Prenuptial Form Changes
     Scroll To Element    id:save_changes
     Click Button    id:save_changes
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Button    id:edit-prenup
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Delete Prenuptial Record
     Scroll To Element    id:delete_prenup
     Click Button    id:delete_prenup
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Button    id:confirm_delete
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Bride Information Error Should Be Shown
     Element Should Contain    id:bride_info_error    Accomplish all fields

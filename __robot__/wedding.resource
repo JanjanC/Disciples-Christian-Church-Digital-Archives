@@ -1,14 +1,12 @@
 *** Settings ***
-Documentation       A resource file with reusable keywords and variables
+Documentation     A resource file with reusable keywords and variables
 ...
-...                 Creating system specific keywords from default keywords
-...                 from SeleniumLibrary
-
-Library             SeleniumLibrary
-Library             DateTime
-Resource            login.resource
-Resource            common.resource
-Variables           variables.py
+...               Creating system specific keywords from default keywords
+...               from SeleniumLibrary
+Library           SeleniumLibrary
+Resource          login.resource
+Resource          common.resource
+Variables         variables.py
 
 *** Keywords ***
 Navigate to Forms Main Page From Main Page
@@ -33,42 +31,42 @@ Navigate to Edit Wedding Page From View Wedding Page
 Select Edit Bride Details
     Scroll To Element    id:edit_bride
     Click Button    id:edit_bride
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Groom Details
     Scroll To Element    id:edit_groom
     Click Button    id:edit_groom
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Bride Mother Details
     Scroll To Element    id:edit_bride_mother
     Click Button    id:edit_bride_mother
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Bride Father Details
     Scroll To Element    id:edit_bride_father
     Click Button    id:edit_bride_father
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Groom Mother Details
     Scroll To Element    id:edit_groom_mother
     Click Button    id:edit_groom_mother
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Groom Father Details
     Scroll To Element    id:edit_groom_father
     Click Button    id:edit_groom_father
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Godmother Details
     Scroll To Element    class:edit_female_witness_btn
     Click Button    class:edit_female_witness_btn
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Godfather Details
     Scroll To Element    class:edit_male_witness_btn
     Click Button    class:edit_male_witness_btn
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Non-Member Bride Form
     Scroll To Element    id:bride_non_member
@@ -265,12 +263,12 @@ Input Contract Number
 Select Add Godmother Button
     Scroll to Element    id:add_gmother_button
     Click Button    id:add_gmother_button
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Add Godfather Button
     Scroll to Element    id:add_gfather_button
     Click Button    id:add_gfather_button
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Non-Member Godmother Form
     Click Button    id:witness_gmother_non_member
@@ -292,7 +290,7 @@ Confirm Add Godmother
     ${godmother}=    Get Godmother Data
     Append to List of Godmothers    ${godmother}
     Click Button    id:add_gmother_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Select Non-Member Godfather Form
     Click Button    id:witness_gfather_non_member
@@ -314,7 +312,7 @@ Confirm Add Godfather
     ${godfather}=    Get Godfather Data
     Append to List of Godfathers    ${godfather}
     Click Button    id:add_gfather_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Remove Godmother
     Remove From List of Godmothers    0
@@ -362,17 +360,17 @@ Remove Godmother in Edit Wedding Page
     Remove From List of Godmothers    0
     Scroll to Element    class:delete_female_witness_btn
     Click Element    class:delete_female_witness_btn
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Remove Godfather in Edit Wedding Page
     Remove From List of Godfathers    0
     Scroll to Element    class:delete_male_witness_btn
     Click Element    class:delete_male_witness_btn
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Submit Wedding Registry
     Scroll to Element    id:create-wedding-registry
@@ -381,60 +379,60 @@ Submit Wedding Registry
 Save Bride Detail Changes
     Save Bride Data
     Click Button    id:save_bride_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Groom Detail Changes
     Save Groom Data
     Click Button    id:save_groom_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Bride Mother Detail Changes
     ${bride_mother}=    Get Female Data
     Set Test Variable    ${bride_mother}
     Click Button    id:save_female_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Bride Father Detail Changes
     ${bride_father}=    Get Male Data
     Set Test Variable    ${bride_father}
     Click Button    id:save_male_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Groom Mother Detail Changes
     ${groom_mother}=    Get Female Data
     Set Test Variable    ${groom_mother}
     Click Button    id:save_female_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Groom Father Detail Changes
     ${groom_father}=    Get Male Data
     Set Test Variable    ${groom_father}
     Click Button    id:save_male_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Godmother Detail Changes
     ${godmother}=    Get Godmother Data in Edit Wedding Page
     Replace in List of Godmothers    0    ${godmother}
     Click Button    id:save_female_witness_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Godfather Detail Changes
     ${godfather}=    Get Godfather Data in Edit Wedding Page
     Replace in List of Godfathers    0    ${godfather}
     Click Button    id:save_male_witness_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Confirm Add Godmother in Edit Wedding Page
     ${godmother}=    Get Godmother Data in Edit Wedding Page
     Append to List of Godmothers    ${godmother}
     Click Button    id:save_female_witness_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Confirm Add Godfather in Edit Wedding Page
     ${godfather}=    Get Godfather Data in Edit Wedding Page
     Append to List of Godfathers    ${godfather}
     Click Button    id:save_male_witness_btn
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Wedding Form Changes
     Scroll To Element    id:save_changes
@@ -443,9 +441,9 @@ Save Wedding Form Changes
 Delete Wedding Record
     Scroll to Element    id:delete_wedding
     Click Button    id:delete_wedding
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Button    id:confirm_delete
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Bride Error Should Be Shown
     Element Should Contain    id:bride_info_error    Please provide bride name
@@ -495,7 +493,6 @@ Godmother Maximum Warning Should Be Shown
 
 Godfather Maximum Warning Should Be Shown
     Element Should Contain    id:witness_gfather_info_error    You have reached the maximum number of witnesses
-
 #TODO: START
 
 Save Bride Data
