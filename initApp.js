@@ -5,6 +5,7 @@ const fs = require("fs");
 const { dbInfo } = require("./models/dbInfo");
 const startIds = dbInfo.startIds;
 const data = require("./models/dummyData");
+const prompt = require("prompt");
 dotenv.config();
 
 let knexClient = {};
@@ -164,7 +165,29 @@ function insertData() {
 }
 
 // Uncomment these to run the database initialization script.
- initDatabase();
- insertAccounts();
- insertSettings();
- insertData();
+prompt.start();
+console.log("WARNING: This initApp is deprecated. Please use the initialize_database script instead.");
+prompt.get(
+    [
+        {
+            name: "Would you like to continue? (Y/N)",
+            validator: /Y|y|N|n/,
+        },
+    ],
+    (err, result) => {
+        if (err) {
+            throw new Error(err);
+        }
+        if (
+            result["Would you like to continue? (Y/N)"] === "Y" ||
+            result["Would you like to continue? (Y/N)"] === "y"
+        ) {
+            initDatabase();
+            insertAccounts();
+            insertSettings();
+            insertData();
+        } else {
+            console.log("Goodbye!");
+        }
+    }
+);

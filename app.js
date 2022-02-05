@@ -70,8 +70,9 @@ app.use(function (req, res) {
 
 if (process.env.NODE_ENV !== "test") {
     app.listen(port, function () {
-        console.log("Server running at:");
-        console.log("PORT " + port);
+        console.log("Disciples Christian Church Digital Archives");
+        console.log(`Webserver is listening on port ${port}`);
+        console.log(`Current Node Environment: ${process.env.NODE_ENV || "unconfigured"}`);
     });
 }
 
