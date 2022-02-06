@@ -882,7 +882,7 @@ const weddingController = {
                                 return res.send(false);
                             }
                         } else {
-                            weddingData.witnessMale[i].person_id = witnessPersonLookupResult[0].couple_id;
+                            weddingData.witnessMale[i].person_id = witnessPersonLookupResult[0].person_id;
                         }
                     }
                     // Insert the witness to the witness table
@@ -931,7 +931,7 @@ const weddingController = {
                                 return res.send(false);
                             }
                         } else {
-                            weddingData.witnessFemale[i].person_id = witnessPersonLookupResult[0].couple_id;
+                            weddingData.witnessFemale[i].person_id = witnessPersonLookupResult[0].person_id;
                         }
                     }
                     // Insert the witness to the witness table
