@@ -17,7 +17,7 @@ const memberController = {
    * @param req - the incoming request containing either the query or body
    * @param res - the result to be sent out after processing the request
    */
-  getAddMemberPage: function (req, res) {1
+  getAddMemberPage: function (req, res) {
     const matchesSettingName = new Condition(queryTypes.where);
     matchesSettingName.setKeyValue(settingsFields.ID, "allow_level_0");
     db.find(db.tables.SETTINGS_TABLE, matchesSettingName, [], settingsFields.VALUE, function (result) {
