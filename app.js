@@ -72,6 +72,8 @@ app.use(function (req, res) {
 
 if (process.env.NODE_ENV === "production") {
     // Run via HTTPS
+    const httpPort = parseInt(process.env.HTTP_PORT) || 80;
+    const httpsPort = parseInt(process.env.HTTPS_PORT) || 443;
     https
         .createServer(
             {
@@ -80,12 +82,20 @@ if (process.env.NODE_ENV === "production") {
             },
             app
         )
-        .listen(port, () => {
+        .listen(httpsPort, () => {
             console.log("Disciples Christian Church Digital Archives");
             console.log(`Webserver is listening on port ${port}`);
             console.log(`Current Node Environment: ${process.env.NODE_ENV || "unconfigured"}`);
             console.log(`SSL: YES`);
         });
+    // Start http redirect server
+    const redirectApp = express();
+    redirectApp.use((req, res) => {
+        res.redirect(`https://${req.headers.host}${req.url}`);
+    });
+    http.createServer(redirectApp).listen(httpPort, () => {
+        console.log(`HTTP Redirector Started on port ${httpPort}`);
+    });
 } else {
     // Run via HTTP only
     http.createServer(app).listen(port, () => {
