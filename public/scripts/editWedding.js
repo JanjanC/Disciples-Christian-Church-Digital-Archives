@@ -484,10 +484,10 @@ $(document).ready(function () {
             let lastNameField = null;
 
             if (data.person !== null) data.person.personId = info[1];
-            if (!data.person.isMember && data.oldPersonId != null) {
+            if (data.person && !data.person.isMember && data.oldPersonId != null) {
                 data.person.personId = data.oldPersonId;
             }
-            console.log(data);
+
             data.person = JSON.stringify(data.person);
 
             if (modalType === editKeys.brideFather) {
