@@ -9,6 +9,27 @@ orbs:
 
 # Define the jobs we want to run for this project
 jobs:
+    build_production:
+        resource_class: small
+        working_directory: ~/app
+        environment:
+            IMAGE_NAME: adrielamoguis/stsweng-heroku-dcc-production
+        docker:
+            - image: circleci/buildpack-deps:stretch
+        steps:
+            - checkout
+            - setup_remote_docker
+            - run:
+                  name: Build Production Docker Image
+                  command: |
+                      docker build -t $IMAGE_NAME:latest .
+            - run:
+                  name: Push Production Docker Image
+                  command: |
+                      echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+                      docker tag $IMAGE_NAME:latest $IMAGE_NAME:$CIRCLE_SHA1
+                      docker push $IMAGE_NAME:latest
+
     build:
         resource_class: small
         working_directory: ~/app
@@ -20,7 +41,7 @@ jobs:
             - checkout
             - setup_remote_docker
             - run:
-                  name: Build Docker Image
+                  name: Build Staging Docker Image
                   command: |
                       docker build -t $IMAGE_NAME:latest .
             - run:
@@ -90,15 +111,14 @@ jobs:
 
 # Orchestrate our job run sequence
 workflows:
-    deploy:
+    deploy_staging:
         jobs:
             - unit_test:
                   filters:
                       branches:
                           only:
                               - staging
-                              - main
-            - automation_test:
+            - build:
                   requires:
                       - unit_test
             - build:
@@ -115,6 +135,16 @@ workflows:
                           ignore:
                               - staging
                               - main
-            - automation_test:
+    deploy_production:
+        jobs:
+            - unit_test:
+                  filters:
+                      branches:
+                          only:
+                              - main
+            - build_production:
                   requires:
                       - unit_test
+            - deploy:
+                  requires:
+                      - build_production
