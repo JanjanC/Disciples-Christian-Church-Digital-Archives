@@ -9,6 +9,8 @@ const MemoryStore = require("memorystore")(session);
 const nocache = require("nocache");
 const fse = require("fs-extra");
 const db = require("./models/db");
+const http = require("http");
+const https = require("https");
 
 const app = express();
 const routes = require("./routes/routes.js");
@@ -68,11 +70,29 @@ app.use(function (req, res) {
     });
 });
 
-if (process.env.NODE_ENV !== "test") {
-    app.listen(port, function () {
+if (process.env.NODE_ENV === "production") {
+    // Run via HTTPS
+    https
+        .createServer(
+            {
+                key: fse.readFileSync(path.join(__dirname, "ssl/privkey.pem")),
+                cert: fse.readFileSync(path.join(__dirname, "ssl/cert.pem")),
+            },
+            app
+        )
+        .listen(port, () => {
+            console.log("Disciples Christian Church Digital Archives");
+            console.log(`Webserver is listening on port ${port}`);
+            console.log(`Current Node Environment: ${process.env.NODE_ENV || "unconfigured"}`);
+            console.log(`SSL: YES`);
+        });
+} else {
+    // Run via HTTP only
+    http.createServer(app).listen(port, () => {
         console.log("Disciples Christian Church Digital Archives");
         console.log(`Webserver is listening on port ${port}`);
         console.log(`Current Node Environment: ${process.env.NODE_ENV || "unconfigured"}`);
+        console.log(`SSL: NO`);
     });
 }
 
