@@ -26,16 +26,16 @@ Login Page Should Be Open
     Page Should Contain Element     password
 
 Menu Page 1 Should Be Open
+    Wait Until Element Contains     id:header     Disciple Christian Church | Level 1
     Element Text Should Be          id:header    Disciple Christian Church | Level 1
-    Sleep                           2
 
 Menu Page 2 Should Be Open
+    Wait Until Element Contains     id:header     Disciple Christian Church | Level 2
     Element Text Should Be          id:header    Disciple Christian Church | Level 2
-    Sleep                           2
 
 Menu Page 3 Should Be Open
+    Wait Until Element Contains     id:header     Disciple Christian Church | Level 3
     Element Text Should Be          id:header    Disciple Christian Church | Level 3
-    Sleep                           2
 
 Input Pass
     [Arguments]                     ${password}
@@ -43,7 +43,6 @@ Input Pass
 
 Submit Credentials
     Press Keys                      none    ENTER
-    Sleep                           2
 
 Go To Add Members 1
     Wait Until Page Contains Element    css:*[src="../images/people.png"]
@@ -63,16 +62,15 @@ Go To Edit Members
     Click Element                       css:*[href="/edit_member/${member}"]
 
 Enter Member Information
+    Scroll To Element               create-member
+    Wait Until Element Is Visible   create-member
     Set Focus To Element            create-member
-    Sleep                           2
     Press Keys                      create-member    ENTER
-    Sleep                           2
 
 Enter Edited Information
+    Wait Until Element Is Visible   edit-member
     Set Focus To Element            edit-member
-    Sleep                           2
     Press Keys                      edit-member    ENTER
-    Sleep                           2
 
 Add Member
     [Arguments]                     ${first name}   ${middle initial}   ${last name}    ${month}     ${day}      ${year}     ${occupation}       ${address}      ${city}     ${country}
@@ -84,7 +82,6 @@ Add Member
     Input Text                      address_line    ${address}
     Input Text                      city            ${city}
     Input Text                      country         ${country}
-    Enter Member Information
 
 Edit Member
     [Arguments]                     ${first name}   ${middle initial}   ${last name}    ${month}     ${day}      ${year}     ${occupation}       ${address}      ${city}     ${country}
@@ -100,6 +97,7 @@ Edit Member
 
 Check Added Member
     [Arguments]                     ${first name}   ${middle initial}   ${last name}    ${month}     ${day}      ${year}     ${occupation}       ${address}      ${city}     ${country}
+    Wait Until Page Contains        ${first name}
     Page Should Contain             ${first name}
     Page Should Contain             ${middle initial}
     Page Should Contain             ${last name}
@@ -108,10 +106,10 @@ Check Added Member
     Page Should Contain             ${address}
     Page Should Contain             ${city}
     Page Should Contain             ${country}
-    Sleep                           2
 
 Check Edited Member
     [Arguments]                     ${first name}   ${middle initial}   ${last name}    ${month}     ${day}      ${year}     ${occupation}       ${address}      ${city}     ${country}
+    Wait Until Page Contains        ${first name}
     Page Should Contain             ${first name}
     Page Should Contain             ${middle initial}
     Page Should Contain             ${last name}
@@ -120,7 +118,6 @@ Check Edited Member
     Page Should Contain             ${address}
     Page Should Contain             ${city}
     Page Should Contain             ${country}
-    Sleep                           2
 
 Input Invalid Mobile Number
     Input Text                      mobile          1234abcd
@@ -180,24 +177,23 @@ Check Blank Input Error
 
 Error Message Shown
     [Arguments]    ${error}
+    Sleep                           0.5
     Element Text Should Be          class:modal-body    ${error}
-    Sleep                           2
 
 Go To Add Observation
     [Arguments]                     ${member}
     Go To Edit Members              ${member}
+    Wait Until Element Is Visible   addObservationBtn
     Set Focus To Element            addObservationBtn
-    Sleep                           2
     Press Keys                      addObservationBtn    ENTER
-    Sleep                           2
 
 Add Valid Observation
     Input Text                      commenter           Jay
     Input Text                      comment             short
+    Wait Until Element Is Visible   saveObservationBtn
     Set Focus To Element            saveObservationBtn
-    Sleep                           2
+    Wait Until Element Is Visible   saveObservationBtn
     Press Keys                      saveObservationBtn    ENTER
-    Sleep                           2
 
 Check Observation
     [Arguments]                     ${commenter}        ${comment}
@@ -207,10 +203,10 @@ Check Observation
 Add Invalid Observation
     Input Text                      commenter           ${EMPTY}
     Input Text                      comment             ${EMPTY}
+    Wait Until Element Is Visible   saveObservationBtn
     Set Focus To Element            saveObservationBtn
-    Sleep                           2
+    Wait Until Element Is Visible   saveObservationBtn
     Press Keys                      saveObservationBtn    ENTER
-    Sleep                           2
 
 Check Invalid Observation
     Element Should Contain          commenter_error     Enter commenter
@@ -227,9 +223,9 @@ Go To Member
     [Arguments]                     ${member}
     Go To Add Members 1
     Set Focus To Element            css:*[data-href="/member/${member}"]
-    Sleep                           2
+    Wait Until Element Is Visible   css:*[data-href="/member/${member}"]
     Click Element                   css:*[data-href="/member/${member}"]
-    Sleep                           2
+    Wait Until Element Is Visible   css:*[data-href="/member/${member}"]
     Page Should Not Contain         Edit Member
 
 Go To Edit Observation
@@ -237,14 +233,13 @@ Go To Edit Observation
     Go To Edit Members              ${member}
     Assign Id To Element            css:*[data-icon="edit"]       edit
     Press Keys                      edit        ENTER
-    Sleep                           2
 
 Edit Observation
     Input Text                      comment             tall
+    Wait Until Element Is Visible   saveObservationBtn
     Set Focus To Element            saveObservationBtn
-    Sleep                           2
+    Wait Until Element Is Visible   saveObservationBtn
     Press Keys                      saveObservationBtn    ENTER
-    Sleep                           2
 
 Return To Main Menu
     Wait Until Page Contains Element    css:*[data-icon="sign-out-alt"]
@@ -281,8 +276,8 @@ Change Last Name
     Input Text                          id:last_name                ${last_name}
 
 Change Membership Status
-    [Arguments]                         ${membership_status}
-    Select From List By Label           id:membership_status        ${membership_status}
+    [Arguments]                         ${membership_type}
+    Select From List By Label           id:membership_type        ${membership_type}
 
 Change Civil Status
     [Arguments]                         ${civil_status}
