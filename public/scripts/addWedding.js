@@ -31,6 +31,7 @@ function display_div_bride_mother(status) {
         document.getElementById("bride_mother_member_div").style.display = "none";
         document.getElementById(status + "_div").style.display = "block";
         let inputBrideMotherMember = $("#input_bride_mother_member").selectize();
+        console.log(inputBrideMotherMember)
         inputBrideMotherMember[0].selectize.removeItem($(inputBrideMotherMember).val());
         inputBrideMotherMember[0].selectize.setValue(0);
         inputBrideMotherMember[0].selectize.refreshItems();
@@ -139,20 +140,19 @@ $(document).ready(function () {
     const selectGodFather = $("#input_witness_gfather_member").selectize();
 
     initSelectize();
-    $("select").change(hideChoices);
-
-    function hideChoices() {
+    $("select").change(function () {
         var previous = $(this).data("previous");
         var currOption = $(this).val();
-        //alert(previous + ' ' + currOption)
+        //alert('prev ' + previous + ' curOpt ' + currOption)
         selectizeDisable(currOption);
         $(this).data("previous", currOption);
 
         // if there was a previously selected choice, free up from other input fields
-        if (previous !== null || previous !== undefined) {
+        if (previous !== null && previous !== undefined && previous != 0) {
+            console.log("here");
             selectizeEnable(previous);
         }
-    }
+    });
 
     function initSelectize() {
         $(selectBride)[0].selectize.refreshOptions();
@@ -1112,6 +1112,7 @@ $(document).ready(function () {
             var currWitness = $("#input_witness_gfather_member").val();
             $("#input_witness_gfather_member").data("previous", null);
             if (currWitness !== "" && !addedWitness) {
+                console.log("here1");
                 selectizeEnable(currWitness);
             } else {
                 addedWitness = false;
@@ -1121,6 +1122,7 @@ $(document).ready(function () {
             var currWitness = $("#input_witness_gmother_member").val();
             $("#input_witness_gmother_member").data("previous", null);
             if (currWitness !== "" && !addedWitness) {
+                console.log("here2");
                 selectizeEnable(currWitness);
             } else {
                 addedWitness = false;
