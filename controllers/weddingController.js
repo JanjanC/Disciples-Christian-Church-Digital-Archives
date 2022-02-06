@@ -945,6 +945,7 @@ const weddingController = {
                     }
                 })
             );
+            req.session.editId = weddingId;
 
             return res.json(weddingId);
         } catch (err) {
