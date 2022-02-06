@@ -53,10 +53,7 @@
     </div>
 
     {{!-- Second row --}}
-
-
-   
-    <div class="row charts-row" id="third-row">
+    <div class="row charts-row" id="second-row">
       <div class="card" style="width: 69em;" id="chart-6"> 
         <div class="card-body">
           <div class="card-title-container">
@@ -70,22 +67,40 @@
         </div>
       </div>
     </div>
+
+ 
  {{!-- Third row --}}
-    <div class="row charts-row" id="second-row">
+  <div class="row charts-row" id="third-row" style="display: none;">
+      <div class="card" style="width: 69em;" id="chart-3">
+        <div class="card-body">
+          <div class="card-title-container">
+            <h5 class="card-title"> Annual Events Record</h5>
+          </div>
+          <div class="no-data-container">
+            <p style="display: none;" id="no-data-events-line" class="no-data-found"> No data found </p>
+          </div>
+          {{!-- <canvas id="pie-chart-events" width="800" height="800"></canvas> --}}
+          <canvas id="line-chart-events" width="800" height="350" style="display: none;"></canvas>
+          <div style="height:500px;display:none;" id='filler-div-5'> </div>
+        </div>
+      </div>
+    </div>
+ {{!-- Fourth row --}}
+  <div class="row charts-row" id="fourth-row">
       <div class="card" style="width: 32em;" id="chart-4"> 
         <div class="card-body">
           <div class="card-title-container">
             <h5 class="card-title">Events Record</h5>
           </div>
           <div class="no-data-container">
-            <p style="display: none;" id="no-data-events" class="no-data-found"> No data found </p>
+            <p style="display: none;" id="no-data-events-bar" class="no-data-found"> No data found </p>
           </div> 
-          <canvas id="pie-chart-events" width="800" height="800"></canvas>
+          {{!-- <canvas id="pie-chart-events" width="800" height="800"></canvas> --}}
+          <canvas id="bar-chart-events" width="800" height="800"></canvas>
           <div style="height:500px;display:none;" id='filler-div-4'> </div>
         </div>
       </div>
     </div>
-
   </div>
 </body>
 

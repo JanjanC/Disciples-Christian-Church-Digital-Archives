@@ -82,6 +82,7 @@ app.post("/addPrenupBrideNonMember", validation.addPrenupBrideNonMember(), prenu
 app.post("/addPrenupGroomNonMember", validation.addPrenupGroomNonMember(), prenupController.createPrenupGroomNonMember);
 
 app.post("/get_count_event_data", eventsReportController.getCountPerEventData);
+app.post("/get_count_event_data_binned", eventsReportController.getCountPerEventDataBinned);
 app.post("/get_count_member_status_data", membersReportController.getCountPerMemberStatus);
 app.post("/get_count_member_type_data", membersReportController.getCountPerMemberType);
 app.post("/get_count_attendance_data", attendanceReportController.getCountAttendance);

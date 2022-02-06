@@ -1,7 +1,7 @@
 const db = require("../models/db");
 const attendanceFields = require("../models/attendanceRecord");
 const { Condition, queryTypes } = require("../models/condition");
-const binningFunction = require("../helpers/binAttendance");
+const binningFunction = require("../helpers/binningFunction");
 
 const attendanceReportController = {
     /**
@@ -12,7 +12,6 @@ const attendanceReportController = {
     getCountAttendance: function (req, res) {
         const startDate = new Date(req.body.startDate).toISOString();
         const endDate = new Date(req.body.endDate).toISOString();
-        var data = {};
 
         if (parseInt(endDate.substring(0,4)) - parseInt(startDate.substring(0,4)) > 20) {
             res.send({
@@ -33,24 +32,7 @@ const attendanceReportController = {
                 });
             }
             else {
-                result.forEach(attendance => {
-                    date = new Date(attendance.date).toISOString().split('T')[0];
-                    if (typeof(data[date]) == "number")
-                        data[date]++;
-                    else
-                        data[date] = 1;
-                });
-                if (data[req.body.startDate] == undefined)
-                    data[req.body.startDate] = 0;
-                if (data[req.body.endDate] == undefined)
-                    data[req.body.endDate] = 0;
-                var orderedData = Object.keys(data).sort().reduce((obj, key) => {
-                    obj[key] = data[key];
-                    return obj;
-                }, {});
-
-                var bins = binningFunction(orderedData);
-                
+                var bins = binningFunction(result, req.body.startDate, req.body.endDate);
                 res.send(bins);
             }
         });
