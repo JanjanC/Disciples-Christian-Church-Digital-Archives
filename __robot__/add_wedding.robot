@@ -173,28 +173,28 @@ Blank Non-Member Bride Input
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
    Select Non-Member Bride Form
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Bride Error Should Be Shown
@@ -210,28 +210,28 @@ Blank Member Bride Input
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
    Select Member Bride Form
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Bride Error Should Be Shown
@@ -246,29 +246,29 @@ Blank Non-Member Groom Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
    Select Non-Member Groom Form
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Groom Error Should Be Shown
@@ -283,66 +283,29 @@ Blank Member Groom Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
    Select Member Groom Form
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
-   Confirm Add Godfather
-   Submit Wedding Registry
-   Groom Error Should Be Shown
-
-Blank Non-Member Groom Input
-   Open Browser to Login Page
-   Login Level 3 User
-   Main Page Should Be Open
-   Navigate to Forms Main Page From Main Page
-   Forms Main Page Should Be Open
-   Navigate to Wedding Page From Forms Main Page
-   Wedding Main Page Should Be Open
-   Navigate to Add Wedding Page From Wedding Main Page
-   Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Non-Member Groom Form
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
-   Input Wedding Location    The Citadel
-   Input Wedding Date    12    25    2021
-   Input Officiant Details    Father Shepard
-   Input Solemnizing Officer Details    Pastor Anderson
-   Input Contract Number    WR-100023
-   Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
-   Confirm Add Godmother
-   Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Groom Error Should Be Shown
@@ -357,29 +320,29 @@ Blank Non-Member Bride Mother Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
    Select Non-Member Bride Mother Form
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Bride Mother Error Should Be Shown
@@ -394,29 +357,29 @@ Blank Member Bride Mother Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
    Select Member Bride Mother Form
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Bride Mother Error Should Be Shown
@@ -431,29 +394,29 @@ Blank Non-Member Bride Father Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
    Select Non-Member Bride Father Form
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Bride Father Error Should Be Shown
@@ -468,29 +431,29 @@ Blank Member Bride Father Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
    Select Member Bride Father Form
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Bride Father Error Should Be Shown
@@ -505,29 +468,29 @@ Blank Non-Member Groom Mother Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
    Select Non-Member Groom Mother Form
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Groom Mother Error Should Be Shown
@@ -542,29 +505,29 @@ Blank Member Groom Mother Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Non-Member Groom Mother Form
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Member Groom Mother Form
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Groom Mother Error Should Be Shown
@@ -579,29 +542,29 @@ Blank Wedding Location Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Wedding Location Error Should Be Shown
@@ -616,30 +579,30 @@ Blank Wedding Date Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    BACK_SPACE    BACK_SPACE    BACK_SPACE
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Submit Wedding Registry
    Wedding Date Error Should Be Shown
@@ -654,35 +617,36 @@ Blank Officiant Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    Officiant Error Should Be Shown
 
 Blank Solemnizing Officer Input
-   Open Browser to Login Page
+  Open Browser to Login Page
    Login Level 3 User
    Main Page Should Be Open
    Navigate to Forms Main Page From Main Page
@@ -691,30 +655,31 @@ Blank Solemnizing Officer Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    Solemnizing Officer Error Should Be Shown
 
@@ -728,30 +693,31 @@ Blank Contract Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
+   Save Wedding Form Data
    Submit Wedding Registry
    Contract Error Should Be Shown
 
@@ -765,26 +731,26 @@ No Godmother Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godfather Button
-   Select Member Godfather Form
-   Select Random Member Godfather
+   Select Non-Member Godfather Form
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Save Wedding Form Data
    Submit Wedding Registry
@@ -802,26 +768,26 @@ No Godfather Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
    Input Solemnizing Officer Details    Pastor Anderson
    Input Contract Number    WR-100023
    Select Add Godmother Button
-   Select Member Godmother Form
-   Select Random Member Godmother
+   Select Non-Member Godmother Form
+   Input Non-Member Godmother Details    Samara    S    Justicar
    Confirm Add Godmother
    Save Wedding Form Data
    Submit Wedding Registry
@@ -839,18 +805,18 @@ No Godmother and Godfather Input
    Wedding Main Page Should Be Open
    Navigate to Add Wedding Page From Wedding Main Page
    Add Wedding Page Should Be Open
-   Select Member Bride Form
-   Select Random Member Bride
-   Select Member Groom Form
-   Select Random Member Groom
-   Select Member Bride Mother Form
-   Select Random Member Bride Mother
-   Select Member Bride Father Form
-   Select Random Member Bride Father
-   Select Member Groom Mother Form
-   Select Random Member Groom Mother
-   Select Member Groom Father Form
-   Select Random Member Groom Father
+   Select Non-Member Bride Form
+   Input Non-Member Bride Details    Jane    F    Uson
+   Select Non-Member Groom Form
+   Input Non-Member Groom Details    Thane    T    Krios
+   Select Non-Member Bride Mother Form
+   Input Non-Member Bride Mother Details    Katherine    K    Goto
+   Select Non-Member Bride Father Form
+   Input Non-Member Bride Father Details    Kenji    K    Goto
+   Select Non-Member Groom Mother Form
+   Input Non-Member Groom Mother Details    Therese    T    Krios
+   Select Non-Member Groom Father Form
+   Input Non-Member Groom Father Details    Theo    T    Krios
    Input Wedding Location    The Citadel
    Input Wedding Date    12    25    2021
    Input Officiant Details    Father Shepard
@@ -974,7 +940,7 @@ Complete Non-Members Input
    Confirm Add Godmother
    Select Add Godfather Button
    Select Non-Member Godfather Form
-   Input Non-Member Godfather Details    MOrdin    M    Solus
+   Input Non-Member Godfather Details    Mordin    M    Solus
    Confirm Add Godfather
    Save Wedding Form Data
    Submit Wedding Registry

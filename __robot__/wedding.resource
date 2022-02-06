@@ -238,12 +238,12 @@ Input Wedding Location
 Input Wedding Date
     [Arguments]    ${month}    ${day}    ${year}
     Scroll to Element    id:current_date
-    Press Keys    id:current_date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
+    Press Keys    id:current_date    ${month}    ${day}    ${year}
 
 Input Wedding Date in Edit Wedding Page
     [Arguments]    ${month}    ${day}    ${year}
     Scroll to Element    id:date
-    Press Keys    id:date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
+    Press Keys    id:date    ${month}    ${day}    ${year}
 
 Input Officiant Details
     [Arguments]    ${officiant}
@@ -555,7 +555,7 @@ Save Bride Father Data
         ${bride_father}=    Create List    ${bride_father_first_name}    ${bride_father_mid_name}
         ...    ${bride_father_last_name}
     ELSE IF    ${bride_father_none}
-        ${bride_father}=    Create List    'N/A'    'N/A'    'N/A'
+        ${bride_father}=    Create List    N/A    N/A    N/A
     END
     Set Test Variable    ${bride_father}
 
@@ -573,7 +573,7 @@ Save Groom Mother Data
         ${groom_mother}=    Create List    ${groom_mother_first_name}    ${groom_mother_mid_name}
         ...    ${groom_mother_last_name}
     ELSE IF    ${groom_mother_none}
-        ${groom_mother}=    Create List    'N/A'    'N/A'    'N/A'
+        ${groom_mother}=    Create List    N/A    N/A    N/A
     END
     Set Test Variable    ${groom_mother}
 
@@ -591,7 +591,7 @@ Save Groom Father Data
         ${groom_father}=    Create List    ${groom_father_first_name}    ${groom_father_mid_name}
         ...    ${groom_father_last_name}
     ELSE IF    ${groom_father_none}
-        ${groom_father}=    Create List    'N/A'    'N/A'    'N/A'
+        ${groom_father}=    Create List    N/A    N/A    N/A
     END
     Set Test Variable    ${groom_father}
 
@@ -639,7 +639,7 @@ Get Female Data
         ${female}=    Create List    ${female_first_name}    ${female_mid_name}
         ...    ${female_last_name}
     ELSE IF    ${female_none}
-        ${female}=    Create List    'N/A'    'N/A'    'N/A'
+        ${female}=    Create List    N/A    N/A    N/A
     END
     [Return]    ${female}
 
@@ -657,7 +657,7 @@ Get Male Data
         ${male}=    Create List    ${male_first_name}    ${male_mid_name}
         ...    ${male_last_name}
     ELSE IF    ${male_none}
-        ${male}=    Create List    'N/A'    'N/A'    'N/A'
+        ${male}=    Create List    N/A    N/A    N/A
     END
     [Return]    ${male}
 
