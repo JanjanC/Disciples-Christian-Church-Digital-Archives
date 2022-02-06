@@ -413,7 +413,6 @@ $(document).ready(function () {
                 url: "/update_wedding/couple",
                 data: data,
                 success: function (result) {
-                    console.log(result);
                     if (result) {
                         const personInfo = JSON.parse(data.person);
                         console.log(personInfo);
