@@ -15,7 +15,7 @@ const attendanceController = {
     getViewAttendance: function (req, res) {
         const level = req.session.level;
         const date = new Date(req.params.date).toISOString();
-        if (level === undefined || level === null || (parseInt(level) === 1 && req.session.editId != date)) {
+        if (level === undefined || level === null || level === 0 || (parseInt(level) === 1 && req.session.editId != date)) {
             res.status(401);
             res.render("error", {
                 title: "401 Unauthorized Access",
@@ -47,11 +47,11 @@ const attendanceController = {
 
             db.find(db.tables.ATTENDANCE_TABLE, [conditions], joinTables, columns, function (result) {
                 const data = {};
+                data.dateUsed = req.params.date;
                 data.records = result;
                 data.scripts = ["viewAttendance"];
                 data.styles = ["attendanceView"];
                 data.backLink = "attendance_main_page";
-
                 res.render("view-attendance", data);
             });
         }
@@ -63,7 +63,7 @@ const attendanceController = {
      */
     getAddAttendance: function (req, res) {
         const level = req.session.level;
-        if (level === undefined || level === null) {
+        if (level === undefined || level === null || level === 0) {
             res.status(401);
             res.render("error", {
                 title: "401 Unauthorized Access",
@@ -73,8 +73,7 @@ const attendanceController = {
                     message: "Unauthorized access",
                 },
             });
-        }
-        else {
+        } else {
             const joinTables1 = [
                 {
                     tableName: db.tables.PERSON_TABLE,
@@ -140,6 +139,7 @@ const attendanceController = {
                     res.send("EXISTS");
                     return;
                 }
+
                 db.insert(db.tables.PERSON_TABLE, nonMemberAttendees, function (result) {
                     if (result) {
                         result = result[0];
@@ -148,10 +148,10 @@ const attendanceController = {
                             curAttendee[attendanceFields.DATE] = date;
                             curAttendee[attendanceFields.PERSON] = result;
                             attendees.push(curAttendee);
-                            result -= 1;
+                            result += 1;
                         });
                     }
-                    
+
                     // insert each person into a new attendance table
                     db.insert(db.tables.ATTENDANCE_TABLE, attendees, function (result) {
                         if (result !== false) {
@@ -176,13 +176,13 @@ const attendanceController = {
         if (parseInt(req.session.level) === 3 || parseInt(req.session.level) === 2 || req.session.editId === date) {
             const data = {
                 scripts: ["editAttendance", "edit"],
-                styles: ["forms","attendanceEdit"],
+                styles: ["forms", "attendanceEdit"],
                 attendeesMembers: [],
                 attendeesNonMembers: [],
                 attendees: [],
                 members: [],
             };
-            // join table for the groom
+            
             const joinTables1 = [
                 {
                     tableName: { person: db.tables.PERSON_TABLE },
@@ -323,7 +323,7 @@ const attendanceController = {
 
         // find the the person ids of each attendance record that was removed in the update
         db.find(db.tables.ATTENDANCE_TABLE, condition, [], "*", function (result) {
-            if (result == 0) res.send(true);
+            if (result.length === 0) res.send(true);
             else res.send(false);
         });
     },

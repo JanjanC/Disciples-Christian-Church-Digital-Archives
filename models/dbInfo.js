@@ -10,7 +10,7 @@ const createWitness =
     "CREATE TABLE IF NOT EXISTS witness (witness_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, dedication_id INTEGER,wedding_id INTEGER,type TEXT,person_id INTEGER NOT NULL);";
 
 const createAccounts =
-    "CREATE TABLE IF NOT EXISTS accounts (level VARCHAR(10) NOT NULL PRIMARY KEY,hashed_password VARCHAR(50));";
+    "CREATE TABLE IF NOT EXISTS accounts (level VARCHAR(10) NOT NULL PRIMARY KEY,hashed_password VARCHAR(100));";
 
 const createPreNuptial =
     "CREATE TABLE IF NOT EXISTS pre_nuptial (record_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,couple_id INTEGER NOT NULL,date TEXT,date_of_wedding TEXT);";
@@ -42,6 +42,9 @@ const createAttendance =
 const createChurches =
     "CREATE TABLE IF NOT EXISTS churches(church_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,church_name TEXT NOT NULL, member_id INTEGER NOT NULL, address_id INTEGER NOT NULL);";
 
+const createSettings =
+    "CREATE TABLE IF NOT EXISTS settings(settings_name VARCHAR(100) NOT NULL PRIMARY KEY, settings_value TEXT NOT NULL);";
+
 const fse = require("fs-extra");
 
 const db = {
@@ -60,6 +63,7 @@ const db = {
         churches: createChurches,
         witness: createWitness,
         attendance: createAttendance,
+        settings: createSettings,
     },
     tables: {
         MEMBER_TABLE: "members",
@@ -76,6 +80,7 @@ const db = {
         OBSERVATION_TABLE: "observations",
         CHURCH_TABLE: "churches",
         ATTENDANCE_TABLE: "attendance",
+        SETTINGS_TABLE: "settings",
     },
     fields: {
         accounts: {
@@ -285,6 +290,10 @@ const db = {
             ID: "attendace_id",
             PERSON: "person_id",
             DATE: "date",
+        },
+        settings: {
+            ID: "name",
+            VALUE: "value",
         },
     },
     startIds: [

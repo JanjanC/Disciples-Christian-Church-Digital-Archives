@@ -117,5 +117,18 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# VSCode stuff
+# VSCode Stuff
 .vscode
+
+#Python Cache
+__pycache__/
+
+#Robot Framework Outputs
+/__robot__/*.png
+/__robot__/output.xml
+/__robot__/log.html
+/__robot__/report.html
+/*.png
+/output.xml
+/log.html
+/report.html

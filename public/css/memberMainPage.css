@@ -1,0 +1,103 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.labels{
+	display: none;
+}
+
+@media 
+only screen and (max-width: 1000px){
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody,  td, tr { 
+		display: block; 
+		
+	}
+	
+	.sorting{
+		border:none !important;
+	}
+	
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead{ 
+		position: relative;
+		bottom: 30px;
+		border:none
+		
+	}
+	
+
+	th{
+		font-size: 14px;
+		height:80px;
+		background-color: none;
+	}
+
+      
+    tr:nth-child(even) {
+        background: #e3e3e3;
+    }
+
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 103px solid #eee; 
+		position: relative;
+        font-family: 'Open Sans', sans-serif;
+        text-align: right;
+        vertical-align: middle;
+        font-size: 12px;
+    
+	}
+	
+	.labels{
+		font-weight: bolder;
+		display: block;
+	}
+
+	#address-span{
+		display: block;
+		color: black;
+	}
+
+	.tb-data{
+		display: flex;                  /* establish flex container */
+  		flex-direction: row;            /* default value; can be omitted */
+  		flex-wrap: nowrap;              /* default value; can be omitted */
+  		justify-content: space-between; /* switched from default (flex-start, see below) */
+	}
+
+	
+
+}
+
+@media 
+only screen and (max-width: 520px){
+   html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+   
+}
+nav { 
+    width:100%;
+}
+
+}
+
+@media 
+only screen and (max-width: 760px){
+    .form-select,.form-control{
+        margin-bottom: 15px;
+    }
+}

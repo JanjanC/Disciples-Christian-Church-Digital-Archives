@@ -4,9 +4,8 @@ const mysql = require("mysql2");
 const fs = require("fs");
 const { dbInfo } = require("./models/dbInfo");
 const startIds = dbInfo.startIds;
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
 const data = require("./models/dummyData");
+const prompt = require("prompt");
 dotenv.config();
 
 let knexClient = {};
@@ -17,9 +16,6 @@ function getMySQLInstance() {
         user: process.env.DB_USER,
         password: process.env.DB_PASS,
         database: process.env.DB_NAME,
-        ssl: {
-            ca: fs.readFileSync("/etc/ssl/cert.pem"),
-        },
     });
     conn.connect((err) => {
         if (err) {
@@ -108,6 +104,23 @@ function insertAccounts() {
         });
 }
 
+function insertSettings() {
+    knexClient("settings")
+        .select()
+        .then(function (res) {
+            if (res.length === 0) {
+                knexClient("settings")
+                    .insert({
+                        name: "allow_level_0",
+                        value: "false",
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            }
+        });
+}
+
 function insertData() {
     // insert accounts
     data.forEach((record) => {
@@ -152,6 +165,29 @@ function insertData() {
 }
 
 // Uncomment these to run the database initialization script.
- initDatabase();
- insertAccounts();
- insertData();
+prompt.start();
+console.log("WARNING: This initApp is deprecated. Please use the initialize_database script instead.");
+prompt.get(
+    [
+        {
+            name: "Would you like to continue? (Y/N)",
+            validator: /Y|y|N|n/,
+        },
+    ],
+    (err, result) => {
+        if (err) {
+            throw new Error(err);
+        }
+        if (
+            result["Would you like to continue? (Y/N)"] === "Y" ||
+            result["Would you like to continue? (Y/N)"] === "y"
+        ) {
+            initDatabase();
+            insertAccounts();
+            insertSettings();
+            insertData();
+        } else {
+            console.log("Goodbye!");
+        }
+    }
+);

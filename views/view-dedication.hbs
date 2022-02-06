@@ -10,104 +10,105 @@
 
 <div id="dedication_info" style="display: none" data-dedication="{{dedication_id}}" data-couple="{{parents_id}}"></div>
   <div class="container" style="padding-left: 18%; padding-right: 10%;">
-    <h1 class="my-3"> View Child Dedication Record </h1>
+    <h1 class="my-3" id="title"> View Child Dedication Record </h1>
     <hr>
     <div class="row">
       <div class="col">
-        <legend>Registry Number</legend>
-        <p for='date_created'>{{dedication_id}}</p>
+        <legend for="reg_id">Registry Number</legend>
+        <p id="reg_id">{{dedication_id}}</p>
       </div>
       <div class="col">
-        <legend>Date Created</legend>
-        <p for='date_created'>{{dateView date}}</p>
+        <legend for='date_created'>Date Created</legend>
+        <p id="date_created">{{dateView date}}</p>
       </div>
       <div class="col">
-        <legend>Dedication Date</legend>
-        <p for='dedication_date'>{{dateView dedication_date}}</p>
+        <legend for="dedication_date">Dedication Date</legend>
+        <p id="dedication_date">{{dateView dedication_date}}</p>
       </div>
     </div>
     <div class="row">
       <legend>Child Name</legend>
       <div class="col person_info" data-member="{{infant_member_id}}" data-person="{{infant_person_id}}">
-        <u for="first_name">First Name</u>
-        <p>{{infant_first_name}}</p>
+        <u for="child_first_name">First Name</u>
+        <p id="child_first_name">{{infant_first_name}}</p>
         {{#if infant_member_id}}
           <a href="/member/{{infant_member_id}}"><button class="btn btn-secondary mb-4">Child's Member Profile</button></a>
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
-        <p>{{infant_middle_name}}</p>
+        <u for="child_mid_name">Middle Initial</u>
+        <p id="child_mid_name">{{infant_middle_name}}</p>
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
-        <p>{{infant_last_name}}</p>
+        <u for="child_last_name">Last Name</u>
+        <p id="child_last_name">{{infant_last_name}}</p>
       </div>
     </div>
     <hr>
     <div class="row">
       <legend>Guardian One</legend>
       <div class="col person_info" data-member="{{guardianOne_member_id}}" data-person={{guardianOne_person_id}}>
-        <u for="first_name">First Name</u>
-        <p>{{guardianOne_first_name}}</p>
+        <u for="parent1_first_name">First Name</u>
+        <p id="parent1_first_name">{{guardianOne_first_name}}</p>
         {{#if guardianOne_member_id}}
           <a href="/member/{{guardianOne_member_id}}"><button class="btn btn-secondary mb-4">Member Profile</button></a>
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
-        <p>{{guardianOne_mid_name}}</p>
+        <u for="parent1_mid_name">Middle Initial</u>
+        <p id="parent1_mid_name">{{guardianOne_mid_name}}</p>
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
-        <p>{{guardianOne_last_name}}</p>
+        <u for="parent1_last_name">Last Name</u>
+        <p id="parent1_last_name">{{guardianOne_last_name}}</p>
       </div>
     </div>
     <hr>
     <div class="row person_info" data-member="{{guardianTwo_member_id}}" data-person={{guardianTwo_person_id}}>
       <legend>Guardian Two</legend>
       <div class="col">
-        <u for="first_name">First Name</u>
+        <u for="parent2_first_name">First Name</u>
         {{#if (isUndefined guardianTwo_first_name)}}
-          <p>N/A</p>
+          <p id="parent2_first_name">N/A</p>
         {{else}}
-          <p>{{guardianTwo_first_name}}</p>
+          <p id="parent2_first_name">{{guardianTwo_first_name}}</p>
           {{#if guardianTwo_member_id}}
           <a href="/member/{{guardianTwo_member_id}}"><button class="btn btn-secondary mb-4">Member Profile</button></a>
           {{/if}}
         {{/if}}
       </div>
       <div class="col">
-        <u for="mid_name">Middle Initial</u>
+        <u for="parent2_mid_name">Middle Initial</u>
         {{#if (isUndefined guardianTwo_mid_name)}}
-          <p>N/A</p>
+          <p id="parent2_mid_name">N/A</p>
         {{else}}
-          <p>{{guardianTwo_mid_name}}</p>
+          <p id="parent2_mid_name">{{guardianTwo_mid_name}}</p>
         {{/if}}
       </div>
       <div class="col">
-        <u for="last_name">Last Name</u>
+        <u for="parent2_last_name">Last Name</u>
         {{#if (isUndefined guardianTwo_last_name)}}
-          <p>N/A</p>
+          <p id="parent2_last_name">N/A</p>
         {{else}}
-          <p>{{guardianTwo_last_name}}</p>
+          <p id="parent2_last_name">{{guardianTwo_last_name}}</p>
         {{/if}}
       </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-4">
-            <u> Officiant </u>
-            <p>{{officiant}}</p>
+            <u for="officiant"> Officiant </u>
+            <p id="officiant">{{officiant}}</p>
         </div>
         <div class="col-4">
-            <u> Address of Dedication</u>
-            <p>{{place}}</p>
+            <u for="address"> Address of Dedication</u>
+            <p id="address">{{place}}</p>
         </div>
     </div>
     <hr>
     <div class="row">
       <legend>Sponsors (Male)</legend>
+        <div id="godfathers">
         {{#if witnessMale}}
           {{#each witnessMale}}
           {{>witness this}}
@@ -116,8 +117,10 @@
         {{else}}
           <p>N/A</p>
         {{/if}}
+        </div>
 
       <legend>Sponsors (Female)</legend>
+        <div id="godmothers">
         {{#if witnessFemale}}
           {{#each witnessFemale}}
           {{>witness this}}
@@ -125,12 +128,13 @@
         {{else}}
           <p>N/A</p>
         {{/if}}
+        </div>
     </div>
     <hr>
     {{#if canSee}}
     <div class="row my-3">
       <div class="col">
-        <a href="/edit_dedication/{{dedication_id}}"><button class="btn btn-secondary mb-4">Edit Dedication Form</button></a>
+        <a href="/edit_dedication/{{dedication_id}}"><button class="btn btn-secondary mb-4" id="edit_dedication">Edit Dedication Form</button></a>
         <button class="btn btn-danger mb-4" id="delete">Delete Dedication Form</button>
       </div>
     </div>

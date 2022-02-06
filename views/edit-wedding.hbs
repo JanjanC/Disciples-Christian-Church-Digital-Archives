@@ -7,7 +7,7 @@
     ></div>
 <form id="wedding_form" method="POST" class="container"> 
   <div class="container" style="padding-left: 20%; padding-right: 20%;">
-    <h1 class="my-3"> Edit Wedding Registry </h1>
+    <h1 class="my-3" id="title"> Edit Wedding Registry </h1>
     <div class="row">
       <hr>
       <div class="col-4">
@@ -244,7 +244,7 @@
       <div class="row">
         <div class="col">
           <label for="location">Wedding Location <span style="color: red;">*</span></label>
-          <input type="text" id="location" name="location" class="form-control" value={{location}}>
+          <input type="text" id="location" name="location" class="form-control" value="{{location}}">
           <p id="location_error" class="error_codes"> </p>
         </div>
       </div>

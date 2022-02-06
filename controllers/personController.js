@@ -2,7 +2,7 @@ const db = require('../models/db')
 
 const personController = {
   postAddPerson: function (req, res, callback = null) {
-    const people = JSON.parseInt(req.body.people)
+    const people = JSON.parse(req.body.people);
 
     db.insert(db.tables.PERSON_TABLE, people, function (result) {
       if (result) {
@@ -19,7 +19,7 @@ const personController = {
     res.send(true)
   },
 
-  delPerson: function(req, res) {
+  delPerson: function (req, res) {
     res.send(true)
   }
 }

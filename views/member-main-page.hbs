@@ -1,70 +1,176 @@
-<style>
-  @import url(/css/fonts.css);
 
-  #header {
-      font-family: JuliusSansPro;
-  }
-</style>
-
-{{>navbar}}
-
-<div class="container mt-4">
-  <div class="row">
-    <div class="col d-flex justify-content-between">
-      <h1> {{#if fromSearch}}Search Results Members{{else}}Members{{/if}}</h1>
-      <a href="/add_member"><i class="far fa-plus-square"></i></a>
-    </div>
-  </div>
-  <div class="row">
-    <table id="dataTable" class="display table" width="100%">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          {{#if canSee}}
-            <th>Age</th>
-            <th>Birth Date</th>
-            <th>Contact Number</th>
-            <th>Email Address</th>
-            <th>Address</th>
-            {{#if fromSearch}}<th>Date Created</th>{{/if}}
-          {{/if}}
-        </tr>
-      </thead>
-      <tbody>
-        {{#if fromSearch}}
-          {{#each members}}
-          <tr data-href="/member/{{this.member_id}}">
-            <td>{{this.member_id}}</td>
-            <td>{{this.first_name}} {{this.last_name}}</td>
-
-            {{#if ../canSee}}
-              <td>{{this.age}}</td>
-              <td>{{dateView this.birthday}}</td>
-              <td>{{this.mobile}}</td>
-              <td>{{this.email}}</td>
-              <td>{{this.address}}</td>
-              <td>{{dateView this.date_created}}</td>
-            {{/if}}
-            </tr>
-            {{/each}}
-          {{else}}
-            {{#each members}}
-            <tr data-href="/member/{{this.member_id}}">
-              <td>{{this.member_id}}</td>
-              <td>{{this.first_name}} {{this.last_name}}</td>
-
-              {{#if ../canSee}}
-                <td>{{this.age}}</td>
-                <td>{{dateView this.birthday}}</td>
-                <td>{{this.mobile}}</td>
-                <td>{{this.email}}</td>
-                <td>{{this.address}}</td>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    {{>navbar}}
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col d-flex justify-content-between">
+          <h1> {{#if fromSearch}}Search Results Members{{else}}Members{{/if}}</h1>
+          <a href="/add_member"><i class="far fa-plus-square"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="table-responsive" style="overflow-x:auto;">
+        <table id="dataTable" class="display table responsive " style="width: 100%; overflow-x:auto;" cellspacing="0">
+          <thead>
+            <tr>
+              <th><span>ID</span></th>
+              <th><span>Name</span></th>
+              {{#if canSee}}
+              <th><span>Age</span></th>
+              <th><span>Birth Date</span></th>
+              <th><span>Contact Number</span></th>
+              <th><span>Email Address</span></th>
+              <th><span>Address</span></th>
+              {{#if fromSearch}}<th><span>Date Created</span></th>{{/if}}
               {{/if}}
             </tr>
-          {{/each}}
-        {{/if}}
-      </tbody>
-    </table>
-  </div>
-</div>
+          </thead>
+          <tbody>
+            {{#if fromSearch}}
+            {{#each members}}
+            <tr data-href="/member/{{this.member_id}}">
+              <td class="tb-data">
+                <div class="labels">
+                  ID
+                </div>
+                <span>
+                  {{this.member_id}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Name
+                </div>
+                <span>
+                  {{this.first_name}} {{this.last_name}}
+                </span>
+              </td>
+              {{#if ../canSee}}
+              <td class="tb-data">
+                <div class="labels">
+                 Age
+                </div>
+                <span>
+                  {{this.age}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Birth Date
+                </div>
+                <span>
+                  {{dateView this.birthday}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Contact Number
+                </div>
+                <span>
+                  {{this.mobile}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Email Address
+                </div>
+                <span>
+                  {{this.email}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Address
+                </div>
+                <span>
+                  {{this.address}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Date Created
+                </div>
+                <span>
+                  {{dateView this.date_created}}
+                </span>
+              </td>
+              {{/if}}
+            </tr>
+            {{/each}}
+            {{else}}
+            {{#each members}}
+            <tr data-href="/member/{{this.member_id}}">
+              <td class="tb-data">
+                <div class="labels">
+                  ID
+                </div>
+                <span>
+                  {{this.member_id}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Name
+                </div>
+                <span>
+                  {{this.first_name}} {{this.last_name}}
+                </span>
+              </td>
+              {{#if ../canSee}}
+              <td class="tb-data">
+                <div class="labels">
+                  Age
+                </div>
+                <span>
+                  {{this.age}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Birth Date
+                </div>
+                <span>
+                  {{dateView this.birthday}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Contact Number
+                </div>
+                <span>
+                  {{this.mobile}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Email Address
+                </div>
+                <span>
+                  {{this.email}}
+                </span>
+              </td>
+              <td class="tb-data">
+                <div class="labels">
+                  Address
+                </div>
+                <span >
+                  {{this.address}}
+                </span>
+              </td>
+              {{/if}}
+            </tr>
+            {{/each}}
+            {{/if}}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+

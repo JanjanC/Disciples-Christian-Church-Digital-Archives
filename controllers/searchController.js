@@ -129,7 +129,7 @@ const searchController = {
       cond.setKeyValue(db.tables.MEMBER_TABLE + '.' + memberFields.SEX, data.member[memberFields.SEX], '=')
       conditions.push(cond)
     }
-    const ageColumn = ['cast(strftime(\'%Y-%m-%d\', \'now\') - strftime(\'%Y-%m-%d\', ' + tables.MEMBER_TABLE + '.' + memberFields.BIRTHDAY + ') as int) AS age']
+    const ageColumn = ['CAST(DATE_FORMAT(NOW(), \'%Y-%m-%d\') - DATE_FORMAT(' + tables.MEMBER_TABLE + '.' + memberFields.BIRTHDAY + ', \'%Y-%m-%d\') AS unsigned) AS age']
 
     // age is only provided
     if (ageChecked) {
@@ -668,7 +668,7 @@ const searchController = {
 
     db.find(db.tables.WEDDING_TABLE, conditions, joinTables, columns, function (result) {
       if (result) {
-        
+
         res.render('wedding-main-page', {
           styles: ['lists'],
           scripts: ['convertDataTable'],
@@ -849,7 +849,7 @@ const searchController = {
     }
 
     db.find(db.tables.INFANT_TABLE, conditions, joinTables, columns, function (result) {
-      
+
       res.render('dedication-main-page', {
         styles: ['lists'],
         scripts: ['convertDataTable'],
