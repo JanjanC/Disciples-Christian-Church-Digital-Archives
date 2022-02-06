@@ -21,9 +21,9 @@ const memberController = {
     const matchesSettingName = new Condition(queryTypes.where);
     matchesSettingName.setKeyValue(settingsFields.ID, "allow_level_0");
     db.find(db.tables.SETTINGS_TABLE, matchesSettingName, [], settingsFields.VALUE, function (result) {
+      let level = req.session.level;
       if (result[0].settings_value == "true" && (req.session.level == undefined || req.session.level == null))
         level = 0;
-      let level = req.session.level;
       req.session.editId = null
       if ((level === undefined || level === null) && result[0].settings_value == "false") {
           res.status(401);
