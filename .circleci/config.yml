@@ -148,7 +148,6 @@ workflows:
                       branches:
                           only:
                               - main
-                              - ci-main-preparations
             - build_production:
                   requires:
                       - unit_test
