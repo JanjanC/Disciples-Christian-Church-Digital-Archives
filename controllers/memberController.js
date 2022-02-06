@@ -18,15 +18,13 @@ const memberController = {
    * @param res - the result to be sent out after processing the request
    */
   getAddMemberPage: function (req, res) {
-    let level = req.session.level;
-    req.session.editId = null
     const matchesSettingName = new Condition(queryTypes.where);
     matchesSettingName.setKeyValue(settingsFields.ID, "allow_level_0");
     db.find(db.tables.SETTINGS_TABLE, matchesSettingName, [], settingsFields.VALUE, function (result) {
-      if (result[0].settings_value == "true") {
+      if (result[0].settings_value == "true" && (req.session.level == undefined || req.session.level == null))
         level = 0;
-        req.session.level = 0;
-      }
+      let level = req.session.level;
+      req.session.editId = null
       if ((level === undefined || level === null) && result[0].settings_value == "false") {
           res.status(401);
           res.render("error", {
