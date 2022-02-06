@@ -10,11 +10,13 @@ Resource            attendance.resource
 Test Teardown       Close Browser
 
 *** Test Cases ***
-Navigate to Add Attendance Page (Level 1)
+Navigate to Add Attendance Page (Level 3)
     Open Browser to Login Page
-    Login Level 1 User
+    Login Level 3 User
     Main Page Should Be Open
     Navigate to Attendance Main Page From Main Page
+    Attendance Main Page Should Be Open
+    Navigate to Add Attendance Page From Attendance Main Page
     Add Attendance Page Should Be Open
 
 Navigate to Add Attendance Page (Level 2)
@@ -26,88 +28,12 @@ Navigate to Add Attendance Page (Level 2)
     Navigate to Add Attendance Page From Attendance Main Page
     Add Attendance Page Should Be Open
 
-Navigate to Add Attendance Page (Level 3)
-    Open Browser to Login Page
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Attendance Main Page From Main Page
-    Attendance Main Page Should Be Open
-    Navigate to Add Attendance Page From Attendance Main Page
-    Add Attendance Page Should Be Open
-
-Complete Non-Member Attendance Input (Level 1)
+Navigate to Add Attendance Page (Level 1)
     Open Browser to Login Page
     Login Level 1 User
     Main Page Should Be Open
     Navigate to Attendance Main Page From Main Page
-    Input Date of Service    01    01    2020
     Add Attendance Page Should Be Open
-    Select Add Non-Member Button
-    Input Non-Member Details    John Matthew    L    Bainto
-    Confirm Add Non-Member
-    Save Attendance Form Data
-    Submit Service Attendance Record
-    View Attendance Page Should Be Open
-    View Attendance Page Should Match Form Inputs
-    Logout User
-    Login Page Should Be Open
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Attendance Main Page From Main Page
-    Attendance Main Page Should Be Open
-    Navigate to Edit Attendance Page From Attendance Main Page
-    Edit Attendance Page Should Be Open
-    Input Date of Service to Edit    01    01    2020
-    Delete Service Attendance Record
-    Edit Attendance Page Should Be Open
-
-Complete Non-Member Attendance Input (Level 2)
-    Open Browser to Login Page
-    Login Level 2 User
-    Main Page Should Be Open
-    Navigate to Attendance Main Page From Main Page
-    Attendance Main Page Should Be Open
-    Navigate to Add Attendance Page From Attendance Main Page
-    Input Date of Service    01    02    2020
-    Add Attendance Page Should Be Open
-    Select Add Non-Member Button
-    Input Non-Member Details    John Matthew    L    Bainto
-    Confirm Add Non-Member
-    Save Attendance Form Data
-    Submit Service Attendance Record
-    View Attendance Page Should Be Open
-    View Attendance Page Should Match Form Inputs
-    Navigate to Attendance Main Page From View Attendance Page
-    Attendance Main Page Should Be Open
-    Navigate to Edit Attendance Page From Attendance Main Page
-    Edit Attendance Page Should Be Open
-    Input Date of Service to Edit    01    02    2020
-    Delete Service Attendance Record
-    Edit Attendance Page Should Be Open
-
-Complete Non-Member Attendance Input (Level 3)
-    Open Browser to Login Page
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Attendance Main Page From Main Page
-    Attendance Main Page Should Be Open
-    Navigate to Add Attendance Page From Attendance Main Page
-    Input Date of Service    01    03    2020
-    Add Attendance Page Should Be Open
-    Select Add Non-Member Button
-    Input Non-Member Details    John Matthew    L    Bainto
-    Confirm Add Non-Member
-    Save Attendance Form Data
-    Submit Service Attendance Record
-    View Attendance Page Should Be Open
-    View Attendance Page Should Match Form Inputs
-    Navigate to Attendance Main Page From View Attendance Page
-    Attendance Main Page Should Be Open
-    Navigate to Edit Attendance Page From Attendance Main Page
-    Edit Attendance Page Should Be Open
-    Input Date of Service to Edit    01    03    2020
-    Delete Service Attendance Record
-    Edit Attendance Page Should Be Open
 
 Complete Member Attendance Input (Level 1)
     Open Browser to Login Page
@@ -263,6 +189,80 @@ Complete Non-Member and Member Attendance Input (Level 3)
     Navigate to Edit Attendance Page From Attendance Main Page
     Edit Attendance Page Should Be Open
     Input Date of Service to Edit    01    09    2020
+    Delete Service Attendance Record
+    Edit Attendance Page Should Be Open
+
+Complete Non-Member Attendance Input (Level 1)
+    Open Browser to Login Page
+    Login Level 1 User
+    Main Page Should Be Open
+    Navigate to Attendance Main Page From Main Page
+    Input Date of Service    01    01    2020
+    Add Attendance Page Should Be Open
+    Select Add Non-Member Button
+    Input Non-Member Details    John Matthew    L    Bainto
+    Confirm Add Non-Member
+    Save Attendance Form Data
+    Submit Service Attendance Record
+    View Attendance Page Should Be Open
+    View Attendance Page Should Match Form Inputs
+    Logout User
+    Login Page Should Be Open
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Attendance Main Page From Main Page
+    Attendance Main Page Should Be Open
+    Navigate to Edit Attendance Page From Attendance Main Page
+    Edit Attendance Page Should Be Open
+    Input Date of Service to Edit    01    01    2020
+    Delete Service Attendance Record
+    Edit Attendance Page Should Be Open
+
+Complete Non-Member Attendance Input (Level 2)
+    Open Browser to Login Page
+    Login Level 2 User
+    Main Page Should Be Open
+    Navigate to Attendance Main Page From Main Page
+    Attendance Main Page Should Be Open
+    Navigate to Add Attendance Page From Attendance Main Page
+    Input Date of Service    01    02    2020
+    Add Attendance Page Should Be Open
+    Select Add Non-Member Button
+    Input Non-Member Details    John Matthew    L    Bainto
+    Confirm Add Non-Member
+    Save Attendance Form Data
+    Submit Service Attendance Record
+    View Attendance Page Should Be Open
+    View Attendance Page Should Match Form Inputs
+    Navigate to Attendance Main Page From View Attendance Page
+    Attendance Main Page Should Be Open
+    Navigate to Edit Attendance Page From Attendance Main Page
+    Edit Attendance Page Should Be Open
+    Input Date of Service to Edit    01    02    2020
+    Delete Service Attendance Record
+    Edit Attendance Page Should Be Open
+
+Complete Non-Member Attendance Input (Level 3)
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Attendance Main Page From Main Page
+    Attendance Main Page Should Be Open
+    Navigate to Add Attendance Page From Attendance Main Page
+    Input Date of Service    01    03    2020
+    Add Attendance Page Should Be Open
+    Select Add Non-Member Button
+    Input Non-Member Details    John Matthew    L    Bainto
+    Confirm Add Non-Member
+    Save Attendance Form Data
+    Submit Service Attendance Record
+    View Attendance Page Should Be Open
+    View Attendance Page Should Match Form Inputs
+    Navigate to Attendance Main Page From View Attendance Page
+    Attendance Main Page Should Be Open
+    Navigate to Edit Attendance Page From Attendance Main Page
+    Edit Attendance Page Should Be Open
+    Input Date of Service to Edit    01    03    2020
     Delete Service Attendance Record
     Edit Attendance Page Should Be Open
 
@@ -460,30 +460,6 @@ Missing Non-Member Middle Initial Attendance Input (Level 3)
     Delete Service Attendance Record
     Edit Attendance Page Should Be Open
 
-No Existing Attendance Record Input
-    Open Browser to Login Page
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Attendance Main Page From Main Page
-    Attendance Main Page Should Be Open
-    Navigate to Add Attendance Page From Attendance Main Page
-    Input Date of Service    01    22    2020
-    Add Attendance Page Should Be Open
-    Select Add Non-Member Button
-    Input Non-Member Details    John Matthew    L    Bainto
-    Confirm Add Non-Member
-    Save Attendance Form Data
-    Submit Service Attendance Record
-    View Attendance Page Should Be Open
-    View Attendance Page Should Match Form Inputs
-    Navigate to Attendance Main Page From View Attendance Page
-    Attendance Main Page Should Be Open
-    Navigate to Edit Attendance Page From Attendance Main Page
-    Edit Attendance Page Should Be Open
-    Input Date of Service to Edit    01    22    2020
-    Delete Service Attendance Record
-    Edit Attendance Page Should Be Open
-
 Existing Attendance Record Input
     Open Browser to Login Page
     Login Level 3 User
@@ -513,5 +489,29 @@ Existing Attendance Record Input
     Navigate to Edit Attendance Page From Attendance Main Page
     Edit Attendance Page Should Be Open
     Input Date of Service to Edit    01    23    2020
+    Delete Service Attendance Record
+    Edit Attendance Page Should Be Open
+
+No Existing Attendance Record Input
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Attendance Main Page From Main Page
+    Attendance Main Page Should Be Open
+    Navigate to Add Attendance Page From Attendance Main Page
+    Input Date of Service    01    22    2020
+    Add Attendance Page Should Be Open
+    Select Add Non-Member Button
+    Input Non-Member Details    John Matthew    L    Bainto
+    Confirm Add Non-Member
+    Save Attendance Form Data
+    Submit Service Attendance Record
+    View Attendance Page Should Be Open
+    View Attendance Page Should Match Form Inputs
+    Navigate to Attendance Main Page From View Attendance Page
+    Attendance Main Page Should Be Open
+    Navigate to Edit Attendance Page From Attendance Main Page
+    Edit Attendance Page Should Be Open
+    Input Date of Service to Edit    01    22    2020
     Delete Service Attendance Record
     Edit Attendance Page Should Be Open

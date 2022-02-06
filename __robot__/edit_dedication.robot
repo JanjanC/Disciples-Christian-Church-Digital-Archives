@@ -53,7 +53,25 @@ Edit Dedication Date Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Garrus    K    Vakarian
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -71,18 +89,26 @@ Edit Non-Member Child From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Child Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
     Select Non-Member Child Form
     Input Non-Member Child Details    Karen    J    Robinson
-    Save Child Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Child Details
@@ -93,6 +119,7 @@ Edit Non-Member Child From Non-Member Dedication Record
     Save Dedication Form Changes
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
+    Delete Dedication Record
 
 
 Edit Non-Member Child From Member Dedication Record
@@ -103,18 +130,26 @@ Edit Non-Member Child From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Child Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
     Select Member Child Form
     Select Random Member Child
-    Save Child Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Child Details
@@ -134,18 +169,26 @@ Edit Member Child From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Child Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
     Select Non-Member Child Form
     Input Non-Member Child Details    Karen    J    Robinson
-    Save Child Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Child Details
@@ -165,18 +208,26 @@ Edit Member Child From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Child Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
     Select Member Child Form
     Select Random Member Child
-    Save Child Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Child Details
@@ -196,18 +247,26 @@ Edit Non-Member Parent 1 From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 1 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
     Select Non-Member Parent 1 Form
-    Input Non-Member Parent 1 Details    Rick    D    Kendall
-    Save Parent 1 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 1 Details
@@ -227,18 +286,26 @@ Edit Non-Member Parent 1 From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 1 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
     Select Member Parent 1 Form
     Select Random Member Parent 1
-    Save Parent 1 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 1 Details
@@ -258,18 +325,26 @@ Edit Member Parent 1 From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 1 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
     Select Non-Member Parent 1 Form
-    Input Non-Member Parent 1 Details    Rick    D    Kendall
-    Save Parent 1 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 1 Details
@@ -289,18 +364,26 @@ Edit Member Parent 1 From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 1 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
     Select Member Parent 1 Form
     Select Random Member Parent 1
-    Save Parent 1 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 1 Details
@@ -320,18 +403,27 @@ Edit Non-Member Parent 2 From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select Non-Member Parent 2 Form
-    Input Non-Member Parent 2 Details    Emily    D    Elmer
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Non-Member Parent 2 Details    Emily    D    Elmber
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -351,18 +443,27 @@ Edit Non-Member Parent 2 From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select Member Parent 2 Form
     Select Random Member Parent 2
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -382,17 +483,26 @@ Edit Non-Member Parent 2 From None Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select No Parent 2 Form
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -412,18 +522,27 @@ Edit Member Parent 2 From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select Non-Member Parent 2 Form
-    Input Non-Member Parent 2 Details    Emily    D    Elmer
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Non-Member Parent 2 Details    Emily    D    Elmber
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -443,18 +562,27 @@ Edit Member Parent 2 From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select Member Parent 2 Form
     Select Random Member Parent 2
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -474,17 +602,26 @@ Edit Member Parent 2 From None Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select No Parent 2 Form
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -504,18 +641,27 @@ Edit No Parent 2 From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select Non-Member Parent 2 Form
-    Input Non-Member Parent 2 Details    Emily    D    Elmer
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Non-Member Parent 2 Details    Emily    D    Elmber
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -534,18 +680,27 @@ Edit No Parent 2 From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select Member Parent 2 Form
     Select Random Member Parent 2
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -564,17 +719,26 @@ Edit No Parent 2 From None Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Parent 2 Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
     Select No Parent 2 Form
-    Save Parent 2 Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Parent 2 Details
@@ -593,7 +757,25 @@ Edit Officiant Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -611,7 +793,25 @@ Edit Adress of Dedication Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -620,6 +820,7 @@ Edit Adress of Dedication Dedication Record
     Save Dedication Form Changes
     View Dedication Page Should Be Open
     View Dedication Page Should Match Form Inputs
+
 Edit Non-Member Godmother From Non-Member Dedication Record
     Open Browser to Login Page
     Login Level 3 User
@@ -628,18 +829,26 @@ Edit Non-Member Godmother From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Godmother Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
     Input Non-Member Godmother Details    Celeste    G    Clay
-    Save Godmother Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godmother Details
@@ -659,18 +868,26 @@ Edit Non-Member Godmother From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Godmother Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
-    Save Godmother Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godmother Details
@@ -690,18 +907,26 @@ Edit Member Godmother From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Godmother Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Brenda    G    Pond
-    Save Godmother Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godmother Details
@@ -721,18 +946,26 @@ Edit Member Godmother From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Godmother Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
     Select Member Godmother Form
     Select Random Member Godmother
-    Save Godmother Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godmother Details
@@ -752,7 +985,25 @@ Remove Godmother Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -770,7 +1021,25 @@ Add Non-Member Godmother Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -791,7 +1060,25 @@ Add Member Godmother Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Joseph    J    Joestar
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -812,18 +1099,26 @@ Edit Non-Member Godfather From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Godfather Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Mike    S    Oliver
-    Save Godfather Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godfather Details
@@ -843,18 +1138,26 @@ Edit Non-Member Godfather From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Godfather Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
-    Save Godfather Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godfather Details
@@ -874,18 +1177,26 @@ Edit Member Godfather From Non-Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Godfather Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
     Select Non-Member Godfather Form
-    Input Non-Member Godfather Details    Darren    A    Kane
-    Save Godfather Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Input Non-Member Godfather Details    Mike    S    Oliver
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godfather Details
@@ -905,18 +1216,26 @@ Edit Member Godfather From Member Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
-    View Dedication Page Should Be Open
-    Navigate to Edit Dedication Page From View Dedication Page
-    Edit Dedication Page Should Be Open
-    Select Edit Godfather Details
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
     Select Member Godfather Form
     Select Random Member Godfather
-    Save Godfather Detail Changes
-    Save Dedication Form Data in Edit Dedication Page
-    Save Dedication Form Changes
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
     Select Edit Godfather Details
@@ -936,7 +1255,25 @@ Remove Godfather Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Mike    S    Oliver
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -954,7 +1291,25 @@ Add Non-Member Godfather Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Mike    S    Oliver
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -975,7 +1330,25 @@ Add Member Godfather Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Mike    S    Oliver
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Navigate to Edit Dedication Page From View Dedication Page
     Edit Dedication Page Should Be Open
@@ -996,7 +1369,25 @@ Delete Dedication Record
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
     Dedication Main Page Should Be Open
-    Navigate to View Dedication Page From Dedication Main Page
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Karen    J    Robinson
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Celeste    G    Clay
+    Confirm Add Godmother
+    Select Add Godfather Button
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Mike    S    Oliver
+    Confirm Add Godfather
+    Submit Dedication Form
     View Dedication Page Should Be Open
     Delete Dedication Record
     Forms Main Page Should Be Open

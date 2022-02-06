@@ -59,14 +59,14 @@ Year Statistical Report
     Change Date
     Is Valid Date
 
-Twenty Years Or Less
+Five Years Or Less
     Input Start Date    01012002
-    Input End Date      12312022
+    Input End Date      12312007
     Change Date
     Is Valid Date
-Greater Than Twenty Years
+Greater Than Five Years
     Input Start Date    01012002
-    Input End Date      01012023
+    Input End Date      01012008
     Change Date
     Greater Than Twenty Years Report
 

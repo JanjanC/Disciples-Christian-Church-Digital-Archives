@@ -10,13 +10,15 @@ Resource            dedication.resource
 Test Teardown       Close Browser
 
 *** Test Cases ***
-Navigate to Add Dedication Page (Level 1)
+Navigate to Add Dedication Page (Level 3)
     Open Browser to Login Page
-    Login Level 1 User
+    Login Level 3 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to Add Dedication Page From Dedication Main Page
     Add Dedication Page Should Be Open
 
 Navigate to Add Dedication Page (Level 2)
@@ -30,15 +32,13 @@ Navigate to Add Dedication Page (Level 2)
     Navigate to Add Dedication Page From Dedication Main Page
     Add Dedication Page Should Be Open
 
-Navigate to Add Dedication Page (Level 3)
+Navigate to Add Dedication Page (Level 1)
     Open Browser to Login Page
-    Login Level 3 User
+    Login Level 1 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
     Forms Main Page Should Be Open
     Navigate to Dedication Page From Forms Main Page
-    Dedication Main Page Should Be Open
-    Navigate to Add Dedication Page From Dedication Main Page
     Add Dedication Page Should Be Open
 
 Complete Input (Level 1)
@@ -599,34 +599,6 @@ Complete One Godfather and One Godmother Input
     View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
-Complete One Godmother Input
-    Open Browser to Login Page
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Forms Main Page From Main Page
-    Forms Main Page Should Be Open
-    Navigate to Dedication Page From Forms Main Page
-    Dedication Main Page Should Be Open
-    Navigate to Add Dedication Page From Dedication Main Page
-    Add Dedication Page Should Be Open
-    Select Non-Member Child Form
-    Input Non-Member Child Details    Garrus    K    Vakarian
-    Select Non-Member Parent 1 Form
-    Input Non-Member Parent 1 Details    Liara    T    Soni
-    Select No Parent 2 Form
-    Input Officiant Details    Pastor Shepard
-    Input Address of Dedication    The Citadel
-    Input Date of Dedication    09    01    2021
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Urdnot    T    Wrex
-    Confirm Add Godmother
-    Save Dedication Form Data
-    Submit Dedication Form
-    View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
-    Delete Dedication Record
-
 Complete One Godfather Input
     Open Browser to Login Page
     Login Level 3 User
@@ -649,6 +621,34 @@ Complete One Godfather Input
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Joseph    J    Joestar
     Confirm Add Godfather
+    Save Dedication Form Data
+    Submit Dedication Form
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Delete Dedication Record
+
+Complete One Godmother Input
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Garrus    K    Vakarian
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Urdnot    T    Wrex
+    Confirm Add Godmother
     Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
@@ -727,54 +727,6 @@ Complete Six Godmother and Six Godfather Input
     View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
-Complete Six Godmother Input
-    Open Browser to Login Page
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Forms Main Page From Main Page
-    Forms Main Page Should Be Open
-    Navigate to Dedication Page From Forms Main Page
-    Dedication Main Page Should Be Open
-    Navigate to Add Dedication Page From Dedication Main Page
-    Add Dedication Page Should Be Open
-    Select Non-Member Child Form
-    Input Non-Member Child Details    Garrus    K    Vakarian
-    Select Non-Member Parent 1 Form
-    Input Non-Member Parent 1 Details    Liara    T    Soni
-    Select No Parent 2 Form
-    Input Officiant Details    Pastor Shepard
-    Input Address of Dedication    The Citadel
-    Input Date of Dedication    09    01    2021
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Liara    M    Tsoni
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Nino    N    Nakano
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Miku    N    Nakano
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Yotsuba    N    Nakano
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Jean    T    Manalo
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Nicole    P    De Leon
-    Confirm Add Godmother
-    Save Dedication Form Data
-    Submit Dedication Form
-    View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
-    Delete Dedication Record
-
 Complete Six Godfather Input
     Open Browser to Login Page
     Login Level 3 User
@@ -817,6 +769,54 @@ Complete Six Godfather Input
     Select Non-Member Godfather Form
     Input Non-Member Godfather Details    Marcus    P    Aquino
     Confirm Add Godfather
+    Save Dedication Form Data
+    Submit Dedication Form
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Delete Dedication Record
+
+Complete Six Godmother Input
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Garrus    K    Vakarian
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
     Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open
@@ -899,56 +899,6 @@ Complete Seven Godmother and Seven Godfather Input
     View Dedication Page Should Match Form Inputs
     Delete Dedication Record
 
-Complete Seven Godmother Input
-    Open Browser to Login Page
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Forms Main Page From Main Page
-    Forms Main Page Should Be Open
-    Navigate to Dedication Page From Forms Main Page
-    Dedication Main Page Should Be Open
-    Navigate to Add Dedication Page From Dedication Main Page
-    Add Dedication Page Should Be Open
-    Select Non-Member Child Form
-    Input Non-Member Child Details    Garrus    K    Vakarian
-    Select Non-Member Parent 1 Form
-    Input Non-Member Parent 1 Details    Liara    T    Soni
-    Select No Parent 2 Form
-    Input Officiant Details    Pastor Shepard
-    Input Address of Dedication    The Citadel
-    Input Date of Dedication    09    01    2021
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Liara    M    Tsoni
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Nino    N    Nakano
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Miku    N    Nakano
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Yotsuba    N    Nakano
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Jean    T    Manalo
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Select Non-Member Godmother Form
-    Input Non-Member Godmother Details    Nicole    P    De Leon
-    Confirm Add Godmother
-    Select Add Godmother Button
-    Godmother Maximum Warning Should Be Shown
-    Save Dedication Form Data
-    Submit Dedication Form
-    View Dedication Page Should Be Open
-    View Dedication Page Should Match Form Inputs
-    Delete Dedication Record
-
 Complete Seven Godfather Input
     Open Browser to Login Page
     Login Level 3 User
@@ -993,6 +943,56 @@ Complete Seven Godfather Input
     Confirm Add Godfather
     Select Add Godfather Button
     Godfather Maximum Warning Should Be Shown
+    Save Dedication Form Data
+    Submit Dedication Form
+    View Dedication Page Should Be Open
+    View Dedication Page Should Match Form Inputs
+    Delete Dedication Record
+
+Complete Seven Godmother Input
+    Open Browser to Login Page
+    Login Level 3 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Dedication Page From Forms Main Page
+    Dedication Main Page Should Be Open
+    Navigate to Add Dedication Page From Dedication Main Page
+    Add Dedication Page Should Be Open
+    Select Non-Member Child Form
+    Input Non-Member Child Details    Garrus    K    Vakarian
+    Select Non-Member Parent 1 Form
+    Input Non-Member Parent 1 Details    Liara    T    Soni
+    Select No Parent 2 Form
+    Input Officiant Details    Pastor Shepard
+    Input Address of Dedication    The Citadel
+    Input Date of Dedication    09    01    2021
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Liara    M    Tsoni
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Nino    N    Nakano
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Miku    N    Nakano
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Yotsuba    N    Nakano
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Jean    T    Manalo
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Nicole    P    De Leon
+    Confirm Add Godmother
+    Select Add Godmother Button
+    Godmother Maximum Warning Should Be Shown
     Save Dedication Form Data
     Submit Dedication Form
     View Dedication Page Should Be Open

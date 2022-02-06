@@ -1,13 +1,11 @@
 *** Settings ***
-Documentation       A test suite with a single test for valid login
+Documentation     A test suite with a single test for valid login
 ...
-...                 This test follows the example using keywords from
-...                 the SeleniumLibrary
-
-Resource            login.resource
-Resource            wedding.resource
-
-Test Teardown       Close Browser
+...               This test follows the example using keywords from
+...               the SeleniumLibrary
+Resource          login.resource
+Resource          wedding.resource
+Test Teardown     Close Browser
 
 *** Test Cases ***
 Navigate to View Wedding Page (Level 1):
@@ -18,30 +16,30 @@ Navigate to View Wedding Page (Level 1):
     Forms Main Page Should Be Open
     Navigate to Wedding Page From Forms Main Page
     Add Wedding Page Should Be Open
-    Select Member Bride Form
-    Select Random Member Bride
-    Select Member Groom Form
-    Select Random Member Groom
-    Select Member Bride Mother Form
-    Select Random Member Bride Mother
-    Select Member Bride Father Form
-    Select Random Member Bride Father
-    Select Member Groom Mother Form
-    Select Random Member Groom Mother
-    Select Member Groom Father Form
-    Select Random Member Groom Father
+    Select Non-Member Bride Form
+    Input Non-Member Bride Details    Brooke    J    Whitney
+    Select Non-Member Groom Form
+    Input Non-Member Groom Details    Rex    N    Graham
+    Select Non-Member Bride Mother Form
+    Input Non-Member Bride Mother Details    Vicky    M    Weston
+    Select Non-Member Bride Father Form
+    Input Non-Member Bride Father Details    Sterling    H    Moss
+    Select Non-Member Groom Mother Form
+    Input Non-Member Groom Mother Details    Bridget    N    Robinson
+    Select Non-Member Groom Father Form
+    Input Non-Member Groom Father Details    Baldwin    R    Fleur
     Input Wedding Location    The Citadel
     Input Wedding Date    12    25    2021
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
     Select Add Godmother Button
-    Select Member Godmother Form
-    Select Random Member Godmother
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Samara    S    Justicar
     Confirm Add Godmother
     Select Add Godfather Button
-    Select Member Godfather Form
-    Select Random Member Godfather
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Mordin    M    Solus
     Confirm Add Godfather
     Submit Wedding Registry
     View Wedding Page Should Be Open
@@ -60,30 +58,30 @@ Navigate to View Wedding Page (Level 2):
     Wedding Main Page Should Be Open
     Navigate to Add Wedding Page From Wedding Main Page
     Add Wedding Page Should Be Open
-    Select Member Bride Form
-    Select Random Member Bride
-    Select Member Groom Form
-    Select Random Member Groom
-    Select Member Bride Mother Form
-    Select Random Member Bride Mother
-    Select Member Bride Father Form
-    Select Random Member Bride Father
-    Select Member Groom Mother Form
-    Select Random Member Groom Mother
-    Select Member Groom Father Form
-    Select Random Member Groom Father
+    Select Non-Member Bride Form
+    Input Non-Member Bride Details    Brooke    J    Whitney
+    Select Non-Member Groom Form
+    Input Non-Member Groom Details    Rex    N    Graham
+    Select Non-Member Bride Mother Form
+    Input Non-Member Bride Mother Details    Vicky    M    Weston
+    Select Non-Member Bride Father Form
+    Input Non-Member Bride Father Details    Sterling    H    Moss
+    Select Non-Member Groom Mother Form
+    Input Non-Member Groom Mother Details    Bridget    N    Robinson
+    Select Non-Member Groom Father Form
+    Input Non-Member Groom Father Details    Baldwin    R    Fleur
     Input Wedding Location    The Citadel
     Input Wedding Date    12    25    2021
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
     Select Add Godmother Button
-    Select Member Godmother Form
-    Select Random Member Godmother
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Samara    S    Justicar
     Confirm Add Godmother
     Select Add Godfather Button
-    Select Member Godfather Form
-    Select Random Member Godfather
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Mordin    M    Solus
     Confirm Add Godfather
     Submit Wedding Registry
     View Wedding Page Should Be Open
@@ -103,30 +101,30 @@ Navigate to View Wedding Page (Level 3):
     Wedding Main Page Should Be Open
     Navigate to Add Wedding Page From Wedding Main Page
     Add Wedding Page Should Be Open
-    Select Member Bride Form
-    Select Random Member Bride
-    Select Member Groom Form
-    Select Random Member Groom
-    Select Member Bride Mother Form
-    Select Random Member Bride Mother
-    Select Member Bride Father Form
-    Select Random Member Bride Father
-    Select Member Groom Mother Form
-    Select Random Member Groom Mother
-    Select Member Groom Father Form
-    Select Random Member Groom Father
+    Select Non-Member Bride Form
+    Input Non-Member Bride Details    Brooke    J    Whitney
+    Select Non-Member Groom Form
+    Input Non-Member Groom Details    Rex    N    Graham
+    Select Non-Member Bride Mother Form
+    Input Non-Member Bride Mother Details    Vicky    M    Weston
+    Select Non-Member Bride Father Form
+    Input Non-Member Bride Father Details    Sterling    H    Moss
+    Select Non-Member Groom Mother Form
+    Input Non-Member Groom Mother Details    Bridget    N    Robinson
+    Select Non-Member Groom Father Form
+    Input Non-Member Groom Father Details    Baldwin    R    Fleur
     Input Wedding Location    The Citadel
     Input Wedding Date    12    25    2021
     Input Officiant Details    Father Shepard
     Input Solemnizing Officer Details    Pastor Anderson
     Input Contract Number    WR-100023
     Select Add Godmother Button
-    Select Member Godmother Form
-    Select Random Member Godmother
+    Select Non-Member Godmother Form
+    Input Non-Member Godmother Details    Samara    S    Justicar
     Confirm Add Godmother
     Select Add Godfather Button
-    Select Member Godfather Form
-    Select Random Member Godfather
+    Select Non-Member Godfather Form
+    Input Non-Member Godfather Details    Mordin    M    Solus
     Confirm Add Godfather
     Submit Wedding Registry
     View Wedding Page Should Be Open

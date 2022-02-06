@@ -10,13 +10,15 @@ Resource            baptismal.resource
 Test Teardown       Close Browser
 
 *** Test Cases ***
-Navigate to Add Baptismal Page (Level 1)
+Navigate to Add Baptismal Page (Level 3)
     Open Browser to Login Page
-    Login Level 1 User
+    Login Level 3 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
+    Baptismal Main Page Should Be Open
+    Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
 
 Navigate to Add Baptismal Page (Level 2)
@@ -30,15 +32,13 @@ Navigate to Add Baptismal Page (Level 2)
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
 
-Navigate to Add Baptismal Page (Level 3)
+Navigate to Add Baptismal Page (Level 1)
     Open Browser to Login Page
-    Login Level 3 User
+    Login Level 1 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
-    Baptismal Main Page Should Be Open
-    Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
 
 Validate Baptism Location Input Field
@@ -111,6 +111,25 @@ Validate Non-Member Officiant Middle Name Input Field
     Submit Baptismal Form
     Non-Member Officiant Middle Initial Error Should Be Shown
 
+Complete Member Officiant Input (Level 1):
+    Open Browser to Login Page
+    Login Level 1 User
+    Main Page Should Be Open
+    Navigate to Forms Main Page From Main Page
+    Forms Main Page Should Be Open
+    Navigate to Baptismal Page From Forms Main Page
+    Add Baptismal Page Should Be Open
+    Select Random Member for Baptism
+    Input Baptism Location    Valenzuela
+    Input Baptism Date    01    17    2021
+    Select Member Officiant Form
+    Select Random Member Officiant
+    Save Baptismal Form Data
+    Submit Baptismal Form
+    View Baptismal Page Should Be Open
+    View Baptismal Page Should Match Form Inputs
+    Delete Baptismal Record
+
 Complete Non-Member Officiant Input (Level 1):
     Open Browser to Login Page
     Login Level 1 User
@@ -130,17 +149,19 @@ Complete Non-Member Officiant Input (Level 1):
     View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
-Complete Member Officiant Input (Level 1):
+Complete Member Officiant Input (Level 2):
     Open Browser to Login Page
-    Login Level 1 User
+    Login Level 2 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
     Forms Main Page Should Be Open
     Navigate to Baptismal Page From Forms Main Page
+    Baptismal Main Page Should Be Open
+    Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
     Select Random Member for Baptism
-    Input Baptism Location    Valenzuela
-    Input Baptism Date    01    17    2021
+    Input Baptism Location    Navotas
+    Input Baptism Date    05    02    2016
     Select Member Officiant Form
     Select Random Member Officiant
     Save Baptismal Form Data
@@ -170,9 +191,9 @@ Complete Non-Member Officiant Input (Level 2):
     View Baptismal Page Should Match Form Inputs
     Delete Baptismal Record
 
-Complete Member Officiant Input (Level 2):
+Complete Member Officiant Input (Level 3):
     Open Browser to Login Page
-    Login Level 2 User
+    Login Level 3 User
     Main Page Should Be Open
     Navigate to Forms Main Page From Main Page
     Forms Main Page Should Be Open
@@ -181,8 +202,8 @@ Complete Member Officiant Input (Level 2):
     Navigate to Add Baptismal Page From Baptismal Main Page
     Add Baptismal Page Should Be Open
     Select Random Member for Baptism
-    Input Baptism Location    Navotas
-    Input Baptism Date    05    02    2016
+    Input Baptism Location    Pateros
+    Input Baptism Date    06    18    2021
     Select Member Officiant Form
     Select Random Member Officiant
     Save Baptismal Form Data
@@ -206,27 +227,6 @@ Complete Non-Member Officiant Input (Level 3):
     Input Baptism Date    02    03    2022
     Select Non-Member Officiant Form
     Input Non Member Officiant Details    Turner    M    Galloway
-    Save Baptismal Form Data
-    Submit Baptismal Form
-    View Baptismal Page Should Be Open
-    View Baptismal Page Should Match Form Inputs
-    Delete Baptismal Record
-
-Complete Member Officiant Input (Level 3):
-    Open Browser to Login Page
-    Login Level 3 User
-    Main Page Should Be Open
-    Navigate to Forms Main Page From Main Page
-    Forms Main Page Should Be Open
-    Navigate to Baptismal Page From Forms Main Page
-    Baptismal Main Page Should Be Open
-    Navigate to Add Baptismal Page From Baptismal Main Page
-    Add Baptismal Page Should Be Open
-    Select Random Member for Baptism
-    Input Baptism Location    Pateros
-    Input Baptism Date    06    18    2021
-    Select Member Officiant Form
-    Select Random Member Officiant
     Save Baptismal Form Data
     Submit Baptismal Form
     View Baptismal Page Should Be Open

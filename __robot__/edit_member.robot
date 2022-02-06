@@ -3,7 +3,7 @@ Documentation     A test suite with for the Edit Member feature created by the f
 ...
 ...               This test follows the example using keywords from
 ...               the SeleniumLibrary
-Resource          edit_member.resource
+Resource          member.resource
 Resource          login.resource
 
 *** Test Cases ***

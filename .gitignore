@@ -124,10 +124,10 @@ dist
 __pycache__/
 
 #Robot Framework Outputs
-/tests/*.png
-/tests/output.xml
-/tests/log.html
-/tests/report.html
+/__robot__/*.png
+/__robot__/output.xml
+/__robot__/log.html
+/__robot__/report.html
 /*.png
 /output.xml
 /log.html

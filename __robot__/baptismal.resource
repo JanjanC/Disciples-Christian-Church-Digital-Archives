@@ -1,14 +1,12 @@
 *** Settings ***
-Documentation       A resource file with reusable keywords and variables
+Documentation     A resource file with reusable keywords and variables
 ...
-...                 Creating system specific keywords from default keywords
-...                 from SeleniumLibrary
-
-Library             SeleniumLibrary
-Library             DateTime
-Resource            login.resource
-Resource            common.resource
-Variables           variables.py
+...               Creating system specific keywords from default keywords
+...               from SeleniumLibrary
+Library           SeleniumLibrary
+Resource          login.resource
+Resource          common.resource
+Variables         variables.py
 
 *** Keywords ***
 Navigate to Forms Main Page From Main Page
@@ -33,12 +31,12 @@ Navigate to Edit Baptismal Page From View Baptismal Page
 Select Edit Member Details
     Scroll To Element    id:edit_member
     Click Button    id:edit_member
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Officiant Details
     Scroll To Element    id:edit_officiant
     Click Button    id:edit_officiant
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Random Member for Baptism
     Click Element    css:#member_div .selectize-input
@@ -52,7 +50,7 @@ Input Baptism Location
 Input Baptism Date
     [Arguments]    ${month}    ${day}    ${year}
     Scroll To Element    id:date
-    Press Keys    id:date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
+    Press Keys    id:date    ${month}    ${day}    ${year}
 
 Select Non-Member Officiant Form
     Scroll To Element    id:officiant_non_member
@@ -79,12 +77,12 @@ Submit Baptismal Form
 Save Member Detail Changes
     Save Member Data
     Click Button    id:save_edit_member
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Officiant Detail Changes
     Save Officiant Data
     Click Button    id:save_edit_officiant
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Baptismal Form Changes
     Scroll To Element    id:edit-baptismal
@@ -93,9 +91,9 @@ Save Baptismal Form Changes
 Delete Baptismal Record
     Scroll To Element    id:delete-baptismal
     Click Button    id:delete-baptismal
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Button    id:confirm_delete
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Member for Baptism Error Should Be Shown
     Element Should Contain    id:member_error    Please select member

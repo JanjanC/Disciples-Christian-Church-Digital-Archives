@@ -1,14 +1,12 @@
 *** Settings ***
-Documentation       A resource file with reusable keywords and variables
+Documentation     A resource file with reusable keywords and variables
 ...
-...                 Creating system specific keywords from default keywords
-...                 from SeleniumLibrary
-
-Library             SeleniumLibrary
-Library             DateTime
-Resource            login.resource
-Resource            common.resource
-Variables           variables.py
+...               Creating system specific keywords from default keywords
+...               from SeleniumLibrary
+Library           SeleniumLibrary
+Resource          login.resource
+Resource          common.resource
+Variables         variables.py
 
 *** Keywords ***
 Navigate to Forms Main Page From Main Page
@@ -33,27 +31,27 @@ Navigate to Edit Dedication Page From View Dedication Page
 Select Edit Child Details
     Scroll To Element    id:edit_child
     Click Button    id:edit_child
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Parent 1 Details
     Scroll To Element    id:edit_parent_one
     Click Button    id:edit_parent_one
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Parent 2 Details
     Scroll To Element    id:edit_parent_two
     Click Button    id:edit_parent_two
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Godmother Details
     Scroll To Element    class:edit_female_witness_btn
     Click Button    class:edit_female_witness_btn
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Edit Godfather Details
     Scroll To Element    class:edit_male_witness_btn
     Click Button    class:edit_male_witness_btn
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Non-Member Child Form
     Scroll To Element    id:child_non_member
@@ -126,17 +124,17 @@ Input Address of Dedication
 Input Date of Dedication
     [Arguments]    ${month}    ${day}    ${year}
     Scroll To Element    id:date
-    Press Keys    id:date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
+    Press Keys    id:date    ${month}    ${day}    ${year}
 
 Select Add Godmother Button
     Scroll To Element    id:add_gmother_button
     Click Button    id:add_gmother_button
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Add Godfather Button
     Scroll To Element    id:add_gfather_button
     Click Button    id:add_gfather_button
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
 
 Select Non-Member Godmother Form
     Click Button    id:witness_gmother_non_member
@@ -158,7 +156,7 @@ Confirm Add Godmother
     ${godmother}=    Get Godmother Data
     Append to List of Godmothers    ${godmother}
     Click Button    id:add_gmother_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Select Non-Member Godfather Form
     Click Button    id:witness_gfather_non_member
@@ -180,7 +178,7 @@ Confirm Add Godfather
     ${godfather}=    Get Godfather Data
     Append to List of Godfathers    ${godfather}
     Click Button    id:add_gfather_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Remove Godmother
     Remove From List of Godmothers    0
@@ -196,17 +194,17 @@ Remove Godmother in Edit Dedication Page
     Remove From List of Godmothers    0
     Scroll to Element    class:delete_female_witness_btn
     Click Element    class:delete_female_witness_btn
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Remove Godfather in Edit Dedication Page
     Remove From List of Godfathers    0
     Scroll to Element    class:delete_male_witness_btn
     Click Element    class:delete_male_witness_btn
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Element    id:confirm_delete_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Submit Dedication Form
     Scroll To Element    id:create-dedication
@@ -215,29 +213,29 @@ Submit Dedication Form
 Save Child Detail Changes
     Click Button    id:save_edit_child
     Save Child Data
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Parent 1 Detail Changes
     Click Button    id:save_edit_parent_one
     Save Parent 1 Data
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Parent 2 Detail Changes
     Click Button    id:save_edit_parent_two
     Save Parent 2 Data
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Godmother Detail Changes
     ${godmother}=    Get Godmother Data
     Replace in List of Godmothers    0    ${godmother}
     Click Button    id:add_gmother_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Godfather Detail Changes
     ${godfather}=    Get Godfather Data
     Replace in List of Godfathers    0    ${godfather}
     Click Button    id:add_gfather_witness
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Save Dedication Form Changes
     Scroll To Element    id:edit-dedication
@@ -246,9 +244,9 @@ Save Dedication Form Changes
 Delete Dedication Record
     Scroll To Element    id:delete
     Click Button    id:delete
-    Sleep    0.5s    Wait for Modal to Open
+    Sleep    0.75s    Wait for Modal to Open
     Click Button    id:confirm_delete
-    Sleep    0.5s    Wait for Modal to Close
+    Sleep    0.75s    Wait for Modal to Close
 
 Child Error Should Be Shown
     Element Should Contain    id:child_info_error    Please provide child name
@@ -515,24 +513,22 @@ View Dedication Page Should Match Form Inputs
     #Address
     Element Should Contain    id:address    ${address}
     #Godfather
-    ${godfather_ctr}=    Set Variable    ${0}
     ${godfathers_elements}=    Get WebElements    css:#godfathers .witness
     ${godfather_length}=    Get Length    ${godfathers_elements}
     Length Should Be    ${godfather_list}    ${godfather_length}
+    ${godfather_section}=    Get WebElements    css:#godfathers
     FOR    ${godfather}    IN    @{godfather_list}
         ${godfather_name}=    Catenate    ${godfather[0]}    ${godfather[1]}.    ${godfather[2]}
-        Element Should Contain    ${godfathers_elements[${godfather_ctr}]}    ${godfather_name}
-        ${godfather_ctr}=    Evaluate    ${godfather_ctr} + 1
+        Element Should Contain    ${godfather_section}    ${godfather_name}
     END
     #Godmother
-    ${godmother_ctr}=    Set Variable    ${0}
     ${godmothers_elements}=    Get WebElements    css:#godmothers .witness
     ${godmother_length}=    Get Length    ${godmothers_elements}
     Length Should Be    ${godmother_list}    ${godmother_length}
+    ${godmother_section}=    Get WebElements    css:#godmothers
     FOR    ${godmother}    IN    @{godmother_list}
         ${godmother_name}=    Catenate    ${godmother[0]}    ${godmother[1]}.    ${godmother[2]}
-        Element Should Contain    ${godmothers_elements[${godmother_ctr}]}    ${godmother_name}
-        ${godmother_ctr}=    Evaluate    ${godmother_ctr} + 1
+        Element Should Contain    ${godmother_section}    ${godmother_name}
     END
 
 Forms Main Page Should Be Open
