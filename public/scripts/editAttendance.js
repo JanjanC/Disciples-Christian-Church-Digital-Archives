@@ -92,7 +92,14 @@ $(document).ready(function () {
 
   $("#date").attr('readonly', 'readonly');
 
-  var calendar = new ej.calendars.Calendar();
+  var urlWindow = window.location.href
+  var dateChosenToday = urlWindow.split('edit_attendance/')[1]
+  var newDate = new Date(dateChosenToday);
+  
+
+  var calendar = new ej.calendars.Calendar({
+    value: newDate
+  });
   var samplebutton = $("#edit-date-button")
   var errorDateMsg = $("#error-date")
   calendar.appendTo('#element')
