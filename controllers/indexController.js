@@ -25,7 +25,7 @@ const controller = {
   getMainPage: function (req, res) {
     req.session.editId = null
     const level = req.session.level
-    if (level !== undefined && level !== null) {
+    if (level !== undefined && level !== null && level >= 1) {
       res.render('main-page', {
         level: req.session.level,
         styles: ['mainPage'],
@@ -53,7 +53,7 @@ const controller = {
     const level = req.session.level
     // const level = '3'
     req.session.editId = null
-    if (level === undefined || level === null || parseInt(level) === 1) {
+    if (level === undefined || level === null || parseInt(level) <= 1) {
       res.status(401)
       res.render('error', {
         title: '401 Unauthorized Access',
@@ -138,7 +138,7 @@ const controller = {
     const level = req.session.level
     req.session.editId = null
 
-    if (level === undefined || level === null || parseInt(level) === 1) {
+    if (level === undefined || level === null || parseInt(level) <= 1) {
       res.status(401)
       res.render('error', {
         title: '401 Unauthorized Access',
@@ -207,7 +207,7 @@ const controller = {
     req.session.editId = null
     const level = req.session.level
 
-    if (level === undefined || level === null || parseInt(level) === 1) {
+    if (level === undefined || level === null || parseInt(level) <= 1) {
       res.status(401)
       res.render('error', {
         title: '401 Unauthorized Access',
@@ -266,7 +266,7 @@ const controller = {
   getWeddingMainPage: function (req, res) {
     const level = req.session.level
     req.session.editId = null
-    if (level === undefined || level === null || parseInt(level) === 1) {
+    if (level === undefined || level === null || parseInt(level) <= 1) {
       res.status(401)
       res.render('error', {
         title: '401 Unauthorized Access',
@@ -326,7 +326,7 @@ const controller = {
     const level = req.session.level
     req.session.editId = null
 
-    if (level === undefined || level === null || parseInt(level) === 1) {
+    if (level === undefined || level === null || parseInt(level) <= 1) {
       res.status(401)
       res.render('error', {
         title: '401 Unauthorized Access',

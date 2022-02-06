@@ -27,7 +27,9 @@ const database = {
             user: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
+            port: process.env.PORT || 3306,
             ssl: {
+                rejectUnauthorized: false,
                 ca: fs.readFileSync(process.env.DB_SSL_CERT_FILE || ""),
             },
         });
@@ -45,13 +47,15 @@ const database = {
      */
     initDB: async function () {
         knexClient = knex({
-            client: "mysql",
+            client: "mysql2",
             connection: {
                 host: process.env.DB_HOST,
                 user: process.env.DB_USER,
                 password: process.env.DB_PASS,
                 database: process.env.DB_NAME,
-                ssl: true,
+                ssl: {
+                    rejectUnauthorized: false,
+                },
             },
             useNullAsDefault: true,
         });

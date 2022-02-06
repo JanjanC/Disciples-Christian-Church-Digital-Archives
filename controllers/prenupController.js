@@ -114,7 +114,7 @@ const prenupController = {
      * one member in the dropdown options in add-prenup-temp.hbs
      */
     const level = req.session.level;
-    if (level === undefined || level === null) {
+    if (level === undefined || level === null || level === 0) {
       res.status(401);
       res.render("error", {
         title: "401 Unauthorized Access",

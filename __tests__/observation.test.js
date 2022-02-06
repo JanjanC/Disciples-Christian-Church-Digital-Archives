@@ -35,7 +35,6 @@ describe('Observation Controller', () => {
             observer: "Johan",
             observee_id: "Nina",
             comment: "Nicely Done",
-            date: new Date().toISOString(),
             observation_id: 1234,
             layout: false
         };
@@ -44,7 +43,11 @@ describe('Observation Controller', () => {
         observationController.postAddObservation(req, res);
 
         //Assert
-        sinon.assert.calledWith(res.render, 'partials/observation', expectedResult);
+        sinon.assert.calledWith(res.render, 'partials/observation', sinon.match({observer: expectedResult.observer}));
+        sinon.assert.calledWith(res.render, 'partials/observation', sinon.match({observee_id: expectedResult.observee_id}));
+        sinon.assert.calledWith(res.render, 'partials/observation', sinon.match({comment: expectedResult.comment}));
+        sinon.assert.calledWith(res.render, 'partials/observation', sinon.match({observertion_id: expectedResult.observersation_id}));
+        sinon.assert.calledWith(res.render, 'partials/observation', sinon.match({layout: expectedResult.layout}));
     });
 
     it("Should have access to putUpdateObservation where the update is successful", () => {

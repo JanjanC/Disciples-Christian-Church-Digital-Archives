@@ -18,11 +18,13 @@ const memberController = {
    * @param res - the result to be sent out after processing the request
    */
   getAddMemberPage: function (req, res) {
-    let level = req.session.level;
-    req.session.editId = null
     const matchesSettingName = new Condition(queryTypes.where);
     matchesSettingName.setKeyValue(settingsFields.ID, "allow_level_0");
     db.find(db.tables.SETTINGS_TABLE, matchesSettingName, [], settingsFields.VALUE, function (result) {
+      let level = req.session.level;
+      if (result[0].settings_value == "true" && (req.session.level == undefined || req.session.level == null))
+        level = 0;
+      req.session.editId = null
       if ((level === undefined || level === null) && result[0].settings_value == "false") {
           res.status(401);
           res.render("error", {
@@ -35,11 +37,10 @@ const memberController = {
           });
       }
       else {
-        if (!level)
-          level = 0;
         res.render('add-member-temp', {
           styles: ['forms','addMember'],
-          scripts: ['member']
+          scripts: ['member'],
+          hide_navbar: level == 0
         })
       }
     });
@@ -89,6 +90,7 @@ const memberController = {
               db.find(db.tables.OBSERVATION_TABLE, observationCondition, null, '*', function (result) {
                 if (result) {
                   data.observations = result
+                  data.hide_navbar = req.session.level == 0
                   res.render('edit-member-temp', data)
                 }
               })
@@ -158,7 +160,15 @@ const memberController = {
                   data.styles = ['view']
                   data.scripts = ['removeButtons', 'deleteMember']
                   data.canSee = (parseInt(req.session.level) === 3) || req.session.editId !== null
-                  data.backLink = parseInt(req.session.level) >= 2 ? '/member_main_page' : '/main_page'
+                  if (parseInt(req.session.level) >= 2)
+                    data.backLink = '/member_main_page'
+                  else if (parseInt(req.session.level) == 1)
+                    data.backLink = '/main_page'
+                  else {
+                    data.backLink = '/login_page'
+                    data.only_view = true
+                  }
+                  data.hide_navbar = req.session.level == 0
                   res.render('view-member', data)
                 }
               })
@@ -186,7 +196,7 @@ const memberController = {
    */
   createMember: function (req, res) {
     let errors = validationResult(req)
-
+    
     if (req.session.level !== null && req.session.level !== undefined) {
       if (!errors.isEmpty()) {
         errors = errors.errors
@@ -389,14 +399,14 @@ const memberController = {
               req.body.recordId = bapRecordId
               baptismalController.delBaptismal(req, res)
             } else {
-              res.send(true)
+              res.send({result: true, level: req.session.level})
             }
           } else {
-            res.send(false)
+            res.send({result: false})
           }
         })
       } else {
-        res.send(false)
+        res.send({result: false})
       }
     })
   },
