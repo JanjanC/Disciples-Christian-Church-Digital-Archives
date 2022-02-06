@@ -63,7 +63,9 @@ jobs:
             - image: arvindr226/alpine-ssh
         steps:
             - checkout
-            - run: ssh -oStrictHostKeyChecking=no -v $DEPLOY_SSH_USER@$DEPLOY_IP "./deploy.sh"
+            - run:
+                  name: Run Deployment Script
+                  command: ssh -oStrictHostKeyChecking=no -v $DEPLOY_SSH_USER@$DEPLOY_IP "./deploy.sh"
 
     unit_test:
         resource_class: small
