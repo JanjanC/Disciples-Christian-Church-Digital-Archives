@@ -413,7 +413,6 @@ $(document).ready(function () {
                 url: "/update_wedding/couple",
                 data: data,
                 success: function (result) {
-                    console.log(result);
                     if (result) {
                         const personInfo = JSON.parse(data.person);
                         console.log(personInfo);
@@ -484,10 +483,10 @@ $(document).ready(function () {
             let lastNameField = null;
 
             if (data.person !== null) data.person.personId = info[1];
-            if (!data.person.isMember && data.oldPersonId != null) {
+            if (data.person && !data.person.isMember && data.oldPersonId != null) {
                 data.person.personId = data.oldPersonId;
             }
-            console.log(data);
+
             data.person = JSON.stringify(data.person);
 
             if (modalType === editKeys.brideFather) {
@@ -1369,9 +1368,9 @@ $(document).ready(function () {
             $("#male_mid_name").val("");
             $("#male_last_name").val("");
         } else {
-            $("#male_first_name").val(currPerson.firstName);
-            $("#male_mid_name").val(currPerson.midName);
-            $("#male_last_name").val(curPerson.lastName);
+            $("#male_first_name").val("");
+            $("#male_mid_name").val("");
+            $("#male_last_name").val("");
         }
     });
 
@@ -1396,9 +1395,9 @@ $(document).ready(function () {
             $("#female_mid_name").val("");
             $("#female_last_name").val("");
         } else {
-            $("#female_first_name").val(currPerson.firstName);
-            $("#female_mid_name").val(currPerson.midName);
-            $("#female_last_name").val(curPerson.lastName);
+            $("#female_first_name").val("");
+            $("#female_mid_name").val("");
+            $("#female_last_name").val("");
         }
     });
 
