@@ -827,7 +827,6 @@ const weddingController = {
             // Insert the wedding data
             const weddingInsertResult = await dbInsert(db.tables.WEDDING_TABLE, insertWeddingData);
             const weddingId = weddingInsertResult[0];
-            req.session.editId = weddingId
 
             // Add the wedding ID to the wedding_reg field on the member table for the couple if they are members
             // Bride
@@ -946,6 +945,7 @@ const weddingController = {
                     }
                 })
             );
+            req.session.editId = weddingId;
 
             return res.json(weddingId);
         } catch (err) {
