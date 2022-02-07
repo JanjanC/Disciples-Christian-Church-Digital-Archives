@@ -104,6 +104,7 @@ Add Observation
     Submit Credentials
     Menu Page 3 Should Be Open
     Go To Add Observation           1
+    Sleep    0.75s    Wait for Modal to Open
     Add Valid Observation
     Check Observation               Mark     nice
 
@@ -113,6 +114,7 @@ Invalid Observation
     Submit Credentials
     Menu Page 3 Should Be Open
     Go To Add Observation           1
+    Sleep    0.75s    Wait for Modal to Open
     Add Invalid Observation
     Check Invalid Observation
 
