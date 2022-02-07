@@ -5,7 +5,7 @@ Documentation    A test suite with for the old Search feature created during CSS
 ...              the SeleniumLibrary
 Resource         search.resource
 
-*** Comments ***
+*** Test Cases ***
 Access Advanced Search [Level 1]
     Open Browser To Login Page
     Input Pass                                          ${LEVEL 1 PASSWORD}
@@ -20,11 +20,9 @@ Access Advanced Search [Level 2]
     Input Pass                                          ${LEVEL 2 PASSWORD}
     Submit Credentials
     Access Advanced Search
-    Has Access To Advanced Search
     Go To Home Page
     Close Browser
 
-*** Test Cases ***
 Access Advanced Search [Level 3]
     Open Browser To Login Page
     Input Pass                                          ${LEVEL 3 PASSWORD}
@@ -32,7 +30,6 @@ Access Advanced Search [Level 3]
     Access Advanced Search
     Go To Home Page
 
-*** Comments ***
 Sort Members
     Access Advanced Search
     Search Member [No Additional Conditions]
@@ -179,7 +176,6 @@ Navigate Linked Records
     Navigate Member                                     1
     View Linked Child Dedication Record                 9
 
-*** Test Cases ***
 Search Member Record Different Conditions 
     Access Advanced Search
     Search Member [All Conditions]                      Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
@@ -211,118 +207,117 @@ Search Member Record Different Conditions
     Access Advanced Search
     Search Member [Two Or More Conditions]              Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
 
-*** Comments ***
 Search Prenuptial Record Different Conditions
     Access Advanced Search
-    Search Prenuptial Record [All Conditions]                        Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [All Conditions]                        Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
     Access Advanced Search
     Search Prenuptial Record [No Additional Conditions]
     Check Prenuptial Record [No Additional Condition]
     Access Advanced Search
-    Search Prenuptial Record [Bride First Name Condition]            Jamie        P        Antonio        4000003        12/29/2021        John        D        Bainto        11/13/2024
+    Search Prenuptial Record [Bride First Name Condition]            Leola        R        Matthews        7        08/02/2021        Clayton        S        Kersey        05/14/2022
     Access Advanced Search
-    Search Prenuptial Record [Bride Middle Initial Condition]        Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Bride Middle Initial Condition]        Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
     Access Advanced Search
-    Search Prenuptial Record [Bride Last Name Condition]             Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Bride Last Name Condition]             Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
     Access Advanced Search
-    Search Prenuptial Record [Groom First Name Condition]            Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Groom First Name Condition]            Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
     Access Advanced Search
-    Search Prenuptial Record [Groom Middle Initial Condition]        Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Groom Middle Initial Condition]        Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
     Access Advanced Search
-    Search Prenuptial Record [Groom Last Name Condition]             Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Groom Last Name Condition]             Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
     Access Advanced Search
-    Search Prenuptial Record [Date Created Condition]                Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Date Created Condition]                Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
     Access Advanced Search
-    Search Prenuptial Record [Proposed Date Of Wedding Condition]    Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Proposed Date Of Wedding Condition]    Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
     Access Advanced Search
-    Search Prenuptial Record [Two Or More Conditions]                Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Two Or More Conditions]                Leola    R    Matthews    Clayton    S    Kersey    08/01/2021    08/03/2021    05/13/2022    05/15/2022    08/02/2021    05/14/2022    7
 
 Search Wedding Record Different Conditions
     Access Advanced Search
-    Search Wedding Record [All Conditions]               Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [All Conditions]               Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
     Search Wedding Registry Record [No Additional Conditions]
     Check Wedding Registry Record [No Condition]
     Access Advanced Search
-    Search Wedding Record [Bride Name Condition]         Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Bride Name Condition]         Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Groom Name Condition]         Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Groom Name Condition]         Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Bride Mother Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Bride Mother Condition]       Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Bride Father Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Bride Father Condition]       Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Groom Mother Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Groom Mother Condition]       Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Groom Father Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Groom Father Condition]       Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Wedding Date Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Wedding Date Condition]       Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Location Condition]           Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Location Condition]           Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Officiant Condition]          Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Officiant Condition]          Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Solemnizer Condition]         Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Solemnizer Condition]         Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Contract Number Condition]    Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Contract Number Condition]    Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
     Access Advanced Search
-    Search Wedding Record [Two Or More Conditions]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Two Or More Conditions]       Liara    B    Tsoni    Josuke    J    Higashikata    Nino    N    Nakano    Jonathan Jr    J    Joestar    Miku    N    Nakano    Joseph    J    Joestar    02/17/2022    02/19/2022    DLSU    Yo mama    Yo papa    1    1920438    02/05/2022    02/18/2022    Isaac C. Clarke    Yotsuba N. Nakano
 
 Search Child Dedication [Different Conditions]
     Access Advanced Search
-    Search Child Dedication [All Conditions]               John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [All Conditions]               Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/06/2022
     Access Advanced Search
     Search Child Dedication Record [No Additional Conditions]
     Check Child Dedication Search Result [No Condition]
     Access Advanced Search
-    Search Child Dedication [Child Name Condition]         John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Child Name Condition]         Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/06/2022
     Access Advanced Search
-    Search Child Dedication [Mother Name Condition]        John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Mother Name Condition]        Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/06/2022
     Access Advanced Search
-    Search Child Dedication [Father Name Condition]        John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Father Name Condition]        Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/06/2022
     Access Advanced Search
-    Search Child Dedication [Dedication Date Condition]    John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Dedication Date Condition]    Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/06/2022
     Access Advanced Search
-    Search Child Dedication [Location Condition]           John        D        Bainto       7000004        Meliza        D        Bainto        Henry        B        Bainto        William        Onyx        03/30/2001        Soma Y. Ahcac        Rachelle M. Danoli
+    Search Child Dedication [Location Condition]           Jimmy        K        Webb       5        Samson        W        Elliot        ${EMPTY}        ${EMPTY}        ${EMPTY}        Pastor Shepard        The Citadel        08/01/2021        Mike R. Cooper        Andrea T. Peyton
     Access Advanced Search
-    Search Child Dedication [Officiant Condition]          John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Officiant Condition]          Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/06/2022
     Access Advanced Search
-    Search Child Dedication [Two Or More Conditions]       John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Two Or More Conditions]       Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/06/2022
 
 Search Baptismal [Different Conditions]
     Access Advanced Search
-    Search Baptismal [All Conditions]    Soma    Y    Ahcac    Off    I    Ciant    01/01/2011    01/01/2012    Manila    3000001    01/02/2022    06/06/2011
+    Search Baptismal [All Conditions]    Joseph    J    Joestar    Lawrence    E    Edwards    01/01/2000    01/03/2000    Manila Church    5    02/06/2022    01/02/2000
     Access Advanced Search
     Search Baptismal Record [No Additional Conditions]
-    Baptismal Record Results    3000001        3000002
+    Baptismal Record Results    5        6
     Access Advanced Search
-    Search Baptismal Record [Baptized First Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptized First Name Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
     Access Advanced Search
-    Search Baptismal Record [Baptized Middle Initial Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptized Middle Initial Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
     Access Advanced Search
-    Search Baptismal Record [Baptized Last Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptized Last Name Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
     Access Advanced Search
-    Search Baptismal Record [Date Of Baptism Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila    06/05/2011    06/06/2011
+    Search Baptismal Record [Date Of Baptism Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church    01/01/2000    01/03/2000
     Access Advanced Search
-    Search Baptismal Record [Baptism Location Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptism Location Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
     Access Advanced Search
-    Search Baptismal Record [Officiant First Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Officiant First Name Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
     Access Advanced Search
-    Search Baptismal Record [Officiant Middle Initial Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Officiant Middle Initial Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
     Access Advanced Search
-    Search Baptismal Record [Officiant Last Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Officiant Last Name Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
     Access Advanced Search
-    Search Baptismal Record [Atleast Two Conditions]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Atleast Two Conditions]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
 
 Viewing Search Results
     Access Advanced Search
-    Search Member [Sex Condition]                       1000005
+    Search Member [Sex Condition]                       1
     Access Advanced Search
-    Search Prenuptial Record [Bride First Name Condition]        Jamie        P        Antonio        4000003        12/29/2021        John        D        Bainto        11/13/2024
+    Search Prenuptial Record [Bride First Name Condition]        Leola        R        Matthews        7        08/02/2021        Clayton        S        Kersey        05/14/2022
     Access Advanced Search
-    Search Wedding Record [Groom Condition]             Soma        Y        Ahcac        5000001        00001        01/02/2022        07/09/2021        Rachelle        M        Danoli
+    Search Wedding Record [Groom Condition]             Josuke    J    Higashikata        1        1920438        02/05/2022        02/18/2022        Liara    B    Tsoni
     Access Advanced Search
-    Search Child Dedication [Location Condition]        John        D        Bainto       7000004        Meliza        D        Bainto        Henry        B        Bainto        William        Onyx        03/30/2001        Soma Y. Ahcac        Rachelle M. Danoli
+    Search Child Dedication [Location Condition]        Jimmy        K        Webb       5        Samson        W        Elliot        ${EMPTY}        ${EMPTY}        ${EMPTY}        Pastor Shepard        The Citadel        08/01/2021        Mike R. Cooper        Andrea T. Peyton
     Access Advanced Search
-    Search Baptismal Record [Baptized First Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptized First Name Condition]    Joseph    J    Joestar        5        Lawrence    E    Edwards        01/02/2000        Manila Church
     Close Browser

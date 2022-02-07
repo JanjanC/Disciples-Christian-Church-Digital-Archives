@@ -50,14 +50,12 @@ Go To Home Page
 Search Prenuptial Record [No Additional Conditions]
     Wait Until Element Is Enabled                       record-type
     Select From List By Value                           record-type     prenup-option
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
 
 Check Prenuptial Record [No Additional Condition]
-    Page Should Contain Element                         css:*[data-href="/view_prenup/4000001"]
-    Page Should Contain Element                         css:*[data-href="/view_prenup/4000002"]
-    Page Should Contain Element                         css:*[data-href="/view_prenup/4000003"]
-    Go To Home Page
+    Page Should Contain                                 Search Results Prenuptial
 
 Sort Record
     [Arguments]                     ${Sort}
@@ -475,7 +473,8 @@ Search Baptismal [All Conditions]
     Input Text                                          baptismal_date_from              ${from_date}
     Input Text                                          baptismal_date_to                ${to_date}
     Input Text                                          baptismal_location               ${location}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -493,8 +492,9 @@ Search Baptismal [All Conditions]
 Search Member [Sex Condition]
     [Arguments]                                         ${href_reg_num}
     Select From List By Value                           record-type     member-option
-    Select From List By Value                           sex             Female
-    Set Focus To Element                                member-search-submit
+    Select From List By Value                           sex             Male
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Page Should Contain                                 ${href_reg_num}
     Go To Home Page
@@ -512,10 +512,10 @@ Search Prenuptial Record [All Conditions]
     Input Text                                          prenup_date_created_to     ${to_date_created}
     Input Text                                          prenup_date_wedding_from   ${from_date_wedding}
     Input Text                                          prenup_date_wedding_to     ${to_date_wedding}
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -530,9 +530,10 @@ Search Prenuptial Record [Bride Middle Initial Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${from_date_created}    ${to_date_created}    ${from_date_wedding}    ${to_date_wedding}    ${date_created}    ${date_wedding}    ${href_reg_num}
     Select From List By Value                           record-type     prenup-option
     Input Text                                          prenup_bride_mid_name      ${bride_mid}
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -547,6 +548,8 @@ Search Prenuptial Record [Bride Last Name Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${from_date_created}    ${to_date_created}    ${from_date_wedding}    ${to_date_wedding}    ${date_created}    ${date_wedding}    ${href_reg_num}
     Select From List By Value                           record-type     prenup-option
     Input Text                                          prenup_bride_last_name      ${bride_last}
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -564,10 +567,10 @@ Search Prenuptial Record [Groom First Name Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${from_date_created}    ${to_date_created}    ${from_date_wedding}    ${to_date_wedding}    ${date_created}    ${date_wedding}    ${href_reg_num}
     Select From List By Value                           record-type     prenup-option
     Input Text                                          prenup_groom_first_name    ${groom_first}
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -582,10 +585,10 @@ Search Prenuptial Record [Groom Middle Initial Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${from_date_created}    ${to_date_created}    ${from_date_wedding}    ${to_date_wedding}    ${date_created}    ${date_wedding}    ${href_reg_num}
     Select From List By Value                           record-type     prenup-option
     Input Text                                          prenup_groom_mid_name      ${groom_mid}
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -600,10 +603,10 @@ Search Prenuptial Record [Groom Last Name Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${from_date_created}    ${to_date_created}    ${from_date_wedding}    ${to_date_wedding}    ${date_created}    ${date_wedding}    ${href_reg_num}
     Select From List By Value                           record-type     prenup-option
     Input Text                                          prenup_groom_last_name     ${groom_last}
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -619,10 +622,10 @@ Search Prenuptial Record [Date Created Condition]
     Select From List By Value                           record-type     prenup-option
     Input Text                                          prenup_date_created_from   ${from_date_created}
     Input Text                                          prenup_date_created_to     ${to_date_created}
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -638,10 +641,10 @@ Search Prenuptial Record [Proposed Date Of Wedding Condition]
     Select From List By Value                           record-type     prenup-option
     Input Text                                          prenup_date_wedding_from   ${from_date_wedding}
     Input Text                                          prenup_date_wedding_to     ${to_date_wedding}
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -661,10 +664,10 @@ Search Prenuptial Record [Two Or More Conditions]
     Input Text                                          prenup_groom_mid_name      ${groom_mid}
     Input Text                                          prenup_date_created_from   ${from_date_created}
     Input Text                                          prenup_date_created_to     ${to_date_created}
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -679,10 +682,10 @@ Search Prenuptial Record [Bride First Name Condition]
     [Arguments]                                         ${bride_first}        ${bride_mid}        ${bride_last}        ${href_reg_num}        ${date_added}        ${groom_first}        ${groom_mid}        ${groom_last}        ${planned_date}
     Select From List By Value                           record-type     prenup-option
     Input Text                                          prenup_bride_first_name        ${bride_first}
-    Set Focus To Element                                prenup-search-submit
+    Scroll To Element                                   prenup-search-submit
+    Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_added}
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -720,7 +723,8 @@ Search Wedding Record [All Conditions]
     Input Text                                          wedding_officiant                    ${officiant}
     Input Text                                          wedding_officer                      ${solemnizing_officer}
     Input Text                                          reg_num                              ${contract_num}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -745,7 +749,6 @@ Search Wedding Record [All Conditions]
     Page Should Contain                                 ${location}
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${solemnizing_officer}
-    Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${contract_num}
     Page Should Contain                                 ${sponsor_male}
@@ -758,7 +761,8 @@ Search Wedding Record [Bride Name Condition]
     Input Text                                          wedding_bride_first_name             ${bride_first}
     Input Text                                          wedding_bride_middle_name            ${bride_mid}
     Input Text                                          wedding_bride_last_name              ${bride_last}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -796,7 +800,8 @@ Search Wedding Record [Groom Name Condition]
     Input Text                                          wedding_groom_first_name             ${groom_first}
     Input Text                                          wedding_groom_middle_name            ${groom_mid}
     Input Text                                          wedding_groom_last_name              ${groom_last}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -834,7 +839,8 @@ Search Wedding Record [Bride Mother Condition]
     Input Text                                          wedding_bride_mother_first_name      ${bride_mother_first}
     Input Text                                          wedding_bride_mother_middle_name     ${bride_mother_mid}
     Input Text                                          wedding_bride_mother_last_name       ${bride_mother_last}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -872,7 +878,8 @@ Search Wedding Record [Bride Father Condition]
     Input Text                                          wedding_bride_father_first_name      ${bride_father_first}
     Input Text                                          wedding_bride_father_middle_name     ${bride_father_mid}
     Input Text                                          wedding_bride_father_last_name       ${bride_father_last}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -910,7 +917,8 @@ Search Wedding Record [Groom Mother Condition]
     Input Text                                          wedding_groom_mother_first_name      ${groom_mother_first}
     Input Text                                          wedding_groom_mother_middle_name     ${groom_mother_mid}
     Input Text                                          wedding_groom_mother_last_name       ${groom_mother_last}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -948,7 +956,8 @@ Search Wedding Record [Groom Father Condition]
     Input Text                                          wedding_groom_father_first_name      ${groom_father_first}
     Input Text                                          wedding_groom_father_middle_name     ${groom_father_mid}
     Input Text                                          wedding_groom_father_last_name       ${groom_father_last}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -985,7 +994,8 @@ Search Wedding Record [Wedding Date Condition]
     Select From List By Value                           record-type     wedding-option
     Input Text                                          wedding_date_from                    ${from_date}
     Input Text                                          wedding_date_to                      ${to_date}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -1021,7 +1031,8 @@ Search Wedding Record [Location Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${bride_mother_first}    ${bride_mother_mid}    ${bride_mother_last}    ${bride_father_first}    ${bride_father_mid}    ${bride_father_last}    ${groom_mother_first}    ${groom_mother_mid}    ${groom_mother_last}    ${groom_father_first}    ${groom_father_mid}    ${groom_father_last}    ${from_date}    ${to_date}    ${location}    ${officiant}    ${solemnizing_officer}    ${href_reg_num}    ${contract_num}    ${date_created}    ${wedding_date}    ${sponsor_male}    ${sponsor_female}
     Select From List By Value                           record-type     wedding-option
     Input Text                                          wedding_location                     ${location}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -1057,7 +1068,8 @@ Search Wedding Record [Officiant Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${bride_mother_first}    ${bride_mother_mid}    ${bride_mother_last}    ${bride_father_first}    ${bride_father_mid}    ${bride_father_last}    ${groom_mother_first}    ${groom_mother_mid}    ${groom_mother_last}    ${groom_father_first}    ${groom_father_mid}    ${groom_father_last}    ${from_date}    ${to_date}    ${location}    ${officiant}    ${solemnizing_officer}    ${href_reg_num}    ${contract_num}    ${date_created}    ${wedding_date}    ${sponsor_male}    ${sponsor_female}
     Select From List By Value                           record-type     wedding-option
     Input Text                                          wedding_officiant                    ${officiant}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -1093,7 +1105,8 @@ Search Wedding Record [Solemnizer Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${bride_mother_first}    ${bride_mother_mid}    ${bride_mother_last}    ${bride_father_first}    ${bride_father_mid}    ${bride_father_last}    ${groom_mother_first}    ${groom_mother_mid}    ${groom_mother_last}    ${groom_father_first}    ${groom_father_mid}    ${groom_father_last}    ${from_date}    ${to_date}    ${location}    ${officiant}    ${solemnizing_officer}    ${href_reg_num}    ${contract_num}    ${date_created}    ${wedding_date}    ${sponsor_male}    ${sponsor_female}
     Select From List By Value                           record-type     wedding-option
     Input Text                                          wedding_officer                      ${solemnizing_officer}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -1129,7 +1142,8 @@ Search Wedding Record [Contract Number Condition]
     [Arguments]    ${bride_first}    ${bride_mid}    ${bride_last}    ${groom_first}    ${groom_mid}    ${groom_last}    ${bride_mother_first}    ${bride_mother_mid}    ${bride_mother_last}    ${bride_father_first}    ${bride_father_mid}    ${bride_father_last}    ${groom_mother_first}    ${groom_mother_mid}    ${groom_mother_last}    ${groom_father_first}    ${groom_father_mid}    ${groom_father_last}    ${from_date}    ${to_date}    ${location}    ${officiant}    ${solemnizing_officer}    ${href_reg_num}    ${contract_num}    ${date_created}    ${wedding_date}    ${sponsor_male}    ${sponsor_female}
     Select From List By Value                           record-type     wedding-option
     Input Text                                          reg_num                              ${contract_num}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -1171,7 +1185,8 @@ Search Wedding Record [Two Or More Conditions]
     Input Text                                          wedding_groom_mother_middle_name     ${groom_mother_mid}
     Input Text                                          wedding_groom_father_middle_name     ${groom_father_mid}
     Input Text                                          wedding_officiant                    ${officiant}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
@@ -1209,7 +1224,8 @@ Search Wedding Record [Groom Condition]
     Input Text                                          wedding_groom_first_name          ${groom_first}
     Input Text                                          wedding_groom_middle_name         ${groom_mid}
     Input Text                                          wedding_groom_last_name           ${groom_last}
-    Set Focus To Element                                wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1226,10 +1242,7 @@ Search Wedding Record [Groom Condition]
     Go To Home Page
 
 Check Child Dedication Search Result [No Condition]
-    Page Should Contain Element   css:*[data-href="/view_dedication/7000001"]
-    Page Should Contain Element   css:*[data-href="/view_dedication/7000002"]
-    Page Should Contain Element   css:*[data-href="/view_dedication/7000003"]
-    Page Should Contain Element   css:*[data-href="/view_dedication/7000004"]
+    Page Should Contain Element   css:*[data-href="/view_dedication/5"]
     Go To Home Page
 
 Search Child Dedication [All Conditions]
@@ -1248,7 +1261,8 @@ Search Child Dedication [All Conditions]
     Input Text                                          dedication_date_to              ${to_date}
     Input Text                                          dedication_location             ${location}
     Input Text                                          dedication_officiant            ${officiant}
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1275,7 +1289,8 @@ Search Child Dedication [Child Name Condition]
     Input Text                                          dedication_first_name           ${first_name}
     Input Text                                          dedication_middle_name          ${middle_initial}
     Input Text                                          dedication_last_name            ${last_name}
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1302,7 +1317,8 @@ Search Child Dedication [Mother Name Condition]
     Input Text                                          dedication_mother_first_name    ${guardian_one_first}
     Input Text                                          dedication_mother_middle_name   ${guardian_one_mid}
     Input Text                                          dedication_mother_last_name     ${guardian_one_last}
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1329,7 +1345,8 @@ Search Child Dedication [Father Name Condition]
     Input Text                                          dedication_father_first_name    ${guardian_two_first}
     Input Text                                          dedication_father_middle_name   ${guardian_two_mid}
     Input Text                                          dedication_father_last_name     ${guardian_two_last}
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1355,7 +1372,8 @@ Search Child Dedication [Dedication Date Condition]
     Select From List By Value                           record-type     dedication-option
     Input Text                                          dedication_date_from            ${from_date}
     Input Text                                          dedication_date_to              ${to_date}
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1380,7 +1398,8 @@ Search Child Dedication [Officiant Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${guardian_one_first}        ${guardian_one_mid}        ${guardian_one_last}        ${guardian_two_first}        ${guardian_two_mid}        ${guardian_two_last}        ${officiant}        ${location}        ${date}        ${sponsor_male}        ${sponsor_female}        ${from_date}        ${to_date}        ${date_created}
     Select From List By Value                           record-type     dedication-option
     Input Text                                          dedication_officiant            ${officiant}
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1410,7 +1429,8 @@ Search Child Dedication [Two Or More Conditions]
     Input Text                                          dedication_date_from            ${from_date}
     Input Text                                          dedication_date_to              ${to_date}
     Input Text                                          dedication_officiant            ${officiant}
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1435,7 +1455,8 @@ Search Child Dedication [Location Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${guardian_one_first}        ${guardian_one_mid}        ${guardian_one_last}        ${guardian_two_first}        ${guardian_two_mid}        ${guardian_two_last}        ${officiant}        ${location}        ${date}        ${sponsor_male}        ${sponsor_female}
     Select From List By Value                           record-type     dedication-option
     Input Text                                          dedication_location         ${location}
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1459,7 +1480,8 @@ Search Baptismal Record [Baptized First Name Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${officiant_first}        ${officiant_mid}        ${officiant_last}        ${date}        ${location}
     Select From List By Value                           record-type     baptismal-option
     Input Text                                          baptism_first_name    ${first_name}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1477,7 +1499,8 @@ Search Baptismal Record [Baptized Middle Initial Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${officiant_first}        ${officiant_mid}        ${officiant_last}        ${date}        ${location}
     Select From List By Value                           record-type     baptismal-option
     Input Text                                          baptism_middle_name    ${middle_initial}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1495,7 +1518,8 @@ Search Baptismal Record [Baptized Last Name Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${officiant_first}        ${officiant_mid}        ${officiant_last}        ${date}        ${location}
     Select From List By Value                           record-type     baptismal-option
     Input Text                                          baptism_last_name    ${last_name}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1514,7 +1538,8 @@ Search Baptismal Record [Date Of Baptism Condition]
     Select From List By Value                           record-type     baptismal-option
     Input Text                                          baptismal_date_from    ${from_date}
     Input Text                                          baptismal_date_to      ${to_date}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1532,7 +1557,8 @@ Search Baptismal Record [Baptism Location Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${officiant_first}        ${officiant_mid}        ${officiant_last}        ${date}        ${location}
     Select From List By Value                           record-type     baptismal-option
     Input Text                                          baptismal_location    ${location}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1550,7 +1576,8 @@ Search Baptismal Record [Officiant First Name Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${officiant_first}        ${officiant_mid}        ${officiant_last}        ${date}        ${location}
     Select From List By Value                           record-type     baptismal-option
     Input Text                                          baptism_officiant_first_name    ${officiant_first}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1568,7 +1595,8 @@ Search Baptismal Record [Officiant Middle Initial Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${officiant_first}        ${officiant_mid}        ${officiant_last}        ${date}        ${location}
     Select From List By Value                           record-type     baptismal-option
     Input Text                                          baptism_officiant_middle_name    ${officiant_mid}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1586,7 +1614,8 @@ Search Baptismal Record [Officiant Last Name Condition]
     [Arguments]                                         ${first_name}        ${middle_initial}        ${last_name}        ${href_reg_num}        ${officiant_first}        ${officiant_mid}        ${officiant_last}        ${date}        ${location}
     Select From List By Value                           record-type     baptismal-option
     Input Text                                          baptism_officiant_last_name    ${officiant_last}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
@@ -1606,7 +1635,8 @@ Search Baptismal Record [Atleast Two Conditions]
     Input Text                                          baptism_last_name              ${last_name}
     Input Text                                          baptism_officiant_last_name    ${officiant_last}
     Input Text                                          baptismal_location             ${location}
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
