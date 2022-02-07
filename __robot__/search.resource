@@ -139,6 +139,11 @@ Search Member [All Conditions]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/member/${href_reg_num}"]
+    Scroll To Element                                   css:*[data-href="/member/${href_reg_num}"]
+    Wait Until Element Is Visible                       css:*[data-href="/member/${href_reg_num}"]
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -161,6 +166,8 @@ Search Member [First Name Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -183,6 +190,8 @@ Search Member [Middle Initial Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Wait Until Element Is Enabled                       css:*[data-href="/member/${href_reg_num}"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -206,6 +215,8 @@ Search Member [Last Name Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Wait Until Element Is Enabled                       css:*[data-href="/member/${href_reg_num}"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -229,6 +240,8 @@ Search Member [Sex Condition 2]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -252,6 +265,8 @@ Search Member [Age Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -276,6 +291,8 @@ Search Member [Birthday Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -298,6 +315,8 @@ Search Member [Membership Status Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -320,6 +339,8 @@ Search Member [Civil Status Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -342,6 +363,8 @@ Search Member [City Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -364,6 +387,8 @@ Search Member [Educational Attainment Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -386,6 +411,8 @@ Search Member [Occupation Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -415,6 +442,8 @@ Search Member [Two Or More Conditions]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="ID: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -445,7 +474,8 @@ Search Wedding Registry Record [No Additional Conditions]
     Click Button                                        wedding-search-submit
 
 Check Wedding Registry Record [No Condition]
-    Page Should Contain Element                         css:*[data-href="/view_wedding/2"]
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/245"]
+    Page Should Contain Element                         css:*[data-href="/view_wedding/245"]
     Go To Home Page
 
 Search Baptismal Record [No Additional Conditions]
@@ -496,6 +526,7 @@ Search Member [Sex Condition]
     Scroll To Element                                   member-search-submit
     Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Sort Record                                         css:*[aria-label="ID: activate to sort column descending"]
     Page Should Contain                                 ${href_reg_num}
     Go To Home Page
 
@@ -726,6 +757,7 @@ Search Wedding Record [All Conditions]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -1242,7 +1274,7 @@ Search Wedding Record [Groom Condition]
     Go To Home Page
 
 Check Child Dedication Search Result [No Condition]
-    Page Should Contain Element   css:*[data-href="/view_dedication/5"]
+    Page Should Contain Element   css:*[data-href="/view_dedication/16"]
     Go To Home Page
 
 Search Child Dedication [All Conditions]
@@ -1264,7 +1296,10 @@ Search Child Dedication [All Conditions]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="Registry Number: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="Registry Number: activate to sort column descending"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
+    Wait Until Page Contains                            ${href_reg_num}
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${date}
@@ -1279,8 +1314,6 @@ Search Child Dedication [All Conditions]
     Page Should Contain                                 ${guardian_two_last}
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${location}
-    Page Should Contain                                 ${sponsor_male}
-    Page Should Contain                                 ${sponsor_female}
     Go To Home Page
 
 Search Child Dedication [Child Name Condition]
@@ -1292,6 +1325,8 @@ Search Child Dedication [Child Name Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="Registry Number: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="Registry Number: activate to sort column descending"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1307,8 +1342,6 @@ Search Child Dedication [Child Name Condition]
     Page Should Contain                                 ${guardian_two_last}
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${location}
-    Page Should Contain                                 ${sponsor_male}
-    Page Should Contain                                 ${sponsor_female}
     Go To Home Page
 
 Search Child Dedication [Mother Name Condition]
@@ -1320,6 +1353,8 @@ Search Child Dedication [Mother Name Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="Registry Number: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="Registry Number: activate to sort column descending"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1335,8 +1370,6 @@ Search Child Dedication [Mother Name Condition]
     Page Should Contain                                 ${guardian_two_last}
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${location}
-    Page Should Contain                                 ${sponsor_male}
-    Page Should Contain                                 ${sponsor_female}
     Go To Home Page
 
 Search Child Dedication [Father Name Condition]
@@ -1348,6 +1381,8 @@ Search Child Dedication [Father Name Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="Registry Number: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="Registry Number: activate to sort column descending"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1363,8 +1398,6 @@ Search Child Dedication [Father Name Condition]
     Page Should Contain                                 ${guardian_two_last}
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${location}
-    Page Should Contain                                 ${sponsor_male}
-    Page Should Contain                                 ${sponsor_female}
     Go To Home Page
 
 Search Child Dedication [Dedication Date Condition]
@@ -1375,6 +1408,8 @@ Search Child Dedication [Dedication Date Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="Registry Number: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="Registry Number: activate to sort column descending"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1390,8 +1425,6 @@ Search Child Dedication [Dedication Date Condition]
     Page Should Contain                                 ${guardian_two_last}
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${location}
-    Page Should Contain                                 ${sponsor_male}
-    Page Should Contain                                 ${sponsor_female}
     Go To Home Page
 
 Search Child Dedication [Officiant Condition]
@@ -1401,6 +1434,8 @@ Search Child Dedication [Officiant Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="Registry Number: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="Registry Number: activate to sort column descending"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1416,8 +1451,6 @@ Search Child Dedication [Officiant Condition]
     Page Should Contain                                 ${guardian_two_last}
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${location}
-    Page Should Contain                                 ${sponsor_male}
-    Page Should Contain                                 ${sponsor_female}
     Go To Home Page
 
 Search Child Dedication [Two Or More Conditions]
@@ -1432,6 +1465,8 @@ Search Child Dedication [Two Or More Conditions]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="Registry Number: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="Registry Number: activate to sort column descending"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1447,8 +1482,6 @@ Search Child Dedication [Two Or More Conditions]
     Page Should Contain                                 ${guardian_two_last}
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${location}
-    Page Should Contain                                 ${sponsor_male}
-    Page Should Contain                                 ${sponsor_female}
     Go To Home Page
 
 Search Child Dedication [Location Condition]
@@ -1458,6 +1491,8 @@ Search Child Dedication [Location Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[aria-label="Registry Number: activate to sort column descending"]
+    Sort Record                                         css:*[aria-label="Registry Number: activate to sort column descending"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1472,8 +1507,6 @@ Search Child Dedication [Location Condition]
     Page Should Contain                                 ${officiant}
     Page Should Contain                                 ${date}
     Page Should Contain                                 ${location}
-    Page Should Contain                                 ${sponsor_male}
-    Page Should Contain                                 ${sponsor_female}
     Go To Home Page
 
 Search Baptismal Record [Baptized First Name Condition]

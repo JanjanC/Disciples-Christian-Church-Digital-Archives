@@ -165,47 +165,43 @@ Sort Baptismal Records
 Navigate Linked Records
     Access Advanced Search
     Navigate Member                                     1
-    View Linked Prenuptial Record                       13
+    View Linked Prenuptial Record                       111
     Access Advanced Search
     Navigate Member                                     1
-    View Linked Wedding Record                          2
+    View Linked Wedding Record                          427
     Access Advanced Search
     Navigate Member                                     1
-    View Linked Baptismal Record                        5
+    View Linked Baptismal Record                        74
     Access Advanced Search
     Navigate Member                                     1
-    View Linked Child Dedication Record                 9
+    View Linked Child Dedication Record                 245
 
 Search Member Record Different Conditions 
     Access Advanced Search
-    Search Member [All Conditions]                      Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [All Conditions]                      Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
     Search Member [No Additional Conditions]
     Check Member [No Additional Conditions]
     Access Advanced Search
-    Search Member [First Name Condition]                Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [First Name Condition]                Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
-    Search Member [Middle Initial Condition]            Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [Middle Initial Condition]            Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
-    Search Member [Last Name Condition]                 Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [Last Name Condition]                 Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
-    Search Member [Sex Condition 2]                     Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [Sex Condition 2]                     Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
-    Search Member [Age Condition]                       Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [Age Condition]                       Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
-    Search Member [Birthday Condition]                  Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966    09/24/1966    09/27/1966
+    Search Member [Birthday Condition]                  Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966    09/24/1966    09/27/1966
     Access Advanced Search
-    Search Member [Membership Status Condition]         Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [City Condition]                      Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
-    Search Member [Civil Status Condition]              Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [Educational Attainment Condition]    Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
-    Search Member [City Condition]                      Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [Occupation Condition]                Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
     Access Advanced Search
-    Search Member [Educational Attainment Condition]    Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
-    Access Advanced Search
-    Search Member [Occupation Condition]                Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
-    Access Advanced Search
-    Search Member [Two Or More Conditions]              Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    98    09/26/1966
+    Search Member [Two Or More Conditions]              Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    02/07/2022    98    09/26/1966
 
 Search Prenuptial Record Different Conditions
     Access Advanced Search
@@ -265,24 +261,24 @@ Search Wedding Record Different Conditions
 
 Search Child Dedication [Different Conditions]
     Access Advanced Search
-    Search Child Dedication [All Conditions]               Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
+    Search Child Dedication [All Conditions]               Jimmy    K    Webb    279    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
     Access Advanced Search
     Search Child Dedication Record [No Additional Conditions]
     Check Child Dedication Search Result [No Condition]
     Access Advanced Search
-    Search Child Dedication [Child Name Condition]         Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
+    Search Child Dedication [Child Name Condition]         Jimmy    K    Webb    279    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
     Access Advanced Search
-    Search Child Dedication [Mother Name Condition]        Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
+    Search Child Dedication [Mother Name Condition]        Jimmy    K    Webb    279    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
     Access Advanced Search
-    Search Child Dedication [Father Name Condition]        Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
+    Search Child Dedication [Father Name Condition]        Jimmy    K    Webb    279    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
     Access Advanced Search
-    Search Child Dedication [Dedication Date Condition]    Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
+    Search Child Dedication [Dedication Date Condition]    Jimmy    K    Webb    279    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
     Access Advanced Search
-    Search Child Dedication [Location Condition]           Jimmy        K        Webb       5        Samson        W        Elliot        ${EMPTY}        ${EMPTY}        ${EMPTY}        Pastor Shepard        The Citadel        08/01/2021        Mike R. Cooper        Andrea T. Peyton
+    Search Child Dedication [Location Condition]           Jimmy        K        Webb       279        Samson        W        Elliot        ${EMPTY}        ${EMPTY}        ${EMPTY}        Pastor Shepard        The Citadel        08/01/2021        Mike R. Cooper        Andrea T. Peyton
     Access Advanced Search
-    Search Child Dedication [Officiant Condition]          Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
+    Search Child Dedication [Officiant Condition]          Jimmy    K    Webb    279    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
     Access Advanced Search
-    Search Child Dedication [Two Or More Conditions]       Jimmy    K    Webb    5    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
+    Search Child Dedication [Two Or More Conditions]       Jimmy    K    Webb    279    Samson    W    Elliot    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    08/01/2021    Mike R. Cooper    Andrea T. Peyton    07/30/2021    08/02/2021    02/07/2022
 
 Search Baptismal [Different Conditions]
     Access Advanced Search
@@ -317,7 +313,7 @@ Viewing Search Results
     Access Advanced Search
     Search Wedding Record [Groom Condition]             Josuke    J    Higashikata        426        1920438        02/07/2022        02/18/2022        Liara    B    Tsoni
     Access Advanced Search
-    Search Child Dedication [Location Condition]        Jimmy        K        Webb       5        Samson        W        Elliot        ${EMPTY}        ${EMPTY}        ${EMPTY}        Pastor Shepard        The Citadel        08/01/2021        Mike R. Cooper        Andrea T. Peyton
+    Search Child Dedication [Location Condition]        Jimmy        K        Webb       279        Samson        W        Elliot        ${EMPTY}        ${EMPTY}        ${EMPTY}        Pastor Shepard        The Citadel        08/01/2021        Mike R. Cooper        Andrea T. Peyton
     Access Advanced Search
     Search Baptismal Record [Baptized First Name Condition]    Joseph    J    Joestar        77        Lawrence    E    Edwards        01/02/2000        Manila Church
     Close Browser
