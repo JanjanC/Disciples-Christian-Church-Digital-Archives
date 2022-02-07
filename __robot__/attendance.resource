@@ -1,14 +1,13 @@
 *** Settings ***
-Documentation       A resource file with reusable keywords and variables
+Documentation     A resource file with reusable keywords and variables
 ...
-...                 Creating system specific keywords from default keywords
-...                 from SeleniumLibrary
-
-Library             SeleniumLibrary
-Library             DateTime
-Resource            login.resource
-Resource            common.resource
-Variables           variables.py
+...               Creating system specific keywords from default keywords
+...               from SeleniumLibrary
+Library           SeleniumLibrary
+Library           DateTime
+Resource          login.resource
+Resource          common.resource
+Variables         variables.py
 
 *** Keywords ***
 Navigate to Attendance Main Page From Main Page
@@ -37,7 +36,7 @@ Attendance Main Page Should Be Open
 Input Date of Service
     [Arguments]    ${month}    ${day}    ${year}
     Scroll to Element    id:date
-    Press Keys    id:date    ${day}    ARROW_LEFT    ARROW_RIGHT    ${month}    ARROW_RIGHT    ${year}
+    Press Keys    id:date    ${month}    ${day}    ${year}
 
 Select Add Non-Member Button
     Scroll To Element    id:add_non_member_button
@@ -88,7 +87,7 @@ Submit Service Attendance Record
 Input Date of Service to Edit
     [Arguments]    ${month}    ${day}    ${year}
     Sleep    0.5s    Wait for Modal to Open
-    Press Keys    id:edit-date    ${year}    ARROW_LEFT    ${month}    ARROW_LEFT   ARROW_LEFT     ${day}
+    Press Keys    id:edit-date    ${year}    ARROW_LEFT    ${day}    ARROW_LEFT    ARROW_LEFT    ${month}
     Click Button    id:change-date-btn
     Sleep    0.5s    Wait for Modal to Close
 
