@@ -64,14 +64,18 @@ $(document).ready(function () {
         const ageChecked = $('#age-checkbox').is(':checked')
         const birthdayChecked = $('#birthday-checkbox').is(':checked')
 
-        if(ageChecked && $('#ageFrom').val() > $('#ageTo').val()) {
+        if(ageChecked && parseInt($('#ageFrom').val()) > parseInt($('#ageTo').val())) {
+            console.log(typeof($('#ageFrom').val()))
+            console.log(typeof($('#ageFrom').val()) > typeof($('#ageTo').val()))
+            console.log($('#ageFrom').val() > $('#ageTo').val())
+            console.log($('#ageFrom').val() + " " + $('#ageTo').val())
             isValid = false
             $('#age_error').text('Age range start should not be greater than age range end')
         } else {
             $('#age_error').text('')
         }
 
-        if(birthdayChecked && $('#birthdayFrom').val() > $('#birthdayTo').val()) {
+        if(birthdayChecked && new Date($('#birthdayFrom').val()) > new Date($('#birthdayTo').val())) {
             isValid = false
             $('#birthday_error').text('Birthday range start should not be later than Birthday range end')
         } else {

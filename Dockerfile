@@ -15,10 +15,6 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Expose HTTP Port
-EXPOSE 8080
-# 80 for PRODUCTION
-
 # Run all automated tests
 RUN npm test || exit 1
 
