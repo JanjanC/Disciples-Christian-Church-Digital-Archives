@@ -5,12 +5,11 @@ Documentation    A test suite with for the old Search feature created during CSS
 ...              the SeleniumLibrary
 Resource         search.resource
 
-*** Test Cases ***
+*** Comments ***
 Access Advanced Search [Level 1]
     Open Browser To Login Page
     Input Pass                                          ${LEVEL 1 PASSWORD}
     Submit Credentials
-    Menu Page 1 Should Be Open
     Access Advanced Search
     Has No Access To Advanced Search
     Go To Home Page
@@ -20,21 +19,20 @@ Access Advanced Search [Level 2]
     Open Browser To Login Page
     Input Pass                                          ${LEVEL 2 PASSWORD}
     Submit Credentials
-    Menu Page 2 Should Be Open
     Access Advanced Search
     Has Access To Advanced Search
     Go To Home Page
     Close Browser
 
+*** Test Cases ***
 Access Advanced Search [Level 3]
     Open Browser To Login Page
     Input Pass                                          ${LEVEL 3 PASSWORD}
     Submit Credentials
-    Menu Page 3 Should Be Open
     Access Advanced Search
-    Has Access To Advanced Search
     Go To Home Page
 
+*** Comments ***
 Sort Members
     Access Advanced Search
     Search Member [No Additional Conditions]
@@ -168,55 +166,52 @@ Sort Baptismal Records
     Go To Home Page
 
 Navigate Linked Records
-    Open Browser To Login Page
-    Input Pass                                          ${LEVEL 3 PASSWORD}
-    Submit Credentials
-    Menu Page 3 Should Be Open
     Access Advanced Search
-    Has Access To Advanced Search
-    Navigate Member                                     1000001
-    View Linked Prenuptial Record                       4000001
+    Navigate Member                                     1
+    View Linked Prenuptial Record                       13
     Access Advanced Search
-    Navigate Member                                     1000001
-    View Linked Wedding Record                          5000001
+    Navigate Member                                     1
+    View Linked Wedding Record                          2
     Access Advanced Search
-    Navigate Member                                     1000001
-    View Linked Baptismal Record                        3000001
+    Navigate Member                                     1
+    View Linked Baptismal Record                        5
     Access Advanced Search
-    Navigate Member                                     1000001
-    View Linked Child Dedication Record                 7000005
+    Navigate Member                                     1
+    View Linked Child Dedication Record                 9
 
+*** Test Cases ***
 Search Member Record Different Conditions 
     Access Advanced Search
-    Search Member [All Conditions]                      Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [All Conditions]                      Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
     Search Member [No Additional Conditions]
     Check Member [No Additional Conditions]
     Access Advanced Search
-    Search Member [First Name Condition]                Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [First Name Condition]                Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Middle Initial Condition]            Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Middle Initial Condition]            Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Last Name Condition]                 Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Last Name Condition]                 Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Sex Condition 2]                     Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Sex Condition 2]                     Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Age Condition]                       Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Age Condition]                       Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Birthday Condition]                  Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974    03/29/1974    03/31/1974
+    Search Member [Birthday Condition]                  Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966    09/24/1966    09/27/1966
     Access Advanced Search
-    Search Member [Membership Status Condition]         Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Membership Status Condition]         Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Civil Status Condition]              Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Civil Status Condition]              Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [City Condition]                      Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [City Condition]                      Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Educational Attainment Condition]    Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Educational Attainment Condition]    Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Occupation Condition]                Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Occupation Condition]                Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
     Access Advanced Search
-    Search Member [Two Or More Conditions]              Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Two Or More Conditions]              Joseph    J    Joestar    Male    54    56    Active    Regular Member (Resident)    Married    Ottawa    High School    Engineer    01/01/1970    1    09/26/1966
 
+*** Comments ***
 Search Prenuptial Record Different Conditions
     Access Advanced Search
     Search Prenuptial Record [All Conditions]                        Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001

@@ -4,10 +4,11 @@ Documentation   A resource file with reusable keywords and variables
 ...              Creating system specific keywords from default keywords
 ...              from SeleniumLibrary
 Library          SeleniumLibrary
+Resource         common.resource
 *** Variables ***
 ${SERVER}              localhost:3000
 ${BROWSER}             chrome
-${DELAY}               0.5
+${DELAY}               0
 ${LEVEL 1 PASSWORD}    NormandyN7
 ${LEVEL 2 PASSWORD}    HelloSweng
 ${LEVEL 3 PASSWORD}    Coffee118
@@ -31,32 +32,23 @@ Input Pass
 Submit Credentials
     Press Keys                      none    ENTER
 
-Menu Page 1 Should Be Open
-    Wait Until Element Is Enabled   header
-    Element Text Should Be          header    Disciple Christian Church | Level 1
-
-Menu Page 2 Should Be Open
-    Wait Until Element Is Enabled   header
-    Element Text Should Be          header    Disciple Christian Church | Level 2
-
-Menu Page 3 Should Be Open
-    Wait Until Element Is Enabled   header
-    Element Text Should Be          header    Disciple Christian Church | Level 3
-
 Access Advanced Search
+    Wait Until Element Is Enabled   css:*[href="/advanced_search"]
     Click Element                   css:*[href="/advanced_search"]
 
-Has Access To Advanced Search
-    Element Should Contain          css:*[class="my-3"]     Advanced Search
-
 Has No Access To Advanced Search
+    Wait Until Page Contains        ERROR 401
+    Wait Until Page Contains        401 Unauthorized Access
     Element Should Contain          css:*[style="text-align: center; margin-bottom: 0.5em"]     ERROR 401
     Element Should Contain          css:*[style="text-align: center;"]                          401 Unauthorized Access
 
 Go To Home Page
+    Wait Until Element Is Enabled   css:*[href="/main_page"]
+    Scroll To Element              css:*[href="/main_page"]
     Click Element                   css:*[href="/main_page"]
 
 Search Prenuptial Record [No Additional Conditions]
+    Wait Until Element Is Enabled                       record-type
     Select From List By Value                           record-type     prenup-option
     Set Focus To Element                                prenup-search-submit
     Click Button                                        prenup-search-submit
@@ -69,6 +61,7 @@ Check Prenuptial Record [No Additional Condition]
 
 Sort Record
     [Arguments]                     ${Sort}
+    Wait Until Element Is Enabled   ${Sort}
     Click Element                   ${Sort}
 
 Record Is Ascending By
@@ -82,53 +75,56 @@ Record Is Descending By
 Navigate Member
     [Arguments]    ${href_reg_num}
     Search Member [No Additional Conditions]
+    Wait Until Element Is Enabled                       css:*[data-href="/member/${href_reg_num}"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
 
 View Linked Prenuptial Record
     [Arguments]    ${href_reg_num}
-    Set Focus To Element                                css:*[href="/view_prenup/${href_reg_num}"]
+    Wait Until Element Is Enabled                       css:*[href="/view_prenup/${href_reg_num}"]
+    Scroll To Element                                   css:*[href="/view_prenup/${href_reg_num}"]
+    Wait Until Element Is Visible                       css:*[href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[href="/view_prenup/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Go To Home Page
 
 View Linked Wedding Record
     [Arguments]    ${href_reg_num}
-    Set Focus To Element                                css:*[href="/view_wedding/${href_reg_num}"]
+    Wait Until Element Is Enabled                       css:*[href="/view_wedding/${href_reg_num}"]
+    Scroll To Element                                   css:*[href="/view_wedding/${href_reg_num}"]
+    Wait Until Element Is Visible                       css:*[href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[href="/view_wedding/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Go To Home Page
 
 View Linked Baptismal Record
     [Arguments]    ${href_reg_num}
-    Set Focus To Element                                css:*[href="/view_baptismal/${href_reg_num}"]
+    Wait Until Element Is Enabled                       css:*[href="/view_baptismal/${href_reg_num}"]
+    Scroll To Element                                   css:*[href="/view_baptismal/${href_reg_num}"]
+    Wait Until Element Is Visible                       css:*[href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[href="/view_baptismal/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Go To Home Page
 
 View Linked Child Dedication Record
     [Arguments]    ${href_reg_num}
-    Set Focus To Element                                css:*[href="/view_dedication/${href_reg_num}"]
+    Wait Until Element Is Enabled                       css:*[href="/view_dedication/${href_reg_num}"]
+    Scroll To Element                                   css:*[href="/view_dedication/${href_reg_num}"]
+    Wait Until Element Is Visible                       css:*[href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[href="/view_dedication/${href_reg_num}"]
-    Page Should Contain                                 ${href_reg_num}
     Go To Home Page
 
 Search Member [No Additional Conditions]
+    Wait Until Element Is Enabled                       record-type
     Select From List By Value                           record-type     member-option
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
 
 Check Member [No Additional Conditions]
-    Page Should Contain Element                         css:*[data-href="/member/1000001"]
-    Page Should Contain Element                         css:*[data-href="/member/1000002"]
-    Page Should Contain Element                         css:*[data-href="/member/1000003"]
-    Page Should Contain Element                         css:*[data-href="/member/1000004"]
-    Page Should Contain Element                         css:*[data-href="/member/1000005"]
-    Page Should Contain Element                         css:*[data-href="/member/1000006"]
-    Page Should Contain Element                         css:*[data-href="/member/1000007"]
+    Wait Until Element Is Enabled                       css:*[data-href="/member/1"]
+    Page Should Contain Element                         css:*[data-href="/member/1"]
     Go To Home Page
 
 Search Member [All Conditions]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
+    Wait Until Element Is Enabled                       record-type
     Select From List By Value                           record-type                 member-option
     Input Text                                          member_first_name           ${first_name}
     Input Text                                          member_middle_name          ${middle_initial}
@@ -142,7 +138,8 @@ Search Member [All Conditions]
     Input Text                                          city                        ${city}
     Input Text                                          educational_attainment      ${educational_attainment}
     Input Text                                          occupation                  ${occupation}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -163,7 +160,8 @@ Search Member [First Name Condition]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Input Text                                          member_first_name           ${first_name}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -184,8 +182,10 @@ Search Member [Middle Initial Condition]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Input Text                                          member_middle_name          ${middle_initial}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/member/${href_reg_num}"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -205,8 +205,10 @@ Search Member [Last Name Condition]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Input Text                                          member_last_name            ${last_name}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/member/${href_reg_num}"]
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
     Page Should Contain                                 ${middle_initial}
@@ -226,7 +228,8 @@ Search Member [Sex Condition 2]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Select From List By Value                           sex                         ${sex}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -248,7 +251,8 @@ Search Member [Age Condition]
     Select From List By Value                           record-type                 member-option
     Input Text                                          ageFrom                     ${from_age}
     Input Text                                          ageTo                       ${to_age}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -271,7 +275,8 @@ Search Member [Birthday Condition]
     Click Element                                       birthday-checkbox
     Input Text                                          birthdayFrom                  ${birthday_from}
     Input Text                                          birthdayTo                    ${birthday_to}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -292,7 +297,8 @@ Search Member [Membership Status Condition]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Select From List By Value                           membership_status           ${membership_status}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -313,7 +319,8 @@ Search Member [Civil Status Condition]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Select From List By Value                           civil_status                ${civil_status}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -334,7 +341,8 @@ Search Member [City Condition]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Input Text                                          city                        ${city}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -355,7 +363,8 @@ Search Member [Educational Attainment Condition]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Input Text                                          educational_attainment      ${educational_attainment}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -376,7 +385,8 @@ Search Member [Occupation Condition]
     [Arguments]    ${first_name}    ${middle_initial}    ${last_name}    ${sex}    ${from_age}    ${to_age}    ${membership_status}    ${membership_type}    ${civil_status}    ${city}    ${educational_attainment}    ${occupation}    ${date_added}    ${href_reg_num}    ${birthday}
     Select From List By Value                           record-type                 member-option
     Input Text                                          occupation                  ${occupation}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -404,7 +414,8 @@ Search Member [Two Or More Conditions]
     Select From List By Value                           membership_status           ${membership_status}
     Select From List By Label                           membership_type             ${membership_type}
     Input Text                                          city                        ${city}
-    Set Focus To Element                                member-search-submit
+    Scroll To Element                                   member-search-submit
+    Wait Until Element Is Visible                       member-search-submit
     Click Button                                        member-search-submit
     Click Element                                       css:*[data-href="/member/${href_reg_num}"]
     Page Should Contain                                 ${first_name}
@@ -422,22 +433,28 @@ Search Member [Two Or More Conditions]
     Go To Home Page
 
 Search Child Dedication Record [No Additional Conditions]
+    Wait Until Element Is Enabled                       dedication-search-submit
     Select From List By Value                           record-type     dedication-option
-    Set Focus To Element                                dedication-search-submit
+    Scroll To Element                                   dedication-search-submit
+    Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
 
 Search Wedding Registry Record [No Additional Conditions]
     Select From List By Value                           record-type     wedding-option
-    Set Focus To Element                                wedding-search-submit
+    Wait Until Element Is Enabled                       wedding-search-submit
+    Scroll To Element                                   wedding-search-submit
+    Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
 
 Check Wedding Registry Record [No Condition]
-    Page Should Contain Element    css:*[data-href="/view_wedding/5000001"]
+    Page Should Contain Element                         css:*[data-href="/view_wedding/2"]
     Go To Home Page
 
 Search Baptismal Record [No Additional Conditions]
+    Wait Until Element Is Enabled                       record-type
     Select From List By Value                           record-type     baptismal-option
-    Set Focus To Element                                baptismal-search-submit
+    Scroll To Element                                   baptismal-search-submit
+    Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
 
 Baptismal Record Results
