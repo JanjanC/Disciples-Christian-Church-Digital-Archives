@@ -20,7 +20,6 @@ Open Browser To Login Page
     Open Browser                    ${LOGIN URL}    ${BROWSER}
     Maximize Browser Window
     Set Selenium Speed              ${DELAY}
-    Login Page Should Be Open
 
 Login Page Should Be Open
     Page Should Contain Element     password
@@ -288,6 +287,10 @@ Change Last Name
     [Arguments]                         ${last_name}
     Input Text                          id:last_name                ${last_name}
 
+Change Membership Stat
+    [Arguments]                         ${membership_status}
+    Select From List By Label           id:membership_status        ${membership_status}
+
 Change Membership Status
     [Arguments]                         ${membership_type}
     Select From List By Label           id:membership_type        ${membership_type}
@@ -380,6 +383,10 @@ Check Membership Status
     [Arguments]                         ${membership_status}
     Page Should Contain                 ${membership_status}
 
+Check Membership Type
+    [Arguments]                         ${membership_type}
+    Page Should Contain                 ${membership_type}
+
 Check Civil Status
     [Arguments]                         ${civil_status}
     Page Should Contain                 ${civil_status}
@@ -461,7 +468,8 @@ Edit Member [All Inputs]
     Change First Name                   Jonathan
     Change Middle Initial               N
     Change Last Name                    Starfish
-    Change Membership Status            Inactive
+    Change Membership Stat              Inactive
+    Change Membership Status            Honorary Member
     Change Civil Status                 Married
     Change Sex                          Female
     Change Birthday                     02222001
@@ -486,6 +494,7 @@ Edit Member [All Inputs]
     Check Middle Initial                N
     Check Last Name                     Starfish
     Check Membership Status             Inactive
+    Check Membership Type               Honorary Member
     Check Civil Status                  Married
     Check Birthday                      02/22/2001
     Check Occupation                    Engineer
