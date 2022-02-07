@@ -142,7 +142,6 @@ const searchController = {
     //   conditions.push(cond)
     // } else
     if (data.member.birthdayFrom !== '' && data.member.birthdayTo !== '') {
-      console.log(data.member.birthdayFrom + " AND " + data.member.birthdayTo)
       // if age is not provided
       // birthday YYYY-MM-DD
       cond = new Condition(queryTypes.whereBetween)
@@ -189,7 +188,6 @@ const searchController = {
       conditions.push(cond)
     }
     db.find(db.tables.MEMBER_TABLE, conditions, joinTables, '*', function (result) {
-      console.log(result)
       if (result) {
         const data = {
           styles: ['lists'],
