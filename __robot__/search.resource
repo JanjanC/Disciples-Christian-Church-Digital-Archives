@@ -448,8 +448,8 @@ Search Wedding Registry Record [No Additional Conditions]
     Click Button                                        wedding-search-submit
 
 Check Wedding Registry Record [No Condition]
-    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/247"]
-    Page Should Contain Element                         css:*[data-href="/view_wedding/247"]
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/249"]
+    Page Should Contain Element                         css:*[data-href="/view_wedding/249"]
     Go To Home Page
 
 Search Baptismal Record [No Additional Conditions]
@@ -1247,7 +1247,7 @@ Search Wedding Record [Groom Condition]
     Go To Home Page
 
 Check Child Dedication Search Result [No Condition]
-    Page Should Contain Element   css:*[data-href="/view_dedication/18"]
+    Page Should Contain Element   css:*[data-href="/view_dedication/24"]
     Go To Home Page
 
 Search Child Dedication [All Conditions]
