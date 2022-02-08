@@ -165,7 +165,6 @@ Sort Baptismal Records
 Navigate Linked Records
     Access Advanced Search
     Navigate Member                                     1
-    View Linked Prenuptial Record                       111
 
 Search Member Record Different Conditions 
     Access Advanced Search
@@ -196,59 +195,59 @@ Search Member Record Different Conditions
 
 Search Prenuptial Record Different Conditions
     Access Advanced Search
-    Search Prenuptial Record [All Conditions]                        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [All Conditions]                        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
     Search Prenuptial Record [No Additional Conditions]
     Check Prenuptial Record [No Additional Condition]
     Access Advanced Search
-    Search Prenuptial Record [Bride First Name Condition]            Donna        A        Grant        108        08/02/2021        Elroy        B        Spalding        09/09/2021
+    Search Prenuptial Record [Bride First Name Condition]            Donna        A        Grant        124        08/02/2021        Elroy        B        Spalding        09/09/2021
     Access Advanced Search
-    Search Prenuptial Record [Bride Middle Initial Condition]        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [Bride Middle Initial Condition]        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Bride Last Name Condition]             Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [Bride Last Name Condition]             Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Groom First Name Condition]            Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [Groom First Name Condition]            Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Groom Middle Initial Condition]        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [Groom Middle Initial Condition]        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Groom Last Name Condition]             Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [Groom Last Name Condition]             Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Date Created Condition]                Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [Date Created Condition]                Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Proposed Date Of Wedding Condition]    Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [Proposed Date Of Wedding Condition]    Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Two Or More Conditions]                Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    108
+    Search Prenuptial Record [Two Or More Conditions]                Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
 
 Search Wedding Record Different Conditions
     Access Advanced Search
-    Search Wedding Record [All Conditions]               Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [All Conditions]               Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
     Search Wedding Registry Record [No Additional Conditions]
     Check Wedding Registry Record [No Condition]
     Access Advanced Search
-    Search Wedding Record [Bride Name Condition]         Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Bride Name Condition]         Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Groom Name Condition]         Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Groom Name Condition]         Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Bride Mother Condition]       Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Bride Mother Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Bride Father Condition]       Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Bride Father Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Groom Mother Condition]       Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Groom Mother Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Groom Father Condition]       Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Groom Father Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Wedding Date Condition]       Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Wedding Date Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Location Condition]           Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Location Condition]           Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Officiant Condition]          Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Officiant Condition]          Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Solemnizer Condition]         Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Solemnizer Condition]         Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Contract Number Condition]    Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Contract Number Condition]    Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Two Or More Conditions]       Sally    C    Connor    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    249    WR-100023    02/06/2022    12/25/2021    N/A    N/A
+    Search Wedding Record [Two Or More Conditions]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
 
 Search Child Dedication [Different Conditions]
     Access Advanced Search
@@ -273,38 +272,38 @@ Search Child Dedication [Different Conditions]
 
 Search Baptismal [Different Conditions]
     Access Advanced Search
-    Search Baptismal [All Conditions]    Jonathan    N    Starfish    Turner    M    Galloway    02/02/2022    02/04/2022    Malabon    74    02/07/2022    02/03/2022
+    Search Baptismal [All Conditions]    Jonathan    N    Starfish    Loren    O    Odonell    02/20/2017    02/22/2017    Pasay    74    02/07/2022    02/21/2017
     Access Advanced Search
     Search Baptismal Record [No Additional Conditions]
     Baptismal Record Results    74    75
     Access Advanced Search
-    Search Baptismal Record [Baptized First Name Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Baptized First Name Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Baptized Middle Initial Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Baptized Middle Initial Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Baptized Last Name Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Baptized Last Name Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Date Of Baptism Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon    02/02/2022    02/04/2022
+    Search Baptismal Record [Date Of Baptism Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay    02/20/2017    02/22/2017
     Access Advanced Search
-    Search Baptismal Record [Baptism Location Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Baptism Location Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Officiant First Name Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Officiant First Name Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Officiant Middle Initial Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Officiant Middle Initial Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Officiant Last Name Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Officiant Last Name Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Atleast Two Conditions]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Atleast Two Conditions]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
 
 Viewing Search Results
     Access Advanced Search
     Search Member [Sex Condition]                       1
     Access Advanced Search
-    Search Prenuptial Record [Bride First Name Condition]        Donna        A        Grant        108        08/02/2021        Elroy        B        Spalding        09/09/2021
+    Search Prenuptial Record [Bride First Name Condition]        Donna        A        Grant        124        08/02/2021        Elroy        B        Spalding        09/09/2021
     Access Advanced Search
-    Search Wedding Record [Groom Condition]             Thane    T    Krios        249        WR-100023        02/06/2022        12/25/2021        Sally    C    Connor
+    Search Wedding Record [Groom Condition]             Thane    T    Krios        268        WR-100023        02/06/2022        12/25/2021        Yotsuba    N    Nakano
     Access Advanced Search
     Search Child Dedication [Location Condition]        Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto
     Access Advanced Search
-    Search Baptismal Record [Baptized First Name Condition]    Jonathan    N    Starfish        74        Turner    M    Galloway        02/03/2022        Malabon
+    Search Baptismal Record [Baptized First Name Condition]    Jonathan    N    Starfish        86        Loren    O    Odonell        02/21/2017        Pasay
     Close Browser
