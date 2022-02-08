@@ -519,6 +519,7 @@ Search Prenuptial Record [All Conditions]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
@@ -537,6 +538,7 @@ Search Prenuptial Record [Bride Middle Initial Condition]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
@@ -555,6 +557,7 @@ Search Prenuptial Record [Bride Last Name Condition]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -574,6 +577,7 @@ Search Prenuptial Record [Groom First Name Condition]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
@@ -592,6 +596,7 @@ Search Prenuptial Record [Groom Middle Initial Condition]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
@@ -610,6 +615,7 @@ Search Prenuptial Record [Groom Last Name Condition]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
@@ -629,6 +635,7 @@ Search Prenuptial Record [Date Created Condition]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
@@ -648,6 +655,7 @@ Search Prenuptial Record [Proposed Date Of Wedding Condition]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
@@ -671,6 +679,7 @@ Search Prenuptial Record [Two Or More Conditions]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_created}
     Page Should Contain                                 ${bride_first}
@@ -689,6 +698,7 @@ Search Prenuptial Record [Bride First Name Condition]
     Scroll To Element                                   prenup-search-submit
     Wait Until Element Is Visible                       prenup-search-submit
     Click Button                                        prenup-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_prenup/${href_reg_num}"]
     Page Should Contain                                 ${date_added}
     Page Should Contain                                 ${bride_first}
@@ -769,6 +779,7 @@ Search Wedding Record [Bride Name Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -808,6 +819,7 @@ Search Wedding Record [Groom Name Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -847,6 +859,7 @@ Search Wedding Record [Bride Mother Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -886,6 +899,7 @@ Search Wedding Record [Bride Father Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -925,6 +939,7 @@ Search Wedding Record [Groom Mother Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -964,6 +979,7 @@ Search Wedding Record [Groom Father Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -1002,6 +1018,7 @@ Search Wedding Record [Wedding Date Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -1039,6 +1056,7 @@ Search Wedding Record [Location Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -1076,6 +1094,7 @@ Search Wedding Record [Officiant Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -1113,6 +1132,7 @@ Search Wedding Record [Solemnizer Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -1150,6 +1170,7 @@ Search Wedding Record [Contract Number Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -1193,6 +1214,7 @@ Search Wedding Record [Two Or More Conditions]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${bride_first}
     Page Should Contain                                 ${bride_mid}
@@ -1232,6 +1254,7 @@ Search Wedding Record [Groom Condition]
     Scroll To Element                                   wedding-search-submit
     Wait Until Element Is Visible                       wedding-search-submit
     Click Button                                        wedding-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_wedding/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${contract_num}
@@ -1269,6 +1292,7 @@ Search Child Dedication [All Conditions]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Wait Until Page Contains                            ${href_reg_num}
     Page Should Contain                                 ${href_reg_num}
@@ -1296,6 +1320,7 @@ Search Child Dedication [Child Name Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1322,6 +1347,7 @@ Search Child Dedication [Mother Name Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1348,6 +1374,7 @@ Search Child Dedication [Father Name Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1373,6 +1400,7 @@ Search Child Dedication [Dedication Date Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1397,6 +1425,7 @@ Search Child Dedication [Officiant Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1426,6 +1455,7 @@ Search Child Dedication [Two Or More Conditions]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${date_created}
@@ -1450,6 +1480,7 @@ Search Child Dedication [Location Condition]
     Scroll To Element                                   dedication-search-submit
     Wait Until Element Is Visible                       dedication-search-submit
     Click Button                                        dedication-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_dedication/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1473,6 +1504,7 @@ Search Baptismal Record [Baptized First Name Condition]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1492,6 +1524,7 @@ Search Baptismal Record [Baptized Middle Initial Condition]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1511,6 +1544,7 @@ Search Baptismal Record [Baptized Last Name Condition]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1531,6 +1565,7 @@ Search Baptismal Record [Date Of Baptism Condition]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1550,6 +1585,7 @@ Search Baptismal Record [Baptism Location Condition]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1569,6 +1605,7 @@ Search Baptismal Record [Officiant First Name Condition]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1588,6 +1625,7 @@ Search Baptismal Record [Officiant Middle Initial Condition]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1607,6 +1645,7 @@ Search Baptismal Record [Officiant Last Name Condition]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
@@ -1628,6 +1667,7 @@ Search Baptismal Record [Atleast Two Conditions]
     Scroll To Element                                   baptismal-search-submit
     Wait Until Element Is Visible                       baptismal-search-submit
     Click Button                                        baptismal-search-submit
+    Wait Until Element Is Enabled                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Click Element                                       css:*[data-href="/view_baptismal/${href_reg_num}"]
     Page Should Contain                                 ${href_reg_num}
     Page Should Contain                                 ${first_name}
