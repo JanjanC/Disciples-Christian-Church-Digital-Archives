@@ -13,8 +13,9 @@ Register with Level 1 [Required Only]
     Submit Credentials
     Menu Page 1 Should Be Open
     Go To Add Members 1
-    Add Member                              John    D    Bainto     02      22      2001    Student     Block 1     Manila      Philippines
-    Check Added Member                      John    D    Bainto     02      22      2001    Student     Block 1     Manila      Philippines
+    Add Member                              John    D    Smith     02      22      2001    Student     Block 1     Manila      Philippines
+    Check Added Member                      John    D    Smith     02      22      2001    Student     Block 1     Manila      Philippines
+    Delete Member
 
 Register with Level 2 [Required Only]
     Open Browser To Login Page
@@ -22,8 +23,9 @@ Register with Level 2 [Required Only]
     Submit Credentials
     Menu Page 2 Should Be Open
     Go To Add Members 2
-    Add Member                              Meliza    D    Bainto     03      20      1969    Housewife     Block 1     Manila      Philippines
-    Check Added Member                      Meliza    D    Bainto     03      20      1969    Housewife     Block 1     Manila      Philippines
+    Add Member                              Liza    G    Morant     06      10      1969    Housewife     Street 10     Makati      Philippines
+    Check Added Member                      Liza    G    Morant     06      10      1969    Housewife     Street 10     Makati      Philippines
+    Delete Member
 
 Register with Level 3 [Required Only]
     Open Browser To Login Page
@@ -31,8 +33,9 @@ Register with Level 3 [Required Only]
     Submit Credentials
     Menu Page 3 Should Be Open
     Go To Add Members 2
-    Add Member                              Henry    B    Bainto     03      30      1974    IT Consultant     Block 1     Manila      Philippines
-    Check Added Member                      Henry    B    Bainto     03      30      1974    IT Consultant     Block 1     Manila      Philippines
+    Add Member                              Henry    B    Xavier     03      20      1974    IT Consultant     Lot 15     Taguig      Philippines
+    Check Added Member                      Henry    B    Xavier     03      20      1974    IT Consultant     Lot 15     Taguig      Philippines
+    Delete Member
 
 Blank Inputs
     Open Browser To Login Page
@@ -100,16 +103,18 @@ Add Observation
     Input Pass                      ${LEVEL 3 PASSWORD}
     Submit Credentials
     Menu Page 3 Should Be Open
-    Go To Add Observation           1000001
+    Go To Add Observation           1
+    Sleep    0.75s    Wait for Modal to Open
     Add Valid Observation
-    Check Observation               Jay     short
+    Check Observation               Mark     nice
 
 Invalid Observation
     Open Browser To Login Page
     Input Pass                      ${LEVEL 3 PASSWORD}
     Submit Credentials
     Menu Page 3 Should Be Open
-    Go To Add Observation           1000002
+    Go To Add Observation           1
+    Sleep    0.75s    Wait for Modal to Open
     Add Invalid Observation
     Check Invalid Observation
 
@@ -118,13 +123,13 @@ Add Member Skill
     Input Pass                      ${LEVEL 3 PASSWORD}
     Submit Credentials
     Menu Page 3 Should Be Open
-    Go To Edit Members              1000001
+    Go To Edit Members              1
     Add Skill
     Check Added Skill
 
 Register with Level 0 [Required Only]
     Open Browser To Login Page
     Go To Level 0 Member Registration
-    Add Member                              John    D    Bainto     02      22      2001    Student     Block 1     Manila      Philippines
-    Check Added Member                      John    D    Bainto     02      22      2001    Student     Block 1     Manila      Philippines
-    Close Browser
+    Add Member                              John    D    Blake     04      11      2001    Student     Block 5     Tarlac      Philippines
+    Check Added Member                      John    D    Blake     04      11      2001    Student     Block 5     Tarlac      Philippines
+    Delete Member

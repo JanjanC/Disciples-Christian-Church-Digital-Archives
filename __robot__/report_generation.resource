@@ -9,8 +9,8 @@ Variables           variables.py
 
 *** Keywords ***
 Access Report Generation
-    Wait Until Page Contains Element    css:*[src="../images/statistics.png"]
-    Click Element    css:*[src="../images/statistics.png"]
+    Wait Until Page Contains Element    css:*[src="../images/bar-charts.png"]
+    Click Element    css:*[src="../images/bar-charts.png"]
 
 Has Access To Report Generation
     Element Should Contain    id:statistics-text    Statistical Reports
@@ -35,7 +35,7 @@ Is Invalid Date
     Element Should Contain    id:error-msg    Starting date must precede ending date
 
 Greater Than Twenty Years Report
-    Element Should Contain    id:error-msg    The date range should not exceed 20 years
+    Element Should Contain    id:error-msg    The date range should not exceed 5 years
 
 Input Start Date
     [Arguments]    ${date}
