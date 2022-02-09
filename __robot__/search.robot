@@ -10,7 +10,6 @@ Access Advanced Search [Level 1]
     Open Browser To Login Page
     Input Pass                                          ${LEVEL 1 PASSWORD}
     Submit Credentials
-    Menu Page 1 Should Be Open
     Access Advanced Search
     Has No Access To Advanced Search
     Go To Home Page
@@ -20,9 +19,7 @@ Access Advanced Search [Level 2]
     Open Browser To Login Page
     Input Pass                                          ${LEVEL 2 PASSWORD}
     Submit Credentials
-    Menu Page 2 Should Be Open
     Access Advanced Search
-    Has Access To Advanced Search
     Go To Home Page
     Close Browser
 
@@ -30,9 +27,7 @@ Access Advanced Search [Level 3]
     Open Browser To Login Page
     Input Pass                                          ${LEVEL 3 PASSWORD}
     Submit Credentials
-    Menu Page 3 Should Be Open
     Access Advanced Search
-    Has Access To Advanced Search
     Go To Home Page
 
 Sort Members
@@ -168,166 +163,147 @@ Sort Baptismal Records
     Go To Home Page
 
 Navigate Linked Records
-    Open Browser To Login Page
-    Input Pass                                          ${LEVEL 3 PASSWORD}
-    Submit Credentials
-    Menu Page 3 Should Be Open
     Access Advanced Search
-    Has Access To Advanced Search
-    Navigate Member                                     1000001
-    View Linked Prenuptial Record                       4000001
-    Access Advanced Search
-    Navigate Member                                     1000001
-    View Linked Wedding Record                          5000001
-    Access Advanced Search
-    Navigate Member                                     1000001
-    View Linked Baptismal Record                        3000001
-    Access Advanced Search
-    Navigate Member                                     1000001
-    View Linked Child Dedication Record                 7000005
+    Navigate Member                                     1
 
 Search Member Record Different Conditions 
     Access Advanced Search
-    Search Member [All Conditions]                      Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [All Conditions]                      Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
     Search Member [No Additional Conditions]
     Check Member [No Additional Conditions]
     Access Advanced Search
-    Search Member [First Name Condition]                Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [First Name Condition]                Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
-    Search Member [Middle Initial Condition]            Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Middle Initial Condition]            Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
-    Search Member [Last Name Condition]                 Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Last Name Condition]                 Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
-    Search Member [Sex Condition 2]                     Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Sex Condition 2]                     Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
-    Search Member [Age Condition]                       Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Age Condition]                       Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
-    Search Member [Birthday Condition]                  Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974    03/29/1974    03/31/1974
+    Search Member [Birthday Condition]                  Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001    02/21/2001    02/23/2001
     Access Advanced Search
-    Search Member [Membership Status Condition]         Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [City Condition]                      Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
-    Search Member [Civil Status Condition]              Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Educational Attainment Condition]    Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
-    Search Member [City Condition]                      Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Occupation Condition]                Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
     Access Advanced Search
-    Search Member [Educational Attainment Condition]    Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
-    Access Advanced Search
-    Search Member [Occupation Condition]                Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
-    Access Advanced Search
-    Search Member [Two Or More Conditions]              Henry    B    Bainto    Male    47    48    Active    Regular Member (Resident)    Single    Manila    College    IT Consultant    12/28/2021    1000004    03/30/1974
+    Search Member [Two Or More Conditions]              Jonathan    N    Starfish    Female    19    21    Inactive    Honorary Member    Married    Oklahoma    Masters    Engineer    01/01/1970    1    02/22/2001
 
 Search Prenuptial Record Different Conditions
     Access Advanced Search
-    Search Prenuptial Record [All Conditions]                        Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [All Conditions]                        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
     Search Prenuptial Record [No Additional Conditions]
     Check Prenuptial Record [No Additional Condition]
     Access Advanced Search
-    Search Prenuptial Record [Bride First Name Condition]            Jamie        P        Antonio        4000003        12/29/2021        John        D        Bainto        11/13/2024
+    Search Prenuptial Record [Bride First Name Condition]            Donna        A        Grant        124        08/02/2021        Elroy        B        Spalding        09/09/2021
     Access Advanced Search
-    Search Prenuptial Record [Bride Middle Initial Condition]        Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Bride Middle Initial Condition]        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Bride Last Name Condition]             Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Bride Last Name Condition]             Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Groom First Name Condition]            Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Groom First Name Condition]            Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Groom Middle Initial Condition]        Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Groom Middle Initial Condition]        Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Groom Last Name Condition]             Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Groom Last Name Condition]             Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Date Created Condition]                Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Date Created Condition]                Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Proposed Date Of Wedding Condition]    Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Proposed Date Of Wedding Condition]    Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
     Access Advanced Search
-    Search Prenuptial Record [Two Or More Conditions]                Maria    L    Santos    Soma    Y    Ahcac    12/28/2021    12/29/2021    07/28/2022    07/29/2022    12/29/2021    07/29/2022    4000001
+    Search Prenuptial Record [Two Or More Conditions]                Donna    A    Grant    Elroy    B    Spalding    08/01/2021    08/03/2021    09/08/2021    09/10/2021    08/02/2021    09/09/2021    124
 
 Search Wedding Record Different Conditions
     Access Advanced Search
-    Search Wedding Record [All Conditions]               Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [All Conditions]               Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
     Search Wedding Registry Record [No Additional Conditions]
     Check Wedding Registry Record [No Condition]
     Access Advanced Search
-    Search Wedding Record [Bride Name Condition]         Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Bride Name Condition]         Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Groom Name Condition]         Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Groom Name Condition]         Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Bride Mother Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Bride Mother Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Bride Father Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Bride Father Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Groom Mother Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Groom Mother Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Groom Father Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Groom Father Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Wedding Date Condition]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Wedding Date Condition]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Location Condition]           Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Location Condition]           Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Officiant Condition]          Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Officiant Condition]          Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Solemnizer Condition]         Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Solemnizer Condition]         Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Contract Number Condition]    Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Contract Number Condition]    Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
     Access Advanced Search
-    Search Wedding Record [Two Or More Conditions]       Rachelle    M    Danoli    Soma    Y    Ahcac    Manali    M    Danoli    Peter    C    Danoli    Lani    Y    Ahcac    Danilo    T    Ahcac    07/08/2021    07/09/2021    Manila    Officianta    Solemnizer    5000001    00001    01/02/2022    07/09/2021    John D. Bainto    Karina T. Mamba
+    Search Wedding Record [Two Or More Conditions]       Yotsuba    N    Nakano    Thane    T    Krios    Katherine    K    Goto    Kenji    K    Goto    Therese    T    Krios    Theo    T    Krios    12/24/2021    12/26/2021    The Citadel    Father Shepard    Pastor Anderson    268    WR-100023    02/06/2022    12/25/2021    N/A    N/A
 
 Search Child Dedication [Different Conditions]
     Access Advanced Search
-    Search Child Dedication [All Conditions]               John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [All Conditions]               Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto    08/30/2021    09/02/2021    01/31/2022
     Access Advanced Search
     Search Child Dedication Record [No Additional Conditions]
     Check Child Dedication Search Result [No Condition]
     Access Advanced Search
-    Search Child Dedication [Child Name Condition]         John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Child Name Condition]         Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto    08/30/2021    09/02/2021    01/31/2022
     Access Advanced Search
-    Search Child Dedication [Mother Name Condition]        John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Mother Name Condition]        Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto    08/30/2021    09/02/2021    01/31/2022
     Access Advanced Search
-    Search Child Dedication [Father Name Condition]        John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Father Name Condition]        Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto    08/30/2021    09/02/2021    01/31/2022
     Access Advanced Search
-    Search Child Dedication [Dedication Date Condition]    John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Dedication Date Condition]    Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto    08/30/2021    09/02/2021    01/31/2022
     Access Advanced Search
-    Search Child Dedication [Location Condition]           John        D        Bainto       7000004        Meliza        D        Bainto        Henry        B        Bainto        William        Onyx        03/30/2001        Soma Y. Ahcac        Rachelle M. Danoli
+    Search Child Dedication [Location Condition]           Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto
     Access Advanced Search
-    Search Child Dedication [Officiant Condition]          John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Officiant Condition]          Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto    08/30/2021    09/02/2021    01/31/2022
     Access Advanced Search
-    Search Child Dedication [Two Or More Conditions]       John    D    Bainto    7000004    Meliza    D    Bainto    Henry    B    Bainto    William    Onyx    03/30/2001    Soma Y. Ahcac    Rachelle M. Danoli    03/29/2001    03/30/2001    01/02/2022
+    Search Child Dedication [Two Or More Conditions]       Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto    08/30/2021    09/02/2021    01/31/2022
 
 Search Baptismal [Different Conditions]
     Access Advanced Search
-    Search Baptismal [All Conditions]    Soma    Y    Ahcac    Off    I    Ciant    01/01/2011    01/01/2012    Manila    3000001    01/02/2022    06/06/2011
+    Search Baptismal [All Conditions]    Jonathan    N    Starfish    Loren    O    Odonell    02/20/2017    02/22/2017    Pasay    74    02/07/2022    02/21/2017
     Access Advanced Search
     Search Baptismal Record [No Additional Conditions]
-    Baptismal Record Results    3000001        3000002
+    Baptismal Record Results    74    75
     Access Advanced Search
-    Search Baptismal Record [Baptized First Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptized First Name Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Baptized Middle Initial Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptized Middle Initial Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Baptized Last Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptized Last Name Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Date Of Baptism Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila    06/05/2011    06/06/2011
+    Search Baptismal Record [Date Of Baptism Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay    02/20/2017    02/22/2017
     Access Advanced Search
-    Search Baptismal Record [Baptism Location Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptism Location Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Officiant First Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Officiant First Name Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Officiant Middle Initial Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Officiant Middle Initial Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Officiant Last Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Officiant Last Name Condition]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
     Access Advanced Search
-    Search Baptismal Record [Atleast Two Conditions]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Atleast Two Conditions]    Jonathan    N    Starfish        74        Loren    O    Odonell        02/21/2017        Pasay
 
 Viewing Search Results
     Access Advanced Search
-    Search Member [Sex Condition]                       1000005
+    Search Member [Sex Condition]                       1
     Access Advanced Search
-    Search Prenuptial Record [Bride First Name Condition]        Jamie        P        Antonio        4000003        12/29/2021        John        D        Bainto        11/13/2024
+    Search Prenuptial Record [Bride First Name Condition]        Donna        A        Grant        124        08/02/2021        Elroy        B        Spalding        09/09/2021
     Access Advanced Search
-    Search Wedding Record [Groom Condition]             Soma        Y        Ahcac        5000001        00001        01/02/2022        07/09/2021        Rachelle        M        Danoli
+    Search Wedding Record [Groom Condition]             Thane    T    Krios        268        WR-100023        02/06/2022        12/25/2021        Yotsuba    N    Nakano
     Access Advanced Search
-    Search Child Dedication [Location Condition]        John        D        Bainto       7000004        Meliza        D        Bainto        Henry        B        Bainto        William        Onyx        03/30/2001        Soma Y. Ahcac        Rachelle M. Danoli
+    Search Child Dedication [Location Condition]        Garrus    K    Vakarian    24    Liara    T    Soni    ${EMPTY}    ${EMPTY}    ${EMPTY}    Pastor Shepard    The Citadel    09/01/2021    Leon L. Bainto    De L. Bainto
     Access Advanced Search
-    Search Baptismal Record [Baptized First Name Condition]    Soma        Y        Ahcac        3000001        Off        I        Ciant        06/06/2011        Manila
+    Search Baptismal Record [Baptized First Name Condition]    Jonathan    N    Starfish        86        Loren    O    Odonell        02/21/2017        Pasay
     Close Browser

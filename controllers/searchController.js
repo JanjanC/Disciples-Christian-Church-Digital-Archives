@@ -73,9 +73,11 @@ const searchController = {
 
     const ageFrom = req.query.ageFrom
     const ageTo = req.query.ageTo
-    let ageChecked = false
     if (ageFrom !== '' && ageTo !== '') {
-      ageChecked = true
+      let dateFrom = new Date();
+      let dateTo = new Date();
+      data.member.birthdayFrom = helper.formatDate(dateFrom.setFullYear(dateFrom.getFullYear() - parseInt(ageTo)))
+      data.member.birthdayTo = helper.formatDate(dateTo.setFullYear(dateTo.getFullYear() - parseInt(ageFrom)))
     } else {
       data.member.birthdayFrom = req.query.birthdayFrom
       data.member.birthdayTo = req.query.birthdayTo
@@ -129,16 +131,17 @@ const searchController = {
       cond.setKeyValue(db.tables.MEMBER_TABLE + '.' + memberFields.SEX, data.member[memberFields.SEX], '=')
       conditions.push(cond)
     }
-    const ageColumn = ['CAST(DATE_FORMAT(NOW(), \'%Y-%m-%d\') - DATE_FORMAT(' + tables.MEMBER_TABLE + '.' + memberFields.BIRTHDAY + ', \'%Y-%m-%d\') AS unsigned) AS age']
+    //const ageColumn = ['CAST(DATE_FORMAT(NOW(), \'%Y-%m-%d\') - DATE_FORMAT(' + tables.MEMBER_TABLE + '.' + memberFields.BIRTHDAY + ', \'%Y-%m-%d\') AS unsigned) AS age']
 
     // age is only provided
-    if (ageChecked) {
-      // age
-      cond = new Condition(queryTypes.whereBetween)
-      cond.setRange('age', parseInt(ageFrom), parseInt(ageTo))
-      // havingCond.push(cond)
-      conditions.push(cond)
-    } else if (data.member.birthdayFrom !== '' && data.member.birthdayTo !== '') {
+    // if (ageChecked) {
+    //   // age
+    //   cond = new Condition(queryTypes.whereBetween)
+    //   cond.setRange('age', parseInt(ageFrom), parseInt(ageTo))
+    //   // havingCond.push(cond)
+    //   conditions.push(cond)
+    // } else
+    if (data.member.birthdayFrom !== '' && data.member.birthdayTo !== '') {
       // if age is not provided
       // birthday YYYY-MM-DD
       cond = new Condition(queryTypes.whereBetween)
@@ -202,7 +205,7 @@ const searchController = {
         data.members = result
         res.render('member-main-page', data)
       }
-    }, ageColumn)
+    }/*, ageColumn*/)
   },
   /**
    * This function processes the search text fields and returns a number of

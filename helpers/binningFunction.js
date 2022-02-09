@@ -1,3 +1,5 @@
+const helper = require('../helpers/helper')
+
 /**
  * Helper function to be used when binning dates in attendanceReportController.js.
  * @param data - an array of objects where each object contains a field called date that is a valid date string
@@ -13,7 +15,7 @@ function binAttendance(data, startDate, endDate) {
     // Converts array of objects into object, where keys = date and value = count (i.e. {'2021-02-18': 5})
     const temp = {}
     data.forEach(attendance => {
-        date = new Date(attendance.date).toISOString().split('T')[0];
+        date = helper.formatDate(attendance.date);
         if (typeof(temp[date]) == "number")
             temp[date]++;
         else

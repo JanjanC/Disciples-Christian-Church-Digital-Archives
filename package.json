@@ -9,7 +9,8 @@
         "test": "jest",
         "testDev": "jest --watchAll --verbose",
         "testOpenHandles": "jest --detectOpenHandles",
-        "initdb": "node initialize_database.js"
+        "initdb": "node initialize_database.js",
+        "automationtest": "robot __robot__"
     },
     "repository": {
         "type": "git",

@@ -84,7 +84,7 @@ if (process.env.NODE_ENV === "production") {
         )
         .listen(httpsPort, () => {
             console.log("Disciples Christian Church Digital Archives");
-            console.log(`Webserver is listening on port ${port}`);
+            console.log(`Webserver is listening on port ${httpsPort}`);
             console.log(`Current Node Environment: ${process.env.NODE_ENV || "unconfigured"}`);
             console.log(`SSL: YES`);
         });

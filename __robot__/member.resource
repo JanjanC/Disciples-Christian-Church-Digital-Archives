@@ -20,7 +20,6 @@ Open Browser To Login Page
     Open Browser                    ${LOGIN URL}    ${BROWSER}
     Maximize Browser Window
     Set Selenium Speed              ${DELAY}
-    Login Page Should Be Open
 
 Login Page Should Be Open
     Page Should Contain Element     password
@@ -58,17 +57,20 @@ Go To Edit Members
     Go To Add Members 1
     Wait Until Page Contains Element    css:*[data-href="/member/${member}"]
     Click Element                       css:*[data-href="/member/${member}"]
-    Wait Until Page Contains Element    css:*[href="/edit_member/${member}"]
+    Scroll To Element                   css:*[href="/edit_member/${member}"]
+    Wait Until Element Is Enabled       css:*[href="/edit_member/${member}"]
     Click Element                       css:*[href="/edit_member/${member}"]
 
 Enter Member Information
+    Wait Until Element Is Enabled   create-member
     Scroll To Element               create-member
     Wait Until Element Is Visible   create-member
     Set Focus To Element            create-member
     Press Keys                      create-member    ENTER
 
 Enter Edited Information
-    Wait Until Element Is Visible   edit-member
+    Wait Until Element Is Enabled   edit-member
+    Scroll To Element               edit-member
     Set Focus To Element            edit-member
     Press Keys                      edit-member    ENTER
 
@@ -82,6 +84,7 @@ Add Member
     Input Text                      address_line    ${address}
     Input Text                      city            ${city}
     Input Text                      country         ${country}
+    Enter Member Information
 
 Edit Member
     [Arguments]                     ${first name}   ${middle initial}   ${last name}    ${month}     ${day}      ${year}     ${occupation}       ${address}      ${city}     ${country}
@@ -183,29 +186,35 @@ Error Message Shown
 Go To Add Observation
     [Arguments]                     ${member}
     Go To Edit Members              ${member}
+    Wait Until Element Is Enabled   addObservationBtn
+    Scroll To Element               addObservationBtn
     Wait Until Element Is Visible   addObservationBtn
-    Set Focus To Element            addObservationBtn
-    Press Keys                      addObservationBtn    ENTER
+    Click Element                   addObservationBtn
 
 Add Valid Observation
-    Input Text                      commenter           Jay
-    Input Text                      comment             short
-    Wait Until Element Is Visible   saveObservationBtn
+    Wait Until Element Is Enabled   commenter
+    Wait Until Element Is Enabled   comment
+    Input Text                      commenter           Mark
+    Input Text                      comment             nice
     Set Focus To Element            saveObservationBtn
-    Wait Until Element Is Visible   saveObservationBtn
+    Wait Until Element Is Enabled   saveObservationBtn
     Press Keys                      saveObservationBtn    ENTER
 
 Check Observation
     [Arguments]                     ${commenter}        ${comment}
-    Element Should Contain          css:*[class="card-text observer"]       ${commenter}
-    Element Should Contain          css:*[class="comment"]                  ${comment}
+    Wait Until Page Contains            ${commenter}
+    Wait Until Page Contains            ${comment}
+    Page Should Contain                 ${commenter}
+    Page Should Contain                 ${comment}
 
 Add Invalid Observation
+    Wait Until Element Is Enabled   commenter
+    Wait Until Element Is Enabled   comment
     Input Text                      commenter           ${EMPTY}
     Input Text                      comment             ${EMPTY}
-    Wait Until Element Is Visible   saveObservationBtn
+    Wait Until Element Is Enabled   saveObservationBtn
     Set Focus To Element            saveObservationBtn
-    Wait Until Element Is Visible   saveObservationBtn
+    Wait Until Element Is Enabled   saveObservationBtn
     Press Keys                      saveObservationBtn    ENTER
 
 Check Invalid Observation
@@ -213,10 +222,13 @@ Check Invalid Observation
     Element Should Contain          comment_error       Enter comment
 
 Add Skill
+    Wait Until Element Is Enabled   skills
+    Scroll To Element               skills
     Input Text                      skills              golfing
     Enter Edited Information
 
 Check Added Skill
+    Wait Until Page Contains        golfing
     Page Should Contain             golfing
 
 Go To Member
@@ -274,6 +286,10 @@ Change Middle Initial
 Change Last Name
     [Arguments]                         ${last_name}
     Input Text                          id:last_name                ${last_name}
+
+Change Membership Stat
+    [Arguments]                         ${membership_status}
+    Select From List By Label           id:membership_status        ${membership_status}
 
 Change Membership Status
     [Arguments]                         ${membership_type}
@@ -367,6 +383,10 @@ Check Membership Status
     [Arguments]                         ${membership_status}
     Page Should Contain                 ${membership_status}
 
+Check Membership Type
+    [Arguments]                         ${membership_type}
+    Page Should Contain                 ${membership_type}
+
 Check Civil Status
     [Arguments]                         ${civil_status}
     Page Should Contain                 ${civil_status}
@@ -448,7 +468,8 @@ Edit Member [All Inputs]
     Change First Name                   Jonathan
     Change Middle Initial               N
     Change Last Name                    Starfish
-    Change Membership Status            Inactive
+    Change Membership Stat              Inactive
+    Change Membership Status            Honorary Member
     Change Civil Status                 Married
     Change Sex                          Female
     Change Birthday                     02222001
@@ -473,6 +494,7 @@ Edit Member [All Inputs]
     Check Middle Initial                N
     Check Last Name                     Starfish
     Check Membership Status             Inactive
+    Check Membership Type               Honorary Member
     Check Civil Status                  Married
     Check Birthday                      02/22/2001
     Check Occupation                    Engineer
@@ -494,3 +516,11 @@ Edit Member [All Inputs]
 Go To Level 0 Member Registration
     Wait Until Element Is Visible       id:member-reg-btn
     Click Element                       id:member-reg-btn
+
+Delete Member
+    Wait Until Element Is Enabled       id:del_member
+    Scroll To Element                   id:del_member
+    Click Element                       id:del_member
+    Sleep                               1
+    Wait Until Element Is Enabled       id:confirm_delete
+    Click Element                       id:confirm_delete
