@@ -40,7 +40,7 @@ const memberController = {
             } else {
                 res.render("add-member-temp", {
                     styles: ["forms", "addMember"],
-                    scripts: ["member"],
+                    scripts: ["edit", "member"],
                     hide_navbar: level == 0,
                 });
             }
@@ -51,7 +51,7 @@ const memberController = {
         if (req.session.editId === parseInt(req.params.member_id) || parseInt(req.session.level) === 3) {
             const data = {
                 styles: ["forms", "editMember"],
-                scripts: ["member", "editMember"],
+                scripts: ["edit", "member", "editMember"],
             };
             const condition = new Condition(queryTypes.where);
             const churchCondition = new Condition(queryTypes.where);
@@ -166,7 +166,7 @@ const memberController = {
                                         data.backLink = "/login_page";
                                         data.only_view = true;
                                     }
-                                    data.hide_navbar = req.session.level == 0;
+                                    data.isLevelZero = req.session.level == 0;
                                     res.render("view-member", data);
                                 }
                             });

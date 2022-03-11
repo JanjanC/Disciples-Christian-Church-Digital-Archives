@@ -137,7 +137,8 @@
         </div>
       </fieldset>
       <hr>
-    
+
+      {{#unless isLevelZero}}
       {{!-- Temp div to list churches and observations--}}
       <div class="row mt-3 mb-5">
         <div class="col">
@@ -161,6 +162,7 @@
           </div>
         </div>
       </div>
+      {{/unless}}
       {{/if}}
       {{#unless only_view}}
       <hr>
@@ -204,13 +206,16 @@
     
         </div>
       </div>
-      {{/unless}}
       <hr>
+      {{/unless}}
       {{#if canSee}}
       <div class="row">
         <div class="col">
           <a href="/edit_member/{{member.member_id}}" class="btn btn-secondary mb-4">Edit Member </a>
           <button class="btn btn-danger mb-4" id="del_member">Delete Member</button>
+          {{#if isLevelZero}}
+          <a href="/" class="btn btn-success mb-4">Done </a>
+          {{/if}}
         </div>
       </div>
       {{/if}}
