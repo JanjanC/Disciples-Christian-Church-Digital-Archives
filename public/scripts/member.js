@@ -161,6 +161,8 @@ $(document).ready(function () {
           toTitleCase($('#city').val())
           .replace(" City", "")
           .replace("Paranaque", "Parañaque")
+          .replace("Pinas", "Piñas")
+          .replace("Banos", "Baños")
         )
     }
 
@@ -197,9 +199,12 @@ $(document).ready(function () {
       $('#telephone_error').text('')
     }
 
+  
     $('#province').val(
-      toTitleCase($('#province').val())
+      (($('#province').val() === $('#province').val().toUpperCase()) ?
+      $('#province').val() : toTitleCase($('#province').val()))
       .replace("Metro Manila", "NCR")
+      .replace(/./g, "")
     )
 
     $('#workplace').val(toTitleCase($('#workplace').val()))
